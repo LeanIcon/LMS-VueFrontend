@@ -1,22 +1,19 @@
 <template>
   <div class="home">
-    <Navbar>
-     <router-link to="../"></router-link>
-       </Navbar>
-     <router-view/>
+    <Navbar></Navbar>
       <h1>Hello</h1>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-//import Navbar from '@/components/Navbar.vue'
+import Navbar from '@/components/Navbar.vue'
 
 export default {
   name: 'Home',
-  /**component:{
+  components :{
     Navbar
-  },**/
+  },
   }
 
 </script>
