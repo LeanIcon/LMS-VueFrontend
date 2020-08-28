@@ -4,7 +4,7 @@
      <router-link to="../"></router-link>
        </Navbar>
      <router-view/>
-  
+      <h1>Hello</h1>
   </div>
 </template>
 
