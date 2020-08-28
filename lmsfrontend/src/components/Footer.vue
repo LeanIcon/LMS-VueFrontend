@@ -10,9 +10,9 @@
 <script>
 export default {
   name: '',
-  props: {
+  /**props: {
     msg: String
-  }
+  }**/
 }
 </script>
 
