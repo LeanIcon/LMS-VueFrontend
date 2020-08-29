@@ -1,26 +1,36 @@
 <template>
-  <nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand">LITT-LMS</a>
-  <form class="form-inline">
-    <li class="nav-item">
-        <a class="nav-link" href=".\signin.vue">Signin</a>
-      </li>
-  </form>
-</nav>
+  <div class="nav-bar">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-1">
+      <div class="container mw-0 px-3">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <router-link to="/">Home</router-link>
+              <router-link to="/about">About</router-link>
+              <router-link to="/signin">Signin</router-link>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+  </div>
 </template>
 
 <script>
-export default {
-  name: '',
-  /**props: {
-    msg: String
-  } **/
-}
+  export default {
+    name: 'Navbar',
+  }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-a {
-  color: #42b983;
-}
+  a {
+    color:rgb(255, 255, 255);
+  }
 </style>
+  
