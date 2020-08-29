@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <Navbar></Navbar>
-      <h1>Hello</h1>
+      <h1>Home</h1>
   </div>
 </template>
 
@@ -14,6 +14,6 @@ export default {
   components :{
     Navbar
   },
-  }
+}
 
 </script>
