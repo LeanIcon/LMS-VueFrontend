@@ -1,15 +1,58 @@
 
 <template>
-  	<div class="signin">
-   <router-link to="/signin"></router-link>
-   <router-view/>
+  <div class="signin">
+    <router-link to="/signin"></router-link>
+      <router-view/>
     
-  	<div id="content-container">
-		<div class="sign_in_page">
-         <div class="row">
-				<div class="image_thumb col">
-					<img src="../assets/pexels_retha_ferguson_3810788.png" alt="image_thumb">
-				</div>
+  <div id="content-container">
+          <div class="sign_in_page">
+              <div class="row">
+                  <div class="image_thumb col">
+                    <img src="../assets/pexels_retha_ferguson_3810788.png" alt="image_thumb">
+                  </div>
+
+                  <div class="signin-container col">
+                      <div class="sign-process a">
+                          <div id="container_title" >
+                              <h2>
+                                  Sign In to LiTT LMS 
+                              </h2>
+                          </div>
+      
+                          <form action="post">
+                              <input type="text" placeholder="username" class="input-container">
+                              <input type="password" placeholder="password" class="input-container">
+                          </form>
+                          <div class="form-alt row">
+                              <div class="group col-md">
+                                  <input id="check" type="checkbox" class="check" checked>
+                                  <label for="check"><span class="icon"></span> Remember me</label>
+                              </div>
+                              <div class="forgot_password col-md">
+                              
+                              <router-link :to = "{ name:'Forgotpassword' }" exact class="forgot_password">Forgot Password</router-link>
+
+                          </div>
+                          </div>
+                          
+                          <div class="btn login_btn">
+                              Login
+                          </div>
+                            <router-link :to = "{ name:'Register' }" exact class="btn signup_btn">Sign Up</router-link>
+                          
+                      </div>
+                  </div>
+
+              </div>
+              
+          </div>
+
+          </div>
+    
+        </div>  
+
+  
+</template>
 
                   <div class="signin-container col">
                      <div class="sign-process a">
@@ -46,6 +89,7 @@
         </div>  
 </template>
 
+<<<<<<< HEAD
 <script>
 import { store } from '../store/store';
   export default {
@@ -79,6 +123,8 @@ import { store } from '../store/store';
   
 
 
+=======
+>>>>>>> dev
 <style lang= "scss"> 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
 
