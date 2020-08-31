@@ -48,7 +48,7 @@ import { store } from '../store/store';
           email: this.email,
           password: this.password
         })
-        // Replace '/' with the homepage
+        // Replace 'About' with the homepage
         .then(() => {
           this.$router.push({ name: 'About' })
         })
