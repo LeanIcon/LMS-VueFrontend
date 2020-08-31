@@ -89,7 +89,6 @@
         </div>  
 </template>
 
-<<<<<<< HEAD
 <script>
 import { store } from '../store/store';
   export default {
@@ -123,8 +122,6 @@ import { store } from '../store/store';
   
 
 
-=======
->>>>>>> dev
 <style lang= "scss"> 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
 
