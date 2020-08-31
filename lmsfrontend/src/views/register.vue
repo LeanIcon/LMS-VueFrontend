@@ -1,24 +1,174 @@
 <template>
 <div class="register">
-    <form class="container">
-    <div class="form-group">
-        <label for="exampleInputFirstName1">First Name</label>
-        <input type="text" class="form-control" id="exampleInputFirstName">
+    <router-link to="/register"></router-link>
+      <router-view/>
+   <div id="content-container">
+        <div class="sign_in_page">
+            <div class="row">
+                <div class="image_thumb col">
+                    <img src="../assets/pexels_retha_ferguson_3810788.png" alt="image_thumb">
+                </div>
+
+                <div class="signup-container col">
+                    <div class="sign-process">
+                        <div id="container_title">
+                            <h2>
+                                Sign Up to LiTT LMS
+                            </h2>
+                        </div>
+
+                        <form action="post">
+                            <input type="text" placeholder="First Name" class="input-container">
+                            <input type="text" placeholder="Last Name" class="input-container">
+                            <input type="text" placeholder="Phone Number" class="input-container">
+                            <input type="text" placeholder="Country or region of residence" class="input-container">
+                            <input type="password" placeholder="password" class="input-container">
+                            <input type="password" placeholder="confirm password" class="input-container">
+                        </form>
+                        <div class="group">
+                            <input id="check" type="checkbox" class="check" checked>
+                            <label for="check"><span class="icon"></span> I agree with the terms and conditions</label>
+                        </div>
+                        <div class="btn signup_now">
+                            Sign Up
+                        </div>
+                        <div class="forgot_password">
+                            <a href="signin.html">Already a member?</a>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            
+        </div>
+
     </div>
-    <div class="form-group">
-        <label for="exampleInputLasttName1">Last Name</label>
-        <input type="text" class="form-control" id="exampleInputLasttName">
-    </div>
-    <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-    </div>
-     <div class="form-group">
-        <label for="exampleInputEmail1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1">
-    </div>
-    <button type="submit" class="btn btn-primary">Signup</button>
-    </form>
-</div>
+
+</div>    
 </template>
+
+<!--<script>
+@import url('https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js');
+</script>-->
+<!--<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+-->
+<style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+
+body{
+    width: 100%;
+    overflow: hidden;
+}
+.image_thumb img{
+    width: 50vw;
+    height: 85vh;
+}
+
+form input{
+    display: block;
+}
+
+.signin-container, .signup-container{
+    margin: auto;
+    padding: auto;
+    place-items: center;
+    place-content: center;
+}
+.signup-container{
+    text-align: center;
+}
+
+.sign-process{
+    width: 55%;
+    margin: auto;
+    padding: auto;
+}
+
+form input{
+    margin: auto;
+    margin-bottom: 10px;
+    width: 98%;
+    height: 40px;
+}
+
+#container_title h2{
+    font-family: 'Noto Sans TC', sans-serif, 'Source Sans Pro';
+    font-size: 40px;
+    font-weight: 500;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.btn{
+    margin-top: 20px;
+}
+
+.login_btn{
+    background:rgba(190,30,45,255);
+    border-radius: 5px;
+    color: #fff;
+    width: 48%;
+}
+
+.signup_btn{
+    background: #fff;
+    border: 1px solid #000;
+    border-radius: 5px;
+    color: rgb(0, 0, 0);
+    width: 48%;    
+}
+
+.login_btn:hover{
+    background-color: rgb(134, 15, 15);
+    color: #fff;
+}
+
+.signup_btn:hover{
+    background-color: rgb(134, 15, 15);
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+}
+
+.signup_now{
+    width: 180px;
+    margin: 0 auto;
+    border-radius: 5px;
+    background:rgba(190,30,45,255);
+    color: #fff;
+}
+
+.signup_now:hover{
+    background-color: rgb(134, 15, 15);
+    color: #fff;
+}
+
+.forgot_password{
+    margin-top: 10px;
+}
+
+/** .footer{
+    background: rgba(190,30,45,255);
+    height: 15vh;
+    color: #fff;
+    place-content: center;
+    text-align: center;
+}
+
+.litt_logo img{
+    height: 120px;
+}
+
+.footer-creds{
+    margin: auto;
+}
+
+.footer-creds a{
+    text-decoration: none;
+    color: #fff;
+    margin-left: 20px;
+}**/
+</style>
