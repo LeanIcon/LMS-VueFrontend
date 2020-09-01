@@ -4,7 +4,7 @@ import Vue from 'vue'
 import './plugins/bootstrap-vue'
 import App from './App.vue'
 import router from './router/index'
-import store from './store/store'
+import store from './store/store.js'
 import IdleVue from 'idle-vue'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -20,7 +20,7 @@ Vue.config.productionTip = false
 router.beforeEach((to, from, next) => {
   if (to.matched.some((record) => record.meta.requiresLogin)) {
     if (!store.getters.loggedIn) {
-      next({ name: "login" });
+      next({ name: "signin" });
     } else {
       next();
     }
