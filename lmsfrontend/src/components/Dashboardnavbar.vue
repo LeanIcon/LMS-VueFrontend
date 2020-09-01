@@ -10,7 +10,8 @@
             </svg>
          </div>
          <div class="right-shift">
-            <div class="bell-icon nav-item">
+            <div class="bell-icon nav-item popup" v-on:click="toggleNotification">
+               <span class="popuptext" id="myPopup">You have no new notifications</span>
                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
                   stroke="rgba(248,244,244,1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                   class="feather feather-bell">
@@ -31,21 +32,28 @@
 
    </div>
 </template>
-
+ 
 <script>   
 export default {
-    name: "Dashboardnavbar"
+   name: "Dashboardnavbar",
+   methods:{
+    // When the user clicks on div, open the popup
+    toggleNotification: function myFunction() {
+      var popup = document.getElementById("myPopup");
+      popup.classList.toggle("show");
+    }
+  }
 }
 </script>
 
 <style scoped>
-.dashboard-nav{
-    /* background-color: #333; */
-    position: absolute;
+.dashboard-nav[data-v-3280c0b8] {
+    background-color: rgb(255, 255, 255);
+    position: fixed;
     width: 100%;
-    /* left: 117px; */
     top: 0px;
     height: 4.2rem;
+    z-index: 1;
 }
 
 .nav-item > svg{
@@ -88,5 +96,62 @@ export default {
 
 .search-icon:hover, .bell-icon:hover, .dropdown-icon:hover, .user-img>img:hover{
    cursor: pointer;
+}
+
+
+/* ======================== */
+/* THE BELL NOTIFICATION */
+/* ========================== */
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.popup .popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  top: 48%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
 }
 </style>

@@ -7,7 +7,7 @@
             <div class="icon-fonts">
                 <div class="home-font tab">
                     <svg class="Rectangle_581">
-                        <rect id="Rectangle_581" rx="0" ry="0" x="0" y="0" width="117" height="105">
+                        <rect id="Rectangle_581" rx="0" ry="0" x="0" y="0" width="112" height="105">
                         </rect>
                     </svg>
                     <svg class="Union_1" viewBox="0 0 29.001 30.001">
@@ -100,7 +100,7 @@ export default {
 .Rectangle_581 {
     position: absolute;
     overflow: visible;
-    width: 8rem;
+    width: 7rem;
     height: 105px;
     left: 0px;
     top: 146px;
