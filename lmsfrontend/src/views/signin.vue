@@ -1,96 +1,55 @@
 
 <template>
-  <div class="signin">
-    <router-link to="/signin"></router-link>
-      <router-view/>
-    
-  <div id="content-container">
-          <div class="sign_in_page">
-              <div class="row">
-                  <div class="image_thumb col">
-                    <img src="../assets/pexels_retha_ferguson_3810788.png" alt="image_thumb">
-                  </div>
+    <div class="signin">
+        <router-link to="/signin"></router-link>
+        <router-view/>
+        
+        <div id="content-container"> 
+            <div class="sign_in_page">
+                <div class="row">
+                    <div class="image_thumb col">
+                        <img src="../assets/pexels_retha_ferguson_3810788.png" alt="image_thumb">
+                    </div>
+                    <div class="signin-container col">
+                        <div class="sign-process a">
+                            <div id="container_title" >
+                                <h2>
+                                        Sign In to LiTT LMS 
+                                </h2>
+                            </div>
 
-                  <div class="signin-container col">
-                      <div class="sign-process a">
-                          <div id="container_title" >
-                              <h2>
-                                  Sign In to LiTT LMS 
-                              </h2>
-                          </div>
-      
-                          <form action="post">
-                              <input type="text" placeholder="username" class="input-container">
-                              <input type="password" placeholder="password" class="input-container">
-                          </form>
-                          <div class="form-alt row">
-                              <div class="group col-md">
-                                  <input id="check" type="checkbox" class="check" checked>
-                                  <label for="check"><span class="icon"></span> Remember me</label>
-                              </div>
-                              <div class="forgot_password col-md">
-                              
-                              <router-link :to = "{ name:'Forgotpassword' }" exact class="forgot_password">Forgot Password</router-link>
-
-                          </div>
-                          </div>
-                          
-                          <div class="btn login_btn">
-                              Login
-                          </div>
+                            <form class="form-signin" v-on:submit.prevent="login" id='login-form'>
+                                <input type="email" v-model="email" id="inputEmail" placeholder="Email address" required autofocus class="input-container">
+                                <div v-show="submitted && !email" class="invalid-feedback">Email is required</div>
+                                <input type="password" placeholder="password" class="input-container" v-model="password" id="inputPassword" required >
+                                <!-- <button type="submit">
+                                    Submit
+                                </button> -->
+                            </form>
+                            <div class="form-alt row">
+                                <div class="group col-md">
+                                    <input id="check" type="checkbox" class="check" checked >
+                                    <label for="check"><span class="icon"></span> Remember me</label>
+                                </div>
+                                <div class="forgot_password col-md">
+                                    <router-link :to = "{ name:'Forgotpassword' }" exact class="forgot_password">Forgot Password</router-link>
+                                </div>
+                            </div>
+                            
+                            <button class="btn login_btn" type="submit"  form='login-form'>
+                                Login
+                            </button>
                             <router-link :to = "{ name:'Register' }" exact class="btn signup_btn">Sign Up</router-link>
-                          
-                      </div>
-                  </div>
-
-              </div>
-              
-          </div>
-
-          </div>
-    
-        </div>  
-
-  
-</template>
-
-                  <div class="signin-container col">
-                     <div class="sign-process a">
-								<div id="container_title" >
-									<h2>
-											Sign In to LiTT LMS 
-									</h2>
-								</div>
-      
-								<form action="post" class="form-signin" v-on:submit.prevent="login">
-									<input type="email" v-model="email" id="inputEmail" placeholder="Email address" required autofocus class="input-container">
-									<div v-show="submitted && !email" class="invalid-feedback">Email is required</div>
-									<input type="password" placeholder="password" class="input-container" v-model="password" id="inputPassword" required >
-								</form>
-								<div class="form-alt row">
-									<div class="group col-md">
-										<input id="check" type="checkbox" class="check" checked >
-										<label for="check"><span class="icon"></span> Remember me</label>
-									</div>
-									<div class="forgot_password col-md">
-										<router-link :to = "{ name:'Forgotpassword' }" exact class="forgot_password">Forgot Password</router-link>
-									</div>
                         </div>
-                          
-								<div class="btn login_btn">
-									Login
-								</div>
-                           <router-link :to = "{ name:'Register' }" exact class="btn signup_btn">Sign Up</router-link>
-                        </div>
-							</div>
-						</div>
-					</div>
-				</div>
-        </div>  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
-import { store } from '../store/store';
+import { store } from '../store/store.js';
   export default {
     name: 'login',
     data () {
@@ -109,7 +68,7 @@ import { store } from '../store/store';
         })
         // Replace '/' with the homepage
         .then(() => {
-          this.$router.push({ name: 'About' })
+          this.$router.push({ name: 'Dashboard' })
         })
         .catch(err => {
           console.log(err)
@@ -122,7 +81,7 @@ import { store } from '../store/store';
   
 
 
-<style lang= "scss"> 
+<style lang="scss" scoped> 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
 
 body{
