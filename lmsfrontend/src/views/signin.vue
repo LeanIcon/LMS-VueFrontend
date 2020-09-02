@@ -1,8 +1,10 @@
 
 <template>
   <div class="signin">
+  <Footer></Footer>
     <router-link to="/signin"></router-link>
       <router-view/>
+
     
   <div id="content-container">
           <div class="sign_in_page">
@@ -54,6 +56,17 @@
   
 </template>
 
+<script>
+    // @ is an alias to /src
+import Footer from '@/components/Footer.vue'
+
+export default {
+  name: 'Home',
+  components :{
+    Footer
+  },
+}
+</script>
 
 <style lang= "scss"> 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
@@ -64,7 +77,7 @@ body{
 }
 .image_thumb img{
     width: 50vw;
-    height: 85vh;
+    height: 85.2vh;
 }
 
 form input{

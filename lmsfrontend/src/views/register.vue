@@ -33,7 +33,8 @@
                             Sign Up
                         </div>
                         <div class="forgot_password">
-                            <a href="signin.html">Already a member?</a>
+                            <!--a href="signin.vue">Already a member?</a-->
+                            <router-link :to = "{ name:'Signin' }" exact class="btn signin_btn">Already a member?</router-link>
                         </div>
                     </div>
                 </div>
@@ -55,6 +56,7 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 -->
+
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
 
