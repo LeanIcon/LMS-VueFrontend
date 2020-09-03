@@ -97,6 +97,8 @@ export default {
 #Rectangle_581 {
     fill: rgba(255,255,255,1);
 }
+
+
 .Rectangle_581 {
     position: absolute;
     overflow: visible;
@@ -155,9 +157,11 @@ export default {
     font-size: 17px;
     color: rgba(255,255,255,1);
 }
+
 #ic_school_24px {
     fill: rgba(255,255,255,1);
 }
+
 .ic_school_24px {
     overflow: visible;
     position: absolute;
@@ -166,6 +170,20 @@ export default {
     left: 35px;
     top: 30.006px;
     transform: matrix(1,0,0,1,0,0);
+}
+
+.tab:hover > #Courses {
+    color: rgba(195,0,12,1);
+}
+
+.tab:hover > .ic_school_24px > #ic_school_24px {
+    fill: rgba(195,0,12,1);
+}
+
+.tab:hover > .Rectangle_581_fa > #Rectangle_581_fa {
+    fill: rgb(255, 255, 255);
+    z-index: 5;
+    opacity: 1;
 }
 
 /* ======================
@@ -213,4 +231,19 @@ export default {
     font-size: 17px;
     color: rgba(255,255,255,1);
 }
+
+.tab:hover > #Help {
+    color: rgba(195,0,12,1);
+}
+
+.tab:hover > .Path_301 > #Path_301 {
+    fill: rgba(195,0,12,1);
+}
+
+.tab:hover > .Rectangle_581_e > #Rectangle_581_e {
+    fill: rgb(255, 255, 255);
+    z-index: 5;
+    opacity: 1;
+}
+
 </style>

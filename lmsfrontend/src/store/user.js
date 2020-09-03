@@ -4,7 +4,7 @@ import { getAPI } from '../utils/axios-api'
 
 Vue.use(Vuex)
 
-const store =  new Vuex.Store({
+export const store =  new Vuex.Store({
     state: {
         accessToken: null,
         refreshToken: null,
@@ -69,5 +69,3 @@ const store =  new Vuex.Store({
         
     }
 })
-
-export default store 
