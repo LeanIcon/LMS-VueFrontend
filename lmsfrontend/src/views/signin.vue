@@ -40,7 +40,7 @@
                           <div class="btn login_btn">
                               Login
                           </div>
-                            <router-link :to = "{ name:'Register' }" exact class="btn signup_btn">Sign Up</router-link>
+                            <router-link :to = "{ name:'register' }" exact class="btn signup_btn">Sign Up</router-link>
                           
                       </div>
                   </div>
