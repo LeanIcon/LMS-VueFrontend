@@ -8,8 +8,13 @@
                 <div class="image_thumb col">
                     <img src="../assets/pexels_retha_ferguson_3810788.png" alt="image_thumb">
                 </div>
+                <div class="back_arrow">
+                     <router-link :to = "{ name:'Home' }" exact class="back_arrow"><img src="../assets/arrow.png"  height=20px width=30px></router-link>
+                    
+                </div>
 
                 <div class="signup-container col">
+                    
                     <div class="sign-process">
                         <div id="container_title">
                             <h2>
@@ -189,6 +194,7 @@ form input{
 .forgot_password{
     margin-top: 10px;
 }
+
 
 /** .footer{
     background: rgba(190,30,45,255);
