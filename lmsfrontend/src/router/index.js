@@ -60,6 +60,33 @@ Vue.use(VueRouter)
     //   requiresLogin: true,
     //   requiresAuth: true,
     // }
+  },
+  {
+    path: '/courseregister',
+    name: 'Courseregister',
+    component: () => import('../views/Courseregister.vue'),
+    // meta: {
+    //   requiresLogin: true,
+    //   requiresAuth: true,
+    // }
+  },
+  {
+    path: '/courseconfirm',
+    name: 'Courseconfirm',
+    component: () => import('../views/Courseconfirm.vue'),
+    // meta: {
+    //   requiresLogin: true,
+    //   requiresAuth: true,
+    // }
+  },
+  {
+    path: '/courseintro',
+    name: 'Courseintro',
+    component: () => import('../views/Courseintro.vue'),
+    // meta: {
+    //   requiresLogin: true,
+    //   requiresAuth: true,
+    // }
   }
 ]
 
