@@ -4,7 +4,7 @@ import Vue from 'vue'
 import './plugins/bootstrap-vue'
 import App from './App.vue'
 import router from './router/index'
-import store from './store/store.js'
+import store from './store/user'
 import IdleVue from 'idle-vue'
 import 'bootstrap/dist/css/bootstrap.min.css';
 

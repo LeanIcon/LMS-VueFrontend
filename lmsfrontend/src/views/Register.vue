@@ -22,21 +22,23 @@
                             </h2>
                         </div>
 
-                        <form action="post">
-                            <input type="text" placeholder="First Name" class="input-container">
-                            <input type="text" placeholder="Last Name" class="input-container">
-                            <input type="text" placeholder="Phone Number" class="input-container">
-                            <input type="text" placeholder="Country or region of residence" class="input-container">
-                            <input type="password" placeholder="password" class="input-container">
-                            <input type="password" placeholder="confirm password" class="input-container">
+                        <form id='signup-form' v-on:submit.prevent="register">
+                            <input type="text" placeholder="First Name" class="input-container" v-model="firstname">
+                            <input type="text" placeholder="Last Name" class="input-container" v-model="lastname">
+                            <input type="text" placeholder="Email" class="input-container" v-model="email">
+                            <!-- <input type="text" placeholder="Phone Number" class="input-container" v-model="firstname"> -->
+                            <!-- <input type="text" placeholder="Country or region of residence" class="input-container" v-model="firstname"> -->
+                            <input type="password" placeholder="password" class="input-container" v-model="password">
+                            <input type="password" placeholder="confirm password" class="input-container" v-model="confirm_password" :error="!valid()">
+                            <input type="text" placeholder="confirm password" class="input-container" v-model="student_type" :error="!valid()">
                         </form>
                         <div class="group">
                             <input id="check" type="checkbox" class="check" checked>
                             <label for="check"><span class="icon"></span> I agree with the terms and conditions</label>
                         </div>
-                        <div class="btn signup_now">
+                        <button class="btn signup_now" type="submit"  form='signup-form'>
                             Sign Up
-                        </div>
+                        </button>
                         <div class="forgot_password">
                             <a href="signin.html">Already a member?</a>
                         </div>
@@ -53,13 +55,51 @@
 </div>    
 </template>
 
-<!--<script>
-@import url('https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js');
-</script>-->
-<!--<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
--->
+<script>
+import { store } from '../store/user.js';
+  export default {
+    name: 'register',
+    data () {
+      return {
+        firstname: '',
+        lastname: '',
+        email: '',
+        password: '',
+        student_type: '',
+        userExists: false,
+        submitted: false
+      }
+    },
+    methods: {
+      register() { 
+        if(this.valid()){
+            store.dispatch('userRegister', {
+              firstname: this.firstname,
+              lastname: this.lastname,
+              email: this.email,
+              password: this.password,
+              student_type: this.student_type
+            })
+            // Replace '/' with the homepage
+            .then(({ status }) => {
+                this.$router.push({ name: 'Dashboard' })
+                console.log('check your email')
+                console.log(status)
+            })
+            .catch(err => {
+                console.log(err)
+                this.userExists = true
+            })
+            }
+        },
+        valid(){
+            return this.password === this.confirm_password;
+        }
+
+      }
+  }
+</script>
+
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
 

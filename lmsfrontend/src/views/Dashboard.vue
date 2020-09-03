@@ -72,8 +72,9 @@
               </div>
               <div class="row card-deck">
                 <div class="card course-progress stats-card">
-                  <div class="card-head">
-                    <p class="card-title">Business Analysis</p>
+                  <div class="card-head head-btn">
+                    <p class="card-title ">Business Analysis</p>
+                    <div class="start-btn btn btn-primary">Start</div>
                   </div>
                   <h1>Course Journey</h1>
                 </div>
@@ -228,5 +229,21 @@ padding-top: 7%;
   .badge-3{
     display: none;
   }
+}
+
+/* ======================== */
+/*    Start Course Card     */
+/* ======================== */
+.start-btn{
+  position: absolute;
+  width: 4rem;
+  height: 1.5rem;
+  padding: .0rem .75rem;
+  left: 92%;
+}
+
+.head-btn{
+  display: inline-flex;
+  flex-direction: row;
 }
 </style>

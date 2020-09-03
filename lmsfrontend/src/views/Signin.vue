@@ -52,9 +52,9 @@
 </template>
 
 <script>
-import { store } from '../store/store.js';
+import { store } from '../store/user.js';
   export default {
-    name: 'login',
+    name: 'signin',
     data () {
       return {
         email: '',

@@ -1,8 +1,12 @@
 import axios from 'axios'
 
 const getAPI = axios.create({
-    baseURL: 'http://127.0.0.1:1024',
-    timeout: 200000,
-})
+    // Unused due to database conflict
+    // baseURL: 'https://lmslitt.herokuapp.com',
+    // baseURL: 'https://littlmsapi.herokuapp.com',
 
+    baseURL: 'https://littapi.herokuapp.com',
+
+    timeout: 10000,
+})
 export { getAPI }
