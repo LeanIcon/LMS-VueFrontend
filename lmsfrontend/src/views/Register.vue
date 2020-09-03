@@ -56,7 +56,7 @@
 </template>
 
 <script>
-import { store } from '../store/user.js';
+import { store } from '../store/user';
   export default {
     name: 'Register',
     data () {
@@ -82,7 +82,7 @@ import { store } from '../store/user.js';
             })
             // Replace '/' with the homepage
             .then(({ status }) => {
-                this.$router.push({ name: 'Dashboard' })
+                this.$router.push({ name: 'Signin' })
                 console.log('check your email')
                 console.log(status)
             })
