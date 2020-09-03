@@ -48,13 +48,43 @@
 
           </div>
     
-        </div>  
-
-  
+        </div> 
 </template>
 
+<script>
+import { store } from '../store/store.js';
+  export default {
+    name: 'login',
+    data () {
+      return {
+        email: '',
+        password: '',
+        incorrectAuth: false,
+        submitted: false
+      }
+    },
+    methods: {
+      login () { 
+        store.dispatch('userLogin', {
+          email: this.email,
+          password: this.password
+        })
+        // Replace '/' with the homepage
+        .then(() => {
+          this.$router.push({ name: 'Dashboard' })
+        })
+        .catch(err => {
+          console.log(err)
+          this.incorrectAuth = true
+        })
+        }
+      }
+  }
+</script>
+  
 
-<style lang= "scss"> 
+
+<style lang="scss" scoped> 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
 
 body{
