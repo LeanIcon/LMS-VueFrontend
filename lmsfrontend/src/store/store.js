@@ -3,11 +3,13 @@ import Vuex from 'vuex'
 import { getAPI } from '../utils/axios-api'
 
 Vue.use(Vuex)
+
 export const store =  new Vuex.Store({
     state: {
         accessToken: null,
         refreshToken: null,
-        APIData: ''
+        APIData: '',
+        error: false
     },
     mutations: {
         updateStorage(state, { access, refresh }) {
@@ -36,13 +38,13 @@ export const store =  new Vuex.Store({
                     email: usercredentials.email,
                     password: usercredentials.password
                 })
-                    .then(response => {
-                        context.commit('updateStorage', { access: response.data.access, refresh: response.data.refresh })
-                        resolve()
-                    })
-                    .catch(err => {
-                        reject(err)
-                    })
+                .then(response => {
+                    context.commit('updateStorage', { access: response.data.access, refresh: response.data.refresh })
+                    resolve()
+                })
+                .catch(err => {
+                    reject(err)
+                })
             })
         }
     }
