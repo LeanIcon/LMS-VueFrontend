@@ -30,7 +30,7 @@
                             <!-- <input type="text" placeholder="Country or region of residence" class="input-container" v-model="firstname"> -->
                             <input type="password" placeholder="password" class="input-container" v-model="password">
                             <input type="password" placeholder="confirm password" class="input-container" v-model="confirm_password" :error="!valid()">
-                            <input type="text" placeholder="confirm password" class="input-container" v-model="student_type" :error="!valid()">
+                            <!-- <input type="text" placeholder="confirm password" class="input-container" v-model="student_type" :error="!valid()"> -->
                         </form>
                         <div class="group">
                             <input id="check" type="checkbox" class="check" checked>
@@ -78,7 +78,7 @@ import { store } from '../store/user';
               lastname: this.lastname,
               email: this.email,
               password: this.password,
-              student_type: this.student_type
+              student_type: 'individual'
             })
             // Replace '/' with the homepage
             .then(({ status }) => {
