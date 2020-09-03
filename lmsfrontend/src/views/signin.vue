@@ -1,59 +1,5 @@
 
 <template>
-<<<<<<< HEAD
-  <div class="signin">
-  <Footer></Footer>
-    <router-link to="/signin"></router-link>
-      <router-view/>
-
-    
-  <div id="content-container">
-          <div class="sign_in_page">
-              <div class="row">
-                  <div class="image_thumb col">
-                    <img src="../assets/pexels_retha_ferguson_3810788.png" alt="image_thumb">
-                  </div>
-
-                  <div class="signin-container col">
-                      <div class="sign-process a">
-                          <div id="container_title" >
-                              <h2>
-                                  Sign In to LiTT LMS 
-                              </h2>
-                          </div>
-      
-                          <form action="post">
-                              <input type="text" placeholder="username" class="input-container">
-                              <input type="password" placeholder="password" class="input-container">
-                          </form>
-                          <div class="form-alt row">
-                              <div class="group col-md">
-                                  <input id="check" type="checkbox" class="check" checked>
-                                  <label for="check"><span class="icon"></span> Remember me</label>
-                              </div>
-                              <div class="forgot_password col-md">
-                              
-                              <router-link :to = "{ name:'Forgotpassword' }" exact class="forgot_password">Forgot Password</router-link>
-
-                          </div>
-                          </div>
-                          
-                          <div class="btn login_btn">
-                              Login
-                          </div>
-                            <router-link :to = "{ name:'register' }" exact class="btn signup_btn">Sign Up</router-link>
-                          
-                      </div>
-                  </div>
-
-              </div>
-              
-          </div>
-
-          </div>
-    
-        </div>  
-=======
     <div class="signin">
         <router-link to="/signin"></router-link>
         <router-view/>
@@ -68,7 +14,7 @@
                         <div class="sign-process a">
                             <div id="container_title" >
                                 <h2>
-                                        Sign In to LiTT LMS 
+                                        Sign In to LiTT LMSS
                                 </h2>
                             </div>
 
@@ -101,7 +47,6 @@
         </div>
     </div>
 </template>
->>>>>>> origin/dev
 
 <script>
 import { store } from '../store/store.js';
