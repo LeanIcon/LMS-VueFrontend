@@ -58,7 +58,7 @@
 <script>
 import { store } from '../store/user.js';
   export default {
-    name: 'register',
+    name: 'Register',
     data () {
       return {
         firstname: '',

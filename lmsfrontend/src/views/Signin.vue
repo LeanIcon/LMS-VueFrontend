@@ -54,7 +54,7 @@
 <script>
 import { store } from '../store/user.js';
   export default {
-    name: 'signin',
+    name: 'Signin',
     data () {
       return {
         email: '',

@@ -20,7 +20,7 @@ Vue.config.productionTip = false
 router.beforeEach((to, from, next) => {
   if (to.matched.some((record) => record.meta.requiresLogin)) {
     if (!store.getters.loggedIn) {
-      next({ name: "signin" });
+      next({ name: "Signin" });
     } else {
       next();
     }
