@@ -4,12 +4,12 @@ import { getAPI } from '../utils/axios-api'
 
 Vue.use(Vuex)
 
-export const store =  new Vuex.Store({
+const store =  new Vuex.Store({
     state: {
         accessToken: null,
         refreshToken: null,
         APIData: '',
-        error: false
+        error: false,
     },
     mutations: {
         updateStorage(state, { access, refresh }) {
@@ -46,6 +46,28 @@ export const store =  new Vuex.Store({
                     reject(err)
                 })
             })
+        },
+        userRegister(context, usercredentials){
+            return new Promise((resolve, reject) => {
+                getAPI.post('/api/users/', {
+                    firstname: usercredentials.firstname,
+                    lastname: usercredentials.lastname,
+                    email: usercredentials.email,
+                    password: usercredentials.password,
+                    student_type: usercredentials.student_type
+                })
+                .then(({ status }) => {
+                    if(status == 201){
+                        resolve(true);
+                    }
+                })
+                .catch(err => {
+                    reject(err);
+                })
+            })
         }
+        
     }
 })
+
+export default store 
