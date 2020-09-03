@@ -1,51 +1,54 @@
 
 <template>
-    <div class="signin">
-        <router-link to="/signin"></router-link>
-        <router-view/>
-        
-        <div id="content-container"> 
-            <div class="sign_in_page">
-                <div class="row">
-                    <div class="image_thumb col">
-                        <img src="../assets/pexels_retha_ferguson_3810788.png" alt="image_thumb">
-                    </div>
-                    <div class="signin-container col">
-                        <div class="sign-process a">
-                            <div id="container_title" >
-                                <h2>
-                                        Sign In to LiTT LMS 
-                                </h2>
-                            </div>
+  <div class="signin">
+    <router-link to="/signin"></router-link>
+      <router-view/>
+    
+  <div id="content-container">
+          <div class="sign_in_page">
+              <div class="row">
+                  <div class="image_thumb col">
+                    <img src="../assets/pexels_retha_ferguson_3810788.png" alt="image_thumb">
+                  </div>
 
-                            <form class="form-signin" v-on:submit.prevent="login" id='login-form'>
-                                <input type="email" v-model="email" id="inputEmail" placeholder="Email address" required autofocus class="input-container">
-                                <div v-show="submitted && !email" class="invalid-feedback">Email is required</div>
-                                <input type="password" placeholder="password" class="input-container" v-model="password" id="inputPassword" required >
-                                <!-- <button type="submit">
-                                    Submit
-                                </button> -->
-                            </form>
-                            <div class="form-alt row">
-                                <div class="group col-md">
-                                    <input id="check" type="checkbox" class="check" checked >
-                                    <label for="check"><span class="icon"></span> Remember me</label>
-                                </div>
-                                <div class="forgot_password col-md">
-                                    <router-link :to = "{ name:'Forgotpassword' }" exact class="forgot_password">Forgot Password</router-link>
-                                </div>
-                            </div>
-                            
-                            <button class="btn login_btn" type="submit"  form='login-form'>
-                                Login
-                            </button>
+                  <div class="signin-container col">
+                      <div class="sign-process a">
+                          <div id="container_title" >
+                              <h2>
+                                  Sign In to LiTT LMS 
+                              </h2>
+                          </div>
+      
+                          <form action="post">
+                              <input type="text" placeholder="email" class="input-container">
+                              <input type="password" placeholder="password" class="input-container">
+                          </form>
+                          <div class="form-alt row">
+                              <div class="group col-md">
+                                  <input id="check" type="checkbox" class="check" checked>
+                                  <label for="check"><span class="icon"></span> Remember me</label>
+                              </div>
+                              <div class="forgot_password col-md">
+                              <router-link :to = "{ name:'Forgotpassword' }" exact class="forgot_password">Forgot Password</router-link>
+
+                          </div>
+                          </div>
+                          <div class="container_button">
+                          <div class="btn login_btn">
+                              Login
+                          </div>
                             <router-link :to = "{ name:'Register' }" exact class="btn signup_btn">Sign Up</router-link>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                          </div>
+                      </div>
+                  </div>
+
+              </div>
+              
+          </div>
+
+          </div>
+    
+        </div> 
 </template>
 
 <script>
@@ -108,7 +111,7 @@ form input{
 }
 
 .sign-process{
-    width: 55%;
+    width: 65%;
     margin: auto;
     padding: auto;
 }
@@ -132,19 +135,20 @@ form input{
     margin-top: 20px;
 }
 
-.login_btn{
-    background:rgba(190,30,45,255);
+.login_btn {
+    background: #be1e2d;
     border-radius: 5px;
     color: #fff;
-    width: 40%;
-}
+    width: 45%;
+    margin-right: 35px;
+}    
 
 .signup_btn{
     background: #fff;
     border: 1px solid #000;
     border-radius: 5px;
     color: rgb(0, 0, 0);
-    width: 48%;    
+    width: 45%;    
 }
 
 .login_btn:hover{
@@ -161,7 +165,7 @@ form input{
 
 .signup_now{
     width: 180px;
-    margin: 0 auto;
+    margin-left: 20 auto;
     border-radius: 5px;
     background:rgba(190,30,45,255);
     color: #fff;
@@ -197,4 +201,19 @@ form input{
     color: #fff;
     margin-left: 20px;
 }
+
+#check{
+  margin-left: 5px;
+}
+.forgot_password {
+	margin-top: 0px;
+	text-decoration: none;
+	
+	margin-left: 20px;
+}
+.container_sign .btn {
+margin-left: 20px;
+}
+
+
 </style>

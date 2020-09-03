@@ -7,7 +7,7 @@
 </nav>-->
   <div class="footer row">
          <div class="litt_logo col-4">
-                      <img src="../skins/gh_01_ek2.png" alt="">
+                      <img src="../assets/gh_01_ek2.png" alt="">
          </div>
            <div class="footer-creds col-8">
                  <a href="contactUs.html">Contact</a>
