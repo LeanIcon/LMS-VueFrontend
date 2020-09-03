@@ -34,24 +34,24 @@
                         </form>
                         <div class="group">
                             <input id="check" type="checkbox" class="check" checked>
-                            <label for="check"><span class="icon"></span> I agree with the terms and conditions</label>
+                            <label for="check"><span class="icon"></span>
+                                <p class="agree">
+                                 I agree with the terms and conditions
+                                </p>
+                            </label>
                         </div>
                         <button class="btn signup_now" type="submit"  form='signup-form'>
                             Sign Up
                         </button>
                         <div class="forgot_password">
-                            <a href="signin.html">Already a member?</a>
+                            <router-link :to = "{ name:'Signin' }" exact>Already a member?</router-link>
+                            <!-- <a href="signin.html">Already a member?</a> -->
                         </div>
                     </div>
                 </div>
-
-
-            </div>
-            
+            </div>            
         </div>
-
     </div>
-
 </div>    
 </template>
 
@@ -107,6 +107,11 @@ body{
     width: 100%;
     overflow: hidden;
 }
+
+.agree{
+    margin-left: .5rem;
+}
+
 .image_thumb img{
     width: 50vw;
     height: 85vh;

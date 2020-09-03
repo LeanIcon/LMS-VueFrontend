@@ -27,7 +27,11 @@
                           <div class="form-alt row">
                               <div class="group col-md">
                                   <input id="check" type="checkbox" class="check" checked>
-                                  <label for="check"><span class="icon"></span> Remember me</label>
+                                  <label for="check"><span class="icon"></span>
+                                    <p class="rememberme">
+                                       Remember me
+                                    </p>
+                                </label>
                               </div>
                               <div class="forgot_password col-md">
                               <router-link :to = "{ name:'Forgotpassword' }" exact class="forgot_password">Forgot Password</router-link>
@@ -35,8 +39,13 @@
                           </div>
                           <div class="container_button">
                             <button class="btn login_btn" type="submit"  form='login-form'>
+                                <!-- <span class="spinner-border spinner-border-sm load-signal" role="status" aria-hidden="true"></span> -->
                                 Login
                             </button>
+                            <!-- <button class="btn btn-primary" type="button" disabled>
+                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                <span class="sr-only">Loading...</span>
+                            </button> -->
                             <router-link :to = "{ name:'Register' }" exact class="btn signup_btn">Sign Up</router-link>
                           </div>
                       </div>
@@ -91,6 +100,15 @@ body{
     width: 100%;
     overflow: hidden;
 }
+
+// .load-signal{
+//     visibility: hidden;
+// }
+
+.rememberme{
+    margin-left: .5rem;
+}
+
 .image_thumb img{
     width: 50vw;
     height: 85vh;
