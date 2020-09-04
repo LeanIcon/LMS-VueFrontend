@@ -11,7 +11,7 @@
                 <div id="mySideBar" class="sidebar">
             <div class="sidebar-header row">
                 <div class="header-text col-9">
-                    <h3>Skill Overview</h3>
+                    <h3 class="bar-title">Skill Overview</h3>
                 </div>
                 <div class="x-btn col-3">
                     <a href="javascript:void(0)" class="closebtn" v-on:click="closeNav">X</a>
@@ -63,7 +63,8 @@
                 </div>
                 <div class=" video-div">
                         
-                <video controls src="">
+                <video controls src="https://res.cloudinary.com/littlms/video/upload/v1599179549/2020-08-19_Design_Thinking_Prototype_md1oep.mp4">
+
                 </video>
                 <div class="welcome-text">
             <h3>Welcome to the Business Analysis Course</h3>
@@ -86,7 +87,7 @@
 <script type="text/javascript">
 import Dashboardnavbar from '@/components/Dashboardnavbar.vue'
 export default {
-    name: 'Dashboard',
+    name: 'Coursepage',
   components:{
       Dashboardnavbar,
   },
@@ -118,6 +119,9 @@ export default {
 </script>
 
 <style scoped>
+.bar-title{
+    margin-top: 3rem;
+}
 .dashnav{
   position: static;
   z-index: 0;
@@ -171,8 +175,10 @@ hr{
     font-weight: 100;
     color: grey;
 }
+
 .main-body{
-    margin-left: 60px;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 .main-body h3{
     font-weight: 700;
