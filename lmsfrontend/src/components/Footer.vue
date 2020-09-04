@@ -31,11 +31,14 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .footer{
-    background: rgba(190,30,45,255);
-    height: 15vh;
-    color: #fff;
-    place-content: center;
-    text-align: center;
+  background: rgba(190,30,45,255);
+  height: 15vh;
+  color: #fff;
+  place-content: center;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
 }
 
 .litt_logo img{
@@ -50,4 +53,5 @@ export default {
     text-decoration: none;
     color: #fff;
     margin-left: 20px;
-}</style>
+}
+</style>

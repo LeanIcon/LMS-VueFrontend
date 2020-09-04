@@ -63,7 +63,8 @@
                 </div>
                 <div class=" video-div">
                         
-                <video controls src="">
+                <video controls src="https://res.cloudinary.com/littlms/video/upload/v1599179549/2020-08-19_Design_Thinking_Prototype_md1oep.mp4">
+
                 </video>
                 <div class="welcome-text">
             <h3>Welcome to the Business Analysis Course</h3>
@@ -174,8 +175,10 @@ hr{
     font-weight: 100;
     color: grey;
 }
+
 .main-body{
-    margin-left: 60px;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 .main-body h3{
     font-weight: 700;
