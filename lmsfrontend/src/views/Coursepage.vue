@@ -63,7 +63,8 @@
                 </div>
                 <div class=" video-div">
                         
-                <video controls src="">
+                <video controls src="https://res.cloudinary.com/littlms/video/upload/v1599179549/2020-08-19_Design_Thinking_Prototype_md1oep.mp4">
+
                 </video>
                 <div class="welcome-text">
             <h3>Welcome to the Business Analysis Course</h3>
