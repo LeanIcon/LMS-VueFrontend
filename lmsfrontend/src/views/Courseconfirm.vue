@@ -24,7 +24,7 @@
                     </div>
                     <div class="enroll-btn">
                         
-                        <button class="btn btn-lg "> Enroll Now</button>
+                        <button class="btn btn-lg "> Enrolled </button>
                             
                         
                     </div>
