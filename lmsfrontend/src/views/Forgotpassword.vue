@@ -53,7 +53,7 @@ export default {
 
   } */
   .main_container{
-    alignment: center;
+    /* alignment: center; */
     border: transparent;
     margin-left: 20em;
     margin-right: 20em;
