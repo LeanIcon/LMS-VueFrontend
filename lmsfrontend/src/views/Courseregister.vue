@@ -23,10 +23,7 @@
                    <p>You've enrolled on this course! </p>
                </div>
                <div class="enroll-btn">
-                  
-                <button class="btn btn-lg btn-primary"> Register</button>
-                      
-                   
+                 <router-link :to = "{ name:'Courseconfirm' }" exact class="btn btn-lg btn-primary">Register</router-link>
                </div>
                <div class="enroll-list">
                    <div class="enroll-icon"><i class="fas fa-list-alt"></i> 8 Lessons</div>
