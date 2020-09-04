@@ -22,28 +22,28 @@
                 <div class="mySideBarMenuItem"><a href="#"  data-toggle="collapse" data-target="#submenu-1">+  Skill Overview</a>
                 <hr>
                 <ul id="submenu-1" class="collapse side-nav">
-                                    <li><a href="#"><i></i>SUBMENU 1.1</a></li>
-                                    <li><a href="#"><i></i>SUBMENU 1.2</a></li>
-                                    <li><a href="#"><i></i>SUBMENU 1.3</a></li>
-                                </ul>
+                    <li><a href="#"><i></i>SUBMENU 1.1</a></li>
+                    <li><a href="#"><i></i>SUBMENU 1.2</a></li>
+                    <li><a href="#"><i></i>SUBMENU 1.3</a></li>
+                </ul>
 
                 </div>
                 <div class="mySideBarMenuItem"><a href="#"  data-toggle="collapse" data-target="#submenu-2">+  Skill Overview</a>
                 <hr>
                 <ul id="submenu-2" class="collapse side-nav">
-                                    <li><a href="#"><i></i>SUBMENU 1.1</a></li>
-                                    <li><a href="#"><i></i>SUBMENU 1.2</a></li>
-                                    <li><a href="#"><i></i>SUBMENU 1.3</a></li>
-                                </ul>
+                    <li><a href="#"><i></i>SUBMENU 1.1</a></li>
+                    <li><a href="#"><i></i>SUBMENU 1.2</a></li>
+                    <li><a href="#"><i></i>SUBMENU 1.3</a></li>
+                </ul>
 
                 </div>
                 <div class="mySideBarMenuItem"><a href="#"  data-toggle="collapse" data-target="#submenu-3">+  Skill Overview</a>
                 <hr>
                 <ul id="submenu-3" class="collapse side-nav">
-                                    <li><a href="#"><i></i>SUBMENU 1.1</a></li>
-                                    <li><a href="#"><i></i>SUBMENU 1.2</a></li>
-                                    <li><a href="#"><i></i>SUBMENU 1.3</a></li>
-                                </ul>
+                    <li><a href="#"><i></i>SUBMENU 1.1</a></li>
+                    <li><a href="#"><i></i>SUBMENU 1.2</a></li>
+                    <li><a href="#"><i></i>SUBMENU 1.3</a></li>
+                </ul>
 
                 </div>
   
@@ -71,7 +71,7 @@
                 </div>
                 <div class=" video-div">
                         
-                <video controls src="">
+                <video controls src="https://res.cloudinary.com/littlms/video/upload/v1599179957/2020-07-24_Design_Thinking_Define_Stage_SWOT_and_TOWS_Analysis_ihwgnl.mp4">
                 </video>
                 <div class="course2-btn">
                         <router-link :to = "{ name:'Coursepage' }" exact class="btn btn-lg btn-primary">Start</router-link>
