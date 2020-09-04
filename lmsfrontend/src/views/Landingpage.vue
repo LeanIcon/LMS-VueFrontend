@@ -1,7 +1,10 @@
 <template>
 		<div id="header" class="transparent-nav">
 			<div class="container">
+				<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
+
+					<link type="text/css" rel="stylesheet" href="../assets/css/bootstrap.min.css"/>
 					<div class="navbar-header">
 						<!-- Logo -->
 						<div class="navbar-brand">
@@ -19,38 +22,12 @@
 					</div>
 
 					<!-- Navigation -->
-			
-					<nav id="nav">
-						<ul class="main-menu nav navbar-nav navbar-left">
-							<li><a href="index.html">Home</a></li>
-							<li><a href="#">About</a></li>
-							<li><a href="#">Courses</a></li>
-							<li><a href="contact.html">Contact</a></li>
-							<!-- change  -->
-							<!-- <button onclick="togglePopup()">Show Popup</button> -->
-							
-							<li><a  href="/accounts/login">Sign In</a></li>
-							
-						</ul>
-					</nav>
+
 					<!-- /Navigation -->
 
 			</div>
 		
 			<!-- /Header -->
-			<!-- <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-dark border-bottom box-shadow">
-					<h5 class="my-0 mr-md-auto font-weight-normal text-white">LITT LMS</h5>
-					<nav class="my-2 my-md-0 mr-md-3">
-						<a class="p-2 text-white" href="#">Features</a>
-						<a class="p-2 text-white" href="#">Enterprise</a>
-						<a class="p-2 text-white" href="#">Support</a>
-						<a class="p-2 text-white" href="#">Pricing</a>
-						
-						<a class="btn btn-outline-primary" href="/accounts/login">Sign In</a>
-						<a class="btn btn-outline-success" href="/accounts/signup">Sign Up</a>
-						
-					</nav>
-			</div> -->
 						<!-- Home -->
 			<div id="home" class="hero-area">
 
@@ -71,39 +48,8 @@
 				</div>
 
 			</div>
-			<!--div class="popup" id="popup-1">
-				<div class="overlay"></div>
-				<div class="content">
-					<div class="close-btn" onclick="togglePopup()">&times;</div>
-					<div class="row">
-						<div class="individual col-md-6 pop-content">
-							<h3>Sign up as individual</h3>
-							<div class="btn pop-btn" onclick="location.href='/accounts/signup'">
-								Sign Up
-							</div>
-						</div>
-						<div class="employee col-md-6 pop-content">
-							<h3>Sign up as an employee</h3>
-							<div class="btn pop-btn" onclick="location.href='/accounts/signup/'">
-								Sign Up
-							</div>
-						</div>
-						<a onclick="location.href='/accounts/login/'">Already a member? Login</a>
-						<!-div class="organization col-md-4 pop-content">
-							<h4>Sign up as an organization</h4>
-							<div class="pop-btn">
-								Sign Up
-							</div>
-						</div> -->
-						<!-- <h1>Sign Up Now</h1>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo aspernatur laborum rem sed laudantium excepturi
-							veritatis voluptatum architecto, dolore quaerat totam officiis nisi animi accusantium alias inventore nulla
-							atque debitis.</p> -->
 
-					<!--/div>
-				</div>
-			</div>
-			<!- Courses -->
+			<!-- Courses -->
 			<div id="courses" class="section">
 
 				<!-- container -->
@@ -149,8 +95,6 @@
 									</a>
 									<a class="course-title" href="#">Agile Software Engineering </a>
 									<div class="course-details">
-										<!--span class="course-category">Development-->
-										<!--span class="course-price course-premium">Premium-->
 									</div>
 								</div>
 							</div>
@@ -165,8 +109,6 @@
 									</a>
 									<a class="course-title" href="#">Agile Human Resource Management | From Beginner To Advanced</a>
 									<div class="course-details">
-										<!--span class="course-category">Productivity-->
-										<!--span class="course-price course-premium">Premium-->
 									</div>
 								</div>
 							</div>
@@ -193,8 +135,6 @@
 
 					</div>
 					<!-- /courses -->
-			
-			<!-- <button onclick="togglePopup()">Show Popup</button> -->
 			<!-- /Home -->
 
 			<!-- About -->
@@ -209,8 +149,6 @@
 						<div class="col-md-6">
 							<div class="section-header">
 								<h2>Welcome to LiTT LMS</h2>
-								<!--p class="lead">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.-->
-
 							</div>
 
 							<!-- feature -->
@@ -260,96 +198,6 @@
 			<!-- /About -->
 
 			<!-- Courses -->
-			<!--div id="courses" class="section">
-
-				<!- container -->
-				<!--div class="container">
-
-					<!- row -->
-					<!--div class="row">
-						<div class="section-header text-center">
-							<h2>Explore Courses</h2>
-							<p class="lead">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
-						</div>
-					</div>
-					<!- /row -->
-
-					<!-- courses -->
-					<!--div id="courses-wrapper">
-
-						<!- row -->
-						<!--div class="row">
-
-							<!- single course -->
-							<!--div class="col-md-3 col-sm-6 col-xs-6">
-								<div class="course">
-									<a href="#" class="course-img">
-										<img src="/static/img/course01.jpg" alt="">
-										<i class="course-link-icon fa fa-link"></i>
-									</a>
-									<a class="course-title" href="#">Beginner to Pro in Design Thinking</a>
-									<div class="course-details">
-										<span class="course-category">Business</span>
-										<span class="course-price course-free">Free</span>
-									</div>
-								</div>
-							</div>
-							<!- /single course -->
-
-							<!-- single course -->
-							<!--div class="col-md-3 col-sm-6 col-xs-6">
-								<div class="course">
-									<a href="#" class="course-img">
-										<img src="/static/img/course02.jpg" alt="">
-										<i class="course-link-icon fa fa-link"></i>
-									</a>
-									<a class="course-title" href="#">Introduction Agile Framework </a>
-									<div class="course-details">
-										<span class="course-category">Development</span>
-										<span class="course-price course-premium">Premium</span>
-									</div>
-								</div>
-							</div>
-							<!- /single course -->
-
-							<!-- single course -->
-							<!--div class="col-md-3 col-sm-6 col-xs-6">
-								<div class="course">
-									<a href="#" class="course-img">
-										<img src="/static/img/course03.jpg" alt="">
-										<i class="course-link-icon fa fa-link"></i>
-									</a>
-									<a class="course-title" href="#">The Ultimate Use of Agile Tools | From Beginner To Advanced</a>
-									<div class="course-details">
-										<span class="course-category">Productivity</span>
-										<span class="course-price course-premium">Premium</span>
-									</div>
-								</div>
-							</div>
-							<!- /single course -->
-
-							<!--div class="col-md-3 col-sm-6 col-xs-6">
-								<div class="course">
-									<a href="#" class="course-img">
-										<img src="/static/img/course04.jpg" alt="">
-										<i class="course-link-icon fa fa-link"></i>
-									</a>
-									<a class="course-title" href="#">The Complete Agile Training</a>
-									<div class="course-details">
-										<span class="course-category">Development</span>
-										<span class="course-price course-free">Free</span>
-									</div>
-								</div>
-							</div>
-							<!- /single course -->
-
-						<!--/div>
-						<!- /row -->
-
-
-					<!--/div>
-					<!-/courses -->
-
 					<div class="row">
 						<div class="center-btn">
 							<!--a class="main-button icon-button" href="#">More Courses-->
@@ -398,46 +246,6 @@
 
 					<!-- row -->
 					<div class="row">
-						<!--div class="section-header text-center">
-							<h2>Why LITT</h2>
-							<p class="lead">In everything we do, what we care about is making human lives better through  continuous  personal growth and we believe together we can drive it through the LITT LMS.</p>
-						</div>
-
-						<!- feature -->
-						<!--div class="col-md-4">
-							<div class="feature">
-								<i class="feature-icon fa fa-flask"></i>
-								<div class="feature-content">
-									<h4>Online Courses</h4>
-									<p>Ceteros fuisset mei no, soleat epicurei adipiscing ne vis. Et his suas veniam nominati.</p>
-								</div>
-							</div>
-						</div>
-						<!- /feacd ture -->
-
-						<!-- feature -->
-						<!--div class="col-md-4">
-							<div class="feature">
-								<i class="feature-icon fa fa-users"></i>
-								<div class="feature-content">
-									<h4>Expert Teachers</h4>
-									<p>Ceteros fuisset mei no, soleat epicurei adipiscing ne vis. Et his suas veniam nominati.</p>
-								</div>
-							</div>
-						</div>
-						<!-/feature -->
-
-						<!-- feature -->
-						<!--div class="col-md-4">
-							<div class="feature">
-								<i class="feature-icon fa fa-comments"></i>
-								<div class="feature-content">
-									<h4>Community</h4>
-									<p>Ceteros fuisset mei no, soleat epicurei adipiscing ne vis. Et his suas veniam nominati.</p>
-								</div>
-							</div>
-						<!-/div>
-						<!- /feature -->
 
 					</div>
 					<!-- /row -->
@@ -455,10 +263,6 @@
 
 						<div class="col-md-5 col-md-offset-1">
 							<object data="http://www.youtube.com/embed/6mv_18Yftt8" width="560" height="315"></object>
-							<!-- <a class="about-video" href="#">
-								<img src="./img/about-video.jpg" alt="">
-								<i class="play-icon fa fa-play"></i>
-							</a> -->
 						</div>
 
 					</div>
@@ -512,7 +316,8 @@ export default {
 
 </script>
 <style scoped>
-   .popup .overlay {
+@import url("https://fonts.googleapis.com/css?family=Lato:700%7CMontserrat:400,600");
+.popup .overlay {
   position:fixed;
   top:0px;
   left:0px;
@@ -632,10 +437,10 @@ Table OF Contents
 \*------------------------------------*/
 /* --- typography --- */
 body {
-   font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 	font-size: 15px;
-   font-weight: 400;
-   color: #798696;
+    font-weight: 400;
+    color: #798696;
 	overflow-x:hidden;
 }
 
@@ -670,16 +475,16 @@ a {
 
 a:hover,
 a:focus{
-   text-decoration: none;
-   outline: none;
+    text-decoration: none;
+    outline: none;
 	color: #374050;
 	opacity: 0.9;
 }
 
 ul,ol{
-   margin: 0;
-   padding: 0;
-   list-style: none
+    margin: 0;
+    padding: 0;
+    list-style: none
 }
 
 .white-text {
@@ -807,7 +612,7 @@ input[type="text"], input[type="email"], input[type="password"], input[type="num
 }
 
 textarea {
-   padding: 10px 15px;
+    padding: 10px 15px;
 }
 
 input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, input[type="number"]:focus, input[type="date"]:focus, input[type="url"]:focus, input[type="tel"]:focus, textarea:focus {
@@ -818,7 +623,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	Logo
 \*------------------------------------*/
 .navbar-brand {
-   padding: 0;
+    padding: 0;
 }
 
 .navbar-brand .logo {
@@ -831,8 +636,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	width: 80px;
 }
 
-@media only screen and (max-width: 767px) 
-{
+@media only screen and (max-width: 767px) {
 	.navbar-brand {
 		margin-left:15px;
 	}
@@ -879,8 +683,8 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	background-color:rgba(190,30,45,255);
 	width:100%;
 	-webkit-transform: translateY(5px);
-	-ms-transform: translateY(5px);
-	transform: translateY(5px);
+	    -ms-transform: translateY(5px);
+	        transform: translateY(5px);
 	opacity:0;
 	-webkit-transition:0.2s all;
 	transition:0.2s all;
@@ -888,8 +692,8 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 
 .main-menu li a:hover:after , .main-menu li a:focus:after {
 	-webkit-transform: translateY(0px);
-	-ms-transform: translateY(0px);
-	transform: translateY(0px);
+	    -ms-transform: translateY(0px);
+	        transform: translateY(0px);
 	opacity:1;
 }
 
@@ -904,12 +708,12 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 		height: 100vh;
 		background: #FFF;
 		-webkit-box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.1);
-		box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.1);
+		        box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.1);
 		padding-top: 80px;
 		padding-bottom: 40px;
 		-webkit-transform: translateX(100%);
-		-ms-transform: translateX(100%);
-		transform: translateX(100%);
+		    -ms-transform: translateX(100%);
+		        transform: translateX(100%);
 		-webkit-transition: 0.4s all cubic-bezier(.77,0,.18,1);
 		transition: 0.4s all cubic-bezier(.77,0,.18,1);
 		z-index:9;
@@ -918,8 +722,8 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	#header.nav-collapse #nav{
 		width:100%;
 		-webkit-transform: translateX(0%);
-		-ms-transform: translateX(0%);
-		transform: translateX(0%);
+		    -ms-transform: translateX(0%);
+		        transform: translateX(0%);
 	}
 	
 	.main-menu {
@@ -948,9 +752,9 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	position: absolute;
 	top: 50%;
 	left: 50%;
-   -webkit-transform: translate(-50% , -50%);
-   -ms-transform: translate(-50% , -50%);
-   transform: translate(-50% , -50%);
+    -webkit-transform: translate(-50% , -50%);
+        -ms-transform: translate(-50% , -50%);
+            transform: translate(-50% , -50%);
 	-webkit-transition: 0.2s background;
 	transition: 0.2s background;
 }
@@ -984,15 +788,15 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 }
 
 #header.nav-collapse .navbar-toggle > span:before {
-   -webkit-transform: translateY(10px) rotate(45deg);
-   -ms-transform: translateY(10px) rotate(45deg);
-   transform: translateY(10px) rotate(45deg);
+    -webkit-transform: translateY(10px) rotate(45deg);
+        -ms-transform: translateY(10px) rotate(45deg);
+            transform: translateY(10px) rotate(45deg);
 }
 
 #header.nav-collapse .navbar-toggle > span:after {
-   -webkit-transform: translateY(-10px) rotate(-45deg);
-   -ms-transform: translateY(-10px) rotate(-45deg);
-    transform: translateY(-10px) rotate(-45deg);
+    -webkit-transform: translateY(-10px) rotate(-45deg);
+        -ms-transform: translateY(-10px) rotate(-45deg);
+            transform: translateY(-10px) rotate(-45deg);
 }
 
 /*------------------------------------*\
@@ -1014,8 +818,8 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	position:absolute;
 	top:50%;
 	-webkit-transform:translateY(-50%);
-	-ms-transform:translateY(-50%);
-	transform:translateY(-50%);
+	    -ms-transform:translateY(-50%);
+	        transform:translateY(-50%);
 	left:0;
 	right:0;
 }
@@ -1096,8 +900,8 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	top: 50%;
 	left: 50%;
 	-webkit-transform: translate(-50% , -50%);
-	-ms-transform: translate(-50% , -50%);
-	transform: translate(-50% , -50%);
+	    -ms-transform: translate(-50% , -50%);
+	        transform: translate(-50% , -50%);
 	width: 80px;
 	height: 80px;
 	line-height: 80px;
@@ -1107,7 +911,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	font-size: 24.027px;
 	z-index:10;
 	-webkit-animation : 2s play-animation infinite;
-	animation : 2s play-animation infinite;
+	        animation : 2s play-animation infinite;
 	-webkit-transition:0.2s color;
 	transition:0.2s color;
 }
@@ -1119,22 +923,22 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 @-webkit-keyframes play-animation {
 	from {
 		-webkit-box-shadow : 0px 0px 0px 0px #FFF;
-		box-shadow : 0px 0px 0px 0px #FFF;
+		        box-shadow : 0px 0px 0px 0px #FFF;
 	}
 	to {
 		-webkit-box-shadow : 0px 0px 0px 10px transparent;
-		box-shadow : 0px 0px 0px 10px transparent;
+		        box-shadow : 0px 0px 0px 10px transparent;
 	}
 }
 
 @keyframes play-animation {
 	from {
 		-webkit-box-shadow : 0px 0px 0px 0px #FFF;
-		box-shadow : 0px 0px 0px 0px #FFF;
+		        box-shadow : 0px 0px 0px 0px #FFF;
 	}
 	to {
 		-webkit-box-shadow : 0px 0px 0px 10px transparent;
-		box-shadow : 0px 0px 0px 10px transparent;
+		        box-shadow : 0px 0px 0px 10px transparent;
 	}
 }
 
@@ -1191,8 +995,8 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	left:50%;
 	top:50%;
 	-webkit-transform: translate(-50% , calc(-50% - 15px));
-	-ms-transform: translate(-50% , calc(-50% - 15px));
-	transform: translate(-50% , calc(-50% - 15px));
+	    -ms-transform: translate(-50% , calc(-50% - 15px));
+	        transform: translate(-50% , calc(-50% - 15px));
 	width:40px;
 	height:40px;
 	line-height:40px;
@@ -1208,8 +1012,8 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 
 .course .course-img:hover .course-link-icon {
 	-webkit-transform: translate(-50% , -50%);
-	-ms-transform: translate(-50% , -50%);
-	transform: translate(-50% , -50%);
+	    -ms-transform: translate(-50% , -50%);
+	        transform: translate(-50% , -50%);
 	opacity:1;
 }
 
@@ -1272,6 +1076,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	height: 40px;
 	line-height: 40px;
 	text-align: center;
+	
 }
 
 /* -- Contact Map -- */
@@ -1787,8 +1592,8 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	left:50%;
 	top:50%;
 	-webkit-transform: translate(-50% , -50%);
-	-ms-transform: translate(-50% , -50%);
-	transform: translate(-50% , -50%);
+	    -ms-transform: translate(-50% , -50%);
+	        transform: translate(-50% , -50%);
 }
 
 #preloader .preloader:after {
@@ -1797,10 +1602,10 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	width:40px;
 	height:40px;
 	border: 1px solid #EBEBEB;
-   border-top: 1px solid rgba(190,30,45,255);
-   border-radius: 50%;
+    border-top: 1px solid rgba(190,30,45,255);
+    border-radius: 50%;
 	-webkit-animation: 1s preloader linear infinite;
-	animation: 1s preloader linear infinite;
+	        animation: 1s preloader linear infinite;
 }
 
 @-webkit-keyframes preloader {

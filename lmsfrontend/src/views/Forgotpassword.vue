@@ -3,7 +3,6 @@
   <Footer></Footer>
     <router-link to="/forgotpassword"></router-link>
       <router-view/>
-<<<<<<< HEAD
       <div class="main_container">
         <div>
           <h2 class="container_title">Having trouble logging in?</h2>
@@ -50,9 +49,9 @@ export default {
     margin-left: 20px;
     text-align: center;
   }
-  .forgotpassword{
+  /* .forgotpassword{
 
-  }
+  } */
   .main_container{
     alignment: center;
     border: transparent;
@@ -83,8 +82,7 @@ export default {
     color: #fff;
 
   }
-=======
-      <div class="forms-container">
+      /* <div class="forms-container">
         <div class="reset-home">
           <div class="title">
             <h1>Having troubles logging in?</h1>
@@ -164,5 +162,4 @@ form > input {
   color: white;
 }
 
->>>>>>> dev
-</style>
+</style> */
