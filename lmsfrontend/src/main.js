@@ -1,10 +1,10 @@
-import '@babel/polyfill'
+// import '@babel/polyfill'
 import 'mutationobserver-shim'
 import Vue from 'vue'
 import './plugins/bootstrap-vue'
 import App from './App.vue'
 import router from './router/index'
-import store from './store/user'
+import { store } from './store/user'
 import IdleVue from 'idle-vue'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.css';

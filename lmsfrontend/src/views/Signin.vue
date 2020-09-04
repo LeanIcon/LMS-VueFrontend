@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD:lmsfrontend/src/views/signin.vue
     <div class="signin">
         <router-link to="/signin"></router-link>
         <router-view/>
@@ -14,33 +13,11 @@
                         <div class="sign-process a">
                             <div id="container_title" >
                                 <h2>
-                                        Sign In to LiTT LMSS
+                                        Sign In to LiTT LMS
                                 </h2>
                             </div>
 
                             <form class="form-signin" v-on:submit.prevent="login" id='login-form'>
-=======
-  <div class="signin">
-    <router-link to="/signin"></router-link>
-      <router-view/>
-    
-  <div id="content-container">
-          <div class="sign_in_page">
-              <div class="row">
-                  <div class="image_thumb col">
-                    <img src="../assets/pexels_retha_ferguson_3810788.png" alt="image_thumb">
-                  </div>
-
-                  <div class="signin-container col">
-                      <div class="sign-process a">
-                          <div id="container_title" >
-                              <h2>
-                                  Sign In to LiTT LMS 
-                              </h2>
-                          </div>
-      
-                          <form class="form-signin" v-on:submit.prevent="login" id='login-form'>
->>>>>>> dev:lmsfrontend/src/views/Signin.vue
                                 <input type="email" v-model="email" id="inputEmail" placeholder="Email address" required autofocus class="input-container">
                                 <div v-show="submitted && !email" class="invalid-feedback">Email is required</div>
                                 <input type="password" placeholder="password" class="input-container" v-model="password" id="inputPassword" required >

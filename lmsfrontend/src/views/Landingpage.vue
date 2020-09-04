@@ -1,25 +1,7 @@
 <template>
 		<div id="header" class="transparent-nav">
 			<div class="container">
-				<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
-					<link type="text/css" rel="stylesheet" href="../assets/css/bootstrap.min.css"/>
-					<div class="navbar-header">
-						<!-- Logo -->
-						<div class="navbar-brand">
-							<a class="logo" href="index.html">
-								<img src="../assets/GH-01.png" alt="logo">
-							</a>
-						</div>
-						<!-- /Logo -->
-
-						<!-- Mobile toggle -->
-						<button class="navbar-toggle">
-							<span></span>
-						</button>
-						<!-- /Mobile toggle -->
-					</div>
 
 					<!-- Navigation -->
 
@@ -32,7 +14,7 @@
 			<div id="home" class="hero-area">
 
 				<!-- Backgound Image -->
-				<div class="bg-image bg-parallax overlay hero-image" style="background-image:url(../src/assets/images/home-background.jpg)"></div>
+				<div class="bg-image bg-parallax overlay hero-image home-bg"></div>
 				<!-- /Backgound Image -->
 
 				<div class="home-wrapper">
@@ -57,7 +39,7 @@
 
 					<!-- row -->
 					<div class="row">
-						<div class="section-header text-center">
+						<div class="section-header text-center col-12">
 							<h2>Explore Courses</h2>
 							<p class="lead">Learn the several paths to a successful agility.</p>
 						</div>
@@ -75,7 +57,7 @@
 								<div class="course">
 									<a href="#" class="course-img">
 										<img src="../assets/course01.jpg" alt="">
-										<i class="course-link-icon fa fa-link"></i>
+										<i class="course-link-icon fas fa-chalkboard-teacher"></i>
 									</a>
 									<a href='/accounts/signup/'>Agile Leadership</a>
 									<div class="course-details">
@@ -91,7 +73,7 @@
 								<div class="course">
 									<a href="#" class="course-img">
 										<img src="../assets/course02.jpg" alt="">
-										<i class="course-link-icon fa fa-link"></i>
+										<i class="course-link-icon fas fa-chalkboard-teacher"></i>
 									</a>
 									<a class="course-title" href="#">Agile Software Engineering </a>
 									<div class="course-details">
@@ -105,7 +87,7 @@
 								<div class="course">
 									<a href="#" class="course-img">
 										<img src="../assets/course03.jpg" alt="">
-										<i class="course-link-icon fa fa-link"></i>
+										<i class="course-link-icon fas fa-chalkboard-teacher"></i>
 									</a>
 									<a class="course-title" href="#">Agile Human Resource Management | From Beginner To Advanced</a>
 									<div class="course-details">
@@ -118,7 +100,7 @@
 								<div class="course">
 									<a href="#" class="course-img">
 										<img src="../assets/course04.jpg" alt="">
-										<i class="course-link-icon fa fa-link"></i>
+										<i class="course-link-icon fas fa-chalkboard-teacher"></i>
 									</a>
 									<a class="course-title" href="#">Agile Management</a>
 									<div class="course-details">
@@ -214,7 +196,7 @@
 			<div id="cta" class="section">
 
 				<!-- Backgound Image -->
-				<div class="bg-image bg-parallax overlay cta-image" style="background-image:url(../assets/cta1-background.jpg)"></div>
+				<div class="bg-image bg-parallax overlay cta-image cta-bg"></div>
 				<!-- /Backgound Image -->
 
 				<!-- container -->
@@ -223,7 +205,7 @@
 					<!-- row -->
 					<div class="row">
 
-						<div class="col-md-6">
+						<div class="col-md-8">
 							<h2 class="white-text">Agile Training.</h2>
 							<p class="lead white-text">Agile training is a way to improve project performance by teaching the basic concepts of Agile to an organization or team and how to implement it. ... Training can help expose the underlying Agile concepts and clarify the differences between the various implementation methods..</p>
 							<a class="main-button icon-button" href="#">Get Started!</a>
@@ -278,7 +260,7 @@
 			<div id="contact-cta" class="section">
 
 				<!-- Backgound Image -->
-				<div class="bg-image bg-parallax overlay cta2-image" style="background-image:url(../assets/cta2-background.jpg)"></div>
+				<div class="bg-image bg-parallax overlay cta2-image"></div>
 				<!-- Backgound Image -->
 
 				<!-- container -->
@@ -440,7 +422,7 @@ body {
     font-family: 'Montserrat', sans-serif;
 	font-size: 15px;
     font-weight: 400;
-    color: #798696;
+    color: rgb(255, 255, 255);
 	overflow-x:hidden;
 }
 
@@ -520,6 +502,7 @@ blockquote:before{
 	position:relative;
 	padding-top:80px;
 	padding-bottom:80px;
+   background-color: white;
 }
 
 .section-hr {
@@ -533,6 +516,18 @@ blockquote:before{
 }
 
 /* --- Background Image --- */
+.home-bg{
+   background-image:url(../assets/home-background.jpg);
+}
+
+.cta-bg{
+   background-image:url(../assets/cta1-background.jpg);
+}
+
+.cta2-image{
+   background-image:url(../assets/cta2-background.jpg);
+}
+
 .bg-image {
 	position:absolute;
 	left:0;
@@ -683,8 +678,8 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	background-color:rgba(190,30,45,255);
 	width:100%;
 	-webkit-transform: translateY(5px);
-	    -ms-transform: translateY(5px);
-	        transform: translateY(5px);
+	-ms-transform: translateY(5px);
+	transform: translateY(5px);
 	opacity:0;
 	-webkit-transition:0.2s all;
 	transition:0.2s all;
@@ -692,8 +687,8 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 
 .main-menu li a:hover:after , .main-menu li a:focus:after {
 	-webkit-transform: translateY(0px);
-	    -ms-transform: translateY(0px);
-	        transform: translateY(0px);
+	-ms-transform: translateY(0px);
+	transform: translateY(0px);
 	opacity:1;
 }
 
@@ -708,12 +703,12 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 		height: 100vh;
 		background: #FFF;
 		-webkit-box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.1);
-		        box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.1);
+		box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.1);
 		padding-top: 80px;
 		padding-bottom: 40px;
 		-webkit-transform: translateX(100%);
-		    -ms-transform: translateX(100%);
-		        transform: translateX(100%);
+		-ms-transform: translateX(100%);
+		transform: translateX(100%);
 		-webkit-transition: 0.4s all cubic-bezier(.77,0,.18,1);
 		transition: 0.4s all cubic-bezier(.77,0,.18,1);
 		z-index:9;
@@ -722,8 +717,8 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	#header.nav-collapse #nav{
 		width:100%;
 		-webkit-transform: translateX(0%);
-		    -ms-transform: translateX(0%);
-		        transform: translateX(0%);
+		-ms-transform: translateX(0%);
+      transform: translateX(0%);
 	}
 	
 	.main-menu {
@@ -818,8 +813,8 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	position:absolute;
 	top:50%;
 	-webkit-transform:translateY(-50%);
-	    -ms-transform:translateY(-50%);
-	        transform:translateY(-50%);
+	-ms-transform:translateY(-50%);
+   transform:translateY(-50%);
 	left:0;
 	right:0;
 }
@@ -900,8 +895,8 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	top: 50%;
 	left: 50%;
 	-webkit-transform: translate(-50% , -50%);
-	    -ms-transform: translate(-50% , -50%);
-	        transform: translate(-50% , -50%);
+	-ms-transform: translate(-50% , -50%);
+	transform: translate(-50% , -50%);
 	width: 80px;
 	height: 80px;
 	line-height: 80px;
@@ -911,7 +906,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	font-size: 24.027px;
 	z-index:10;
 	-webkit-animation : 2s play-animation infinite;
-	        animation : 2s play-animation infinite;
+	animation : 2s play-animation infinite;
 	-webkit-transition:0.2s color;
 	transition:0.2s color;
 }
@@ -923,22 +918,22 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 @-webkit-keyframes play-animation {
 	from {
 		-webkit-box-shadow : 0px 0px 0px 0px #FFF;
-		        box-shadow : 0px 0px 0px 0px #FFF;
+		box-shadow : 0px 0px 0px 0px #FFF;
 	}
 	to {
 		-webkit-box-shadow : 0px 0px 0px 10px transparent;
-		        box-shadow : 0px 0px 0px 10px transparent;
+		box-shadow : 0px 0px 0px 10px transparent;
 	}
 }
 
 @keyframes play-animation {
 	from {
 		-webkit-box-shadow : 0px 0px 0px 0px #FFF;
-		        box-shadow : 0px 0px 0px 0px #FFF;
+		box-shadow : 0px 0px 0px 0px #FFF;
 	}
 	to {
 		-webkit-box-shadow : 0px 0px 0px 10px transparent;
-		        box-shadow : 0px 0px 0px 10px transparent;
+		box-shadow : 0px 0px 0px 10px transparent;
 	}
 }
 
@@ -995,8 +990,8 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	left:50%;
 	top:50%;
 	-webkit-transform: translate(-50% , calc(-50% - 15px));
-	    -ms-transform: translate(-50% , calc(-50% - 15px));
-	        transform: translate(-50% , calc(-50% - 15px));
+	-ms-transform: translate(-50% , calc(-50% - 15px));
+	transform: translate(-50% , calc(-50% - 15px));
 	width:40px;
 	height:40px;
 	line-height:40px;
@@ -1012,8 +1007,8 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 
 .course .course-img:hover .course-link-icon {
 	-webkit-transform: translate(-50% , -50%);
-	    -ms-transform: translate(-50% , -50%);
-	        transform: translate(-50% , -50%);
+	-ms-transform: translate(-50% , -50%);
+	transform: translate(-50% , -50%);
 	opacity:1;
 }
 
@@ -1592,8 +1587,8 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	left:50%;
 	top:50%;
 	-webkit-transform: translate(-50% , -50%);
-	    -ms-transform: translate(-50% , -50%);
-	        transform: translate(-50% , -50%);
+	-ms-transform: translate(-50% , -50%);
+	transform: translate(-50% , -50%);
 }
 
 #preloader .preloader:after {
@@ -1605,7 +1600,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
     border-top: 1px solid rgba(190,30,45,255);
     border-radius: 50%;
 	-webkit-animation: 1s preloader linear infinite;
-	        animation: 1s preloader linear infinite;
+	animation: 1s preloader linear infinite;
 }
 
 @-webkit-keyframes preloader {
