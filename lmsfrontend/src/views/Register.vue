@@ -18,7 +18,7 @@
                     <div class="sign-process">
                         <div id="container_title">
                             <h2>
-                                Sign Up to LiTT LMS
+                                Sign Up to LiTT LMSS
                             </h2>
                         </div>
 
@@ -100,7 +100,7 @@ import { store } from '../store/user';
   }
 </script>
 
-<style lang="scss">
+<style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
 
 body{
