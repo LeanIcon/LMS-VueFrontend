@@ -19,24 +19,33 @@
                               </h2>
                           </div>
       
-                          <form action="post">
-                              <input type="text" placeholder="email" class="input-container">
-                              <input type="password" placeholder="password" class="input-container">
+                          <form class="form-signin" v-on:submit.prevent="login" id='login-form'>
+                                <input type="email" v-model="email" id="inputEmail" placeholder="Email address" required autofocus class="input-container">
+                                <div v-show="submitted && !email" class="invalid-feedback">Email is required</div>
+                                <input type="password" placeholder="password" class="input-container" v-model="password" id="inputPassword" required >
                           </form>
                           <div class="form-alt row">
                               <div class="group col-md">
                                   <input id="check" type="checkbox" class="check" checked>
-                                  <label for="check"><span class="icon"></span> Remember me</label>
+                                  <label for="check"><span class="icon"></span>
+                                    <p class="rememberme">
+                                       Remember me
+                                    </p>
+                                </label>
                               </div>
                               <div class="forgot_password col-md">
                               <router-link :to = "{ name:'Forgotpassword' }" exact class="forgot_password">Forgot Password</router-link>
-
                           </div>
                           </div>
                           <div class="container_button">
-                          <div class="btn login_btn">
-                              Login
-                          </div>
+                            <button class="btn login_btn" type="submit"  form='login-form'>
+                                <!-- <span class="spinner-border spinner-border-sm load-signal" role="status" aria-hidden="true"></span> -->
+                                Login
+                            </button>
+                            <!-- <button class="btn btn-primary" type="button" disabled>
+                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                <span class="sr-only">Loading...</span>
+                            </button> -->
                             <router-link :to = "{ name:'Register' }" exact class="btn signup_btn">Sign Up</router-link>
                           </div>
                       </div>
@@ -52,9 +61,9 @@
 </template>
 
 <script>
-import { store } from '../store/user.js';
+import { store } from '../store/user';
   export default {
-    name: 'Signin',
+    name: 'login',
     data () {
       return {
         email: '',
@@ -63,7 +72,7 @@ import { store } from '../store/user.js';
         submitted: false
       }
     },
-    methods: {
+    methods: { 
       login () { 
         store.dispatch('userLogin', {
           email: this.email,
@@ -91,6 +100,15 @@ body{
     width: 100%;
     overflow: hidden;
 }
+
+// .load-signal{
+//     visibility: hidden;
+// }
+
+.rememberme{
+    margin-left: .5rem;
+}
+
 .image_thumb img{
     width: 50vw;
     height: 85vh;

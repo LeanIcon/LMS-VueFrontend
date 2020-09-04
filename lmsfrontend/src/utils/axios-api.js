@@ -7,6 +7,6 @@ const getAPI = axios.create({
 
     baseURL: 'https://littapi.herokuapp.com',
 
-    timeout: 10000,
+    timeout: 20000,
 })
 export { getAPI }
