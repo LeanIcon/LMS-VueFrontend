@@ -30,33 +30,33 @@
                             <!-- <input type="text" placeholder="Country or region of residence" class="input-container" v-model="firstname"> -->
                             <input type="password" placeholder="password" class="input-container" v-model="password">
                             <input type="password" placeholder="confirm password" class="input-container" v-model="confirm_password" :error="!valid()">
-                            <input type="text" placeholder="confirm password" class="input-container" v-model="student_type" :error="!valid()">
+                            <!-- <input type="text" placeholder="confirm password" class="input-container" v-model="student_type" :error="!valid()"> -->
                         </form>
                         <div class="group">
                             <input id="check" type="checkbox" class="check" checked>
-                            <label for="check"><span class="icon"></span> I agree with the terms and conditions</label>
+                            <label for="check"><span class="icon"></span>
+                                <p class="agree">
+                                 I agree with the terms and conditions
+                                </p>
+                            </label>
                         </div>
                         <button class="btn signup_now" type="submit"  form='signup-form'>
                             Sign Up
                         </button>
                         <div class="forgot_password">
-                            <a href="signin.html">Already a member?</a>
+                            <router-link :to = "{ name:'Signin' }" exact>Already a member?</router-link>
+                            <!-- <a href="signin.html">Already a member?</a> -->
                         </div>
                     </div>
                 </div>
-
-
-            </div>
-            
+            </div>            
         </div>
-
     </div>
-
 </div>    
 </template>
 
 <script>
-import { store } from '../store/user.js';
+import { store } from '../store/user';
   export default {
     name: 'Register',
     data () {
@@ -78,11 +78,11 @@ import { store } from '../store/user.js';
               lastname: this.lastname,
               email: this.email,
               password: this.password,
-              student_type: this.student_type
+              student_type: 'individual'
             })
             // Replace '/' with the homepage
             .then(({ status }) => {
-                this.$router.push({ name: 'Dashboard' })
+                this.$router.push({ name: 'Signin' })
                 console.log('check your email')
                 console.log(status)
             })
@@ -107,6 +107,11 @@ body{
     width: 100%;
     overflow: hidden;
 }
+
+.agree{
+    margin-left: .5rem;
+}
+
 .image_thumb img{
     width: 50vw;
     height: 85vh;

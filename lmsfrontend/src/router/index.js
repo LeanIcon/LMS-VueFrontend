@@ -55,7 +55,6 @@ Vue.use(VueRouter)
   {
     path: '/dashboard',
     name: 'Dashboard',
-<<<<<<< HEAD
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
@@ -68,13 +67,6 @@ Vue.use(VueRouter)
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/Question.vue')
-=======
-    component: () => import('../views/Dashboard.vue'),
-    // meta: {
-    //   requiresLogin: true,
-    //   requiresAuth: true,
-    // }
->>>>>>> 9673b246f243321e6beded3f00a40770948fbd8b
   }
 ]
 
