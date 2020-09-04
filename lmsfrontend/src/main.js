@@ -7,6 +7,8 @@ import router from './router/index'
 import store from './store/store.js'
 import IdleVue from 'idle-vue'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '@fortawesome/fontawesome-free/css/all.css'
+import '@fortawesome/fontawesome-free/js/all.js'
 
 const eventsHub = new Vue();
 

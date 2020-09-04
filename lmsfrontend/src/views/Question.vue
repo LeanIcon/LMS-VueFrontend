@@ -120,7 +120,7 @@ export default {
         /* overflow: hidden; */
     }
     .main_container{
-        alignment: center;
+        /*align: center;*/
         border: round;
         margin-left: 20em;
         margin-right: 20em;
