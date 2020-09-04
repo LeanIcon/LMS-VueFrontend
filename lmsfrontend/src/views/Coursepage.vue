@@ -1,5 +1,5 @@
 <template>
-        <div class="courseintro">
+        <div class="coursepage">
             <div class="dashnav">
           <Dashboardnavbar></Dashboardnavbar>
         </div>
@@ -59,25 +59,20 @@
                 </div>
 
                 <div class="main-body">
-                    <h3>Objective</h3>
-                    <p>After completing this course, you would be able to understand:</p>
-                    <ul>
-                        <li>Basic concepts of Business Analysis</li>
-                    </ul>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A odit consectetur porro delectus asperiores architecto? Ab, labore neque, facere sint recusandae odit voluptate nostrum maxime in eius minima. Nam, eius! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas corrupti voluptatum architecto ad, illo praesentium odio voluptatibus? Facere impedit sequi minus voluptatum odit, odio harum facilis perferendis doloribus quaerat eum. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta, adipisci tempora voluptatibus cumque non assumenda eaque error accusamus quos, similique suscipit ea ipsa. Sapiente vitae recusandae odit minus animi maiores.</p>
-                    <div class="course2-btn">
-                        <button class="btn btn-lg btn-primary">Download <i class="fa fa-download"></i></button>
-                    </div>
+                   
                 </div>
                 <div class=" video-div">
                         
                 <video controls src="">
                 </video>
-                <div class="course2-btn">
-                        <router-link :to = "{ name:'Coursepage' }" exact class="btn btn-lg btn-primary">Start</router-link>
- 
-                    </div>
-            
+                <div class="welcome-text">
+            <h3>Welcome to the Business Analysis Course</h3>
+            <h5>Hear BA's share their perspective before you start in the field</h5>
+              
+          </div>
+        <div class="course2-btn">
+                <button class="btn btn-lg btn-primary">Next</button>
+            </div>
                 </div>
                 
             
@@ -144,7 +139,6 @@ export default {
     transition: 0.5s;
     pad: 60px;
     font:lato;
-    padding-top: 2rem;
 }
 
 
@@ -225,6 +219,9 @@ video{
     text-decoration: none;
     /*color: #999;*/
     color: #fff;    
+}
+.welcome-text{
+    text-align: justify;
 }
 
 </style>
