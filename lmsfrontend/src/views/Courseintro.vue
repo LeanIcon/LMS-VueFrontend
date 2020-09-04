@@ -144,6 +144,7 @@ export default {
     transition: 0.5s;
     pad: 60px;
     font:lato;
+    padding-top: 2rem;
 }
 
 
