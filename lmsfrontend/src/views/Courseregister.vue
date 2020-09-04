@@ -23,10 +23,7 @@
                    <p>You've enrolled on this course! </p>
                </div>
                <div class="enroll-btn">
-                  
-                <button class="btn btn-lg btn-primary"> Register</button>
-                      
-                   
+                 <router-link :to = "{ name:'Courseconfirm' }" exact class="btn btn-lg btn-primary">Register</router-link>
                </div>
                <div class="enroll-list">
                    <div class="enroll-icon"><i class="fas fa-list-alt"></i> 8 Lessons</div>
@@ -44,17 +41,20 @@
         <div class="card-deck mb-3 text-center">
             <div class="card mb-4 shadow-sm cardd">
                 <div class="card-body">
+                    <!-- <video src="https://res.cloudinary.com/littlms/video/upload/v1599205450/2020-09-02_Design_Thinking_Wrap_up_Session_gpwm4v.mp4"></video> -->
                     <button class="btn btn-lg btn-primary">Add new Course</button>
                 </div>
             </div>
             <div class="card mb-4 shadow-sm cardd">
                 <div class="card-body">
+                    <!-- <video src="https://res.cloudinary.com/littlms/video/upload/v1599205519/2020-07-09_Empathy_Mapping_Design_Thinking_2_0_kjj2zc.mp4"></video> -->
                     <button class="btn btn-lg btn-primary">Add new Course</button>
                 </div>
 
             </div>
             <div class="card mb-4 shadow-sm cardd">
                 <div class="card-body">
+                    <!-- <video src="https://res.cloudinary.com/littlms/video/upload/v1599179549/2020-08-19_Design_Thinking_Prototype_md1oep.mp4"></video> -->
                     <button class="btn btn-lg btn-primary">Add new Course</button>
                 </div>
             </div>

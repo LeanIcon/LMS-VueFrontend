@@ -1,5 +1,5 @@
 <template>
-        <div class="courseintro">
+        <div class="coursepage">
             <div class="dashnav">
           <Dashboardnavbar></Dashboardnavbar>
         </div>
@@ -11,7 +11,7 @@
                 <div id="mySideBar" class="sidebar">
             <div class="sidebar-header row">
                 <div class="header-text col-9">
-                    <h3>Skill Overview</h3>
+                    <h3 class="bar-title">Skill Overview</h3>
                 </div>
                 <div class="x-btn col-3">
                     <a href="javascript:void(0)" class="closebtn" v-on:click="closeNav">X</a>
@@ -22,28 +22,28 @@
                 <div class="mySideBarMenuItem"><a href="#"  data-toggle="collapse" data-target="#submenu-1">+  Skill Overview</a>
                 <hr>
                 <ul id="submenu-1" class="collapse side-nav">
-                    <li><a href="#"><i></i>SUBMENU 1.1</a></li>
-                    <li><a href="#"><i></i>SUBMENU 1.2</a></li>
-                    <li><a href="#"><i></i>SUBMENU 1.3</a></li>
-                </ul>
+                                    <li><a href="#"><i></i>SUBMENU 1.1</a></li>
+                                    <li><a href="#"><i></i>SUBMENU 1.2</a></li>
+                                    <li><a href="#"><i></i>SUBMENU 1.3</a></li>
+                                </ul>
 
                 </div>
                 <div class="mySideBarMenuItem"><a href="#"  data-toggle="collapse" data-target="#submenu-2">+  Skill Overview</a>
                 <hr>
                 <ul id="submenu-2" class="collapse side-nav">
-                    <li><a href="#"><i></i>SUBMENU 1.1</a></li>
-                    <li><a href="#"><i></i>SUBMENU 1.2</a></li>
-                    <li><a href="#"><i></i>SUBMENU 1.3</a></li>
-                </ul>
+                                    <li><a href="#"><i></i>SUBMENU 1.1</a></li>
+                                    <li><a href="#"><i></i>SUBMENU 1.2</a></li>
+                                    <li><a href="#"><i></i>SUBMENU 1.3</a></li>
+                                </ul>
 
                 </div>
                 <div class="mySideBarMenuItem"><a href="#"  data-toggle="collapse" data-target="#submenu-3">+  Skill Overview</a>
                 <hr>
                 <ul id="submenu-3" class="collapse side-nav">
-                    <li><a href="#"><i></i>SUBMENU 1.1</a></li>
-                    <li><a href="#"><i></i>SUBMENU 1.2</a></li>
-                    <li><a href="#"><i></i>SUBMENU 1.3</a></li>
-                </ul>
+                                    <li><a href="#"><i></i>SUBMENU 1.1</a></li>
+                                    <li><a href="#"><i></i>SUBMENU 1.2</a></li>
+                                    <li><a href="#"><i></i>SUBMENU 1.3</a></li>
+                                </ul>
 
                 </div>
   
@@ -59,25 +59,21 @@
                 </div>
 
                 <div class="main-body">
-                    <h3>Objective</h3>
-                    <p>After completing this course, you would be able to understand:</p>
-                    <ul>
-                        <li>Basic concepts of Business Analysis</li>
-                    </ul>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A odit consectetur porro delectus asperiores architecto? Ab, labore neque, facere sint recusandae odit voluptate nostrum maxime in eius minima. Nam, eius! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas corrupti voluptatum architecto ad, illo praesentium odio voluptatibus? Facere impedit sequi minus voluptatum odit, odio harum facilis perferendis doloribus quaerat eum. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta, adipisci tempora voluptatibus cumque non assumenda eaque error accusamus quos, similique suscipit ea ipsa. Sapiente vitae recusandae odit minus animi maiores.</p>
-                    <div class="course2-btn">
-                        <button class="btn btn-lg btn-primary">Download <i class="fa fa-download"></i></button>
-                    </div>
+                   
                 </div>
                 <div class=" video-div">
                         
-                <video controls src="https://res.cloudinary.com/littlms/video/upload/v1599179957/2020-07-24_Design_Thinking_Define_Stage_SWOT_and_TOWS_Analysis_ihwgnl.mp4">
+                <video controls src="https://res.cloudinary.com/littlms/video/upload/v1599179549/2020-08-19_Design_Thinking_Prototype_md1oep.mp4">
+
                 </video>
-                <div class="course2-btn">
-                        <router-link :to = "{ name:'Coursepage' }" exact class="btn btn-lg btn-primary">Start</router-link>
- 
-                    </div>
-            
+                <div class="welcome-text">
+            <h3>Welcome to the Business Analysis Course</h3>
+            <h5>Hear BA's share their perspective before you start in the field</h5>
+              
+          </div>
+        <div class="course2-btn">
+                <button class="btn btn-lg btn-primary">Next</button>
+            </div>
                 </div>
                 
             
@@ -91,7 +87,7 @@
 <script type="text/javascript">
 import Dashboardnavbar from '@/components/Dashboardnavbar.vue'
 export default {
-    name: 'Dashboard',
+    name: 'Coursepage',
   components:{
       Dashboardnavbar,
   },
@@ -123,6 +119,9 @@ export default {
 </script>
 
 <style scoped>
+.bar-title{
+    margin-top: 3rem;
+}
 .dashnav{
   position: static;
   z-index: 0;
@@ -144,7 +143,6 @@ export default {
     transition: 0.5s;
     pad: 60px;
     font:lato;
-    padding-top: 2rem;
 }
 
 
@@ -182,7 +180,6 @@ hr{
     padding-left: 30px;
     padding-right: 30px;
 }
-
 .main-body h3{
     font-weight: 700;
 }
@@ -228,6 +225,9 @@ video{
     text-decoration: none;
     /*color: #999;*/
     color: #fff;    
+}
+.welcome-text{
+    text-align: justify;
 }
 
 </style>

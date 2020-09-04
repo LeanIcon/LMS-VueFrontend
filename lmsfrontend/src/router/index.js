@@ -87,6 +87,15 @@ Vue.use(VueRouter)
     //   requiresLogin: true,
     //   requiresAuth: true,
     // }
+  },
+  {
+    path: '/coursepage',
+    name: 'Coursepage',
+    component: () => import('../views/Coursepage.vue'),
+    // meta: {
+    //   requiresLogin: true,
+    //   requiresAuth: true,
+    // }
   }
 ]
 
