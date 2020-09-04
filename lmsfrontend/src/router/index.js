@@ -55,11 +55,18 @@ Vue.use(VueRouter)
   {
     path: '/dashboard',
     name: 'Dashboard',
-    component: () => import('../views/Dashboard.vue'),
-    // meta: {
-    //   requiresLogin: true,
-    //   requiresAuth: true,
-    // }
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/Dashboard.vue')
+  },
+  {
+    path: '/question',
+    name: 'Question',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/Question.vue')
   },
   {
     path: '/courseregister',
@@ -92,15 +99,6 @@ Vue.use(VueRouter)
     path: '/coursepage',
     name: 'Coursepage',
     component: () => import('../views/Coursepage.vue'),
-    // meta: {
-    //   requiresLogin: true,
-    //   requiresAuth: true,
-    // }
-  },
-  {
-    path: '/question',
-    name: 'Question',
-    component: () => import('../views/Question.vue'),
     // meta: {
     //   requiresLogin: true,
     //   requiresAuth: true,

@@ -177,9 +177,12 @@ hr{
     font-weight: 100;
     color: grey;
 }
+
 .main-body{
-    margin-left: 60px;
+    padding-left: 30px;
+    padding-right: 30px;
 }
+
 .main-body h3{
     font-weight: 700;
 }
