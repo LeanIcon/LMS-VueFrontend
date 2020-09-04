@@ -67,6 +67,42 @@ Vue.use(VueRouter)
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/Question.vue')
+  },
+  {
+    path: '/courseregister',
+    name: 'Courseregister',
+    component: () => import('../views/Courseregister.vue'),
+    // meta: {
+    //   requiresLogin: true,
+    //   requiresAuth: true,
+    // }
+  },
+  {
+    path: '/courseconfirm',
+    name: 'Courseconfirm',
+    component: () => import('../views/Courseconfirm.vue'),
+    // meta: {
+    //   requiresLogin: true,
+    //   requiresAuth: true,
+    // }
+  },
+  {
+    path: '/courseintro',
+    name: 'Courseintro',
+    component: () => import('../views/Courseintro.vue'),
+    // meta: {
+    //   requiresLogin: true,
+    //   requiresAuth: true,
+    // }
+  },
+  {
+    path: '/coursepage',
+    name: 'Coursepage',
+    component: () => import('../views/Coursepage.vue'),
+    // meta: {
+    //   requiresLogin: true,
+    //   requiresAuth: true,
+    // }
   }
 ]
 
