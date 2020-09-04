@@ -11,7 +11,7 @@
                 <div id="mySideBar" class="sidebar">
             <div class="sidebar-header row">
                 <div class="header-text col-9">
-                    <h3>Skill Overview</h3>
+                    <h3 class="bar-title">Skill Overview</h3>
                 </div>
                 <div class="x-btn col-3">
                     <a href="javascript:void(0)" class="closebtn" v-on:click="closeNav">X</a>
@@ -86,7 +86,7 @@
 <script type="text/javascript">
 import Dashboardnavbar from '@/components/Dashboardnavbar.vue'
 export default {
-    name: 'Dashboard',
+    name: 'Coursepage',
   components:{
       Dashboardnavbar,
   },
@@ -118,6 +118,9 @@ export default {
 </script>
 
 <style scoped>
+.bar-title{
+    margin-top: 3rem;
+}
 .dashnav{
   position: static;
   z-index: 0;

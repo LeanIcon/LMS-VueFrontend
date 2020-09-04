@@ -72,6 +72,7 @@
               </div>
               <div class="row card-deck">
                 <div class="card course-progress stats-card">
+                  
                   <div class="card-head head-btn">
                     <p class="card-title ">Business Analysis</p>
                     <div class="start-btn btn btn-primary">Start</div>

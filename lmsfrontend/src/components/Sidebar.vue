@@ -21,6 +21,7 @@
                 <!-- <p>Home</p> -->
                 </div>
                 <div class="courses-font tab">
+                    <router-link :to = "{ name:'Courseregister' }" exact class="ic_school_24px"></router-link>
                     <svg class="Rectangle_581_fa">
                         <rect id="Rectangle_581_fa" rx="0" ry="0" x="0" y="0" width="7rem" height="105">
                         </rect>
