@@ -1,4 +1,3 @@
-
 <template>
   <div class="signin">
     <router-link to="/signin"></router-link>
