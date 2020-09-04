@@ -5,6 +5,7 @@
     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> 
   </form>
 </nav>-->
+<<<<<<< HEAD
     <!--head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,6 +48,20 @@
         </div>
     <!--/body-->
             
+=======
+  <div class="footer row">
+         <div class="litt_logo col-4">
+                      <img src="../assets/gh_01_ek2.png" alt="">
+         </div>
+           <div class="footer-creds col-8">
+                 <a href="contactUs.html">Contact</a>
+                 <a href="Privacy.html">Privacy</a>
+                 <a href="tos.html">Terms of use</a>
+                 <a href="Accessibility.html">Accessibility</a>
+                 <a href="cookie.html">Cookie Prefrences</a>
+          </div>
+   </div>            
+>>>>>>> dev
 </template>
 
 <script>
