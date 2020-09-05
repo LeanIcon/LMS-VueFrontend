@@ -1,5 +1,6 @@
 <template>
 		<div id="header" class="transparent-nav">
+           <Footer></Footer>
 			<div class="container">
 
 
@@ -261,7 +262,7 @@
 			<!-- /Why us -->
 
 			<!-- Contact CTA -->
-			<div id="contact-cta" class="section">
+			<div id="contact-cta" class="section contact-container">
 
 				<!-- Backgound Image -->
 				<div class="bg-image bg-parallax overlay cta2-image"></div>
@@ -285,20 +286,20 @@
 
 				</div>
 			</div>
+         <Footer></Footer>
 		</div>
 
 </template>
 
 <script>
-// @ is an alias to /src
-
+import Footer from '@/components/Footer.vue'
 
 export default {
-  name: 'Landingpage',
+   name: 'Landingpage',
   components :{
-    
+    Footer    
   },
-  }
+}
 
 </script>
 <style scoped>
@@ -388,6 +389,10 @@ button {
   text-transform:uppercase;
   font-weight:600;
   background:#fff;
+}
+
+.contact-container{
+   margin-bottom: 5rem;
 }
 /*
 Template Name: HTML Education Template

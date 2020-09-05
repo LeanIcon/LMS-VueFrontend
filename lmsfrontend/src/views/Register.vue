@@ -3,6 +3,9 @@
     <router-link to="/register"></router-link>
       <router-view/>
    <div id="content-container">
+        <div class="footer-container">
+            <Footer></Footer>
+        </div>
         <div class="sign_in_page">
             <div class="row">
                 <div class="image_thumb col">
@@ -56,9 +59,13 @@
 </template>
 
 <script>
+import Footer from '@/components/Footer.vue'
 import { store } from '../store/user';
   export default {
     name: 'Register',
+    components: {
+    Footer,    
+  },
     data () {
       return {
         firstname: '',
@@ -108,6 +115,10 @@ body{
     overflow: hidden;
 }
 
+.footer-container{
+    z-index: 100;
+}
+
 .agree{
     margin-left: .5rem;
 }
@@ -115,6 +126,8 @@ body{
 .image_thumb img{
     width: 50vw;
     height: 85vh;
+    position: relative;
+    z-index:-1;
 }
 
 form input{

@@ -2,6 +2,7 @@
     <div class="signin">
         <router-link to="/signin"></router-link>
         <router-view/>
+        <Footer></Footer>
         
         <div id="content-container"> 
             <div class="sign_in_page">
@@ -60,8 +61,12 @@
 
 <script>
 import { store } from '../store/user';
+import Footer from '@/components/Footer.vue'
   export default {
     name: 'login',
+    components :{
+        Footer
+    },
     data () {
       return {
         email: '',
@@ -88,19 +93,6 @@ import { store } from '../store/user';
       }
   }
 </script>
-  
-
-<script>
-    // @ is an alias to /src
-import Footer from '@/components/Footer.vue'
-
-export default {
-  name: 'Home',
-  components :{
-    Footer
-  },
-}
-</script>
 
 <style scoped> 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
@@ -120,7 +112,9 @@ body{
 
 .image_thumb img{
     width: 50vw;
-    height: 85.2vh;
+    height: 85vh;
+    position: relative;
+    z-index:-1;
 }
 
 form input{
