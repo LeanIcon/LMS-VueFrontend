@@ -23,7 +23,9 @@
 							<div class="col-md-8">
 								<h1 class="white-text">LEAN ICON AGILE TRAINING</h1>
 								<p class="lead white-text">Learn to Successfully Put Agile Practices Into Action. Improve your Ability to Plan, Manage & Lead in Your Project Teams with Agile</p>
-								<a class="main-button icon-button" style="cursor: pointer;">Get Started!</a>
+                        <router-link :to = "{ name:'Signin' }">
+                           <a class="main-button icon-button" style="cursor: pointer;">Get Started!</a>
+                        </router-link>
 							</div>
 						</div>
 					</div>
@@ -89,7 +91,7 @@
 										<img src="../assets/course03.jpg" alt="">
 										<i class="course-link-icon fas fa-chalkboard-teacher"></i>
 									</a>
-									<a class="course-title" href="#">Agile Human Resource Management | From Beginner To Advanced</a>
+									<a class="course-title" href="#">Agile Human Resource Management</a>
 									<div class="course-details">
 									</div>
 								</div>
@@ -208,7 +210,9 @@
 						<div class="col-md-8">
 							<h2 class="white-text">Agile Training.</h2>
 							<p class="lead white-text">Agile training is a way to improve project performance by teaching the basic concepts of Agile to an organization or team and how to implement it. ... Training can help expose the underlying Agile concepts and clarify the differences between the various implementation methods..</p>
-							<a class="main-button icon-button" href="#">Get Started!</a>
+                     <router-link :to = "{ name:'Signin' }">
+                        <a class="main-button icon-button" href="#">Get Started!</a>
+                     </router-link>
 						</div>
 
 					</div>

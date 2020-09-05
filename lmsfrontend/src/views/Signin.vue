@@ -102,7 +102,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped> 
+<style scoped> 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
 
 body{
@@ -110,9 +110,9 @@ body{
     overflow: hidden;
 }
 
-// .load-signal{
-//     visibility: hidden;
-// }
+/* .load-signal{
+    visibility: hidden;
+} */
 
 .rememberme{
     margin-left: .5rem;
