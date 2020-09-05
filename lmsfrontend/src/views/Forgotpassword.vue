@@ -13,8 +13,9 @@
               <input type="text" placeholder="email" class="input-container">
                                 
             </form>
-          
-              <router-link :to = "{ name:'signin' }" exact class="btn signup_btn">Send request</router-link>
+            <div class="button-area row">
+              <button class="btn signup_btn col-12" type="submit">Send request</button>
+            </div>
           </div>
         </div>
   </div>    
@@ -61,24 +62,29 @@ export default {
   .paragraph{
     text-align: center;
   }
+
   .input-container{
     width:70%;
     margin: 0 auto;
     margin-top: 2rem;
   }
+
+  .button-area{
+    margin: 0 auto;
+    width: 20rem;
+  }
+
   .btn {
     border: transparent;
-    background-color: rgba(195, 0, 12, 1); 
-    margin-left: 13rem;
-    margin-top: 5rem;
+    background-color: rgba(195, 0, 12, 1);
     text-decoration: none;
-    width: 30%;
+    width: 6rem !important;
     color: #fff;
+    margin: 3rem auto;
 
   }
   .btn:hover {
     color: #fff;
-
   }
 
 </style>     
