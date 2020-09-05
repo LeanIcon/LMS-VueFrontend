@@ -24,40 +24,43 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-    html,body{
+.footer{
+  background: rgba(190,30,45,255);
+  height: 15vh;
+  color: #fff;
+  place-content: center;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+}
+    /* html,body{
         margin: 0px;
         padding: 0px;
         height: 100vh;
-        /* overflow: hidden; */
-    }
-    .footer-creds > a{
-        color: rgb(255, 255, 255);
-        list-style: none;
-        width: 100%;
-        padding-right: 50px;
-        text-decoration:none;
-        text-align: left;
+        /* overflow: hidden; 
+    } */
+.footer-creds > a{
+    color: rgb(255, 255, 255);
+    list-style: none;
+    width: 100%;
+    padding-right: 50px;
+    text-decoration:none;
+    text-align: left;
 
-    }
+}
 
-    .footer{
-        background-color: rgba(195, 0, 12, 1);
-        height: 5.5rem;
-        bottom: 0px;
-        position: absolute;
-        width: 100vw;
-    }
+.footer-creds{
+    margin-top: 2.4rem;
+}
 
-    .footer-creds{
-        margin-top: 2.4rem;
-    }
-    img{
-        height: 6rem;
-    }
+img{
+    height: 6rem;
+}
 
-    .footer-creds > a:hover{
-        text-decoration:none;
-        color: #fff;
-    }
+.footer-creds > a:hover{
+    text-decoration:none;
+    color: #fff;
+}
 
 </style>

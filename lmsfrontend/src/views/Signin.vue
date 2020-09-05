@@ -2,12 +2,13 @@
     <div class="signin">
         <router-link to="/signin"></router-link>
         <router-view/>
+        <Footer></Footer>
         
         <div id="content-container"> 
             <div class="sign_in_page">
                 <div class="row">
                     <div class="image_thumb col">
-                        <img src="../assets/pexels_retha_ferguson_3810788.png" alt="image_thumb">
+                        <img src="https://res.cloudinary.com/littlms/image/upload/q_65/v1599265733/image%20sources%20litt/pexels_retha_ferguson_3810788.592f68c3_i8ahps.webp" alt="image_thumb">
                     </div>
                     <div class="signin-container col">
                         <div class="sign-process a">
@@ -60,8 +61,12 @@
 
 <script>
 import { store } from '../store/user';
+import Footer from '@/components/Footer.vue'
   export default {
     name: 'login',
+    components :{
+        Footer
+    },
     data () {
       return {
         email: '',
@@ -88,21 +93,8 @@ import { store } from '../store/user';
       }
   }
 </script>
-  
 
-<script>
-    // @ is an alias to /src
-import Footer from '@/components/Footer.vue'
-
-export default {
-  name: 'Home',
-  components :{
-    Footer
-  },
-}
-</script>
-
-<style lang="scss" scoped> 
+<style scoped> 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
 
 body{
@@ -110,9 +102,9 @@ body{
     overflow: hidden;
 }
 
-// .load-signal{
-//     visibility: hidden;
-// }
+/* .load-signal{
+    visibility: hidden;
+} */
 
 .rememberme{
     margin-left: .5rem;
@@ -120,7 +112,9 @@ body{
 
 .image_thumb img{
     width: 50vw;
-    height: 85.2vh;
+    height: 85vh;
+    position: relative;
+    z-index:-1;
 }
 
 form input{
