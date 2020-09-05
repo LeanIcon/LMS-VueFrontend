@@ -22,28 +22,28 @@
                 <div class="mySideBarMenuItem"><a href="#"  data-toggle="collapse" data-target="#submenu-1">+  Skill Overview</a>
                 <hr>
                 <ul id="submenu-1" class="collapse side-nav">
-                                    <li><a href="#"><i></i>SUBMENU 1.1</a></li>
-                                    <li><a href="#"><i></i>SUBMENU 1.2</a></li>
-                                    <li><a href="#"><i></i>SUBMENU 1.3</a></li>
-                                </ul>
+                    <li><a href="#"><i></i>SUBMENU 1.1</a></li>
+                    <li><a href="#"><i></i>SUBMENU 1.2</a></li>
+                    <li><a href="#"><i></i>SUBMENU 1.3</a></li>
+                </ul>
 
                 </div>
                 <div class="mySideBarMenuItem"><a href="#"  data-toggle="collapse" data-target="#submenu-2">+  Skill Overview</a>
                 <hr>
                 <ul id="submenu-2" class="collapse side-nav">
-                                    <li><a href="#"><i></i>SUBMENU 1.1</a></li>
-                                    <li><a href="#"><i></i>SUBMENU 1.2</a></li>
-                                    <li><a href="#"><i></i>SUBMENU 1.3</a></li>
-                                </ul>
+                    <li><a href="#"><i></i>SUBMENU 1.1</a></li>
+                    <li><a href="#"><i></i>SUBMENU 1.2</a></li>
+                    <li><a href="#"><i></i>SUBMENU 1.3</a></li>
+                </ul>
 
                 </div>
                 <div class="mySideBarMenuItem"><a href="#"  data-toggle="collapse" data-target="#submenu-3">+  Skill Overview</a>
                 <hr>
                 <ul id="submenu-3" class="collapse side-nav">
-                                    <li><a href="#"><i></i>SUBMENU 1.1</a></li>
-                                    <li><a href="#"><i></i>SUBMENU 1.2</a></li>
-                                    <li><a href="#"><i></i>SUBMENU 1.3</a></li>
-                                </ul>
+                    <li><a href="#"><i></i>SUBMENU 1.1</a></li>
+                    <li><a href="#"><i></i>SUBMENU 1.2</a></li>
+                    <li><a href="#"><i></i>SUBMENU 1.3</a></li>
+                </ul>
 
                 </div>
   
@@ -107,15 +107,15 @@ export default {
   }
 }
 };  
-        (function () {
-            ('[data-toggle="tooltip"]').tooltip();
-            (".side-nav .collapse").on("hide.bs.collapse", function () {
-                (this).prev().find(".fa").eq(1).removeClass("fa-angle-right").addClass("fa-angle-down");
-            });
-            ('.side-nav .collapse').on("show.bs.collapse", function () {
-                (this).prev().find(".fa").eq(1).removeClass("fa-angle-down").addClass("fa-angle-right");
-            });
-        }) 
+(function () {
+    ('[data-toggle="tooltip"]').tooltip();
+    (".side-nav .collapse").on("hide.bs.collapse", function () {
+        (this).prev().find(".fa").eq(1).removeClass("fa-angle-right").addClass("fa-angle-down");
+    });
+    ('.side-nav .collapse').on("show.bs.collapse", function () {
+        (this).prev().find(".fa").eq(1).removeClass("fa-angle-down").addClass("fa-angle-right");
+    });
+}) 
 </script>
 
 <style scoped>

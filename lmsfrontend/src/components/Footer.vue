@@ -1,10 +1,4 @@
 <template>
- <!-- <nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand">Navbar</a>
-  <form class="form-inline">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> 
-  </form>
-</nav>-->
   <div class="footer row">
          <div class="litt_logo col-4">
                       <img src="../assets/gh_01_ek2.png" alt="">
@@ -20,12 +14,12 @@
 </template>
 
 <script>
-export default {
-  name: 'footer row',
-  /**props: {
-    msg: String
-  }**/
-}
+    export default {
+    name: 'Footer',
+    /**props: {
+        msg: String
+    }**/
+    }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -40,18 +34,33 @@ export default {
   bottom: 0;
   width: 100vw;
 }
+    /* html,body{
+        margin: 0px;
+        padding: 0px;
+        height: 100vh;
+        /* overflow: hidden; 
+    } */
+.footer-creds > a{
+    color: rgb(255, 255, 255);
+    list-style: none;
+    width: 100%;
+    padding-right: 50px;
+    text-decoration:none;
+    text-align: left;
 
-.litt_logo img{
-    height: 120px;
 }
 
 .footer-creds{
-    margin: auto;
+    margin-top: 2.4rem;
 }
 
-.footer-creds a{
-    text-decoration: none;
-    color: #fff;
-    margin-left: 20px;
+img{
+    height: 6rem;
 }
+
+.footer-creds > a:hover{
+    text-decoration:none;
+    color: #fff;
+}
+
 </style>
