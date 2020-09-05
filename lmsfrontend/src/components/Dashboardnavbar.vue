@@ -24,11 +24,22 @@
                   <img src="../assets/user.png" alt="">
                </div>
             </div>
-            <div class="dropdown-icon nav-item">
-               <img src="../assets/dropdown.png" alt="">
+            <div class="dropdown-icon nav-item dropdown">
+               <img src="../assets/dropdown.png" class="dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+               <div class="dropdown-menu dropdown-menu-right dropdown"
+                  aria-labelledby="navbarDropdownMenuLink-333">
+                  <a class="dropdown-item" href="#">My Courses</a>
+                  <a class="dropdown-item logout" href="#">Logout</a>
+               </div>
             </div>
          </div>
       </div>
+      <!-- <li class="nav-item dropdown"> -->
+        <!-- <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-user"></i> -->
+        <!-- </a> -->
 
    </div>
 </template>
@@ -47,6 +58,14 @@ export default {
 </script>
 
 <style scoped>
+.logout{
+   color: red;
+}
+
+.dropdown-menu{
+   margin-top: 1rem;
+}
+
 .dashboard-nav[data-v-3280c0b8] {
     background-color: rgb(255, 255, 255);
     position: fixed;

@@ -8,51 +8,46 @@
                 
                 
 
-                <div id="mySideBar" class="sidebar">
-            <div class="sidebar-header row">
-                <div class="header-text col-9">
-                    <h3 class="bar-title">Skill Overview</h3>
+            <div id="mySideBar" class="sidebar">
+                <div class="sidebar-header">
+                    <div class="header-text">
+                        <h3 class="bar-title">Course Overview</h3>
+                    </div>
                 </div>
-                <div class="x-btn col-3">
-                    <a href="javascript:void(0)" class="closebtn" v-on:click="closeNav">X</a>
+            
+            
+                <div class="mySideBarMenuItem"><a href="#"  data-toggle="collapse" data-target="#submenu-1">+  Course Introduction</a>
+                    <hr>
+                    <ul id="submenu-1" class="collapse side-nav">
+                        <li><a href="#"><i></i>- Introduction</a></li>
+                        <li><a href="#"><i></i>- Requirements</a></li>
+                    </ul>
+                </div>
+
+                <div class="mySideBarMenuItem"><a href="#"  data-toggle="collapse" data-target="#submenu-2">+  Market Analysis</a>
+                    <hr>
+                    <ul id="submenu-2" class="collapse side-nav">
+                        <li><a href="#"><i></i>- Estimation</a></li>
+                        <li><a href="#"><i></i>- Regression</a></li>
+                        <li><a href="#"><i></i>- Linear Optimization</a></li>
+                        <li><a href="#"><i></i>- Dynamic Optimization</a></li>
+                    </ul>
+                </div>
+
+                <div class="mySideBarMenuItem"><a href="#"  data-toggle="collapse" data-target="#submenu-3">+  Assessment</a>
+                    <hr>
+                    <ul id="submenu-3" class="collapse side-nav">
+                        <li><a href="#"><i></i>- Quiz</a></li>
+                        <li><a href="#"><i></i>- Course Recap</a></li>
+                        <li><a href="#"><i></i>- Your Next Step</a></li>
+                    </ul>
                 </div>
             </div>
-            
-            
-                <div class="mySideBarMenuItem"><a href="#"  data-toggle="collapse" data-target="#submenu-1">+  Skill Overview</a>
-                <hr>
-                <ul id="submenu-1" class="collapse side-nav">
-                    <li><a href="#"><i></i>SUBMENU 1.1</a></li>
-                    <li><a href="#"><i></i>SUBMENU 1.2</a></li>
-                    <li><a href="#"><i></i>SUBMENU 1.3</a></li>
-                </ul>
 
-                </div>
-                <div class="mySideBarMenuItem"><a href="#"  data-toggle="collapse" data-target="#submenu-2">+  Skill Overview</a>
-                <hr>
-                <ul id="submenu-2" class="collapse side-nav">
-                    <li><a href="#"><i></i>SUBMENU 1.1</a></li>
-                    <li><a href="#"><i></i>SUBMENU 1.2</a></li>
-                    <li><a href="#"><i></i>SUBMENU 1.3</a></li>
-                </ul>
-
-                </div>
-                <div class="mySideBarMenuItem"><a href="#"  data-toggle="collapse" data-target="#submenu-3">+  Skill Overview</a>
-                <hr>
-                <ul id="submenu-3" class="collapse side-nav">
-                    <li><a href="#"><i></i>SUBMENU 1.1</a></li>
-                    <li><a href="#"><i></i>SUBMENU 1.2</a></li>
-                    <li><a href="#"><i></i>SUBMENU 1.3</a></li>
-                </ul>
-
-                </div>
-  
-            
-            
-            </div>
             <main id="main">
                 <div class="main-header">
-                    <div class="header-icon"><span style="font-size: 30px; cursor: pointer;" v-on:click="openNav">&#9776;</span></div>
+                    <div class="header-icon"><span style="font-size: 30px; cursor: pointer;" v-if="navToggle" v-on:click="openNav">&#9776;</span></div>
+                    <div class="header-icon"><span style="font-size: 30px; cursor: pointer;" v-if="!navToggle" v-on:click="closeNav">&#9776;</span></div>
                     <div class="header-text"> <h2>Learn Business Analysis</h2></div>
                     
             
@@ -74,10 +69,7 @@
         <div class="course2-btn">
                 <button class="btn btn-lg btn-primary">Next</button>
             </div>
-                </div>
-                
-            
-
+                </div>  
             </main >
         </div>    
    </div> 
@@ -86,11 +78,17 @@
 
 <script type="text/javascript">
 import Dashboardnavbar from '@/components/Dashboardnavbar.vue'
+
 export default {
     name: 'Coursepage',
   components:{
       Dashboardnavbar,
   },
+    data () {
+    return {
+        navToggle: true,
+        }
+    },
    methods:{
     // When the user clicks on div, open the popup
 
@@ -98,30 +96,34 @@ export default {
     openNav: function openNav(){
     document.getElementById("mySideBar").style.width = "250px";
     document.getElementById("main").style.marginLeft = "250px";
+    this.navToggle = false
     },
 
     closeNav: function closeNav(){
     document.getElementById("mySideBar").style.width = "0";
     document.getElementById("main").style.marginLeft = "0";
+    this.navToggle = true
   
   }
 }
 };  
-(function () {
-    ('[data-toggle="tooltip"]').tooltip();
-    (".side-nav .collapse").on("hide.bs.collapse", function () {
-        (this).prev().find(".fa").eq(1).removeClass("fa-angle-right").addClass("fa-angle-down");
-    });
-    ('.side-nav .collapse').on("show.bs.collapse", function () {
-        (this).prev().find(".fa").eq(1).removeClass("fa-angle-down").addClass("fa-angle-right");
-    });
-}) 
+    (function () {
+        ('[data-toggle="tooltip"]').tooltip();
+        (".side-nav .collapse").on("hide.bs.collapse", function () {
+            (this).prev().find(".fa").eq(1).removeClass("fa-angle-right").addClass("fa-angle-down");
+        });
+        ('.side-nav .collapse').on("show.bs.collapse", function () {
+            (this).prev().find(".fa").eq(1).removeClass("fa-angle-down").addClass("fa-angle-right");
+        });
+    })  
 </script>
 
 <style scoped>
 .bar-title{
     margin-top: 3rem;
+    margin-bottom: 3rem;
 }
+
 .dashnav{
   position: static;
   z-index: 0;
@@ -159,6 +161,7 @@ export default {
     transition: 0.3s;
 
 }
+
 hr{
     background-color: white;
     opacity: 0.5;
@@ -167,10 +170,15 @@ hr{
     padding: 0 30px;
 }
 
+.mySideBarMenuItem:focus{
+    border: none;
+}
+
 #main .main-header div{
     display: inline-block;
     padding: 10px;
 }
+
 .header-text h2{
     font-weight: 100;
     color: grey;
