@@ -1,5 +1,6 @@
 <template>
 		<div id="header" class="transparent-nav">
+           <Footer></Footer>
 			<div class="container">
 
 
@@ -23,7 +24,9 @@
 							<div class="col-md-8">
 								<h1 class="white-text">LEAN ICON AGILE TRAINING</h1>
 								<p class="lead white-text">Learn to Successfully Put Agile Practices Into Action. Improve your Ability to Plan, Manage & Lead in Your Project Teams with Agile</p>
-								<a class="main-button icon-button" onclick="togglePopup()" style="cursor: pointer;">Get Started!</a>
+                        <router-link :to = "{ name:'Signin' }">
+                           <a class="main-button icon-button" style="cursor: pointer;">Get Started!</a>
+                        </router-link>
 							</div>
 						</div>
 					</div>
@@ -89,7 +92,7 @@
 										<img src="../assets/course03.jpg" alt="">
 										<i class="course-link-icon fas fa-chalkboard-teacher"></i>
 									</a>
-									<a class="course-title" href="#">Agile Human Resource Management | From Beginner To Advanced</a>
+									<a class="course-title" href="#">Agile Human Resource Management</a>
 									<div class="course-details">
 									</div>
 								</div>
@@ -208,7 +211,9 @@
 						<div class="col-md-8">
 							<h2 class="white-text">Agile Training.</h2>
 							<p class="lead white-text">Agile training is a way to improve project performance by teaching the basic concepts of Agile to an organization or team and how to implement it. ... Training can help expose the underlying Agile concepts and clarify the differences between the various implementation methods..</p>
-							<a class="main-button icon-button" href="#">Get Started!</a>
+                     <router-link :to = "{ name:'Signin' }">
+                        <a class="main-button icon-button" href="#">Get Started!</a>
+                     </router-link>
 						</div>
 
 					</div>
@@ -257,7 +262,7 @@
 			<!-- /Why us -->
 
 			<!-- Contact CTA -->
-			<div id="contact-cta" class="section">
+			<div id="contact-cta" class="section contact-container">
 
 				<!-- Backgound Image -->
 				<div class="bg-image bg-parallax overlay cta2-image"></div>
@@ -281,20 +286,20 @@
 
 				</div>
 			</div>
+         <Footer></Footer>
 		</div>
 
 </template>
 
 <script>
-// @ is an alias to /src
-
+import Footer from '@/components/Footer.vue'
 
 export default {
-  name: 'Landingpage',
+   name: 'Landingpage',
   components :{
-    
+    Footer    
   },
-  }
+}
 
 </script>
 <style scoped>
@@ -384,6 +389,10 @@ button {
   text-transform:uppercase;
   font-weight:600;
   background:#fff;
+}
+
+.contact-container{
+   margin-bottom: 5rem;
 }
 /*
 Template Name: HTML Education Template
@@ -517,15 +526,15 @@ blockquote:before{
 
 /* --- Background Image --- */
 .home-bg{
-   background-image:url(../assets/home-background.jpg);
+   background-image:url(https://res.cloudinary.com/littlms/image/upload/c_scale,h_1791,q_65/v1599265741/image%20sources%20litt/home-background.9137fcea_wdgqzy.webp);
 }
 
 .cta-bg{
-   background-image:url(../assets/cta1-background.jpg);
+   background-image:url(https://res.cloudinary.com/littlms/image/upload/c_scale,h_3053,q_64/v1599265732/image%20sources%20litt/cta1-background.46df1642_ix6yzd.webp);
 }
 
 .cta2-image{
-   background-image:url(../assets/cta2-background.jpg);
+   background-image:url(https://res.cloudinary.com/littlms/image/upload/c_scale,h_672,q_68/v1599265731/image%20sources%20litt/cta2-background.163a5ec7_brwxei.webp);
 }
 
 .bg-image {
