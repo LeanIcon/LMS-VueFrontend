@@ -17,8 +17,6 @@
               <router-link :to = "{ name:'signin' }" exact class="btn signup_btn">Send request</router-link>
           </div>
         </div>
-
-
   </div>    
 </template>
 <script>
@@ -83,4 +81,4 @@ export default {
 
   }
 
-</style>
+</style>     
