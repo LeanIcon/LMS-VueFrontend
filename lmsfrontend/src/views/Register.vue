@@ -6,7 +6,7 @@
         <div class="sign_in_page">
             <div class="row">
                 <div class="image_thumb col">
-                    <img src="../assets/pexels_retha_ferguson_3810788.png" alt="image_thumb">
+                    <img src="https://res.cloudinary.com/littlms/image/upload/q_65/v1599265733/image%20sources%20litt/pexels_retha_ferguson_3810788.592f68c3_i8ahps.webp" alt="image_thumb">
                 </div>
                 <div class="back_arrow">
                      <router-link :to = "{ name:'Home' }" exact class="back_arrow"><img src="../assets/arrow.png"  height=20px width=30px></router-link>

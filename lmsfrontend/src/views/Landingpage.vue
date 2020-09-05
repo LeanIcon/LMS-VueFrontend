@@ -23,7 +23,7 @@
 							<div class="col-md-8">
 								<h1 class="white-text">LEAN ICON AGILE TRAINING</h1>
 								<p class="lead white-text">Learn to Successfully Put Agile Practices Into Action. Improve your Ability to Plan, Manage & Lead in Your Project Teams with Agile</p>
-								<a class="main-button icon-button" onclick="togglePopup()" style="cursor: pointer;">Get Started!</a>
+								<a class="main-button icon-button" style="cursor: pointer;">Get Started!</a>
 							</div>
 						</div>
 					</div>
@@ -517,15 +517,15 @@ blockquote:before{
 
 /* --- Background Image --- */
 .home-bg{
-   background-image:url(../assets/home-background.jpg);
+   background-image:url(https://res.cloudinary.com/littlms/image/upload/c_scale,h_1791,q_65/v1599265741/image%20sources%20litt/home-background.9137fcea_wdgqzy.webp);
 }
 
 .cta-bg{
-   background-image:url(../assets/cta1-background.jpg);
+   background-image:url(https://res.cloudinary.com/littlms/image/upload/c_scale,h_3053,q_64/v1599265732/image%20sources%20litt/cta1-background.46df1642_ix6yzd.webp);
 }
 
 .cta2-image{
-   background-image:url(../assets/cta2-background.jpg);
+   background-image:url(https://res.cloudinary.com/littlms/image/upload/c_scale,h_672,q_68/v1599265731/image%20sources%20litt/cta2-background.163a5ec7_brwxei.webp);
 }
 
 .bg-image {
