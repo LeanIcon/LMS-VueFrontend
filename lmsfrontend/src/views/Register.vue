@@ -8,7 +8,13 @@
         </div>
         <div class="sign_in_page">
             <div class="row">
+                
                 <div class="image_thumb col">
+                            <!-- <p>{{ errinfo }}</p> -->
+                    <div class="alert alert-box" v-if="alertUser">
+                        <span class="closebtn" @click="formEvent">&times;</span> 
+                        <strong>Error!</strong> {{ errinfo }}
+                    </div>
                     <img src="https://res.cloudinary.com/littlms/image/upload/q_65/v1599265733/image%20sources%20litt/pexels_retha_ferguson_3810788.592f68c3_i8ahps.webp" alt="image_thumb">
                 </div>
                 <div class="back_arrow">
@@ -21,9 +27,10 @@
                     <div class="sign-process">
                         <div id="container_title">
                             <h2>
-                                Sign Up to LiTT LMSS
+                                Sign Up to LiTT LMS
                             </h2>
                         </div>
+
 
                         <form id='signup-form' v-on:submit.prevent="register">
                             <input type="text" placeholder="First Name" class="input-container" v-model="firstname">
@@ -48,7 +55,6 @@
                         </button>
                         <div class="forgot_password">
                             <router-link :to = "{ name:'Signin' }" exact>Already a member?</router-link>
-                            <!-- <a href="signin.html">Already a member?</a> -->
                         </div>
                     </div>
                 </div>
@@ -67,7 +73,9 @@ import { store } from '../store/user';
     Footer,    
   },
     data () {
-      return {
+    return {
+        alertUser: false,
+        errinfo: '',
         firstname: '',
         lastname: '',
         email: '',
@@ -78,29 +86,56 @@ import { store } from '../store/user';
       }
     },
     methods: {
-      register() { 
-        if(this.valid()){
-            store.dispatch('userRegister', {
-              firstname: this.firstname,
-              lastname: this.lastname,
-              email: this.email,
-              password: this.password,
-              student_type: 'individual'
-            })
-            // Replace '/' with the homepage
-            .then(({ status }) => {
-                this.$router.push({ name: 'Signin' })
-                console.log('check your email')
-                console.log(status)
-            })
-            .catch(err => {
-                console.log(err)
-                this.userExists = true
-            })
+        formEvent: function PopAction() {
+            var close = document.getElementsByClassName("closebtn");
+            var i;
+
+            for (i = 0; i < close.length; i++) {
+                close[i].onclick = function(){
+                    var div = this.parentElement;
+                    div.style.opacity = "0";
+                    setTimeout(function(){ div.style.display = "none"; }, 600);
+                }
+            }
+            this.alertUser = false
+        },
+        register() { 
+            if(this.valid()){
+                store.dispatch('userRegister', {
+                firstname: this.firstname,
+                lastname: this.lastname,
+                email: this.email,
+                password: this.password,
+                student_type: 'individual'
+                })
+                // Replace '/' with the homepage
+                .then(({ status }) => {
+                    console.log('check your email')
+                    console.log(status)
+                    this.$router.push({ name: 'Signin' })
+                })
+                .catch(err => {
+                    this.errinfo = 'Email is already registered'
+                    console.log(err)
+                    this.userExists = true
+                    this.alertUser = true
+                })
+            }else{
+                this.alertUser = true;
+                this.password = '';
+                this.confirm_password = '';
             }
         },
         valid(){
-            return this.password === this.confirm_password;
+            if (this.password != this.confirm_password){
+                this.errinfo = "passwords don't match";
+                return false;
+            } else if(this.password.length <= 10) {
+                this.errinfo = "password is too weak";
+                return false;
+            } else {
+                return true
+            }
         }
 
       }
@@ -113,6 +148,39 @@ import { store } from '../store/user';
 body{
     width: 100%;
     overflow: hidden;
+}
+
+.alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+  text-align: center;
+}
+
+.alert-box{
+    position: absolute;
+    top: 0;
+    left: 20%;
+    margin: auto;
+    width: 60%
+}
+
+.alert.success {background-color: #4CAF50;}
+.alert.info {background-color: #2196F3;}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
 }
 
 .footer-container{

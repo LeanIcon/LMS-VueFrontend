@@ -24,29 +24,50 @@
                   <img src="../assets/user.png" alt="">
                </div>
             </div>
-            <div class="dropdown-icon nav-item">
-               <img src="../assets/dropdown.png" alt="">
+            <div class="dropdown-icon nav-item dropdown">
+               <img src="../assets/dropdown.png" class="dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+               <div class="dropdown-menu dropdown-menu-right dropdown"
+                  aria-labelledby="navbarDropdownMenuLink-333">
+                  <router-link :to = "{ name:'Dashboard' }" exact class="dropdown-item">My Courses</router-link>
+                  <a class="dropdown-item logout" v-on:click="created">Logout</a>
+               </div>
             </div>
          </div>
       </div>
-
    </div>
 </template>
  
 <script>   
+import { store } from '../store/user';
 export default {
    name: "Dashboardnavbar",
    methods:{
-    // When the user clicks on div, open the popup
-    toggleNotification: function myFunction() {
-      var popup = document.getElementById("myPopup");
-      popup.classList.toggle("show");
-    }
-  }
+      // When the user clicks on div, open the popup
+      toggleNotification: function myFunction() {
+         var popup = document.getElementById("myPopup");
+         popup.classList.toggle("show");
+      },
+      
+      created () {
+      store.dispatch('userLogout')
+         .then(() => {
+            this.$router.push({ name: 'Signin' })
+         })
+      }
+  },
 }
 </script>
 
 <style scoped>
+.logout{
+   color: red;
+}
+
+.dropdown-menu{
+   margin-top: 1rem;
+}
+
 .dashboard-nav[data-v-3280c0b8] {
     background-color: rgb(255, 255, 255);
     position: fixed;

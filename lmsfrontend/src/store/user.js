@@ -58,7 +58,7 @@ export const store =  new Vuex.Store({
                 })
                 .then(({ status }) => {
                     if(status == 201){
-                        resolve(true);
+                        resolve(status);
                     }
                 })
                 .catch(err => {
