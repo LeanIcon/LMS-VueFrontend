@@ -13,17 +13,17 @@
            <h1>Analysis</h1>
            <div class="secText">
                <p>
-                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta culpa id ut dolorem accusantium placeat, quidem at nam, molestiae enim exercitationem earum harum cum beatae aliquam illum architecto quia. Earum?
+                   Job titles for business analysis practitioners include not only business analyst, but also business systems analyst, systems analyst, requirements engineer, process analyst, product manager, product owner, enterprise analyst, business architect, management consultant, business intelligence analyst, data scientist, and more. 
                </p>
            </div>
        </Section>
        <Section class="sec2">
            <div class="enroll">
                <div class="enrollText">
-                   <p>You've enrolled on this course! </p>
+                   <p>Enroll on this course! </p>
                </div>
                <div class="enroll-btn">
-                 <router-link :to = "{ name:'Courseconfirm' }" exact class="btn btn-lg btn-primary">Register</router-link>
+                 <router-link :to = "{ name:'Courseconfirm' }" exact class="btn btn-lg btn-primary start-btn">Register</router-link>
                </div>
                <div class="enroll-list">
                    <div class="enroll-icon"><i class="fas fa-list-alt"></i> 8 Lessons</div>
@@ -132,7 +132,7 @@ export default {
     background-color: white;
 }
 
-.enroll-btn button{
+.enroll-btn .start-btn{
     background-color: #0E9CF5;
     text-align: center;
     color: white;
