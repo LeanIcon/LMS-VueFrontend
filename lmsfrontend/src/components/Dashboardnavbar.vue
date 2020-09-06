@@ -29,31 +29,33 @@
           aria-haspopup="true" aria-expanded="false">
                <div class="dropdown-menu dropdown-menu-right dropdown"
                   aria-labelledby="navbarDropdownMenuLink-333">
-                  <a class="dropdown-item" href="#">My Courses</a>
-                  <a class="dropdown-item logout" href="#">Logout</a>
+                  <router-link :to = "{ name:'Dashboard' }" exact class="dropdown-item">My Courses</router-link>
+                  <a class="dropdown-item logout" v-on:click="created">Logout</a>
                </div>
             </div>
          </div>
       </div>
-      <!-- <li class="nav-item dropdown"> -->
-        <!-- <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-user"></i> -->
-        <!-- </a> -->
-
    </div>
 </template>
  
 <script>   
+import { store } from '../store/user';
 export default {
    name: "Dashboardnavbar",
    methods:{
-    // When the user clicks on div, open the popup
-    toggleNotification: function myFunction() {
-      var popup = document.getElementById("myPopup");
-      popup.classList.toggle("show");
-    }
-  }
+      // When the user clicks on div, open the popup
+      toggleNotification: function myFunction() {
+         var popup = document.getElementById("myPopup");
+         popup.classList.toggle("show");
+      },
+      
+      created () {
+      store.dispatch('userLogout')
+         .then(() => {
+            this.$router.push({ name: 'Signin' })
+         })
+      }
+  },
 }
 </script>
 

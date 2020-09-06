@@ -43,13 +43,9 @@
                           </div>
                           <div class="container_button">
                             <button class="btn login_btn" type="submit"  form='login-form'>
-                                <!-- <span class="spinner-border spinner-border-sm load-signal" role="status" aria-hidden="true"></span> -->
                                 Login
                             </button>
-                            <!-- <button class="btn btn-primary" type="button" disabled>
-                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                                <span class="sr-only">Loading...</span>
-                            </button> -->
+                            
                             <router-link :to = "{ name:'Register' }" exact class="btn signup_btn">Sign Up</router-link>
                           </div>
                       </div>
@@ -116,7 +112,7 @@ import Footer from '@/components/Footer.vue'
             this.password = ''
         })
         }
-      }
+    }
   }
 </script>
 

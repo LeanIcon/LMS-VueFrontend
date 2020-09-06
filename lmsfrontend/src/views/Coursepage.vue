@@ -4,10 +4,8 @@
           <Dashboardnavbar></Dashboardnavbar>
         </div>
 
-        <div class="main-body">
-                
-                
-
+        <div class="main-body">               
+            
             <div id="mySideBar" class="sidebar">
                 <div class="sidebar-header">
                     <div class="header-text">
@@ -49,8 +47,6 @@
                     <div class="header-icon"><span style="font-size: 30px; cursor: pointer;" v-if="navToggle" v-on:click="openNav">&#9776;</span></div>
                     <div class="header-icon"><span style="font-size: 30px; cursor: pointer;" v-if="!navToggle" v-on:click="closeNav">&#9776;</span></div>
                     <div class="header-text"> <h2>Learn Business Analysis</h2></div>
-                    
-            
                 </div>
 
                 <div class="main-body">
