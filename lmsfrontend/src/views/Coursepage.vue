@@ -14,15 +14,20 @@
                 </div>
             
             
-                <div class="mySideBarMenuItem"><a href="#"  data-toggle="collapse" data-target="#submenu-1">+  Course Introduction</a>
+                <div class="mySideBarMenuItem"><a href="#"  data-toggle="collapse" data-target="#submenu-1">+ What is Business analysis </a>
                     <hr>
                     <ul id="submenu-1" class="collapse side-nav">
-                        <li><a href="#"><i></i>- Introduction</a></li>
-                        <li><a href="#"><i></i>- Requirements</a></li>
+                        <li><a href="#"><i></i>- The origins of Business Analysis </a></li>
+                        <li><a href="#"><i></i>- The development of Business analysis</a></li>
+                        <li><a href="#"><i></i>- Business analyst role development</a></li>
+                        <li><a href="#"><i></i>- The range of analysis activities</a></li>
+                        <li><a href="#"><i></i>- Business analysis principles</a></li>
+                        <li><a href="#"><i></i>- The Business Analysis Maturity Model</a></li>
+                        <li><a href="#"><i></i>- The Business Analysis service </a></li>
                     </ul>
                 </div>
 
-                <div class="mySideBarMenuItem"><a href="#"  data-toggle="collapse" data-target="#submenu-2">+  Market Analysis</a>
+                <div class="mySideBarMenuItem"><a href="#"  data-toggle="collapse" data-target="#submenu-2">+ Market Analysis</a>
                     <hr>
                     <ul id="submenu-2" class="collapse side-nav">
                         <li><a href="#"><i></i>- Estimation</a></li>
@@ -77,18 +82,18 @@ import Dashboardnavbar from '@/components/Dashboardnavbar.vue'
 
 export default {
     name: 'Coursepage',
-  components:{
-      Dashboardnavbar,
-  },
+    components:{
+        Dashboardnavbar,
+    },
+
     data () {
     return {
         navToggle: true,
         }
     },
-   methods:{
-    // When the user clicks on div, open the popup
 
-    
+   methods:{
+    // When the user clicks on div, open the popup    
     openNav: function openNav(){
     document.getElementById("mySideBar").style.width = "250px";
     document.getElementById("main").style.marginLeft = "250px";

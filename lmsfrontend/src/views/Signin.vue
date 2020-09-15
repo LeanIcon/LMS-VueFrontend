@@ -124,14 +124,9 @@ import Footer from '@/components/Footer.vue'
     overflow: hidden;
 }
 
-.load-signal{
-    display: none;
-}
-
 .rememberme{
     margin-left: .5rem;
 }
-
 
 .alert {
   padding: 20px;

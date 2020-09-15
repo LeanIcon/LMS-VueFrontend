@@ -2,10 +2,8 @@
 <div class="register">
     <router-link to="/register"></router-link>
       <router-view/>
+    <Footer></Footer>
    <div id="content-container">
-        <div class="footer-container">
-            <Footer></Footer>
-        </div>
         <div class="sign_in_page">
             <div class="row">
                 
@@ -145,7 +143,7 @@ import { store } from '../store/user';
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
 
-body{
+.register{
     width: 100%;
     overflow: hidden;
 }
