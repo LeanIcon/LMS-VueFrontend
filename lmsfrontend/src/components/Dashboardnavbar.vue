@@ -39,7 +39,7 @@
 </template>
  
 <script>   
-import { store } from '../store/user';
+// import { store } from '../store/user';
 export default {
    name: "Dashboardnavbar",
    methods:{
@@ -50,7 +50,7 @@ export default {
       },
       
       created () {
-      store.dispatch('userLogout')
+      this.$store.dispatch('userLogout')
          .then(() => {
             this.$router.push({ name: 'Signin' })
          })

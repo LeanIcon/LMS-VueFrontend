@@ -64,7 +64,7 @@
 
 <script>
 import Footer from '@/components/Footer.vue'
-import { store } from '../store/user';
+// import { store } from '../store/modules/user';
   export default {
     name: 'Register',
     components: {
@@ -99,7 +99,7 @@ import { store } from '../store/user';
         },
         register() { 
             if(this.valid()){
-                store.dispatch('userRegister', {
+                this.$store.dispatch('userRegister', {
                 firstname: this.firstname,
                 lastname: this.lastname,
                 email: this.email,

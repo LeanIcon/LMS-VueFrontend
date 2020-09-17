@@ -32,7 +32,7 @@
                         <div class="enroll-list">
                             <div class="enroll-icon"><i class="fas fa-list-alt"></i> 8 Lessons</div>
                             <div class="enroll-icon"><i class="fab fa-youtube-square"></i> 50 Videos</div>
-                            <div class="enroll-icon"><i class="fa fa-clock"></i> 72 Hours {{ courseData }}</div>
+                            <div class="enroll-icon"><i class="fa fa-clock"></i> 72 Hours</div>
                         </div>
                     </div>
                 </Section>
@@ -67,11 +67,10 @@ import Dashboardnavbar from '@/components/Dashboardnavbar.vue'
 
 // Api call
 // import { getAPI } from '../utils/axios-api'
-// import { mapState } from 'vuex'
+import { mapState } from 'vuex'
 import { mapActions } from 'vuex'
 
 export default {
-// @ is an alias to /src
     name: 'Dashboard',
 
     // If user does not select keep me signed redirect to signin when dashboard is idle
@@ -84,7 +83,7 @@ export default {
 
     components:{
         Sidebar,
-        Dashboardnavbar,
+        Dashboardnavbar, 
     },
 
     // computed: mapState(['APIData']),
@@ -99,16 +98,29 @@ export default {
     //     })
     // },
 
-    props: ["data"],
+    // props: ["data"],
+    // methods: {
+    //     ...mapActions(['GET_DATA']),
+    //     created() {
+    //         const courseData = {
+    //             id: this.data.id,
+    //         };
+    //         console.log(courseData)
+    //     },
+    // }
+
+    computed: {
+        ...mapState("course", ["courses"])
+    },
+    
     methods: {
-        ...mapActions(['GET_DATA']),
-        created() {
-            const courseData = {
-                id: this.data.id,
-            };
-            console.log(courseData)
-        },
-    }
+        ...mapActions("course", ["getCourses"])
+    },
+
+    // get data from store **pass the action name**
+    mounted(){
+        this.getCourses();  
+    },
 
 }
 

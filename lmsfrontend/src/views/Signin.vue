@@ -19,7 +19,8 @@
                         <div class="sign-process a">
                             <div id="container_title" >
                                 <h2>
-                                        Sign In to LiTT LMS
+                                        Sign In to LiTT LMS 
+                                      
                                 </h2>
                             </div>
 
@@ -45,6 +46,9 @@
                             <button class="btn login_btn" type="submit"  form='login-form'>
                                 Login
                             </button>
+                            <button class="btn login_btn" type="submit" @click.prevent="loginUser()" >
+                                Some Twst
+                            </button>
                             
                             <router-link :to = "{ name:'Register' }" exact class="btn signup_btn">Sign Up</router-link>
                           </div>
@@ -61,7 +65,7 @@
 </template>
 
 <script>
-import { store } from '../store/user';
+// import { store } from '../store/modules/user';
 import Footer from '@/components/Footer.vue'
 
   export default {
@@ -80,6 +84,10 @@ import Footer from '@/components/Footer.vue'
       }
     },
     methods: { 
+        loginUser(){
+            console.log("Am here ...")
+            this.$store.dispatch('loginUser')
+        },
         formEvent: function PopAction() {
             var close = document.getElementsByClassName("closebtn");
             var i;
@@ -94,7 +102,7 @@ import Footer from '@/components/Footer.vue'
             this.alertUser = false
         },
       login () { 
-        store.dispatch('userLogin', {
+        this.$store.dispatch('userLogin', {
           email: this.email,
           password: this.password
         })
@@ -111,6 +119,14 @@ import Footer from '@/components/Footer.vue'
             this.email = ''
             this.password = ''
         })
+        },
+    },
+    computed : {
+        getUserInfo() {
+            return this.$store.getters['getUser']
+        },
+        getUserInfoToken() {
+            return this.$store.getters['getToken']
         }
     }
   }

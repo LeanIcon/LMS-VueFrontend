@@ -9,7 +9,8 @@
         <div class="home-content">
           <div class="containter-data">
             <div class="title">
-              <h2>Progress</h2>
+              <h2>Progress {{getLogin}}</h2>
+              <h2>Token {{getUserToken}}</h2>
             </div>
 
             <div class="layer-1">
@@ -96,6 +97,15 @@ export default {
     Sidebar,
     Dashboardnavbar,
   },
+  computed: {
+    getLogin() {
+      return this.$store.getters['loggedIn']
+    },
+    
+    getUserToken() {
+        return this.$store.getters['userToken']
+    }
+  }
 }
 </script>
 
