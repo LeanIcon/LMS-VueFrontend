@@ -36,12 +36,6 @@
                         </div>
                     </div>
                 </Section>
-
-                <!-- useless tag -->
-                <!-- <Section class="sec1">
-
-                </Section> -->
-
             </main>
 
             <hr>

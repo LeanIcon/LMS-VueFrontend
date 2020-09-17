@@ -65,7 +65,6 @@
 </template>
 
 <script>
-// import { store } from '../store/modules/user';
 import Footer from '@/components/Footer.vue'
 
   export default {
@@ -83,11 +82,7 @@ import Footer from '@/components/Footer.vue'
         submitted: false
       }
     },
-    methods: { 
-        loginUser(){
-            console.log("Am here ...")
-            this.$store.dispatch('loginUser')
-        },
+    methods: {  
         formEvent: function PopAction() {
             var close = document.getElementsByClassName("closebtn");
             var i;
@@ -101,34 +96,35 @@ import Footer from '@/components/Footer.vue'
             }
             this.alertUser = false
         },
-      login () { 
-        this.$store.dispatch('userLogin', {
-          email: this.email,
-          password: this.password
-        })
-        // Replace '/' with the homepage
-        .then(() => {
-          this.$router.push({ name: 'Dashboard' })
-        })
-        .catch(err => {
-            this.errinfo = 'Invalid login credentials'
-            console.log(err)
-            this.userExists = true
-            this.alertUser = true
-            this.incorrectAuth = true
-            this.email = ''
-            this.password = ''
-        })
+
+        login () { 
+            this.$store.dispatch('userLogin', {
+            email: this.email,
+            password: this.password
+            })
+            // Replace '/' with the homepage
+            .then(() => {
+            this.$router.push({ name: 'Dashboard' })
+            })
+            .catch(err => {
+                this.errinfo = 'Invalid login credentials'
+                console.log(err)
+                this.userExists = true
+                this.alertUser = true
+                this.incorrectAuth = true
+                this.email = ''
+                this.password = ''
+            })
         },
     },
-    computed : {
-        getUserInfo() {
-            return this.$store.getters['getUser']
-        },
-        getUserInfoToken() {
-            return this.$store.getters['getToken']
-        }
-    }
+    // computed : {
+    //     getUserInfo() {
+    //         return this.$store.getters['getUser']
+    //     },
+    //     getUserInfoToken() {
+    //         return this.$store.getters['getToken']
+    //     }
+    // }
   }
 </script>
 

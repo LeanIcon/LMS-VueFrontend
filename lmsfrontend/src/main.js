@@ -25,13 +25,10 @@ Vue.use(IdleVue, {
 
 Vue.config.productionTip = false
 
-
-const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjAwMzg2OTY1LCJqdGkiOiI5NTdjNmQ5ZDYzODg0ZTVkOTI2MTQ2YTVlNTkxMjY1OSIsInVzZXJfaWQiOjF9.pD7n3uH9ETlR7RAPzbVilBeaMpAAdyYzuLvMo7b5rO0'
-if (token) {
-  axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+const token = localStorage.getItem('accessToken');
+if(token) {
+    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 }
-
-console.log(token)
 
 router.beforeEach((to, from, next) => {
   if (to.matched.some((record) => record.meta.requiresLogin)) {
