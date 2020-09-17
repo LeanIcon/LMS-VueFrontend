@@ -3,7 +3,11 @@
             <div class="dashnav">
           <Dashboardnavbar></Dashboardnavbar>
         </div>
+        <div class="csidebar">
+          <Coursesidebar></Coursesidebar>
+        </div>
 
+<<<<<<< HEAD
         <div class="main-body">               
             
             <div id="mySideBar" class="sidebar">
@@ -46,14 +50,18 @@
                     </ul>
                 </div>
             </div>
+=======
+>>>>>>> dev
 
+        <div class="main-body">               
+ 
             <main id="main">
                 <div class="main-header">
                     <div class="header-icon"><span style="font-size: 30px; cursor: pointer;" v-if="navToggle" v-on:click="openNav">&#9776;</span></div>
                     <div class="header-icon"><span style="font-size: 30px; cursor: pointer;" v-if="!navToggle" v-on:click="closeNav">&#9776;</span></div>
                     <div class="header-text"> <h2>Learn Business Analysis</h2></div>
                 </div>
-
+                
                 <div class="main-body">
                    
                 </div>
@@ -79,27 +87,38 @@
 
 <script type="text/javascript">
 import Dashboardnavbar from '@/components/Dashboardnavbar.vue'
-
+import Coursesidebar from '@/components/Coursesidebar.vue'
 export default {
+<<<<<<< HEAD
     name: 'Coursepage',
     components:{
         Dashboardnavbar,
     },
 
+=======
+    name: 'Dashboard',
+  components:{
+      Dashboardnavbar, Coursesidebar,
+  },
+>>>>>>> dev
     data () {
     return {
         navToggle: true,
         }
     },
+<<<<<<< HEAD
 
    methods:{
     // When the user clicks on div, open the popup    
+=======
+   methods:{
+    // When the user clicks on div, open the popup
+>>>>>>> dev
     openNav: function openNav(){
     document.getElementById("mySideBar").style.width = "250px";
     document.getElementById("main").style.marginLeft = "250px";
     this.navToggle = false
     },
-
     closeNav: function closeNav(){
     document.getElementById("mySideBar").style.width = "0";
     document.getElementById("main").style.marginLeft = "0";
@@ -116,9 +135,8 @@ export default {
         ('.side-nav .collapse').on("show.bs.collapse", function () {
             (this).prev().find(".fa").eq(1).removeClass("fa-angle-down").addClass("fa-angle-right");
         });
-    })  
-</script>
-
+    })
+ </script>   
 <style scoped>
 .bar-title{
     margin-top: 3rem;
