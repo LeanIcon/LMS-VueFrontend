@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { getAPI } from '../utils/axios-api'
+import { getAPI } from '../../../utils/axios-api'
 
 Vue.use(Vuex)
 
-export const store =  new Vuex.Store({
+export default ({
     state: {
         accessToken: null,
         refreshToken: null,
@@ -21,11 +21,6 @@ export const store =  new Vuex.Store({
             state.refreshToken = null
         }
     },
-    getters: {
-        loggedIn(state) {
-            return state.accessToken != null
-        }
-    },
     actions: {
         userLogout(context) {
             if (context.getters.loggedIn) {
@@ -39,6 +34,7 @@ export const store =  new Vuex.Store({
                     password: usercredentials.password
                 })
                 .then(response => {
+                    localStorage.setItem('accessToken', response.data.access);
                     context.commit('updateStorage', { access: response.data.access, refresh: response.data.refresh })
                     resolve()
                 })
@@ -67,5 +63,13 @@ export const store =  new Vuex.Store({
             })
         }
         
-    }
+    },
+    getters: {
+        loggedIn(state) {
+            return state.accessToken != null
+        },
+        userToken(state) {
+            return state.accessToken
+        }
+    },
 })

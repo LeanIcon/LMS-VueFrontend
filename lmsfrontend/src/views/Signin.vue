@@ -19,7 +19,8 @@
                         <div class="sign-process a">
                             <div id="container_title" >
                                 <h2>
-                                        Sign In to LiTT LMS
+                                        Sign In to LiTT LMS 
+                                      
                                 </h2>
                             </div>
 
@@ -45,7 +46,6 @@
                             <button class="btn login_btn" type="submit"  form='login-form'>
                                 Login
                             </button>
-                            
                             <router-link :to = "{ name:'Register' }" exact class="btn signup_btn">Sign Up</router-link>
                           </div>
                       </div>
@@ -61,7 +61,6 @@
 </template>
 
 <script>
-import { store } from '../store/user';
 import Footer from '@/components/Footer.vue'
 
   export default {
@@ -79,7 +78,7 @@ import Footer from '@/components/Footer.vue'
         submitted: false
       }
     },
-    methods: { 
+    methods: {  
         formEvent: function PopAction() {
             var close = document.getElementsByClassName("closebtn");
             var i;
@@ -93,26 +92,35 @@ import Footer from '@/components/Footer.vue'
             }
             this.alertUser = false
         },
-      login () { 
-        store.dispatch('userLogin', {
-          email: this.email,
-          password: this.password
-        })
-        // Replace '/' with the homepage
-        .then(() => {
-          this.$router.push({ name: 'Dashboard' })
-        })
-        .catch(err => {
-            this.errinfo = 'Invalid login credentials'
-            console.log(err)
-            this.userExists = true
-            this.alertUser = true
-            this.incorrectAuth = true
-            this.email = ''
-            this.password = ''
-        })
-        }
-    }
+
+        login () { 
+            this.$store.dispatch('userLogin', {
+            email: this.email,
+            password: this.password
+            })
+            // Replace '/' with the homepage
+            .then(() => {
+            this.$router.push({ name: 'Dashboard' })
+            })
+            .catch(err => {
+                this.errinfo = 'Invalid login credentials'
+                console.log(err)
+                this.userExists = true
+                this.alertUser = true
+                this.incorrectAuth = true
+                this.email = ''
+                this.password = ''
+            })
+        },
+    },
+    // computed : {
+    //     getUserInfo() {
+    //         return this.$store.getters['getUser']
+    //     },
+    //     getUserInfoToken() {
+    //         return this.$store.getters['getToken']
+    //     }
+    // }
   }
 </script>
 
@@ -124,14 +132,9 @@ import Footer from '@/components/Footer.vue'
     overflow: hidden;
 }
 
-.load-signal{
-    display: none;
-}
-
 .rememberme{
     margin-left: .5rem;
 }
-
 
 .alert {
   padding: 20px;
@@ -211,15 +214,20 @@ form input{
 
 .btn{
     margin-top: 20px;
+    border: none;
 }
 
 .login_btn {
     background: #be1e2d;
-    border-radius: 5px;
+    border: none;
     color: #fff;
     width: 45%;
     margin-right: 35px;
-}    
+}   
+
+.btn:focus, .signup_btn:focus{
+    border: none !important;
+}
 
 .signup_btn{
     background: #fff;

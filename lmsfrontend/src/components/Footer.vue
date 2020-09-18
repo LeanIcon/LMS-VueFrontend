@@ -1,7 +1,7 @@
 <template>
   <div class="footer row">
          <div class="litt_logo col-4">
-                      <img src="../assets/gh_01_ek2.png" alt="">
+            <img src="../assets/gh_01_ek2.png" alt="">
          </div>
            <div class="footer-creds col-8">
                  <a href="contactUs.html">Contact</a>
@@ -33,13 +33,9 @@
   position: absolute;
   bottom: 0;
   width: 100vw;
+  margin: auto;
 }
-    /* html,body{
-        margin: 0px;
-        padding: 0px;
-        height: 100vh;
-        /* overflow: hidden; 
-    } */
+
 .footer-creds > a{
     color: rgb(255, 255, 255);
     list-style: none;

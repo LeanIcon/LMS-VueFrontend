@@ -92,10 +92,21 @@ import Dashboardnavbar from '@/components/Dashboardnavbar.vue'
 export default {
 // @ is an alias to /src
   name: 'Dashboard',
+
   components:{
     Sidebar,
     Dashboardnavbar,
   },
+
+  // computed: {
+  //   getLogin() {
+  //     return this.$store.getters['loggedIn']
+  //   },
+    
+  //   getUserToken() {
+  //       return this.$store.getters['userToken']
+  //   }
+  // }
 }
 </script>
 

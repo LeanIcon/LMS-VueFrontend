@@ -3,63 +3,53 @@
         <div class="sidebar">
             <Sidebar></Sidebar>
         </div>
+
         <div class="dashnav">
           <Dashboardnavbar></Dashboardnavbar>
         </div>
-        <main id="main" class="jumbotron">
-       <Section class="sec1">
-           <div class="h1-box"></div>
-           <h1>Business </h1>
-           <h1>Analysis</h1>
-           <div class="secText">
-               <p>
-                   Job titles for business analysis practitioners include not only business analyst, but also business systems analyst, systems analyst, requirements engineer, process analyst, product manager, product owner, enterprise analyst, business architect, management consultant, business intelligence analyst, data scientist, and more. 
-               </p>
-           </div>
-       </Section>
-       <Section class="sec2">
-           <div class="enroll">
-               <div class="enrollText">
-                   <p>Enroll on this course! </p>
-               </div>
-               <div class="enroll-btn">
-                 <router-link :to = "{ name:'Courseconfirm' }" exact class="btn btn-lg btn-primary start-btn">Register</router-link>
-               </div>
-               <div class="enroll-list">
-                   <div class="enroll-icon"><i class="fas fa-list-alt"></i> 8 Lessons</div>
-                   <div class="enroll-icon"><i class="fab fa-youtube-square"></i> 50 Videos</div>
-                   <div class="enroll-icon"><i class="fa fa-clock"></i> 72 Hours</div>
-               </div>
-           </div>
 
-       </Section>
-       <Section class="sec1"></Section>
-    </main>
-    <Section class=" container card-box">
-        <hr>
+        <div class="course-data">
+            <main id="main" class="jumbotron">
+                <Section class="sec1">
+                    <div class="h1-box"></div>
+                    <h1>Business </h1>
+                    <h1>Analysis</h1>
+                    <div class="secText">
+                        <p>
+                            Job titles for business analysis practitioners include not only business analyst, but also business systems analyst, systems analyst, requirements engineer, process analyst, product manager, product owner, enterprise analyst, business architect, management consultant, business intelligence analyst, data scientist, and more. 
+                        </p>
+                    </div>
+                </Section>
 
-        <div class="card-deck mb-3 text-center">
-            <div class="card mb-4 shadow-sm cardd">
-                <div class="card-body">
-                    <!-- <video src="https://res.cloudinary.com/littlms/video/upload/v1599205450/2020-09-02_Design_Thinking_Wrap_up_Session_gpwm4v.mp4"></video> -->
-                    <button class="btn btn-lg btn-primary">Add new Course</button>
-                </div>
-            </div>
-            <div class="card mb-4 shadow-sm cardd">
-                <div class="card-body">
-                    <!-- <video src="https://res.cloudinary.com/littlms/video/upload/v1599205519/2020-07-09_Empathy_Mapping_Design_Thinking_2_0_kjj2zc.mp4"></video> -->
-                    <button class="btn btn-lg btn-primary">Add new Course</button>
-                </div>
+                <Section class="sec2">
+                    <div class="enroll">
+                        <div class="enrollText">
+                            <p>Enroll on this course! </p>
+                        </div>
+                        <div class="enroll-btn">
+                            <router-link :to = "{ name:'Courseconfirm' }" exact class="btn btn-lg btn-primary start-btn">Register</router-link>
+                        </div>
+                        <div class="enroll-list">
+                            <div class="enroll-icon"><i class="fas fa-list-alt"></i> 8 Lessons</div>
+                            <div class="enroll-icon"><i class="fab fa-youtube-square"></i> 50 Videos</div>
+                            <div class="enroll-icon"><i class="fa fa-clock"></i> 72 Hours</div>
+                        </div>
+                    </div>
+                </Section>
+            </main>
 
-            </div>
-            <div class="card mb-4 shadow-sm cardd">
-                <div class="card-body">
-                    <!-- <video src="https://res.cloudinary.com/littlms/video/upload/v1599179549/2020-08-19_Design_Thinking_Prototype_md1oep.mp4"></video> -->
-                    <button class="btn btn-lg btn-primary">Add new Course</button>
+            <hr>
+            <Section class=" container card-box">
+                <div class="card-deck mb-3 text-center">
+                    <!-- <div class="card mb-4 shadow-sm cardd"  v-for="courses in APIData" :key="courses.id">
+                        <div class="card-body">
+                            <button class="btn btn-lg btn-primary">{{ courses.title }}</button>
+                        </div>
+                    </div> -->
                 </div>
-            </div>
+            </Section>
+
         </div>
-    </Section>
 
     </div>    
 </template>
@@ -68,13 +58,64 @@
 <script>
 import Sidebar from '@/components/Sidebar.vue'
 import Dashboardnavbar from '@/components/Dashboardnavbar.vue'
+
+// Api call
+// import { getAPI } from '../utils/axios-api'
+import { mapState } from 'vuex'
+import { mapActions } from 'vuex'
+
 export default {
-// @ is an alias to /src
-  name: 'Dashboard', 
-  components:{
-    Sidebar,
-    Dashboardnavbar,
-  },
+    name: 'Dashboard',
+
+    // If user does not select keep me signed redirect to signin when dashboard is idle
+    // onIdle () {
+    //     this.$store.dispatch('userLogout')
+    //     .then(() => {
+    //         this.$router.push({ name: 'Signin' })
+    //     })
+    // },
+
+    components:{
+        Sidebar,
+        Dashboardnavbar, 
+    },
+
+    // computed: mapState(['APIData']),
+    // created () {
+    //     getAPI.get('/api/courses/', { headers: { Authorization: `Bearer ${this.$store.state.accessToken}` } })
+    //       .then(response => {
+    //         this.$store.state.APIData = response.data
+    //         console.log(response.data)
+    //       })
+    //       .catch(err => {
+    //         console.log(err)
+    //     })
+    // },
+
+    // props: ["data"],
+    // methods: {
+    //     ...mapActions(['GET_DATA']),
+    //     created() {
+    //         const courseData = {
+    //             id: this.data.id,
+    //         };
+    //         console.log(courseData)
+    //     },
+    // }
+
+    computed: {
+        ...mapState("course", ["courses"])
+    },
+    
+    methods: {
+        ...mapActions("course", ["getCourses"])
+    },
+
+    // get data from store **pass the action name**
+    mounted(){
+        this.getCourses();  
+    },
+
 }
 
 </script>
@@ -147,6 +188,7 @@ export default {
 
 .card-box{
    padding: 60px;
+   padding-left: 7rem;
 }
 .cardd{
     /* height: 250;
