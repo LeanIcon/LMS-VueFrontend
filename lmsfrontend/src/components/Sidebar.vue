@@ -8,7 +8,7 @@
                 <router-link :to = "{ name:'Dashboard' }" exact>
                     <div class="home-font tab">
                         <svg class="Rectangle_581">
-                            <rect id="Rectangle_581" rx="0" ry="0" x="0" y="0" width="112" height="105">
+                            <rect id="Rectangle_581" rx="0" ry="0" x="0" y="0" width="80" height="105">
                             </rect>
                         </svg>
                         <svg class="Union_1" viewBox="0 0 29.001 30.001">
@@ -26,7 +26,7 @@
                 <router-link :to = "{ name:'Courseregister' }" exact>
                     <div class="courses-font tab">
                             <svg class="Rectangle_581_fa">
-                                <rect id="Rectangle_581_fa" rx="0" ry="0" x="0" y="0" width="7rem" height="105">
+                                <rect id="Rectangle_581_fa" rx="0" ry="0" x="0" y="0" width="5rem" height="105">
                                 </rect>
                             </svg>
                             <div id="Courses">
@@ -43,7 +43,7 @@
                     <!-- <p>Course</p> -->
                 <div class="help-font tab">
                     <svg class="Rectangle_581_e">
-                        <rect id="Rectangle_581_e" rx="0" ry="0" x="0" y="0" width="7rem" height="105">
+                        <rect id="Rectangle_581_e" rx="0" ry="0" x="0" y="0" width="5rem" height="105">
                         </rect>
                     </svg>
                     <div id="Help">
@@ -69,14 +69,14 @@ export default {
 
 <style scoped>
 .sidebar-container{
-    width: 7rem;
+    width: 5rem;
     height: 100vh;
     background-color: rgba(195,0,12,1);
     overflow-x: hidden;
 }
 
 .sidebar-logo > img{
-    width: 7rem;
+    width: 5rem;
 }
 
 .tab{
@@ -95,7 +95,7 @@ export default {
     position: absolute;
     width: 29.001px;
     height: 30.001px;
-    left: 44px;
+    left: 22px;
     top: 179px;
     transform: matrix(1,0,0,1,0,0);
 }
@@ -108,24 +108,24 @@ export default {
 .Rectangle_581 {
     position: absolute;
     overflow: visible;
-    width: 7rem;
+    width: 5rem;
     height: 105px;
     left: 0px;
     top: 146px;
 }
 
 #Home {
-    left: 36px;
+    left: 18px;
     top: 213px;
     position: absolute;
     overflow: visible;
     width: 47px;
     white-space: nowrap;
-    text-align: left;
+    text-align: center;
     font-family: Lato;
     font-style: normal;
     font-weight: normal;
-    font-size: 17px;
+    font-size: 14px;
     color: rgba(195,0,12,1);
 }
 
@@ -144,13 +144,13 @@ export default {
 .Rectangle_581_fa {
     position: absolute;
     overflow: visible;
-    width: 7rem;
+    width: 5rem;
     height: 105px;
     left: 0px;
     top: 0px;
 }
 #Courses {
-    left: 28px;
+    left: 16px;
     top: 73px;
     position: absolute;
     overflow: visible;
@@ -160,7 +160,7 @@ export default {
     font-family: Lato;
     font-style: normal;
     font-weight: normal;
-    font-size: 17px;
+    font-size: 14px;
     color: rgba(255,255,255,1);
 }
 
@@ -171,9 +171,9 @@ export default {
 .ic_school_24px {
     overflow: visible;
     position: absolute;
-    width: 46.437px;
+    width: 26.437px;
     height: 37.994px;
-    left: 35px;
+    left: 30px;
     top: 30.006px;
     transform: matrix(1,0,0,1,0,0);
 }
@@ -217,24 +217,24 @@ export default {
 .Path_301 {
     overflow: visible;
     position: absolute;
-    width: 20.298px;
+    width: 12.298px;
     height: 38.005px;
-    left: 48.561px;
+    left: 33.561px;
     top: 390.114px;
     transform: matrix(1,0,0,1,0,0);
 }
 #Help {
-    left: 40px;
+    left: 22px;
     top: 438px;
     position: absolute;
     overflow: visible;
-    width: 37px;
+    width: 18px;
     white-space: nowrap;
-    text-align: left;
+    text-align: center;
     font-family: Lato;
     font-style: normal;
     font-weight: normal;
-    font-size: 17px;
+    font-size: 14px;
     color: rgba(255,255,255,1);
 }
 
