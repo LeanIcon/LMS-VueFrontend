@@ -10,7 +10,7 @@
                 <!-- <router-link :to = "{ name:'Dashboard' }" exact>
                     <div class="home-font tab">
                         <svg class="Rectangle_581">
-                            <rect id="Rectangle_581" rx="0" ry="0" x="0" y="0" width="80" height="105">
+                            <rect id="Rectangle_581" rx="0" ry="0" x="0" y="0">
                             </rect>
                         </svg>
                         <svg class="Union_1" viewBox="0 0 29.001 30.001">
@@ -88,7 +88,7 @@
                 <!-- <router-link :to = "{ name:'Courseregister' }" exact>
                     <div class="courses-font tab">
                             <svg class="Rectangle_581_fa">
-                                <rect id="Rectangle_581_fa" rx="0" ry="0" x="0" y="0" width="5rem" height="105">
+                                <rect id="Rectangle_581_fa" rx="0" ry="0" x="0" y="0">
                                 </rect>
                             </svg>
                             <div id="Courses">
@@ -105,7 +105,7 @@
 
                 <!-- <div class="help-font tab">
                     <svg class="Rectangle_581_e">
-                        <rect id="Rectangle_581_e" rx="0" ry="0" x="0" y="0" width="5rem" height="105">
+                        <rect id="Rectangle_581_e" rx="0" ry="0" x="0" y="0">
                         </rect>
                     </svg>
                     <div id="Help">
@@ -146,6 +146,12 @@ export default {
 
 .tab{
     cursor: pointer;
+}
+/*Rectangle*/
+rect{
+    width: 80px;
+    height: 85px;
+
 }
 
 .menu-tab{
@@ -235,14 +241,14 @@ export default {
     opacity: 0.192;
     fill: rgba(0,0,0,1);
 }
-.Rectangle_581_fa {
+/* .Rectangle_581_fa {
     position: absolute;
     overflow: visible;
     width: 5rem;
     height: 105px;
     left: 0px;
     top: 0px;
-}
+} */
 #Courses {
     left: 16px;
     top: 73px;
