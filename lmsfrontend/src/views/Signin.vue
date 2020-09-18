@@ -46,10 +46,6 @@
                             <button class="btn login_btn" type="submit"  form='login-form'>
                                 Login
                             </button>
-                            <button class="btn login_btn" type="submit" @click.prevent="loginUser()" >
-                                Some Twst
-                            </button>
-                            
                             <router-link :to = "{ name:'Register' }" exact class="btn signup_btn">Sign Up</router-link>
                           </div>
                       </div>
@@ -218,15 +214,20 @@ form input{
 
 .btn{
     margin-top: 20px;
+    border: none;
 }
 
 .login_btn {
     background: #be1e2d;
-    border-radius: 5px;
+    border: none;
     color: #fff;
     width: 45%;
     margin-right: 35px;
-}    
+}   
+
+.btn:focus, .signup_btn:focus{
+    border: none !important;
+}
 
 .signup_btn{
     background: #fff;
