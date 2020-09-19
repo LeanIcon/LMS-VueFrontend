@@ -109,6 +109,15 @@ Vue.use(VueRouter)
         requiresAuth: true,
       }
     },
+    {
+      path: "/practice",
+      name: "Question",
+      component: () => import("../views/Question.vue"),
+      meta: {
+        requiresLogin: true,
+        requiresAuth: true,
+      }
+    },
   ];
 
 
