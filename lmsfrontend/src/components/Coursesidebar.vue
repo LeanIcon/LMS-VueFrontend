@@ -11,27 +11,27 @@
                 <div class="mySideBarMenuItem"><a  data-toggle="collapse" data-target="#submenu-1">+  Course Introduction</a>
                     <hr>
                     <ul id="submenu-1" class="collapse side-nav">
-                        <li><a>- Introduction</a></li>
-                        <li><a>- Requirements</a></li>
+                        <li><a class="submenu-item">- Introduction</a></li>
+                        <li><a class="submenu-item">- Requirements</a></li>
                     </ul>
                 </div>
 
                 <div class="mySideBarMenuItem"><a  data-toggle="collapse" data-target="#submenu-2">+  Market Analysis</a>
                     <hr>
                     <ul id="submenu-2" class="collapse side-nav">
-                        <li><a>- Estimation</a></li>
-                        <li><a>- Regression</a></li>
-                        <li><a>- Linear Optimization</a></li>
-                        <li><a>- Dynamic Optimization</a></li>
+                        <li><a class="submenu-item">- Estimation</a></li>
+                        <li><a class="submenu-item">- Regression</a></li>
+                        <li><a class="submenu-item">- Linear Optimization</a></li>
+                        <li><a class="submenu-item">- Dynamic Optimization</a></li>
                     </ul>
                 </div>
 
                 <div class="mySideBarMenuItem"><a  data-toggle="collapse" data-target="#submenu-3">+  Assessment</a>
                     <hr>
                     <ul id="submenu-3" class="collapse side-nav">
-                        <li><a>- Quiz</a></li>
-                        <li><a>- Course Recap</a></li>
-                        <li><a>- Your Next Step</a></li>
+                        <li><a class="submenu-item">- Quiz</a></li>
+                        <li><a class="submenu-item">- Course Recap</a></li>
+                        <li><a class="submenu-item">- Your Next Step</a></li>
                     </ul>
                 </div>
                 
@@ -69,7 +69,6 @@
     background-color: #C3000C;
     overflow-x: hidden;
     transition: 0.5s;
-    pad: 60px;
     font:lato;
 }
 .sidebar a{
@@ -81,19 +80,23 @@
     transition: 0.3s;
 
 }
+
+.side-nav{
+    margin: 0 -2rem;
+}
+
 hr{
     background-color: white;
     opacity: 0.5;
 }
+
 .mySideBarMenuItem{
-    padding: 0 30px;
+    padding: 0 10px;
 }
 
-.x-btn a{
-    font-size: 25px;
-}
 .collapse > li > a{
     text-decoration: none;
+    cursor: pointer;
 }
 
 .collapse > li, .side-nav > li{
@@ -119,6 +122,5 @@ hr{
     /*color: #999;*/
     color: #fff;    
 }
-
 
 </style>
