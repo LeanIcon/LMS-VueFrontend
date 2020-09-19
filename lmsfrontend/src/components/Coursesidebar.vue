@@ -8,30 +8,30 @@
                 </div>
             
             
-                <div class="mySideBarMenuItem"><a href="#"  data-toggle="collapse" data-target="#submenu-1">+  Course Introduction</a>
+                <div class="mySideBarMenuItem"><a  data-toggle="collapse" data-target="#submenu-1">+  Course Introduction</a>
                     <hr>
                     <ul id="submenu-1" class="collapse side-nav">
-                        <li><a href="#"><i></i>- Introduction</a></li>
-                        <li><a href="#"><i></i>- Requirements</a></li>
+                        <li><a>- Introduction</a></li>
+                        <li><a>- Requirements</a></li>
                     </ul>
                 </div>
 
-                <div class="mySideBarMenuItem"><a href="#"  data-toggle="collapse" data-target="#submenu-2">+  Market Analysis</a>
+                <div class="mySideBarMenuItem"><a  data-toggle="collapse" data-target="#submenu-2">+  Market Analysis</a>
                     <hr>
                     <ul id="submenu-2" class="collapse side-nav">
-                        <li><a href="#"><i></i>- Estimation</a></li>
-                        <li><a href="#"><i></i>- Regression</a></li>
-                        <li><a href="#"><i></i>- Linear Optimization</a></li>
-                        <li><a href="#"><i></i>- Dynamic Optimization</a></li>
+                        <li><a>- Estimation</a></li>
+                        <li><a>- Regression</a></li>
+                        <li><a>- Linear Optimization</a></li>
+                        <li><a>- Dynamic Optimization</a></li>
                     </ul>
                 </div>
 
-                <div class="mySideBarMenuItem"><a href="#"  data-toggle="collapse" data-target="#submenu-3">+  Assessment</a>
+                <div class="mySideBarMenuItem"><a  data-toggle="collapse" data-target="#submenu-3">+  Assessment</a>
                     <hr>
                     <ul id="submenu-3" class="collapse side-nav">
-                        <li><a href="#"><i></i>- Quiz</a></li>
-                        <li><a href="#"><i></i>- Course Recap</a></li>
-                        <li><a href="#"><i></i>- Your Next Step</a></li>
+                        <li><a>- Quiz</a></li>
+                        <li><a>- Course Recap</a></li>
+                        <li><a>- Your Next Step</a></li>
                     </ul>
                 </div>
                 
