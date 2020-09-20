@@ -117,7 +117,7 @@ export default {
 }
 
 .dashnav{
-  position: static;
+  position: fixed;
   z-index: 1;
 }
 
@@ -126,7 +126,7 @@ export default {
   position: absolute;
   width: 100%;
   padding-left: 7rem;
-  top: 4rem;
+  top: 52px;
   height: 150%;
 }
 
