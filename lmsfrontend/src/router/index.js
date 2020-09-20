@@ -60,23 +60,7 @@ Vue.use(VueRouter)
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/Dashboard.vue')
   },
-  {
-<<<<<<< HEAD
-    path: '/question',
-    name: 'Question',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/Question.vue')
-=======
-    path: '/courseregister',
-    name: 'Courseregister',
-    component: () => import('../views/Courseregister.vue'),
-    // meta: {
-    //   requiresLogin: true,
-    //   requiresAuth: true,
-    // }
-  },
+  
   {
     path: '/courseconfirm',
     name: 'Courseconfirm',
@@ -103,10 +87,8 @@ Vue.use(VueRouter)
     //   requiresLogin: true,
     //   requiresAuth: true,
     // }
->>>>>>> ef123dbaa56e40c36f4007bda76cf2e37fd1c605
   }
 ]
-
 
 const router = new VueRouter({
   mode: 'history',
