@@ -92,10 +92,21 @@ import Dashboardnavbar from '@/components/Dashboardnavbar.vue'
 export default {
 // @ is an alias to /src
   name: 'Dashboard',
+
   components:{
     Sidebar,
     Dashboardnavbar,
   },
+
+  // computed: {
+  //   getLogin() {
+  //     return this.$store.getters['loggedIn']
+  //   },
+    
+  //   getUserToken() {
+  //       return this.$store.getters['userToken']
+  //   }
+  // }
 }
 </script>
 
@@ -106,7 +117,7 @@ export default {
 }
 
 .dashnav{
-  position: static;
+  position: fixed;
   z-index: 1;
 }
 
@@ -115,7 +126,7 @@ export default {
   position: absolute;
   width: 100%;
   padding-left: 7rem;
-  top: 4rem;
+  top: 52px;
   height: 150%;
 }
 
