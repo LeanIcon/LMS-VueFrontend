@@ -22,11 +22,13 @@ export default ({
         }
     },
     actions: {
+
         userLogout(context) {
             if (context.getters.loggedIn) {
                 context.commit('destroyToken')
             }
         },
+
         userLogin(context, usercredentials) {
             return new Promise((resolve, reject) => {
                 getAPI.post('/api-token/', {
@@ -34,7 +36,9 @@ export default ({
                     password: usercredentials.password
                 })
                 .then(response => {
-                    localStorage.setItem('accessToken', response.data.access);
+                    // set token data to local storage
+                    localStorage.setItem('access_token', response.data.access);
+                    localStorage.setItem('refresh_token', response.data.refresh);
                     context.commit('updateStorage', { access: response.data.access, refresh: response.data.refresh })
                     resolve()
                 })
@@ -43,6 +47,7 @@ export default ({
                 })
             })
         },
+
         userRegister(context, usercredentials){
             return new Promise((resolve, reject) => {
                 getAPI.post('/api/users/', {

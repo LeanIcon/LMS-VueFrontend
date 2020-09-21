@@ -56,8 +56,8 @@
 
 
 <script>
-import Sidebar from '@/components/Sidebar.vue'
-import Dashboardnavbar from '@/components/Dashboardnavbar.vue'
+import Sidebar from '@/components/Dashboard/Sidebar.vue'
+import Dashboardnavbar from '@/components/Dashboard/Dashboardnavbar.vue'
 
 // Api call
 // import { getAPI } from '../utils/axios-api'

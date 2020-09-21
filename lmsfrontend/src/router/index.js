@@ -76,7 +76,7 @@ Vue.use(VueRouter)
     {
       path: "/course/register",
       name: "Courseregister",
-      component: () => import("../views/Courses.vue"),
+      component: () => import("../views/course/Courses.vue"),
       meta: {
         requiresLogin: true,
         requiresAuth: true,
@@ -85,7 +85,7 @@ Vue.use(VueRouter)
     {
       path: "/course/confirm",
       name: "Courseconfirm",
-      component: () => import("../views/Courseconfirm.vue"),
+      component: () => import("../views/course/Courseconfirm.vue"),
       meta: {
         requiresLogin: true,
         requiresAuth: true,
@@ -94,7 +94,7 @@ Vue.use(VueRouter)
     {
       path: "/courseintro",
       name: "Courseintro",
-      component: () => import("../views/Courseintro.vue"),
+      component: () => import("../views/course/Courseintro.vue"),
       meta: {
         requiresLogin: true,
         requiresAuth: true,
@@ -103,7 +103,7 @@ Vue.use(VueRouter)
     {
       path: "/coursepage",
       name: "Coursepage",
-      component: () => import("../views/Coursepage.vue"),
+      component: () => import("../views/course/Coursepage.vue"),
       meta: {
         requiresLogin: true,
         requiresAuth: true,

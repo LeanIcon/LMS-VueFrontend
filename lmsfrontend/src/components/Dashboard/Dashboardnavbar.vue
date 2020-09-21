@@ -12,28 +12,33 @@
          </div>
 
          <div class="right-shift row col">
-            <div class="bell-icon nav-item popup col icon" v-on:click="toggleNotification">
-               <span class="popuptext" id="myPopup">You have no new notifications</span>
+            <div class="bell-icon nav-item col icon dropdown">
                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
                   stroke="rgba(248,244,244,1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="feather feather-bell">
+                  class="feather feather-bell dropdown-toggle"  id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
                   <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
                   <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
                </svg>
+                              
+               <div class="dropdown-menu dropdown-menu-right"
+                  aria-labelledby="navbarDropdownMenuLink-333">
+                  <p class="dropdown-item">You have no new messages</p>
+               </div>
             </div>
 
             <div class="user-img col icon">
-               <img src="../assets/user.png" alt="">
+               <img src="@/assets/user.png" alt="">
             </div>
 
             <div class="dropdown-icon nav-item dropdown col icon">
-               <img src="../assets/dropdown.png" class="dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+               <img src="@/assets/dropdown.png" class="dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
                   aria-haspopup="true" aria-expanded="false">
                
-               <div class="dropdown-menu dropdown-menu-right dropdown"
+               <div class="dropdown-menu dropdown-menu-right"
                   aria-labelledby="navbarDropdownMenuLink-333">
                   <router-link :to = "{ name:'Dashboard' }" exact class="dropdown-item">My Courses</router-link>
-                  <a class="dropdown-item logout" v-on:click="created" v-on:hover="created">Logout</a>
+                  <a class="dropdown-item logout" v-on:click="created">Logout</a>
                </div>
             </div>
 
@@ -47,11 +52,11 @@
 export default {
    name: "Dashboardnavbar",
    methods:{
-      // When the user clicks on div, open the popup
-      toggleNotification: function myFunction() {
-         var popup = document.getElementById("myPopup");
-         popup.classList.toggle("show");
-      },
+      // // When the user clicks on div, open the popup
+      // toggleNotification: function myFunction() {
+      //    var popup = document.getElementById("myPopup");
+      //    popup.classList.toggle("show");
+      // },
       
       created () {
       this.$store.dispatch('userLogout')
@@ -75,6 +80,7 @@ export default {
 
 .dashboard-nav{
    background-color: rgb(255, 255, 255);
+   padding-left: 7rem;
    position: fixed;
    width: 100%;
    top: 0px;
