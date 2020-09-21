@@ -250,7 +250,7 @@
 						</div>
 
 						<div class="col-md-5 col-md-offset-1">
-							<object data="http://www.youtube.com/embed/6mv_18Yftt8" width="560" height="315"></object>
+							<object data="https://www.youtube.com/embed/6mv_18Yftt8" width="560" height="315"></object>
 						</div>
 
 					</div>
