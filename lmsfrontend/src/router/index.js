@@ -23,7 +23,7 @@ Vue.use(VueRouter)
     {
       path: "/signin",
       name: "Signin",
-      component: () => import("../views/Signin.vue"),
+      component: () => import("../views/user/Signin.vue"),
       meta: {
         requiresAuth: false,
         requiresLogin: false,
@@ -35,7 +35,7 @@ Vue.use(VueRouter)
     {
       path: "/register",
       name: "Register",
-      component: () => import("../views/Register.vue"),
+      component: () => import("../views/user/Register.vue"),
       meta: {
         requiresAuth: false,
       },
@@ -46,7 +46,7 @@ Vue.use(VueRouter)
     {
       path: "/forgotpassword",
       name: "Forgotpassword",
-      component: () => import("../views/Forgotpassword.vue"),
+      component: () => import("../views/user/Forgotpassword.vue"),
       meta: {
         requiresAuth: true,
         requiresLogin: true,
@@ -74,16 +74,16 @@ Vue.use(VueRouter)
       },
     },
     {
-      path: "/courseregister",
+      path: "/course/register",
       name: "Courseregister",
-      component: () => import("../views/Courseregister.vue"),
+      component: () => import("../views/Courses.vue"),
       meta: {
         requiresLogin: true,
         requiresAuth: true,
       }
     },
     {
-      path: "/courseconfirm",
+      path: "/course/confirm",
       name: "Courseconfirm",
       component: () => import("../views/Courseconfirm.vue"),
       meta: {

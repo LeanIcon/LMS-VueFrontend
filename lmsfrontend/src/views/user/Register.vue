@@ -16,7 +16,7 @@
                     <img src="https://res.cloudinary.com/littlms/image/upload/q_65/v1599265733/image%20sources%20litt/pexels_retha_ferguson_3810788.592f68c3_i8ahps.webp" alt="image_thumb">
                 </div>
                 <div class="back_arrow">
-                     <router-link :to = "{ name:'Home' }" class="back_arrow"><img src="../assets/arrow.png"  height=20px width=25px></router-link>
+                     <router-link :to = "{ name:'Home' }" class="back_arrow"><img src="@/assets/arrow.png"  height=20px width=25px></router-link>
                     
                 </div>
 
