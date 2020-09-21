@@ -2,6 +2,7 @@
 		<div id="header" class="transparent-nav">
            <Footer></Footer>
 			<div class="container">
+				<Navbar></Navbar>
 
 
 					<!-- Navigation -->
@@ -293,11 +294,12 @@
 
 <script>
 import Footer from '@/components/Footer.vue'
-
+import Navbar from '@/components/Navbar.vue'
 export default {
    name: 'Landingpage',
   components :{
-    Footer    
+	Footer ,   
+	Navbar
   },
 }
 
