@@ -17,37 +17,37 @@ import user from "./modules/user/user";
         user
     },
 
-    state:{
-        token: '',
-        authUser: {}
-    },
+    // state:{
+    //     token: '',
+    //     authUser: {}
+    // },
 
-    mutations: {
-        'SET_USER'(state, data){
-            console.log("User")
-            state.authUser = data
-            console.log("Am here");
-        },
-        'SET_TOKEN'(state, data){
-            console.log("Token")
-            state.authUser = data
-            console.log("Am here");
-        }
-    },
-    actions: {
-        loginUser({commit}) {
-            console.log("Actions")
-            commit('SET_USER', 'Curtis Blow')
-            commit('SET_TOKEN', 'UserTokenjjodjfdjojaodfhoiahiohidagihfihiu98475848p99rfye')
-        }
-    },
-    getters: {
-        getUser(state){
-            return state.authUser
-        },
+    // mutations: {
+    //     'SET_USER'(state, data){
+    //         console.log("User")
+    //         state.authUser = data
+    //         console.log("Am here");
+    //     },
+    //     'SET_TOKEN'(state, data){
+    //         console.log("Token")
+    //         state.authUser = data
+    //         console.log("Am here");
+    //     }
+    // },
+    // actions: {
+    //     loginUser({commit}) {
+    //         console.log("Actions")
+    //         commit('SET_USER', 'Curtis Blow')
+    //         commit('SET_TOKEN', 'UserTokenjjodjfdjojaodfhoiahiohidagihfihiu98475848p99rfye')
+    //     }
+    // },
+    // getters: {
+    //     getUser(state){
+    //         return state.authUser
+    //     },
         
-        getToken(state) {
-            return state.authUser
-        },
-    }
+    //     getToken(state) {
+    //         return state.authUser
+    //     },
+    // }
 });
