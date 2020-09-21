@@ -154,7 +154,7 @@ video{
     bottom:0;
     font-size:20px;
     border: none;
-    
+    transform: rotate(-90deg);
     -moz-transform:rotate(-90deg);
     -ms-transform:rotate(-90deg);
     -o-transform:rotate(-90deg);
