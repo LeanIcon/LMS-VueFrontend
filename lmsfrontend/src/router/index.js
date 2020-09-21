@@ -118,11 +118,15 @@ Vue.use(VueRouter)
         requiresAuth: true,
       }
     },
-  //   {
-  //     path: "/feedbackbutton",
-  //     name: "Feedbackbutton",
-  //     component: () => import("../views/Feedbackbutton"),
-  // },
+    {
+      path: "/editprofile",
+      name: "Editprofile",
+      component: () => import("../views/user/Editprofile.vue"),
+      meta: {
+        requiresLogin: false,
+        requiresAuth: false,
+      }
+    },
   ];
 
 const router = new VueRouter({
