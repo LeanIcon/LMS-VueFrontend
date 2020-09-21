@@ -64,6 +64,7 @@ export default {
   position: static;
   z-index: 1;
 }
+
 #main{
     background-color: #3B3B3B;
     display:inline-block;
