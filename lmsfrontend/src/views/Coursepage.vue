@@ -73,6 +73,13 @@ import Dashboardnavbar from '@/components/Dashboardnavbar.vue'
 import Coursesidebar from '@/components/Coursesidebar.vue' 
 import HamburgerSlide from '@/components/HamburgerSlide.vue'
 export default {
+    name: 'Coursepage',
+
+    components:{
+        Dashboardnavbar,
+        Coursesidebar,
+        HamburgerSlide,
+    },
 
     data(){
         return{
@@ -89,13 +96,6 @@ export default {
        savefeedback(){
 
        }
-    },
-    name: 'Coursepage',
-
-    components:{
-        Dashboardnavbar,
-        Coursesidebar,
-        HamburgerSlide,
     },
 }
 

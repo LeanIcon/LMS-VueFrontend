@@ -1,7 +1,8 @@
 <template>
      <div class="dashboard-nav user-bar">
-      <div class="nav-area nav-list">
-         <div class="search-icon nav-item">
+      <div class="nav-area nav-list row">
+
+         <div class="search-icon nav-item col">
             <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 24 24" fill="none"
                stroke="rgba(248,244,244,1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                class="feather feather-search">
@@ -9,8 +10,9 @@
                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
             </svg>
          </div>
-         <div class="right-shift">
-            <div class="bell-icon nav-item popup" v-on:click="toggleNotification">
+
+         <div class="right-shift row col">
+            <div class="bell-icon nav-item popup col icon" v-on:click="toggleNotification">
                <span class="popuptext" id="myPopup">You have no new notifications</span>
                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
                   stroke="rgba(248,244,244,1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -19,79 +21,108 @@
                   <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
                </svg>
             </div>
-            <div class="user-image nav-item">
-               <div class="user-img">
-                  <img src="../assets/user.png" alt="">
+
+            <div class="user-img col icon">
+               <img src="../assets/user.png" alt="">
+            </div>
+
+            <div class="dropdown-icon nav-item dropdown col icon">
+               <img src="../assets/dropdown.png" class="dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+               
+               <div class="dropdown-menu dropdown-menu-right dropdown"
+                  aria-labelledby="navbarDropdownMenuLink-333">
+                  <router-link :to = "{ name:'Dashboard' }" exact class="dropdown-item">My Courses</router-link>
+                  <a class="dropdown-item logout" v-on:click="created" v-on:hover="created">Logout</a>
                </div>
             </div>
-            <div class="dropdown-icon nav-item">
-               <img src="../assets/dropdown.png" alt="">
-            </div>
+
          </div>
       </div>
-
    </div>
 </template>
  
 <script>   
+// import { store } from '../store/user';
 export default {
    name: "Dashboardnavbar",
    methods:{
-    // When the user clicks on div, open the popup
-    toggleNotification: function myFunction() {
-      var popup = document.getElementById("myPopup");
-      popup.classList.toggle("show");
-    }
-  }
+      // When the user clicks on div, open the popup
+      toggleNotification: function myFunction() {
+         var popup = document.getElementById("myPopup");
+         popup.classList.toggle("show");
+      },
+      
+      created () {
+      this.$store.dispatch('userLogout')
+         .then(() => {
+            this.$router.push({ name: 'Signin' })
+         })
+      }
+  },
 }
 </script>
 
 <style scoped>
-.dashboard-nav[data-v-3280c0b8] {
-    background-color: rgb(255, 255, 255);
-    position: fixed;
-    width: 100%;
-    top: 0px;
-    height: 4.2rem;
-    z-index: 1;
+.logout{
+   color: red;
+}
+
+.dropdown-menu{
+   margin-top: 1rem;
+   margin-right: -1rem;
+}
+
+.dashboard-nav{
+   background-color: rgb(255, 255, 255);
+   position: fixed;
+   width: 100%;
+   top: 0px;
+   height: 52px;
+   z-index: 1;
+   box-shadow: rgb(207 198 198 / 50%) 0px 0px 8px 0px;
 }
 
 .nav-item > svg{
     stroke: rgba(188,188,203,1);
 }
 
-.nav-list, .right-shift{
-    display: inline-flex;
-    margin-top: 10px;
-    margin-left: 112px;
-    height: 4.2rem;
+.nav-list{
+    /* display: inline-flex; */
+    height: 52px;
 }
 
 .right-shift{
     position: absolute;
     /* padding-top: 50%, 0; */
     right: 0px;
+    width: 10rem;
+    height: 52px;
 }
 
-.search-icon{
-    margin-left: 2rem;
+/* .search-icon{
+    margin-left: 7rem;
     margin-top: 10px;
-}
+} */
 
-.bell-icon{
-    margin-right: 30px;
-    margin-top: 4px;
-}
+/* .bell-icon{
+    margin-right: 20px;
+    margin-top: 2px;
+} */
 
+.icon{
+   margin: auto 0px;
+   padding: 0px;
+}
+  
 .user-img > img {
-    height: 50px;
-    margin-right: 30px;
-    margin-top: -12px;
+    height: 35px;
+    /* margin-right: 30px; */
 }
 
 .dropdown-icon > img{
     height: 15px;
-    margin-right: 30px;    
+    /* margin-right: 30px;     */
 }
 
 .search-icon:hover, .bell-icon:hover, .dropdown-icon:hover, .user-img>img:hover{
