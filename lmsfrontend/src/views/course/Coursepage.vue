@@ -58,11 +58,12 @@
                    <div class="row">
                        <div class="col-lg-6 p-1">
                            <label for="">feedback Name</label>
-                           <input v-model="user.username" type="text" class="form-control" >
+                           <input type="text" class="form-control" >
                        </div>
                        <div class="col-lg-6 p-1">
                            <label for="manufacturerbrand">Status</label>
-                            <textarea v-model="user.feedback" placeholder="Please type feedback here"></textarea>
+                            <textarea placeholder="Please type feedback here"></textarea>
+                            <!-- <textarea v-model="user.feedback" placeholder="Please type feedback here"></textarea> -->
                        </div>
                    </div>
                </form>
