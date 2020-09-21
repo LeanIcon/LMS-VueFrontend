@@ -9,7 +9,7 @@
                     </div>
                     <div class="card-body text-center"> <img src="../assets/GH-01.png" height="100" width="100">
                         <div class="comment-box text-center">
-                            <h6>How would you rate your experience using LittLMS </h6>
+                            <h6>How would you rate your experience using LittLMS</h6>
                             <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label> </div>
                             <!-- <h6>What can we do better? Details help</h6> -->
                             <div class="comment-area"> <textarea class="form-control" placeholder="What can we do better? Details help" rows="4"></textarea> </div>
