@@ -118,6 +118,11 @@ Vue.use(VueRouter)
         requiresAuth: true,
       }
     },
+  //   {
+  //     path: "/feedbackbutton",
+  //     name: "Feedbackbutton",
+  //     component: () => import("../views/Feedbackbutton"),
+  // },
   ];
 
 const router = new VueRouter({
