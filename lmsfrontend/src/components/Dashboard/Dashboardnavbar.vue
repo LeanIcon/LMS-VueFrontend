@@ -28,7 +28,14 @@
             </div>
 
             <div class="user-img col icon">
-               <img src="@/assets/user.png" alt="">
+               <img src="@/assets/user.png" alt="" class="dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  <ul class="dropdown-menu">
+									<li class="nav-item"><a class="nav-link" href="#">My Course</a></li>
+									<li class="nav-item"><a class="nav-link" href="#">Wishlist</a></li>
+									<li class="nav-item"><a class="nav-link" href="#">Payment Settings</a></li>
+									<li class="nav-item"><a class="nav-link" href="#">Edit Profile</a></li>
+								</ul>
             </div>
 
             <div class="dropdown-icon nav-item dropdown col icon">
