@@ -7,6 +7,7 @@
                     <div class="text-right cross">
                         <i class="fa fa-times mr-2" href="btn btn-outline-primary" data-dismiss="modal"></i> 
                     </div>
+                <form class="form-signin" v-on:submit.prevent="login" id='login-form'>
                     <div class="card-body text-center"> <img src="../assets/GH-01.png" height="100" width="100">
                         <div class="comment-box text-center">
                             <h6>How would you rate your experience using LittLMS</h6>
@@ -18,6 +19,7 @@
                              <!-- <a href="" class="btn btn-outline-primary" data-dismiss="modal">Cancel</a> </div> -->
                         </div>
                     </div>
+                </form>
                 </div>
             </div>
         </div>
@@ -34,6 +36,34 @@ export default {
 	Navbar,
   Footer
   },
+    data () {
+        return {
+            message: '',
+            rating: '',
+            course: '',
+        }
+        },
+        methods:{
+            feedback() { 
+                if(this.valid()){
+                    this.$store.dispatch('userFeedback', {
+                    message: this.message,
+                    rating: this.rating,
+                    course: 1,
+                    })
+                    .then(({ status }) => {
+                   
+                    console.log(status)
+                    this.$router.push({ name: 'Coursepage' })
+                })
+                .catch(err => {
+                    this.errinfo = 'invalid message'
+                    console.log(err)
+                    
+                })
+                }
+            }
+        }
   }
 </script>
 
