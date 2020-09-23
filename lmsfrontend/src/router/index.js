@@ -118,6 +118,15 @@ Vue.use(VueRouter)
         requiresAuth: true,
       }
     },
+    {
+      path: "/editprofile",
+      name: "Editprofile",
+      component: () => import("../views/user/Editprofile.vue"),
+      meta: {
+        requiresLogin: false,
+        requiresAuth: false,
+      }
+    },
   ];
 
 const router = new VueRouter({
