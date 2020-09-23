@@ -6,6 +6,9 @@
         <div class="csidebar">
           <Coursesidebar></Coursesidebar>
         </div>
+        <div class="feedb">
+          <Feedbackbutton></Feedbackbutton>
+        </div>
 
 
         <div class="main-body">               
@@ -40,38 +43,12 @@
         <div class="course2-btn">
                 <button class="btn btn-lg btn-primary">Next</button>
             </div>
-        <div class="course2-btn">
-                <button class="btn btn-lg feed" @click="feedbackmodal">Feedback</button>
-            </div>
+        
                 </div>  
             </main >
         </div>
         
-<modal name="feedback-modal">
-    <form method = "post" name="feedback" id="feedback" action="#" enctype="multipart/form-data" @submit.prevent="savefeedback">
-        <div class="card">
-            <div class="card-header">
-                feedback
-            </div>
-            <div class="card-body">
-               <form action="" class="form" >
-                   <div class="row">
-                       <div class="col-lg-6 p-1">
-                           <label for="">feedback Name</label>
-                           <input type="text" class="form-control" >
-                       </div>
-                       <div class="col-lg-6 p-1">
-                           <label for="manufacturerbrand">Status</label>
-                            <textarea placeholder="Please type feedback here"></textarea>
-                            <!-- <textarea v-model="user.feedback" placeholder="Please type feedback here"></textarea> -->
-                       </div>
-                   </div>
-               </form>
-               <button class="btn btn-primary">SAVE</button>
-            </div>
-        </div>
-    </form>
-    </modal>
+
          
    </div> 
 </template>
@@ -81,6 +58,8 @@
 import Dashboardnavbar from '@/components/Dashboard/Dashboardnavbar.vue'
 import Coursesidebar from '@/components/Course/Coursesidebar.vue' 
 import HamburgerSlide from '@/components/Course/HamburgerSlide.vue'
+import Feedbackbutton from '@/components/Feedbackbutton.vue'
+
 export default {
     name: 'Coursepage',
 
@@ -88,6 +67,7 @@ export default {
         Dashboardnavbar,
         Coursesidebar,
         HamburgerSlide,
+        Feedbackbutton
     },
 
     data(){
@@ -157,18 +137,6 @@ video{
 .welcome-text{
     text-align: justify;
 }
-.feed{
-    position:absolute;
-    right: 0;
-    bottom:0;
-    font-size:20px;
-    border: none;
-    transform: rotate(-90deg);
-    -moz-transform:rotate(-90deg);
-    -ms-transform:rotate(-90deg);
-    -o-transform:rotate(-90deg);
-    -webkit-transform:rotate(-90deg);
-    transform-origin: bottom right;
-}
+
 </style>
 
