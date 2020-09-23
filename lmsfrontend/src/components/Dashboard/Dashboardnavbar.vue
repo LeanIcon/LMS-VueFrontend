@@ -34,7 +34,7 @@
 									<li class="nav-item"><a class="nav-link" href="#">My Course</a></li>
 									<li class="nav-item"><a class="nav-link" href="#">Wishlist</a></li>
 									<li class="nav-item"><a class="nav-link" href="#">Payment Settings</a></li>
-									<li class="nav-item"><a class="nav-link" href="#">Edit Profile</a></li>
+									<li class="nav-item"><a class="nav-link" href=""><router-link :to = "{ name:'Editprofile' }" exact>Edit Profile</router-link></a></li>
 								</ul>
             </div>
 
@@ -82,7 +82,8 @@ export default {
 
 .dropdown-menu{
    margin-top: 1rem;
-   margin-right: -1rem;
+   margin-right: 1rem;
+   /* margin-left: 3rem; */
 }
 
 .dashboard-nav{
