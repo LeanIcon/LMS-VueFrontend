@@ -5,7 +5,7 @@
             <div class="container rounded bg-white mt-5 mb-5">
         <div class="row">
             <div class="col-md-3 border-right">
-                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQF2psCzfbB611rnUhxgMi-lc2oB78ykqDGYb4v83xQ1pAbhPiB&usqp=CAU"><span class="font-weight-bold">Amelly</span><span class="text-black-50">amelly12@bbb.com</span><span> </span></div>
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" style="width='50px' height='50px'" src="@/assets/logo.png"><span class="font-weight-bold">Amelly</span><span class="text-black-50">amelly12@bbb.com</span><span> </span></div>
             </div>
             <div class="col-md-5 border-right">
                 <div class="p-3 py-5">
@@ -51,31 +51,31 @@ export default {
 <style scoped>
 .form-control:focus {
     box-shadow: none;
-    border-color: #BA68C8
+    border-color: #f44336
 }
 
 .profile-button {
-    background: rgb(99, 39, 120);
+    background: #f44336;
     box-shadow: none;
     border: none
 }
 
 .profile-button:hover {
-    background: #682773
+    background: #f44336
 }
 
 .profile-button:focus {
-    background: #682773;
+    background: #f44336;
     box-shadow: none
 }
 
 .profile-button:active {
-    background: #682773;
+    background: #f44336;
     box-shadow: none
 }
 
 .back:hover {
-    color: #682773;
+    color: #f44336;
     cursor: pointer
 }
 
@@ -84,9 +84,9 @@ export default {
 }
 
 .add-experience:hover {
-    background: #BA68C8;
+    background: #f44336;
     color: #fff;
     cursor: pointer;
-    border: solid 1px #BA68C8;
+    border: solid 1px #f44336;
 }
 </style>
