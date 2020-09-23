@@ -2,7 +2,7 @@
     <div class="editprofile">
          <router-link to="/editprofile"></router-link>
       <router-view/>
-            <div class="container rounded bg-white mt-5 mb-5">
+            <div class="container rounded bg-white mt-1 mb-5">
         <div class="row">
             <div class="col-md-3 border-right">
                 <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" style="width='50px' height='50px'" src="@/assets/logo.png"><span class="font-weight-bold">Amelly</span><span class="text-black-50">amelly12@bbb.com</span><span> </span></div>
@@ -18,8 +18,7 @@
                     </div>
                     <div class="row mt-3">
                         <div class="col-md-12"><label class="labels">PhoneNumber</label><input type="text" class="form-control" placeholder="enter phone number" value=""></div>
-                        <div class="col-md-12"><label class="labels">Address</label><input type="text" class="form-control" placeholder="enter address" value=""></div>
-                        <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" placeholder="enter email id" value=""></div>
+                        <div class="comment-area col-md-12"><label class="labels">Bio</label> <textarea class="form-control" placeholder="Tell us about you" rows="6"></textarea> </div>
                         <div class="col-md-12"><label class="labels">Education</label><input type="text" class="form-control" placeholder="education" value=""></div>
                     </div>
                     <div class="row mt-3">
@@ -31,8 +30,13 @@
             </div>
             <div class="col-md-4">
                 <div class="p-3 py-5">
-                    <div class="d-flex justify-content-between align-items-center experience"><span>Edit Experience</span><span class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Experience</span></div><br>
-                    <div class="col-md-12"><label class="labels">Experience in Designing</label><input type="text" class="form-control" placeholder="experience" value=""></div> <br>
+                    <div class="d-flex justify-content-between align-items-center experience"><span>Edit Social</span></div><br>
+                    <div class="col-md-12"><label class="labels">LinkedIn</label><input type="text" class="form-control" placeholder="linkedin profile" value=""></div> <br>
+                    <div class="col-md-12"><label class="labels">FaceBook</label><input type="text" class="form-control" placeholder="facebook profile" value=""></div>
+                </div>
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center experience"><span>Edit Experience</span></div><br>
+                    <div class="col-md-12"><label class="labels">Profession</label><input type="text" class="form-control" placeholder="profession" value=""></div> <br>
                     <div class="col-md-12"><label class="labels">Additional Details</label><input type="text" class="form-control" placeholder="additional details" value=""></div>
                 </div>
             </div>
