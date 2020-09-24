@@ -29,7 +29,7 @@
                             <router-link :to = "{ name:'Courseintro' }" exact class="btn btn-lg btn-primary start-btn">Start Course</router-link>
                         </div>
                         <div class="enroll-list">
-                            <div class="enroll-icon"><i class="fas fa-list-alt"></i>7 modules</div>
+                            <div class="enroll-icon"><i class="fas fa-list-alt"></i> 7 modules</div>
                             <div class="enroll-icon"><i class="fab fa-youtube-square"></i> 50 Videos</div>
                             <div class="enroll-icon"><i class="fa fa-clock"></i> 72 Hours</div>
                         </div>
