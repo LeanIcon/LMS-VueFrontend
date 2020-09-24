@@ -27,26 +27,40 @@
                </div>
             </div>
 
-            <div class="user-img col icon">
-               <img src="@/assets/user.png" alt="" class="dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false">
-                  <ul class="dropdown-menu">
-									<li class="nav-item"><a class="nav-link" href="#">My Course</a></li>
-									<li class="nav-item"><a class="nav-link" href="#">Wishlist</a></li>
-									<li class="nav-item"><a class="nav-link" href="#">Payment Settings</a></li>
-									<li class="nav-item"><a class="nav-link" href=""><router-link :to = "{ name:'Editprofile' }" exact>Edit Profile</router-link></a></li>
-								</ul>
-            </div>
-
-            <div class="dropdown-icon nav-item dropdown col icon">
-               <img src="@/assets/dropdown.png" class="dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false">
-               
-               <div class="dropdown-menu dropdown-menu-right"
-                  aria-labelledby="navbarDropdownMenuLink-333">
-                  <router-link :to = "{ name:'Dashboard' }" exact class="dropdown-item">My Courses</router-link>
-                  <a class="dropdown-item logout" v-on:click="created">Logout</a>
-               </div>
+            <div class="dropdown-icon nav-item dropdown col icon menu-icon">
+               <svg version="1.1" id="Capa_1 navbarDropdownMenuLink-333"  fill="rgba(188,188,203,1)" width="22" height="22" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" class="dropdown-toggle" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false"
+                     viewBox="0 0 271.673 271.673" style="enable-background:new 0 0 271.673 271.673;" xml:space="preserve">
+                  <g>
+                     <g>
+                        <g>
+                           <path d="M114.939,0H10.449C4.678,0,0,4.678,0,10.449v104.49c0,5.771,4.678,10.449,10.449,10.449h104.49
+                              c5.771,0,10.449-4.678,10.449-10.449V10.449C125.388,4.678,120.71,0,114.939,0z"/>
+                           <path d="M261.224,0h-104.49c-5.771,0-10.449,4.678-10.449,10.449v104.49c0,5.771,4.678,10.449,10.449,10.449h104.49
+                              c5.771,0,10.449-4.678,10.449-10.449V10.449C271.673,4.678,266.995,0,261.224,0z"/>
+                           <path d="M114.939,146.286H10.449C4.678,146.286,0,150.964,0,156.735v104.49c0,5.771,4.678,10.449,10.449,10.449h104.49
+                              c5.771,0,10.449-4.678,10.449-10.449v-104.49C125.388,150.964,120.71,146.286,114.939,146.286z"/>
+                           <path d="M261.224,146.286h-104.49c-5.771,0-10.449,4.678-10.449,10.449v104.49c0,5.771,4.678,10.449,10.449,10.449h104.49
+                              c5.771,0,10.449-4.678,10.449-10.449v-104.49C271.673,150.964,266.995,146.286,261.224,146.286z"/>
+                        </g>
+                     </g>
+                  </g>
+               </svg>
+                <ul class="dropdown-menu user-area">
+                     <div class="user-profile-bar row">
+                        <img src="https://ui-avatars.com/api/?background=0D8ABC&color=fff&name=Admin" alt="" class="avatar-icon col-3">
+                        <router-link :to = "{ name:'Editprofile' }" class="profile-data col-9" tag="div" exact>
+                           <h4>Adminstrator</h4>
+                           <p>test.littlms@gmail.com</p>                           
+                        </router-link>
+                     </div>
+                     <hr>
+                     <li class="nav-item"><router-link :to = "{ name:'Dashboard' }" exact class="dropdown-item" tag="a">My Courses</router-link></li>
+                     <!-- <li class="nav-item"><a class="dropdown-item" href="#">Wishlist</a></li> -->
+                     <li class="nav-item"><a class="dropdown-item" href="#">Payment Settings</a></li>
+                     <li class="nav-item"><router-link :to = "{ name:'Editprofile' }" class="dropdown-item" tag="a" exact>Edit Profile</router-link></li>
+                     <li class="nav-item"><a class="dropdown-item logout" v-on:click="created">Logout</a></li>                
+                  </ul>
             </div>
 
          </div>
@@ -80,10 +94,30 @@ export default {
    color: red;
 }
 
+.user-profile-bar{
+   height: 3rem;
+   padding-left: 10px;
+   padding-right: 10px;
+   cursor: pointer;
+}
+
+.avatar-icon{
+   width: 60px;
+   height: 60px;
+}
+
 .dropdown-menu{
-   margin-top: 1rem;
-   margin-right: 1rem;
-   /* margin-left: 3rem; */
+   margin-top: .5rem;
+   /* margin-right: 1rem; */
+}
+
+.dropdown-item{
+   height: 2.5rem;
+   padding: 0.5rem 1.5rem;
+}
+
+.user-area{
+   width: 20rem;
 }
 
 .dashboard-nav{
@@ -110,7 +144,7 @@ export default {
     position: absolute;
     /* padding-top: 50%, 0; */
     right: 0px;
-    width: 10rem;
+    width: 7rem;
     height: 52px;
 }
 
