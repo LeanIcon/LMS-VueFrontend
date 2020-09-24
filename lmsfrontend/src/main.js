@@ -13,7 +13,10 @@ import 'popper.js/dist/umd/popper.min.js';
 import '@fortawesome/fontawesome-free/css/all.css';
 import '@fortawesome/fontawesome-free/js/all.js';
 import 'font-awesome/css/font-awesome.min.css';
-import axios from 'axios'
+// import axios from 'axios';
+
+// custom
+// import * from './utils/tokenObj'
 
 
 const eventsHub = new Vue();
@@ -23,12 +26,14 @@ Vue.use(IdleVue, {
   idleTime: 5000,
 });
 
+// console.log(accessToken)
+
 Vue.config.productionTip = false
 
-const token = localStorage.getItem('accessToken');
-if(token) {
-    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-}
+// const token = localStorage.getItem('access_token');
+// if(token) {
+//     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+// }
 
 router.beforeEach((to, from, next) => {
   if (to.matched.some((record) => record.meta.requiresLogin)) {

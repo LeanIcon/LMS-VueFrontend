@@ -6,6 +6,9 @@
         <div class="csidebar">
           <Coursesidebar></Coursesidebar>
         </div>
+        <div class="feedb">
+          <Feedbackbutton></Feedbackbutton>
+        </div>
 
 
         <div class="main-body">               
@@ -24,6 +27,14 @@
                 <video controls src="https://res.cloudinary.com/littlms/video/upload/v1599179549/2020-08-19_Design_Thinking_Prototype_md1oep.mp4">
 
                 </video>
+                <!-- <iframe
+                    src="https://res.cloudinary.com/littlms/video/upload/v1599179549/2020-08-19_Design_Thinking_Prototype_md1oep.mp4"
+                    width="640"
+                    height="480"
+                    allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+                    allowfullscreen
+                    frameborder="0"
+                ></iframe> -->
                 <div class="welcome-text">
                     <h3>Welcome to the Business Analysis Course</h3>
                     <h5>Hear BA's share their perspective before you start in the field</h5>
@@ -32,17 +43,23 @@
         <div class="course2-btn">
                 <button class="btn btn-lg btn-primary">Next</button>
             </div>
+        
                 </div>  
             </main >
-        </div>    
+        </div>
+        
+
+         
    </div> 
 </template>
 
 
 <script type="text/javascript">
-import Dashboardnavbar from '@/components/Dashboardnavbar.vue'
-import Coursesidebar from '@/components/Coursesidebar.vue' 
-import HamburgerSlide from '@/components/HamburgerSlide.vue'
+import Dashboardnavbar from '@/components/Dashboard/Dashboardnavbar.vue'
+import Coursesidebar from '@/components/Course/Coursesidebar.vue' 
+import HamburgerSlide from '@/components/Course/HamburgerSlide.vue'
+import Feedbackbutton from '@/components/Feedbackbutton.vue'
+
 export default {
     name: 'Coursepage',
 
@@ -50,6 +67,24 @@ export default {
         Dashboardnavbar,
         Coursesidebar,
         HamburgerSlide,
+        Feedbackbutton
+    },
+
+    data(){
+        return{
+            username: '',
+            feedback: ''
+        }
+    },
+
+    methods:{
+       feedbackmodal(){
+           this.$modal.show('feedback-modal');
+       } ,
+
+       savefeedback(){
+
+       }
     },
 }
 

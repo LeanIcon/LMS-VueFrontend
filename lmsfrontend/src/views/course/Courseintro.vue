@@ -53,9 +53,9 @@
 
 
 <script type="text/javascript">
-import Dashboardnavbar from '@/components/Dashboardnavbar.vue'
-import Coursesidebar from '@/components/Coursesidebar.vue'
-import HamburgerSlide from '@/components/HamburgerSlide.vue'
+import Dashboardnavbar from '@/components/Dashboard/Dashboardnavbar.vue'
+import Coursesidebar from '@/components/Course/Coursesidebar.vue'
+import HamburgerSlide from '@/components/Course/HamburgerSlide.vue'
 export default {
     name: 'Courseintro',
 

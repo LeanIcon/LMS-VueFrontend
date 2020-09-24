@@ -2,7 +2,7 @@
     <div class="sidebar-container">
         <div class="sidebar-rect">
             <div class="sidebar-logo">
-                <img src="../assets/gh_01.png" alt="sidebar-logo">
+                <img src="@/assets/gh_01.png" alt="sidebar-logo">
             </div>
             <div class="icon-fonts">
 

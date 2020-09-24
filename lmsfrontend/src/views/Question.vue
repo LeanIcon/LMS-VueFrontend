@@ -41,8 +41,8 @@
 </template>
 
 <script>
-import Sidebar from '@/components/Sidebar.vue'
-import Dashboardnavbar from '@/components/Dashboardnavbar.vue'
+import Sidebar from '@/components/Dashboard/Sidebar.vue'
+import Dashboardnavbar from '@/components/Dashboard/Dashboardnavbar.vue'
 export default {
 // @ is an alias to /src
   name: 'Dashboard',
