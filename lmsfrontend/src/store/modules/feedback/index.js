@@ -16,10 +16,9 @@ export default ({
                     message: feedback.message,
                     course: feedback.course,
                 })
-                .then(({ status }, state) => {
+                .then(({ status }) => {
                     if(status == 201){
                         resolve(status);
-                        status.feedbacksent = true
                     }
                 })
                 .catch(err => {
