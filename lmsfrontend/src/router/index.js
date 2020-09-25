@@ -110,9 +110,9 @@ Vue.use(VueRouter)
       }
     },
     {
-      path: "/practice",
-      name: "Question",
-      component: () => import("../views/Question.vue"),
+      path: "/skill",
+      name: "Skill",
+      component: () => import("../views/Skill.vue"),
       meta: {
         requiresLogin: true,
         requiresAuth: true,
