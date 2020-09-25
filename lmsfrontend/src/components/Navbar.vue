@@ -1,22 +1,27 @@
 <template>
-    <div class="navcontainer">                
+    <div class="navcontainer" row> 
+
+      <div class="row">               
                 <!-- <div class="navbar-header"> -->
-                    <!-- Logo -->
-                    <div class="logo">
+                   <!-- Logo -->
+                    <div class="logo" col-sm>
                         <img src="../assets/gh_01_ek2.png" alt="logo">
+
                     </div>
-                   
+                     
+                     <div class="items topnav-right" col-sm>
+                       
+                        <a href="index.html">HOME</a>
+                        <a href="#">ABOUT</a>
+                        <a href="#">COURSES</a>
+                        <a href="contact.html">CONTACT</a>
+                        <a href="#">SIGN IN</a>
+                    </div>
+      </div>             
                 <!-- </div> -->
 
                 
-                    <div class="items topnav-right">
-                        <a href="index.html">Home</a>
-                        <a href="#">About</a>
-                        <a href="#">Courses</a>
-                        <a href="contact.html">Contact</a>
-                        <a>Sign In</a>
-                    </div>
-                
+                    
 
     </div>
 </template>
@@ -29,15 +34,22 @@
   
   <style scoped>
       .items>a{
-    color:rgb(15, 13, 13);
+    color:rgb(238, 225, 225);
     list-style: none;
     width: 100%; 
-    padding-left: 5rem;
+    padding-left: 4rem;
     text-decoration:none;
     /* float: right; */
-    padding-bottom: 3rem;
+    /* padding-bottom: 3rem; */
     text-align: right;
+    padding-top: 5rem;
+    font-weight: bold;
     
+    }
+    .items>a:hover{
+      text-decoration: underline;
+      /* text-decoration-line: red; */
+      text-decoration-color:red;
     }
   .nav{
       background: (#374050);
@@ -60,8 +72,9 @@
 .navcontainer>items{
   float:right;
 }
-.items > a{
+.items{
   margin-top: 2.4rem;
+  margin-left: 23rem;
 }
     
   </style>
