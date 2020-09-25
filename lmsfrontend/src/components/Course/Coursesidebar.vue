@@ -7,32 +7,19 @@
                     </div>
                 </div>
             
-            
-                <div class="mySideBarMenuItem"><a  data-toggle="collapse" data-target="#submenu-1">+  Course Introduction</a>
-                    <hr>
-                    <ul id="submenu-1" class="collapse side-nav">
-                        <li><a class="submenu-item">- Introduction</a></li>
-                        <li><a class="submenu-item">- Requirements</a></li>
-                    </ul>
-                </div>
+                <div class="module-content" v-for="course in courses" :key="course.id">
+                    <div class="module-content" v-for="course_module in course.modules" :key="course_module.id">
+                        <!-- <div class="module-content" v-for="course in courses" :key="course.id"> -->
 
-                <div class="mySideBarMenuItem"><a  data-toggle="collapse" data-target="#submenu-2">+  Market Analysis</a>
-                    <hr>
-                    <ul id="submenu-2" class="collapse side-nav">
-                        <li><a class="submenu-item">- Estimation</a></li>
-                        <li><a class="submenu-item">- Regression</a></li>
-                        <li><a class="submenu-item">- Linear Optimization</a></li>
-                        <li><a class="submenu-item">- Dynamic Optimization</a></li>
-                    </ul>
+                        <div class="mySideBarMenuItem"><a  data-toggle="collapse" v-bind:data-target="`#submenu-${course_module.id}`">+  {{ course_module.title }}</a>
+                            
+                            <hr>
+                            <ul v-bind:id="`submenu-${course_module.id}`" class="collapse side-nav" v-for="course_lesson in course_module.lessons" :key="course_lesson.id">
+                                <li><a class="submenu-item">- {{ course_lesson.title }}</a></li>
+                                <!-- <li><a class="submenu-item">- Requirements</a></li> -->
+                            </ul>
+                        </div>
                 </div>
-
-                <div class="mySideBarMenuItem"><a  data-toggle="collapse" data-target="#submenu-3">+  Assessment</a>
-                    <hr>
-                    <ul id="submenu-3" class="collapse side-nav">
-                        <li><a class="submenu-item">- Quiz</a></li>
-                        <li><a class="submenu-item">- Course Recap</a></li>
-                        <li><a class="submenu-item">- Your Next Step</a></li>
-                    </ul>
                 </div>
                 
             </div>
@@ -42,8 +29,26 @@
 </template>
 
 <script type="text/javascript">
+    // Api call
+    // import { getAPI } from '../utils/axios-api'
+    import { mapState } from 'vuex'
+    import { mapActions } from 'vuex'
+
     export default {
         name: "Coursesidebar",
+        
+    computed: {
+        ...mapState("course", ["courses"])
+    },
+    
+    methods: {
+        ...mapActions("course", ["getCourses"]),
+        // console.log()
+
+        courses(){
+            // Do course_module
+        }
+    },
     };
 
     (function () {
