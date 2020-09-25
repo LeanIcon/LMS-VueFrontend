@@ -76,6 +76,12 @@
     transition: 0.5s;
     font:lato;
 }
+
+.bar-title{
+    margin: 1rem auto;
+    margin-bottom: 3rem;
+}
+
 .sidebar a{
     /* padding: 8px 8px 8px 32px; */
     text-decoration: none;
@@ -97,6 +103,7 @@ hr{
 
 .mySideBarMenuItem{
     padding: 0 10px;
+    cursor: pointer;
 }
 
 .collapse > li > a{

@@ -7,19 +7,30 @@
                     <div class="text-right cross">
                         <i class="fa fa-times mr-2" href="btn btn-outline-primary" data-dismiss="modal"></i> 
                     </div>
-                <form class="form-signin" v-on:submit.prevent="login" id='login-form'>
                     <div class="card-body text-center"> <img src="../assets/GH-01.png" height="100" width="100">
                         <div class="comment-box text-center">
                             <h6>How would you rate your experience using LittLMS</h6>
-                            <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label> </div>
+                            <form id="feedback-form" v-on:submit.prevent="feedback">
+                                <div class="rating">
+                                    <input type="radio" name="rating" value="5" id="5" v-model="rating">
+                                    <label for="5">☆</label>
+                                    <input type="radio" name="rating" value="4" id="4" v-model="rating">
+                                    <label for="4">☆</label> 
+                                    <input type="radio" name="rating" value="3" id="3" v-model="rating">
+                                    <label for="3">☆</label> 
+                                    <input type="radio" name="rating" value="2" id="2" v-model="rating">
+                                    <label for="2">☆</label> 
+                                    <input type="radio" name="rating" value="1" id="1" v-model="rating">
+                                    <label for="1">☆</label>
+                                </div>
                             <!-- <h6>What can we do better? Details help</h6> -->
-                            <div class="comment-area"> <textarea class="form-control" placeholder="What can we do better? Details help" rows="4"></textarea> </div>
+                                <div class="comment-area"> <textarea class="form-control" placeholder="Did you enjoy the course? Share your feedback" rows="4" v-model="message"></textarea> </div>
+                            </form>
                             <!-- <div class="text-center mt-4"> <button class="btn btn-success send px-5">Submit <i class="fa fa-long-arrow-right ml-1"></i></button></a> <a href="" class="btn btn-outline-primary" data-dismiss="modal">Cancel</a></div> -->
-                            <div class="text-center mt-4"> <a href="" class="btn btn-primary">Submit </a> </div>
                              <!-- <a href="" class="btn btn-outline-primary" data-dismiss="modal">Cancel</a> </div> -->
                         </div>
                     </div>
-                </form>
+                <button class="text-center mt-2 btn btn-primary feedbtn" type="submit" form="feedback-form" style="width:150px;">Submit</button>
                 </div>
             </div>
         </div>
@@ -45,23 +56,21 @@ export default {
         },
         methods:{
             feedback() { 
-                if(this.valid()){
-                    this.$store.dispatch('userFeedback', {
-                    message: this.message,
-                    rating: this.rating,
-                    course: 1,
-                    })
-                    .then(({ status }) => {
-                   
-                    console.log(status)
-                    this.$router.push({ name: 'Coursepage' })
+                this.$store.dispatch('userFeedback', {
+                message: this.message,
+                rating: this.rating,
+                course: 1,
                 })
-                .catch(err => {
-                    this.errinfo = 'invalid message'
-                    console.log(err)
-                    
-                })
-                }
+                .then(({ status }) => {
+                
+                console.log(status)
+                this.$router.push({ name: 'Coursepage' })
+            })
+            .catch(err => {
+                this.errinfo = 'invalid message'
+                console.log(err)
+                
+            })
             }
         }
   }
@@ -70,17 +79,10 @@ export default {
 <style lang="scss">
     @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap');
 
-    // html,
-    // body {
-    //     height: 100%
-    // }
-
-    // body {
-    //     display: grid;
-    //     place-items: center;
-    //     font-family: 'Manrope', sans-serif;
-    //     background: #000
-    // }
+    .feedbtn{
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
 
     .cross {
         padding: 10px;
