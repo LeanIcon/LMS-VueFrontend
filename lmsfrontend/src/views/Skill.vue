@@ -33,7 +33,7 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                    <div  style="height:450px;width:450px;font:16px/26px Lato, Garamond, Serif;overflow:auto;">
+                    <div class="modal-data">
                       <p>Introducing an agile approach has a significant impact on the role of the Business Analyst, on their existing skills and their way of working. Whilst traditional skills are still valuable, new skills and ways of working need to be adopted to harness the benefits of a new way of working and to appreciate the different relationships with co-workers and stakeholders.<br> This training provides the useful, practical and comprehensive guidance on the role of the Business Analyst working in an agile way.
                         Business Analysts play a crucial role in projects, through analysis of the organization’s needs and the alignment of business projects to those needs. This course gives context to the Business Analyst role beyond the individual project, in relation to organizational mission and strategy, and provides additional depth and guidance for the Business Analyst role.<br> As organizations and individuals embrace and transition to Agile ways of working, the role of the Business Analyst has evolved significantly, requiring fresh guidance, concepts and techniques.<br><br><br>
 
@@ -53,7 +53,7 @@
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <router-link :to = "{ name:'Question' }" class="btn btn-primary" exact>Start Quiz</router-link>
+                    <router-link :to = "{ name:'Question' }" class="btn btn-primary"  data-dismiss="modal" exact>Start Quiz</router-link>
                   </div>
                 </div>
               </div>
@@ -123,6 +123,13 @@ export default {
 .dashnav{
   position: static;
   z-index: 1;
+}
+
+.modal-data{
+height:450px;
+width:450px;
+font:16px/26px Lato, Garamond, Serif;
+overflow:auto;
 }
 
 .skillpage{
