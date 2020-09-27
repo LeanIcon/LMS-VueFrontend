@@ -15,7 +15,7 @@
                             
                             <hr>
                             <ul v-bind:id="`submenu-${course_module.id}`" class="collapse side-nav" v-for="course_lesson in course_module.lessons" :key="course_lesson.id">
-                                <li><a class="submenu-item">- {{ course_lesson.title }}</a></li>
+                                <li><a class="submenu-item lesson-title" :title="`${course_lesson.title}`">- {{ course_lesson.title }}</a></li>
                                 <!-- <li><a class="submenu-item">- Requirements</a></li> -->
                             </ul>
                         </div>
@@ -77,10 +77,32 @@
     font:lato;
 }
 
+/* Hide scrollbar for Chrome, Safari and Opera */
+.sidebar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.sidebar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
 .bar-title{
     margin: 1rem auto;
     margin-bottom: 3rem;
 }
+
+.lesson-title{
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    width: 80%;
+}
+
+// .lesson-title:hover{
+//     overflow: visible; 
+// }
 
 .sidebar a{
     /* padding: 8px 8px 8px 32px; */
