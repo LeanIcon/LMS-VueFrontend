@@ -117,7 +117,7 @@ export default {
 }
 
 .user-area{
-   width: 20rem;
+   width: 18rem;
 }
 
 .dashboard-nav{
