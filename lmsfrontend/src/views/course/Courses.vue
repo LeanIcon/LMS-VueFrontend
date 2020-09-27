@@ -9,14 +9,13 @@
         </div>
 
         <div class="course-data">
-            <main id="main" class="jumbotron">
+            <main id="main" class="jumbotron" v-for="course in courses" :key="course.id">
                 <Section class="sec1">
                     <div class="h1-box"></div>
-                    <h1>Business </h1>
-                    <h1>Analysis</h1>
+                    <h1>{{ course.title }}</h1>
                     <div class="secText">
                         <p>
-                            Job titles for business analysis practitioners include not only business analyst, but also business systems analyst, systems analyst, requirements engineer, process analyst, product manager, product owner, enterprise analyst, business architect, management consultant, business intelligence analyst, data scientist, and more. 
+                            {{ course.description }}
                         </p>
                     </div>
                 </Section>
@@ -24,13 +23,13 @@
                 <Section class="sec2">
                     <div class="enroll">
                         <div class="enrollText">
-                            <p>Enroll on this course! </p>
+                            <p>Start course and expand your knowledge in agile! </p>
                         </div>
                         <div class="enroll-btn">
-                            <router-link :to = "{ name:'Courseconfirm' }" exact class="btn btn-lg btn-primary start-btn">Register</router-link>
+                            <router-link :to = "{ name:'Courseintro' }" exact class="btn btn-lg btn-primary start-btn">Start Course</router-link>
                         </div>
                         <div class="enroll-list">
-                            <div class="enroll-icon"><i class="fas fa-list-alt"></i> 8 Lessons</div>
+                            <div class="enroll-icon"><i class="fas fa-list-alt"></i> 7 modules</div>
                             <div class="enroll-icon"><i class="fab fa-youtube-square"></i> 50 Videos</div>
                             <div class="enroll-icon"><i class="fa fa-clock"></i> 72 Hours</div>
                         </div>
@@ -41,9 +40,10 @@
             <hr>
             <Section class=" container card-box">
                 <div class="card-deck mb-3 text-center">
-                    <!-- <div class="card mb-4 shadow-sm cardd"  v-for="courses in APIData" :key="courses.id">
+                    <!-- <div class="card mb-4 shadow-sm cardd"  v-for="course in courses" :key="course.id">
                         <div class="card-body">
-                            <button class="btn btn-lg btn-primary">{{ courses.title }}</button>
+                            <button class="btn btn-lg btn-primary">{{ course.title }}</button>
+                            <button class="btn btn-lg btn-primary">{{ course.description }}</button>
                         </div>
                     </div> -->
                 </div>
@@ -80,41 +80,23 @@ export default {
         Dashboardnavbar, 
     },
 
-    // computed: mapState(['APIData']),
-    // created () {
-    //     getAPI.get('/api/courses/', { headers: { Authorization: `Bearer ${this.$store.state.accessToken}` } })
-    //       .then(response => {
-    //         this.$store.state.APIData = response.data
-    //         console.log(response.data)
-    //       })
-    //       .catch(err => {
-    //         console.log(err)
-    //     })
-    // },
-
-    // props: ["data"],
-    // methods: {
-    //     ...mapActions(['GET_DATA']),
-    //     created() {
-    //         const courseData = {
-    //             id: this.data.id,
-    //         };
-    //         console.log(courseData)
-    //     },
-    // }
-
     computed: {
         ...mapState("course", ["courses"])
     },
     
     methods: {
-        ...mapActions("course", ["getCourses"])
-    },
+        ...mapActions("course", ["getCourses"]),
+        // console.log()
 
+        courses(){
+            // Do something
+        }
+    },
     // get data from store **pass the action name**
     mounted(){
         this.getCourses();  
     },
+
 
 }
 

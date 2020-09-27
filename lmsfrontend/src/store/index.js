@@ -10,11 +10,13 @@ Vue.use(Vuex);
 
 import course from "./modules/course";
 import user from "./modules/user/user";
-
+import feedback from"./modules/feedback";
  export default new Vuex.Store({
     modules: {
         course,
-        user
+        user,
+        feedback
+
     },
 
     // state:{
