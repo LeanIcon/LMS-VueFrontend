@@ -9,7 +9,7 @@
 
                     </div>
                      
-                     <div class="items topnav-right" col-sm>
+                     <div class="items topnav-center" col-sm>
                        
                         <a href="index.html">HOME</a>
                         <a href="#">ABOUT</a>
@@ -37,13 +37,16 @@
     color:rgb(238, 225, 225);
     list-style: none;
     width: 100%; 
-    padding-left: 4rem;
+    padding-left: 3rem;
     text-decoration:none;
+    margin-left: 1.5rem;
     /* float: right; */
-    /* padding-bottom: 3rem; */
-    text-align: right;
+    padding-bottom: 4rem;
+    text-align: center;
     padding-top: 5rem;
     font-weight: bold;
+    justify-content: center;
+    /* display: inline-block; */
     
     }
     .items>a:hover{
@@ -57,10 +60,10 @@
       place-content: right;
       text-align: right;
       width: 100vw;
-      height: 15vh;
-      position: absolute;
+      height: 10vh;
+      position: absolute; 
 
-    
+     
   }
   img{
     height: 6rem;
@@ -75,6 +78,23 @@
 .items{
   margin-top: 2.4rem;
   margin-left: 23rem;
+}
+.row{
+  height: 5rem;
+  text-align: center;
+  justify-content: center;
+  
+}
+.row>a{
+   display: inline-block;
+   text-align: center;
+
+}
+.nav{
+  justify-content: center;
+}
+.topnav-center>a{
+  padding-left: 2rem;
 }
     
   </style>
