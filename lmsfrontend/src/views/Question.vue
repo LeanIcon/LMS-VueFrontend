@@ -31,7 +31,7 @@
                     </ul>
                 </div>
                 <button class="btn" type="submit">
-                    Submit
+                    Next
                 </button>
             </div>            
         </div>
