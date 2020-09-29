@@ -34,18 +34,18 @@
                   </div>
                   <div class="modal-body">
                     <div class="modal-data">
-                      <p>Introducing an agile approach has a significant impact on the role of the Business Analyst, on their existing skills and their way of working. Whilst traditional skills are still valuable, new skills and ways of working need to be adopted to harness the benefits of a new way of working and to appreciate the different relationships with co-workers and stakeholders.<br> This training provides the useful, practical and comprehensive guidance on the role of the Business Analyst working in an agile way.
-                        Business Analysts play a crucial role in projects, through analysis of the organization’s needs and the alignment of business projects to those needs. This course gives context to the Business Analyst role beyond the individual project, in relation to organizational mission and strategy, and provides additional depth and guidance for the Business Analyst role.<br> As organizations and individuals embrace and transition to Agile ways of working, the role of the Business Analyst has evolved significantly, requiring fresh guidance, concepts and techniques.<br><br><br>
+                      <p>Performing a business analysis can help you identify problems within a business, and this quiz/worksheet duo will help test your ability to understand the steps involved in the process.<br><br><br>
 
-                        <b>Learning Goals</b>
+                        <b>Quizz Goals</b><br>
+                        <b>	These assessments will test your understanding to identify the following:</b>
                         <ul>
-                          <li>	Knowledge and understanding Agile Business Analysis techniques</li>
-                          <li>	How to move from traditional to more agile ways of working</li>
-                          <li>	Learn tools needed to adopt an agile approach and when to use them</li>
+                          
+                          <li>	Requirements of a business analysis</li>
+                          <li>	Who provides organization and strategic guidance</li>
                           <li>	Determine problems and identify business needs</li>
-                          <li>	Identify and recommend viable solutions for meeting business needs </li>
-                          <li>	Elicit, document and manage stakeholder requirements in order to meet operations and project objectives</li>
-                          <li>	Facilitate the successful implementation of the product, service, or end result of the program or project</li>
+                          <li>	Techniques uses to define stakeholder requirements </li>
+                          <li>	How a business analysis project originates</li>
+                          <!-- <li>	Facilitate the successful implementation of the product, service, or end result of the program or project</li> -->
                         </ul>
                         </p>
                       

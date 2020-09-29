@@ -30,7 +30,8 @@
                              <!-- <a href="" class="btn btn-outline-primary" data-dismiss="modal">Cancel</a> </div> -->
                         </div>
                     </div>
-                <button class="text-center mt-2 btn btn-primary feedbtn" type="submit" form="feedback-form" style="width:150px;">Submit</button>
+                <button class="text-center mt-2 btn btn-primary feedbtn" type="submit" form="feedback-form" style="width:150px;" data-dismiss="modal">Submit</button>
+                
                 </div>
             </div>
         </div>
@@ -82,6 +83,7 @@ export default {
     .feedbtn{
         margin: 0 auto;
         margin-bottom: 20px;
+        // position:fixed;
     }
 
     .cross {
