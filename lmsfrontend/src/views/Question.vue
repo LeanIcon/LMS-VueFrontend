@@ -70,7 +70,7 @@ export default {
 
 <style scoped>
 .question-page{
-    position: fixed;
+    position: absolute;
     background-color: #EDEDED;
     height: 200%;
     width: 100vw;
