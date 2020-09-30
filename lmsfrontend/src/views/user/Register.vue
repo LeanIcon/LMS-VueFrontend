@@ -78,6 +78,7 @@ import Footer from '@/components/Footer.vue'
         lastname: '',
         email: '',
         password: '',
+        confirm_password: '',
         student_type: '',
         userExists: false,
         submitted: false

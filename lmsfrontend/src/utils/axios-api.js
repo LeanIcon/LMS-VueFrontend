@@ -11,10 +11,9 @@ Vue.use(NProgress);
 
 const getAPI = axios.create({
     // Unused due to database conflict
-    // baseURL: 'https://lmslitt.herokuapp.com',
-    // baseURL: 'https://littlmsapi.herokuapp.com',
 
-    baseURL: 'https://littapi.herokuapp.com',
+
+    // baseURL: 'http://127.0.0.1:8000',
 
     timeout: 20000,
 })

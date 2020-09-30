@@ -70,14 +70,29 @@
               <div class="title">
                 <h2>My course</h2>
               </div>
-              <div class="row card-deck">
+              <div class="row card-deck crd">
                 <div class="card course-progress stats-card">
                   
                   <div class="card-head head-btn">
                     <p class="card-title ">Business Analysis</p>
                     <div class="start-btn btn btn-primary">Start</div>
                   </div>
-                  <h1>Course Journey</h1>
+                  <h1></h1>
+                </div>
+              </div>
+            </div>
+            <div class="layer-2">
+              <div class="title">
+                <h2>Quizz</h2>
+              </div>
+              <div class="row card-deck crd">
+                <div class="card course-progress stats-card">
+                  
+                  <div class="card-head head-btn">
+                    <p class="card-title ">Business Analysis</p>
+                    <button class="start-btn btn btn-primary">Start Quizz</button>
+                  </div>
+                  <h1></h1>
                 </div>
               </div>
             </div>
@@ -154,6 +169,7 @@ export default {
 
 .layer-2{
   margin-top: 3rem;
+  
 }
 
 /* .layer-1-card{
@@ -257,5 +273,8 @@ padding-top: 7%;
 .head-btn{
   display: inline-flex;
   flex-direction: row;
+}
+.crd{
+  height: 8rem;
 }
 </style>
