@@ -1,5 +1,5 @@
 <template>
- <div class="home">
+ <div class="question-page">
         <div class="sidebar">
             <Sidebar></Sidebar>
         </div>
@@ -8,27 +8,16 @@
         </div>
 
     <div class="question">
-        <div class="main_container card">
+        <div class="main_container card"  v-for="quizData in practice_test.practice_test.quiz.question_set" :key="quizData.id">
             <div class="inner">
-                <h3 class="header">Complete the task</h3>
-                <p>Usually, BPM is represented in diagrammatic way where processes, decisions and ________ are represented as a sequential workflow </p>
+                <!-- <h3 class="header">Complete the task</h3> -->
+                <!-- <p>Usually, BPM is represented in diagrammatic way where processes, decisions and ________ are represented as a sequential workflow </p> -->
+                <p>{{ quizData.label }}</p>
                 <div class="items">
-                    <ul class="pick">
-
-                        <li><label class="container">
-                            <input type="radio" class="answer"><span class="checkmark">Information</span>
-                        </label>
-                        </li>
-                        <li><label class="container">
-                            <input type="radio" class="answer"><span class="checkmark">Analysis</span>
-                        </label>
-                        </li>
-                        <li><label class="container">
-                            <input type="radio" class="answer"><span class="checkmark">Brainstorming</span>
-                        </label>
-                        </li>
+                    <div class="pick" v-for="answerData in quizData.answer_set" :key="answerData.id">
+                            <input type="radio" class="answer" name="choice"><span class="checkmark">{{ answerData.label }}</span>
                     
-                    </ul>
+                    </div>
                 </div>
                 <button class="btn" type="submit">
                     Submit
@@ -43,17 +32,54 @@
 <script>
 import Sidebar from '@/components/Dashboard/Sidebar.vue'
 import Dashboardnavbar from '@/components/Dashboard/Dashboardnavbar.vue'
+import { mapState } from 'vuex'
+import { mapActions } from 'vuex'
+
 export default {
 // @ is an alias to /src
-  name: 'Dashboard',
+    name: 'Dashboard',
 
-  components:{
-    Sidebar,
-    Dashboardnavbar,
-  },
+    components:{
+        Sidebar,
+        Dashboardnavbar,
+    },
+
+  
+    computed: {
+        ...mapState(["practice_test"])
+    },
+    
+    methods: {
+        ...mapActions("practice_test", ["getPracticeTest"]),
+        // console.log()
+
+        practice_test(){
+            // Do something
+        }
+    },
+    // get data from store **pass the action name**
+    mounted(){
+        this.getPracticeTest();  
+    },
 }
 </script>
+
+
+
+
+
 <style scoped>
+.question-page{
+    position: absolute;
+    background-color: #EDEDED;
+    height: 100vh;
+    width: 100vw;
+}
+.question{
+    padding-top: 5rem;
+    margin: 0 auto;
+}
+
 .main-body{
     padding-left: 30px;
     padding-right: 30px;
@@ -114,12 +140,5 @@ z-index: 1;
     box-sizing: border-box;
 }
 
-.question{
-    position: absolute;
-    padding-top: 5rem;
-    margin: 0 auto;
-    background-color: #EDEDED;
-    height: 100%;
-}
 
 </style>
