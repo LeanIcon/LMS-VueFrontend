@@ -13,7 +13,7 @@ const getAPI = axios.create({
     // Unused due to database conflict
 
 
-    // baseURL: 'http://127.0.0.1:8000',
+    baseURL: 'https://littapi.herokuapp.com',
 
     timeout: 20000,
 })
