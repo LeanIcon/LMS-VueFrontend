@@ -10,31 +10,33 @@
 
         <div class="course-data">
             <main id="main" class="jumbotron" v-for="course in courses" :key="course.id">
-                <Section class="sec1">
-                    <div class="h1-box"></div>
-                    <h1>{{ course.title }}</h1>
-                    <div class="secText">
-                        <p>
-                            {{ course.description }}
-                        </p>
-                    </div>
-                </Section>
+                <div class="bg">
+                    <Section class="sec1">
+                        <div class="h1-box"></div>
+                        <h1>{{ course.title }}</h1>
+                        <div class="secText">
+                            <p>
+                                {{ course.description }}
+                            </p>
+                        </div>
+                    </Section>
 
-                <Section class="sec2">
-                    <div class="enroll">
-                        <div class="enrollText">
-                            <p>Start course and expand your knowledge in agile! </p>
+                    <Section class="sec2">
+                        <div class="enroll">
+                            <div class="enrollText">
+                                <p>Start course and expand your knowledge in agile! </p>
+                            </div>
+                            <div class="enroll-btn">
+                                <router-link :to = "{ name:'Courseintro' }" exact class="btn btn-lg btn-primary start-btn">Start Course</router-link>
+                            </div>
+                            <div class="enroll-list">
+                                <div class="enroll-icon"><i class="fas fa-list-alt"></i> 7 modules</div>
+                                <div class="enroll-icon"><i class="fab fa-youtube-square"></i> 50 Videos</div>
+                                <div class="enroll-icon"><i class="fa fa-clock"></i> 72 Hours</div>
+                            </div>
                         </div>
-                        <div class="enroll-btn">
-                            <router-link :to = "{ name:'Courseintro' }" exact class="btn btn-lg btn-primary start-btn">Start Course</router-link>
-                        </div>
-                        <div class="enroll-list">
-                            <div class="enroll-icon"><i class="fas fa-list-alt"></i> 7 modules</div>
-                            <div class="enroll-icon"><i class="fab fa-youtube-square"></i> 50 Videos</div>
-                            <div class="enroll-icon"><i class="fa fa-clock"></i> 72 Hours</div>
-                        </div>
-                    </div>
-                </Section>
+                    </Section>
+                </div>
             </main>
 
             <hr>
@@ -176,5 +178,11 @@ export default {
     /* height: 250;
     width: 250; */
     padding: 80px 0;
+}
+.bg{
+    content: url(../../assets/business.jpg);
+    filter:alpha(opacity=50);
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0.5);
+    opacity:.50;
 }
 </style>
