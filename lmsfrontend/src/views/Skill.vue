@@ -43,7 +43,7 @@
                           <li>	Requirements of a business analysis</li>
                           <li>	Who provides organization and strategic guidance</li>
                           <li>	Determine problems and identify business needs</li>
-                          <li>	Techniques uses to define stakeholder requirements </li>
+                          <li>	Techniques used to define stakeholder requirements </li>
                           <li>	How a business analysis project originates</li>
                           <!-- <li>	Facilitate the successful implementation of the product, service, or end result of the program or project</li> -->
                         </ul>
