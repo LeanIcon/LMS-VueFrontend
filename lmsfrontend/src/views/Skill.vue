@@ -7,50 +7,6 @@
           <Dashboardnavbar></Dashboardnavbar>
         </div>
     <div class="skillpage">
-<<<<<<< HEAD
-       <Section class=" container card-box">
-        <hr>
-        <div class="card" style="width: 20rem;">
-            <img class="card-img-top" src="@/assets/download.png" alt="Card image cap">
-            <div class="card-body shadow-sm cardd">
-              <h5 class="card-title">Business Analysis</h5>
-              <p class="card-text">Job titles for business analysis practitioners include not only business analyst, 
-                but also business systems analyst, systems analyst, requirements engineer, process analyst, product manager,
-               product owner, enterprise analyst, business architect, management consultant, business intelligence analyst, 
-               data scientist, and more. 
-              .</p>
-              <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-              Start
-            </button>
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Business Analysis</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <div class="modal-data">
-                      <p>Performing a business analysis can help you identify problems within a business, and this quiz/worksheet duo will help test your ability to understand the steps involved in the process.<br><br><br>
-
-                        <b>Quizz Goals</b><br>
-                        <b>	These assessments will test your understanding to identify the following:</b>
-                        <ul>
-                          
-                          <li>	Requirements of a business analysis</li>
-                          <li>	Who provides organization and strategic guidance</li>
-                          <li>	Determine problems and identify business needs</li>
-                          <li>	Techniques used to define stakeholder requirements </li>
-                          <li>	How a business analysis project originates</li>
-                          <!-- <li>	Facilitate the successful implementation of the product, service, or end result of the program or project</li> -->
-                        </ul>
-                        </p>
-                      
-=======
        <Section class=" container card-deck">
           <div class='quiz-card card'>
             <div class='quiz-data row'>
@@ -102,7 +58,6 @@
                           <router-link :to = "{ name:'Question' }" class="btn btn-primary"  data-dismiss="modal" exact>Start Quiz</router-link>
                         </div>
                       </div>
->>>>>>> af4f91f4e57d23dc8b0722eb6a81510b46e75e8d
                     </div>
                   </div>
               </div>

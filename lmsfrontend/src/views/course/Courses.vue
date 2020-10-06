@@ -9,32 +9,34 @@
         </div>
 
         <div class="course-data">
-            <main id="main" class="jumbotron" v-for="course in courses" :key="course.id">
-                <Section class="sec1">
-                    <div class="h1-box"></div>
-                    <h1>{{ course.title }}</h1>
-                    <div class="secText">
-                        <p>
-                            {{ course.description }}
-                        </p>
-                    </div>
-                </Section>
+            <main id="main" class="jumbotron" v-for="course in courses" :key="course.id" >
+                <div class="bg">
+                    <Section class="sec1">
+                        <div class="h1-box"></div>
+                        <h1>{{ course.title }}</h1>
+                        <div class="secText">
+                            <p>
+                                {{ course.description }}
+                            </p>
+                        </div>
+                    </Section>
 
-                <Section class="sec2">
-                    <div class="enroll">
-                        <div class="enrollText">
-                            <p>Start course and expand your knowledge in agile! </p>
+                    <Section class="sec2">
+                        <div class="enroll">
+                            <div class="enrollText">
+                                <p>Start course and expand your knowledge in agile! </p>
+                            </div>
+                            <div class="enroll-btn">
+                                <router-link :to = "{ name:'Courseintro' }" exact class="btn btn-lg btn-primary start-btn">Start Course</router-link>
+                            </div>
+                            <div class="enroll-list">
+                                <div class="enroll-icon"><i class="fas fa-list-alt"></i> 7 modules</div>
+                                <div class="enroll-icon"><i class="fab fa-youtube-square"></i> 50 Videos</div>
+                                <div class="enroll-icon"><i class="fa fa-clock"></i> 72 Hours</div>
+                            </div>
                         </div>
-                        <div class="enroll-btn">
-                            <router-link :to = "{ name:'Courseintro' }" exact class="btn btn-lg btn-primary start-btn">Start Course</router-link>
-                        </div>
-                        <div class="enroll-list">
-                            <div class="enroll-icon"><i class="fas fa-list-alt"></i> 7 modules</div>
-                            <div class="enroll-icon"><i class="fab fa-youtube-square"></i> 50 Videos</div>
-                            <div class="enroll-icon"><i class="fa fa-clock"></i> 72 Hours</div>
-                        </div>
-                    </div>
-                </Section>
+                    </Section>
+                </div>
             </main>
 
             <hr>
@@ -106,6 +108,7 @@ export default {
 .sidebar{
   position: fixed;
   z-index: 2;
+  
 }
 
 .dashnav{
@@ -114,9 +117,12 @@ export default {
 }
 
 #main{
-    background-color: #3B3B3B;
+    
     display:inline-block;
     margin: 0 auto;
+    /* background-image: url(../../assets/business.jpg); */
+    /* opacity: 0.6; */
+    /* opacity: 0.8; */ 
     /* text-align: center;
      */
      
@@ -143,6 +149,8 @@ export default {
 
 #main .secText{
     text-align: justify;
+    /* opacity:1 ; */
+    /* color: black; */
     /* margin: 200 0 0 0; */
     
 
@@ -177,4 +185,11 @@ export default {
     width: 250; */
     padding: 80px 0;
 }
+/* .bg{
+    background-image:url(../../assets/business.jpg);
+    /* opacity: 0.1; */
+    /* background-image-opacity:0,4;
+} */ 
+
+
 </style>
