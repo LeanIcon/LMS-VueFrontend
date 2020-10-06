@@ -72,7 +72,7 @@ export default {
 .question-page{
     position: absolute;
     background-color: #EDEDED;
-    height: 100vh;
+    height: 200%;
     width: 100vw;
 }
 .question{
