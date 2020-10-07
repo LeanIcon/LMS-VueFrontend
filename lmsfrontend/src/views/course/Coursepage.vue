@@ -90,7 +90,7 @@ export default {
         alertDisplay() {
           // Adding an input method from SweetAlert 2 automatically binds an input form.
         this.$swal({
-          imageUrl: 'https://content.amway.com.au/Gallery/ZA/EmailImages/2016/Congratulations_XSFridge/CONGRATULATIONS.gif',
+          imageUrl: 'https://res.cloudinary.com/littlms/image/upload/v1602066152/CONGRATULATIONS_ge2nbe.gif',
           imageHeight: 200,
           imageWith: 400,
           title: 'You just completed a module!',
