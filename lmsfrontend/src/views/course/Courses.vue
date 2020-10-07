@@ -108,6 +108,7 @@ export default {
 .sidebar{
   position: fixed;
   z-index: 2;
+  
 }
 
 .dashnav{
@@ -148,6 +149,8 @@ export default {
 
 #main .secText{
     text-align: justify;
+    /* opacity:1 ; */
+    /* color: black; */
     /* margin: 200 0 0 0; */
     
 
@@ -182,21 +185,11 @@ export default {
     width: 250; */
     padding: 80px 0;
 }
-#main{
-    
-  
-    content: url(../../assets/business.jpg) no-repeat 0 20%;
-    background-image:url(../../assets/business.jpg) ;
-    /* filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0.3); */
-    opacity:.50;
-    
-     background-size: cover;
-    
-   
-  
-    
-    /* height: 10rem; */
-}
+/* .bg{
+    background-image:url(../../assets/business.jpg);
+    /* opacity: 0.1; */
+    /* background-image-opacity:0,4;
+} */ 
 
 
 </style>
