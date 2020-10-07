@@ -41,7 +41,9 @@
               
           </div>
         <div class="course2-btn">
-                <button class="btn btn-lg btn-primary">Next</button>
+                <button class="btn btn-lg btn-primary" v-on:click="alertDisplay">Next</button>
+                
+                
             </div>
         
                 </div>  
@@ -84,9 +86,39 @@ export default {
 
        savefeedback(){
 
-       }
-    },
-}
+       },
+        alertDisplay() {
+          // Adding an input method from SweetAlert 2 automatically binds an input form.
+        this.$swal({
+          imageUrl: 'https://content.amway.com.au/Gallery/ZA/EmailImages/2016/Congratulations_XSFridge/CONGRATULATIONS.gif',
+          imageHeight: 200,
+          imageWith: 400,
+          title: 'You just completed a module!',
+          timer: 2000,
+          type: 'info',
+          imageAlt: 'image',
+          showConfirmButton: false
+         
+                }).then(
+            function () {},
+            // handling the promise rejection
+            function (dismiss) {
+                if (dismiss === 'timer') {
+        //console.log('I was closed by the timer')
+    }
+          
+    
+
+        })
+                
+      },
+    //     swal({
+    //         imageUrl: 'https://placeholder.pics/svg/300x1500',
+    //         imageHeight: 1500,
+    //         imageAlt: 'A tall image'
+    // });
+    }
+    }
 
  </script>   
 <style scoped>

@@ -116,9 +116,11 @@ export default {
 }
 
 #main{
-    background-color: #3B3B3B;
+    /* background-color: #3B3B3B; */
     display:inline-block;
     margin: 0 auto;
+    
+    /*  */
     /* text-align: center;
      */
      
@@ -131,6 +133,7 @@ export default {
     margin: 0 auto;
     padding:60px 0 0 100px;
     text-justify: auto;
+   
 }
 
 #main .sec1{
@@ -179,10 +182,21 @@ export default {
     width: 250; */
     padding: 80px 0;
 }
-.bg{
-    content: url(../../assets/business.jpg);
-    filter:alpha(opacity=50);
-    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0.5);
+#main{
+    
+  
+    content: url(../../assets/business.jpg) no-repeat 0 20%;
+    background-image:url(../../assets/business.jpg) ;
+    /* filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0.3); */
     opacity:.50;
+    
+     background-size: cover;
+    
+   
+  
+    
+    /* height: 10rem; */
 }
+
+
 </style>
