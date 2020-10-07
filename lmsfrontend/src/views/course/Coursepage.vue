@@ -22,9 +22,10 @@
                 <div class="main-body">
                    
                 </div>
-                <div class=" video-div">
+                <div class=" video-div" id="playButton4">
                         
-                <video controls src="https://res.cloudinary.com/littlms/video/upload/v1599179549/2020-08-19_Design_Thinking_Prototype_md1oep.mp4">
+                <video controls controlsList="nodownload" >
+                    <source src="https://res.cloudinary.com/littlms/video/upload/v1599179549/2020-08-19_Design_Thinking_Prototype_md1oep.mp4">
 
                 </video>
                 <!-- <iframe
@@ -105,11 +106,14 @@ export default {
             function (dismiss) {
                 if (dismiss === 'timer') {
         //console.log('I was closed by the timer')
-    }
+        }
           
     
 
         })
+        // Select elements here
+        
+
                 
       },
     //     swal({
