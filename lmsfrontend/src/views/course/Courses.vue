@@ -120,10 +120,10 @@ export default {
 }
 
 #main{
-    /* background-color: #3B3B3B; */
+    background-color: #3B3B3B;
     display:inline-block;
     margin: 0 auto;
-    background-image:url(../../assets/business.jpg);
+    /* background-image:url(../../assets/business.jpg); */
     background-repeat: no-repeat;
 
     
