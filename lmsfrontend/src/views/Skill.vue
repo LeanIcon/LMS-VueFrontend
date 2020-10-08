@@ -55,7 +55,7 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <router-link :to = "{ name:'Question' }" class="btn btn-primary"  data-dismiss="modal" exact>Start Quiz</router-link>
+                          <a href='https://leanicontechnology.com/quiz/'><button type="button"  class="btn btn-primary">Start Quiz</button></a>
                         </div>
                       </div>
                     </div>
@@ -110,7 +110,7 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <router-link :to = "{ name:'Question' }" class="btn btn-primary"  data-dismiss="modal" exact>Start Quiz</router-link>
+                          
                         </div>
                       </div>
                     </div>

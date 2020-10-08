@@ -9,8 +9,11 @@
         </div>
 
         <div class="course-data">
-            <main id="main" class="jumbotron" v-for="course in courses" :key="course.id">
-                <div class="bg">
+                       
+            <main id="main" class="jumbotron" v-for="course in courses" :key="course.id"  >
+                
+                
+                    
                     <Section class="sec1">
                         <div class="h1-box"></div>
                         <h1>{{ course.title }}</h1>
@@ -36,7 +39,7 @@
                             </div>
                         </div>
                     </Section>
-                </div>
+               
             </main>
 
             <hr>
@@ -120,6 +123,11 @@ export default {
     /* background-color: #3B3B3B; */
     display:inline-block;
     margin: 0 auto;
+    background-image:url(../../assets/business.jpg);
+    background-repeat: no-repeat;
+
+    
+    
     
     /*  */
     /* text-align: center;
@@ -143,12 +151,14 @@ export default {
 
 #main h1{
     font-weight: 900;
+
     /* color: green; */
 
 }
 
 #main .secText{
     text-align: justify;
+    object-fit: cover;
     /* opacity:1 ; */
     /* color: black; */
     /* margin: 200 0 0 0; */
@@ -190,6 +200,11 @@ export default {
     /* opacity: 0.1; */
     /* background-image-opacity:0,4;
 } */ 
-
+img{
+    object-fit: cover;
+     opacity: 0.4;
+    
+    padding:60px 0 0 100px;
+}
 
 </style>
