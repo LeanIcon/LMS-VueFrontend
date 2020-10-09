@@ -15,7 +15,9 @@
                             
                             <hr>
                             <ul v-bind:id="`submenu-${course_module.id}`" class="collapse side-nav" v-for="course_lesson in course_module.lessons" :key="course_lesson.id">
-                                <li><a class="submenu-item lesson-title" :title="`${course_lesson.title}`">- {{ course_lesson.title }}</a></li>
+                                <!-- <div class=""></div> -->
+                                <li v-if="course_lesson.is_completed"><a class="submenu-item lesson-title" :title="`${course_lesson.title}`"><i class="far fa-check-circle" style= "color: green;"></i> {{ course_lesson.title }}</a></li>
+                                <li v-if="!course_lesson.is_completed"><a class="submenu-item lesson-title" :title="`${course_lesson.title}`"><i class="far fa-check-circle" style= "color: white;"></i> {{ course_lesson.title }}</a></li>
                                 <!-- <li><a class="submenu-item">- Requirements</a></li> -->
                             </ul>
                         </div>
