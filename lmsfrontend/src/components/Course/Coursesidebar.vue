@@ -12,9 +12,19 @@
                     <div class="module-content" v-for="course_module in course.modules" :key="course_module.id">
                         <!-- <div class="module-content" v-for="course in courses" :key="course.id"> -->
 
+<<<<<<< HEAD
                         <div class="mySideBarMenuItem module-title"><a class='course-module' data-toggle="collapse" v-bind:data-target="`#submenu-${course_module.id}`" :title="`${course_module.title}`">+  {{ course_module.title }}</a>
                             <ul v-bind:id="`submenu-${course_module.id}`" class="collapse side-nav course-lesson" v-for="course_lesson in course_module.lessons" :key="course_lesson.id">
                                 <li><router-link :to="{name: 'Lessonpage', params:{id: course_lesson.id}}" tag="a" class="submenu-item lesson-title" :title="`${course_lesson.title}`">- {{ course_lesson.title }}</router-link></li>
+=======
+                        <div class="mySideBarMenuItem"><a  data-toggle="collapse" v-bind:data-target="`#submenu-${course_module.id}`">+  {{ course_module.title }}</a>
+                            
+                            <hr>
+                            <ul v-bind:id="`submenu-${course_module.id}`" class="collapse side-nav" v-for="course_lesson in course_module.lessons" :key="course_lesson.id">
+                                <!-- <div class=""></div> -->
+                                <li v-if="course_lesson.is_completed"><a class="submenu-item lesson-title" :title="`${course_lesson.title}`"><i class="far fa-check-circle" style= "color: green;"></i> {{ course_lesson.title }}</a></li>
+                                <li v-if="!course_lesson.is_completed"><a class="submenu-item lesson-title" :title="`${course_lesson.title}`"><i class="far fa-check-circle" style= "color: white;"></i> {{ course_lesson.title }}</a></li>
+>>>>>>> dev
                                 <!-- <li><a class="submenu-item">- Requirements</a></li> -->
                             </ul>
                         </div>

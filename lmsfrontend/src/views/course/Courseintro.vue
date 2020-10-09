@@ -119,7 +119,12 @@ video{
 
 .course2-btn{
     padding:30px 0;
+    
 }
+.start{
+    padding-left: 45rem;
+}
+
 
 </style>
 
