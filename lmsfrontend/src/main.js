@@ -13,6 +13,8 @@ import 'popper.js/dist/umd/popper.min.js';
 import '@fortawesome/fontawesome-free/css/all.css';
 import '@fortawesome/fontawesome-free/js/all.js';
 import 'font-awesome/css/font-awesome.min.css';
+import VueSweetalert2 from 'vue-sweetalert2';  
+Vue.use(VueSweetalert2);  
 // import axios from 'axios';
 
 // custom

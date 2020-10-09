@@ -12,19 +12,19 @@
 
 
         <div class="main-body">               
- 
             <main id="main">
+                <HamburgerSlide></HamburgerSlide>
                 <div class="main-header">
-                    <HamburgerSlide></HamburgerSlide>
                     <div class="header-text"> <h2>Learn Business Analysis</h2></div>
                 </div>
                 
                 <div class="main-body">
                    
                 </div>
-                <div class=" video-div">
+                <div class=" video-div" id="playButton4">
                         
-                <video controls src="https://res.cloudinary.com/littlms/video/upload/v1599179549/2020-08-19_Design_Thinking_Prototype_md1oep.mp4">
+                <video controls controlsList="nodownload" >
+                    <source src="https://res.cloudinary.com/littlms/video/upload/v1599179549/2020-08-19_Design_Thinking_Prototype_md1oep.mp4">
 
                 </video>
                 <!-- <iframe
@@ -41,7 +41,9 @@
               
           </div>
         <div class="course2-btn">
-                <button class="btn btn-lg btn-primary">Next</button>
+                <button class="btn btn-lg btn-primary" v-on:click="alertDisplay">Next</button>
+                
+                
             </div>
         
                 </div>  
@@ -84,12 +86,46 @@ export default {
 
        savefeedback(){
 
-       }
-    },
-}
+       },
+        alertDisplay() {
+          // Adding an input method from SweetAlert 2 automatically binds an input form.
+        this.$swal({
+          imageUrl: 'https://res.cloudinary.com/littlms/image/upload/v1602066152/CONGRATULATIONS_ge2nbe.gif',
+          imageHeight: 200,
+          imageWith: 400,
+          title: 'You just completed a module!',
+          timer: 2000,
+          type: 'info',
+          imageAlt: 'image',
+          showConfirmButton: false
+         
+                }).then(
+            function () {},
+            // handling the promise rejection
+            function (dismiss) {
+                if (dismiss === 'timer') {
+        //console.log('I was closed by the timer')
+        }
+          
+    
+
+        })
+        // Select elements here
+        
+
+                
+      },
+    //     swal({
+    //         imageUrl: 'https://placeholder.pics/svg/300x1500',
+    //         imageHeight: 1500,
+    //         imageAlt: 'A tall image'
+    // });
+    }
+    }
 
  </script>   
 <style scoped>
+
 .bar-title{
     margin-top: 3rem;
     margin-bottom: 3rem;
@@ -102,11 +138,14 @@ export default {
 .main-body{
     padding-top: 3rem;
     background-color: #EDEDED;
+    padding-left: 4rem;
+    padding-right: 30px;
 }
 
 #main{
     transition: margin-left .5s;
     padding: 16px;
+    padding-left: 4rem;
 }
 
 .header-text h2{
@@ -114,10 +153,6 @@ export default {
     color: grey;
 }
 
-.main-body{
-    padding-left: 30px;
-    padding-right: 30px;
-}
 .main-body h3{
     font-weight: 700;
 }

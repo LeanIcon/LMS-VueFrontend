@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Landingpage.vue'
+// import BasicLayout from '../views/BasicLayout.vue'
+import CourseLesson from '../views/course/CourseLesson.vue'
 
 Vue.use(VueRouter)
 
@@ -73,42 +75,31 @@ Vue.use(VueRouter)
         requiresLogin: true,
       },
     },
+    
+    {path: "/courses",name: "Courseregister",component: () => import("../views/course/Courses.vue")},
+    {path: "/confirm",name: "Courseconfirm",component: () => import("../views/course/Courseconfirm.vue")},
+    
     {
-      path: "/course/register",
-      name: "Courseregister",
-      component: () => import("../views/course/Courses.vue"),
-      meta: {
-        requiresLogin: true,
-        requiresAuth: true,
-      }
-    },
-    {
-      path: "/course/confirm",
-      name: "Courseconfirm",
-      component: () => import("../views/course/Courseconfirm.vue"),
-      meta: {
-        requiresLogin: true,
-        requiresAuth: true,
-      }
-    },
-    {
-      path: "/courseintro",
-      name: "Courseintro",
-      component: () => import("../views/course/Courseintro.vue"),
-      meta: {
-        requiresLogin: true,
-        requiresAuth: true,
-      }
-    },
-    {
-      path: "/coursepage",
-      name: "Coursepage",
-      component: () => import("../views/course/Coursepage.vue"),
-      meta: {
-        requiresLogin: true,
-        requiresAuth: true,
-      }
-    },
+      path: '/course',
+      component: CourseLesson,
+      meta: {requiresAuth: true, requiresLogin: true},
+      children: [
+        {path: "/courseintro",name: "Courseintro",component: () => import("../views/course/Courseintro.vue")},
+        {path: "/coursepage",name: "Coursepage",component: () => import("../views/course/Coursepage.vue")},
+        {path: "/course/lesson/:id",name: "Lessonpage",component: () => import("../views/course/Lessonpage.vue")},
+        
+      ]
+  },
+    // {
+    //   path: "/courseintro",
+    //   name: "Courseintro",
+    //   component: () => import("../views/course/Courseintro.vue"),
+    // },
+    // {
+    //   path: "/coursepage",
+    //   name: "Coursepage",
+    //   component: () => import("../views/course/Coursepage.vue"),
+    // },
     {
       path: "/skill",
       name: "Skill",
