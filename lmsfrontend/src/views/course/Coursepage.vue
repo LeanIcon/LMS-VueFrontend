@@ -23,7 +23,7 @@
                 </div>
                 <div class=" video-div" id="playButton4">
                         
-                <video controls controlsList="nodownload" >
+                <video  controls controlsList="nodownload" >
                     <source src="https://res.cloudinary.com/littlms/video/upload/v1599179549/2020-08-19_Design_Thinking_Prototype_md1oep.mp4">
 
                 </video>
@@ -40,7 +40,7 @@
                     <h5>Hear BA's share their perspective before you start in the field</h5>
               
           </div>
-        <div class="course2-btn">
+            <div class="course2-btn start">
                 <button class="btn btn-lg btn-primary" v-on:click="alertDisplay">Next</button>
                 
                 
@@ -172,6 +172,14 @@ video{
 .welcome-text{
     text-align: justify;
 }
+#overlay{
+    background-color: rgba(0,0,0,0.5);
+    position:fixed;
+}
+.start{
+    padding-left: 45rem;
+}
+
 
 </style>
 
