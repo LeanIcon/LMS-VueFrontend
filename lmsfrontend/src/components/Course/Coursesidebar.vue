@@ -2,8 +2,9 @@
      <!--Course page sidebar-->
             <div id="mySideBar" class="sidebar">
                 <div class="sidebar-header">
-                    <div class="header-text">
-                        <h3 class="bar-title">Course Overview</h3>
+                    <div class="header-text row">
+                        <h4 class="bar-title col-10">Skill Overview</h4>
+                        <div class="bar-title close-btn col-2" v-on:click="closeNav"><span aria-hidden="true">&times;</span></div>
                     </div>
                 </div>
             
@@ -11,11 +12,9 @@
                     <div class="module-content" v-for="course_module in course.modules" :key="course_module.id">
                         <!-- <div class="module-content" v-for="course in courses" :key="course.id"> -->
 
-                        <div class="mySideBarMenuItem"><a  data-toggle="collapse" v-bind:data-target="`#submenu-${course_module.id}`">+  {{ course_module.title }}</a>
-                            
-                            <hr>
-                            <ul v-bind:id="`submenu-${course_module.id}`" class="collapse side-nav" v-for="course_lesson in course_module.lessons" :key="course_lesson.id">
-                                <li><a class="submenu-item lesson-title" :title="`${course_lesson.title}`">- {{ course_lesson.title }}</a></li>
+                        <div class="mySideBarMenuItem module-title"><a class='course-module' data-toggle="collapse" v-bind:data-target="`#submenu-${course_module.id}`" :title="`${course_module.title}`">+  {{ course_module.title }}</a>
+                            <ul v-bind:id="`submenu-${course_module.id}`" class="collapse side-nav course-lesson" v-for="course_lesson in course_module.lessons" :key="course_lesson.id">
+                                <li><router-link :to="{name: 'Lessonpage', params:{id: course_lesson.id}}" tag="a" class="submenu-item lesson-title" :title="`${course_lesson.title}`">- {{ course_lesson.title }}</router-link></li>
                                 <!-- <li><a class="submenu-item">- Requirements</a></li> -->
                             </ul>
                         </div>
@@ -35,8 +34,10 @@
     import { mapActions } from 'vuex'
 
     export default {
-        name: "Coursesidebar",
-        
+    name: "Coursesidebar",
+    
+    // props: ['course_lesson'],
+    
     computed: {
         ...mapState("course", ["courses"])
     },
@@ -47,7 +48,14 @@
 
         courses(){
             // Do course_module
-        }
+        },
+
+        closeNav: function closeNav(){
+        document.getElementById("mySideBar").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+        this.navToggle = true
+    
+    }
     },
     };
 
@@ -68,7 +76,7 @@
     color: white;
     width: 0;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     top: 0;
     left: 0;
     background-color: #C3000C;
@@ -82,6 +90,11 @@
     display: none;
 }
 
+.close-btn{
+    cursor: pointer;
+    font-weight: 600;
+}
+
 /* Hide scrollbar for IE, Edge and Firefox */
 .sidebar {
   -ms-overflow-style: none;  /* IE and Edge */
@@ -89,8 +102,9 @@
 }
 
 .bar-title{
-    margin: 1rem auto;
-    margin-bottom: 3rem;
+    margin: 3rem auto;
+    margin-bottom: 2rem;
+    text-align: center;
 }
 
 .lesson-title{
@@ -100,9 +114,19 @@
     width: 80%;
 }
 
-// .lesson-title:hover{
-//     overflow: visible; 
+// .module-title{
+//     white-space: nowrap; 
+//     overflow: hidden; 
+//     text-overflow: ellipsis;
 // }
+
+.course-module{
+    height: 35px;
+    border-bottom: 1.5px solid rgba(255, 255, 255, 0.137);
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+}
 
 .sidebar a{
     /* padding: 8px 8px 8px 32px; */
@@ -118,13 +142,8 @@
     margin: 0 -2rem;
 }
 
-hr{
-    background-color: white;
-    opacity: 0.5;
-}
-
 .mySideBarMenuItem{
-    padding: 0 10px;
+    padding: 0 20px;
     cursor: pointer;
 }
 
