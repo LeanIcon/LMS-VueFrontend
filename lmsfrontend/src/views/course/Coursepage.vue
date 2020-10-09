@@ -12,10 +12,9 @@
 
 
         <div class="main-body">               
- 
             <main id="main">
+                <HamburgerSlide></HamburgerSlide>
                 <div class="main-header">
-                    <HamburgerSlide></HamburgerSlide>
                     <div class="header-text"> <h2>Learn Business Analysis</h2></div>
                 </div>
                 
@@ -126,6 +125,7 @@ export default {
 
  </script>   
 <style scoped>
+
 .bar-title{
     margin-top: 3rem;
     margin-bottom: 3rem;
@@ -138,11 +138,14 @@ export default {
 .main-body{
     padding-top: 3rem;
     background-color: #EDEDED;
+    padding-left: 4rem;
+    padding-right: 30px;
 }
 
 #main{
     transition: margin-left .5s;
     padding: 16px;
+    padding-left: 4rem;
 }
 
 .header-text h2{
@@ -150,10 +153,6 @@ export default {
     color: grey;
 }
 
-.main-body{
-    padding-left: 30px;
-    padding-right: 30px;
-}
 .main-body h3{
     font-weight: 700;
 }

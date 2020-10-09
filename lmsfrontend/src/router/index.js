@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Landingpage.vue'
-import BasicLayout from '../views/BasicLayout.vue'
+// import BasicLayout from '../views/BasicLayout.vue'
+import CourseLesson from '../views/course/CourseLesson.vue'
 
 Vue.use(VueRouter)
 
@@ -75,16 +76,17 @@ Vue.use(VueRouter)
       },
     },
     
+    {path: "/courses",name: "Courseregister",component: () => import("../views/course/Courses.vue")},
+    {path: "/confirm",name: "Courseconfirm",component: () => import("../views/course/Courseconfirm.vue")},
     
     {
       path: '/course',
-      component: BasicLayout,
+      component: CourseLesson,
       meta: {requiresAuth: true, requiresLogin: true},
       children: [
-        {path: "/courses",name: "Courseregister",component: () => import("../views/course/Courses.vue")},
-        {path: "/confirm",name: "Courseconfirm",component: () => import("../views/course/Courseconfirm.vue")},
         {path: "/courseintro",name: "Courseintro",component: () => import("../views/course/Courseintro.vue")},
         {path: "/coursepage",name: "Coursepage",component: () => import("../views/course/Coursepage.vue")},
+        {path: "/course/lesson/:id",name: "Lessonpage",component: () => import("../views/course/Lessonpage.vue")},
         
       ]
   },
