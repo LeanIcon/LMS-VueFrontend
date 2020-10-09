@@ -33,15 +33,15 @@
                     </p>
 
                     <div class="course2-btn">
-                        <a class="btn btn-lg btn-primary" href="https://res.cloudinary.com/littlms/raw/upload/v1599331781/Questions_bank_for_BA_b4gmnb.doc">Download <i class="fa fa-download"></i></a>
+                        <a class="btn btn-lg btn-primary" href="https://res.cloudinary.com/littlms/raw/upload/v1599331781/Questions_bank_for_BA_b4gmnb.doc">Download pdf <i class="fa fa-download"></i></a>
                     </div>
                 </div>
                 <div class=" video-div">
                         
-                <video controls src="https://res.cloudinary.com/littlms/video/upload/v1599179957/2020-07-24_Design_Thinking_Define_Stage_SWOT_and_TOWS_Analysis_ihwgnl.mp4">
+                <video controls controlsList="nodownload" src="https://res.cloudinary.com/littlms/video/upload/v1599179957/2020-07-24_Design_Thinking_Define_Stage_SWOT_and_TOWS_Analysis_ihwgnl.mp4">
                 </video>
-                <div class="course2-btn">
-                        <router-link :to = "{ name:'Coursepage' }" exact class="btn btn-lg btn-primary">Start</router-link>
+                <div class="course2-btn start">
+                        <router-link :to = "{ name:'Coursepage' }" exact class="btn btn-lg btn-primary ">Start</router-link>
  
                     </div>
                 </div>    
@@ -118,7 +118,12 @@ video{
 
 .course2-btn{
     padding:30px 0;
+    
 }
+.start{
+    padding-left: 45rem;
+}
+
 
 </style>
 
