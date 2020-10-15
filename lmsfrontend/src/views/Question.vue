@@ -9,21 +9,15 @@
 
     <div class="question">
         <div class="main_container card"  v-for="quizData in practice_test.practice_test.quiz.question_set" :key="quizData.id">
-            <div class="inner">
-                <!-- <h3 class="header">Complete the task</h3> -->
-                <!-- <p>Usually, BPM is represented in diagrammatic way where processes, decisions and ________ are represented as a sequential workflow </p> -->
-                <p>{{ quizData.label }}</p>
+            <div class="inner"><p>{{quizData.id}}. {{ quizData.label }}</p>
                 <div class="items">
                     <div class="pick" v-for="answerData in quizData.answer_set" :key="answerData.id">
-                            <input type="radio" class="answer" name="choice"><span class="checkmark">{{ answerData.label }}</span>
-                    
+                        <input type="radio" class="answer" :name="`choice${quizData.id}`"><span class="checkmark">{{ answerData.label }}</span>                    
                     </div>
                 </div>
-                <button class="btn" type="submit">
-                    Next
-                </button>
             </div>            
         </div>
+        <button class="btn" type="submit">Next</button>
     </div>
   </div>
   
@@ -55,11 +49,16 @@ export default {
 
         practice_test(){
             // Do something
-        }
+        },
+
+        // created: function(){
+            // }
+
     },
     // get data from store **pass the action name**
     mounted(){
-        this.getPracticeTest();  
+        const slug = this.$route.params.slug;
+        this.getPracticeTest(slug);  
     },
 }
 </script>

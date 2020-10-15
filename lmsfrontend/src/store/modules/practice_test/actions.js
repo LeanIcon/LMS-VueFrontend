@@ -1,11 +1,13 @@
 import { getAPI } from "../../../utils/axios-api";
 
 const token = localStorage.getItem("access_token");
-
+// const quiz_slug = $this.params.slug
 console.log(token);
-export const getPracticeTest = ({ commit }) => {
+
+export const getPracticeTest = ({ commit }, slug) => {
   getAPI
-    .get("/quizzes/business-analysis/", {
+    // .get(`/quizzes/${quiz_slug}/`, {
+    .get(`/quizzes/${slug}/`, {
       headers: { Authorization: `Bearer ${token}` },
     })
     .then((response) => {
