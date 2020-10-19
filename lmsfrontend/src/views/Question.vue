@@ -29,7 +29,7 @@
   </div>
 
         <div class="main_container card">
-            <div class="inner"><p>{{practice_test.practice_test.quiz.question_set[currentIndex].id}}. {{ practice_test.practice_test.quiz.question_set[currentIndex].label }}</p>
+            <div class="inner"><p class="question-item">{{ currentIndex }}. {{ practice_test.practice_test.quiz.question_set[currentIndex].label }}</p>
                 <div class="items">
                     <div class="pick" v-for="answerData in practice_test.practice_test.quiz.question_set[currentIndex].answer_set" :key="answerData.id">
                         <input type="radio" :value="answerData.id" class="answer" name="choice"><span class="checkmark">{{ answerData.label }}</span>                    
@@ -42,6 +42,8 @@
             <div v-else>
                 <button class="btn">Submit</button>
             </div>
+            <div class="bar-limit"></div>
+            <div class="progress-bar"></div>
         </div>
     </div>
 <!-- 
@@ -189,7 +191,7 @@ export default {
         },
 
         moveNext: function nextQuestion(){
-            if (this.currentIndex >= 3) {
+            if (this.currentIndex >= 40) {
                 //submit form
                 this.currentIndex += 1; 
                 console.log('questions finished')
@@ -233,12 +235,21 @@ export default {
 .question-page{
     position: absolute;
     background-color: #EDEDED;
-    height: 200%;
     width: 100vw;
+    height: 100vh;
+    overflow: hidden;
 }
+
 .question{
-    padding-top: 5rem;
+    padding-top: 10%;
     margin: 0 auto;
+    margin-left: 80px;
+    height: 50rem;
+}
+
+.question-item{
+    font-size: 18px;
+    /* font-weight: ; */
 }
 
 .main-body{
@@ -261,21 +272,36 @@ z-index: 1;
 }
 
 .main_container{
-    border: round;
     margin: 10rem 20em 0 20em;
+    margin: auto;
 }
 
 .card{
     /*border:groove;*/
-    width:50%;
-    border-radius: 10px;
+    width:70%;
+    height: 60%;
+    border-radius: 0px;
     border-color: none;
-    margin-top: 2rem;
+}
+
+.progress-bar{
+    width: 10%;
+    height: 6px;
+    background-color: rgba(195,0,12,1);
+    position: absolute;
+    bottom: 0;
+}
+
+.bar-limit{
+    width: 100%;
+    height: 6px;
+    background-color: rgba(255, 0, 0, 0.267);
+    position: absolute;
+    bottom: 0;
 }
 
 .inner{
-    margin-left: 2rem;
-    margin-right: 2rem;
+    margin: 3rem;
     font-size: 15px;
 }
 
@@ -285,8 +311,12 @@ z-index: 1;
     text-decoration: none;
     width: 20%;
     color: #fff;
-    margin-bottom: 2rem;
-    height: 2rem;        
+    height: 2rem;
+    outline: none;
+    border-radius: 0px; 
+    position: absolute;  
+    right: 40px;
+    bottom: 40px;   
 }
 
 .answer{
