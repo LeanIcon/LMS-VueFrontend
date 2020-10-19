@@ -54,9 +54,9 @@
 									You can <b>retake</b> this assessment if you don't pass
 								</li>
 						</ul>
-						<button type="button" class='btn btn-danger quiz-btn' data-toggle='modal' data-target='#exampleModal'>
+						<router-link tag="button"  :to="{ name:'Question', params: {slug: 'business-analysis-1'} }" exact type="button" class='btn btn-danger quiz-btn' data-toggle='modal' data-target='#exampleModal'>
 							Start Quiz
-						</button>
+						</router-link>
 						</div>
 					</div>
 				</div>
