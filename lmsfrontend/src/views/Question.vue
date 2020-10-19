@@ -8,6 +8,26 @@
         </div>
 
     <div class="question">
+        <div class="base-timer">
+    <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <g class="base-timer__circle">
+        <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
+        <path
+          :stroke-dasharray="circleDasharray"
+          class="base-timer__path-remaining"
+          :class="remainingPathColor"
+          d="
+            M 50, 50
+            m -45, 0
+            a 45,45 0 1,0 90,0
+            a 45,45 0 1,0 -90,0
+          "
+        ></path>
+      </g>
+    </svg>
+    <span class="base-timer__label">{{ formattedTimeLeft }}</span>
+  </div>
+
         <div class="main_container card">
             <div class="inner"><p>{{practice_test.practice_test.quiz.question_set[currentIndex].id}}. {{ practice_test.practice_test.quiz.question_set[currentIndex].label }}</p>
                 <div class="items">
@@ -50,6 +70,26 @@ import { mapState } from 'vuex'
 import { mapActions } from 'vuex'
 // import { getAPI } from "../utils/axios-api";
 
+const FULL_DASH_ARRAY = 283;
+const WARNING_THRESHOLD = 10;
+const ALERT_THRESHOLD = 5;
+
+const COLOR_CODES = {
+  info: {
+    color: "green"
+  },
+  warning: {
+    color: "orange",
+    threshold: WARNING_THRESHOLD
+  },
+  alert: {
+    color: "red",
+    threshold: ALERT_THRESHOLD
+  }
+};
+
+const TIME_LIMIT = 3600;
+
 export default {
 // @ is an alias to /src
     name: 'Dashboard',
@@ -60,6 +100,8 @@ export default {
             quizTaker: '',
             question: '',
             answer: '',
+            timePassed: 0,
+            timerInterval: null
             // quiz: practice_test.quiz,
         }
     },
@@ -71,7 +113,52 @@ export default {
 
   
     computed: {
-        ...mapState(["practice_test"])
+        ...mapState(["practice_test"]),
+        circleDasharray() {
+      return `${(this.timeFraction * FULL_DASH_ARRAY).toFixed(0)} 283`;
+        },
+        formattedTimeLeft() {
+      const timeLeft = this.timeLeft;
+      const minutes = Math.floor(timeLeft / 60);
+      let seconds = timeLeft % 60;
+
+      if (seconds < 10) {
+        seconds = `0${seconds}`;
+      }
+
+      return `${minutes}:${seconds}`;
+
+      
+                },
+
+            timeLeft() {
+      return TIME_LIMIT - this.timePassed;
+                        },
+
+        timeFraction() {
+      const rawTimeFraction = this.timeLeft / TIME_LIMIT;
+      return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
+                    },
+
+                    remainingPathColor() {
+      const { alert, warning, info } = COLOR_CODES;
+
+      if (this.timeLeft <= alert.threshold) {
+        return alert.color;
+      } else if (this.timeLeft <= warning.threshold) {
+        return warning.color;
+      } else {
+        return info.color;
+      }
+                    }
+    },
+
+    watch: {
+        timeLeft(newValue) {
+      if (newValue === 0) {
+        this.onTimesUp();
+      }
+    }
     },
     
     methods: {
@@ -80,7 +167,13 @@ export default {
 
         // created: function(){
             // }
-            
+            onTimesUp() {
+      clearInterval(this.timerInterval);
+    },
+
+    startTimer() {
+      this.timerInterval = setInterval(() => (this.timePassed += 1), 1000);
+    },
 
         submitAnswer: function sendResponse(){
             this.$store.dispatch('sendResponse', {
@@ -126,7 +219,8 @@ export default {
     // get data from store **pass the action name**
     mounted(){
         const slug = this.$route.params.slug;
-        this.getPracticeTest(slug);  
+        this.getPracticeTest(slug);
+        this.startTimer();  
     },
 }
 </script>
@@ -135,7 +229,7 @@ export default {
 
 
 
-<style scoped>
+<style scoped lang="scss">
 .question-page{
     position: absolute;
     background-color: #EDEDED;
@@ -205,6 +299,61 @@ z-index: 1;
 
 .main_container {
     box-sizing: border-box;
+}
+
+
+.base-timer {
+  position: absolute;
+  right: 250px;
+  width: 100px;
+  height: 100px;
+
+  &__svg {
+    transform: scaleX(-1);
+  }
+
+  &__circle {
+    fill: none;
+    stroke: none;
+  }
+
+  &__path-elapsed {
+    stroke-width: 7px;
+    stroke: grey;
+  }
+
+  &__path-remaining {
+    stroke-width: 7px;
+    stroke-linecap: round;
+    transform: rotate(90deg);
+    transform-origin: center;
+    transition: 1s linear all;
+    fill-rule: nonzero;
+    stroke: currentColor;
+
+    &.green {
+      color: rgb(65, 184, 131);
+    }
+
+    &.orange {
+      color: orange;
+    }
+
+    &.red {
+      color: red;
+    }
+  }
+
+  &__label {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    top: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+  }
 }
 
 
