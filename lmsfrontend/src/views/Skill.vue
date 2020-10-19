@@ -6,121 +6,114 @@
         <div class="dashnav">
           <Dashboardnavbar></Dashboardnavbar>
         </div>
-    <div class="skillpage">
-       <Section class=" container card-deck">
-          <div class='quiz-card card'>
-            <div class='quiz-data row'>
-              <div class='quiz-img col-6'>
-                <img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.c-VJumIrfOg9qE7Fd4-GfQAAAA%26pid%3DApi&f=1' class='responsive'>
-              </div>
-              <div class='quiz-info col-6'>
-                  <h5 class="card-title">Business anaylsis</h5>
-                  <ul class="quiz-info-list card-body">
-                      <li><i class="fa fa-check" aria-hidden="true"></i> Complete 40 set questions</li>
-                      <li><i class="fa fa-check" aria-hidden="true"></i> Earn a skill badge</li>
-                      <li><i class="fa fa-check" aria-hidden="true"></i> Complete 40 set questions</li>
-                      <li><i class="fa fa-check" aria-hidden="true"></i> Earn a skill badge</li>
-                  </ul>
-                  <button type="button" class='btn btn-danger quiz-btn' data-toggle='modal' data-target='#exampleModal'>
-                      Start Quiz
-                  </button>
-                  <!-- Modal -->
-                  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h4 class="modal-title" id="exampleModalLabel">Business Analysis</h4>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          <div class="modal-data">
-                            <p>Performing a business analysis can help you identify problems within a business, and this quiz/worksheet duo will help test your ability to understand the steps involved in the process.<br><br><br>
-
-                              <b>Quizz Goals</b><br>
-                              <b>	These assessments will test your understanding to identify the following:</b>
-                              <ul>
-                                
-                                <li>	Requirements of a business analysis</li>
-                                <li>	Who provides organization and strategic guidance</li>
-                                <li>	Determine problems and identify business needs</li>
-                                <li>	Techniques uses to define stakeholder requirements </li>
-                                <li>	How a business analysis project originates</li>
-                                <!-- <li>	Facilitate the successful implementation of the product, service, or end result of the program or project</li> -->
-                              </ul>
-                            </p>
-                            
-                          </div>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <a href='https://leanicontechnology.com/quiz/'><button type="button"  class="btn btn-primary">Start Quiz</button></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-              </div>
-            </div>
-        </div>
-          <div class='quiz-card card'>
-            <div class='quiz-data row'>
-              <div class='quiz-img col-6'>
-                <img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.c-VJumIrfOg9qE7Fd4-GfQAAAA%26pid%3DApi&f=1' class='responsive'>
-              </div>
-              <div class='quiz-info col-6'>
-                  <h4 class="card-title">Business anaylsis</h4>
-                  <ul class="quiz-info-list card-body">
-                      <li><i class="fa fa-check" aria-hidden="true"></i> Complete 40 set questions</li>
-                      <li><i class="fa fa-check" aria-hidden="true"></i> Earn a skill badge</li>
-                      <li><i class="fa fa-check" aria-hidden="true"></i> Complete 40 set questions</li>
-                      <li><i class="fa fa-check" aria-hidden="true"></i> Earn a skill badge</li>
-                  </ul>
-                  <button type="button" class='btn btn-danger quiz-btn' data-toggle='modal' data-target='#exampleModal'>
-                      Start Quiz
-                  </button>
-                  <!-- Modal -->
-                  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">Business Analysis</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          <div class="modal-data">
-                            <p>Performing a business analysis can help you identify problems within a business, and this quiz/worksheet duo will help test your ability to understand the steps involved in the process.<br><br><br>
-
-                              <b>Quizz Goals</b><br>
-                              <b>	These assessments will test your understanding to identify the following:</b>
-                              <ul>
-                                
-                                <li>	Requirements of a business analysis</li>
-                                <li>	Who provides organization and strategic guidance</li>
-                                <li>	Determine problems and identify business needs</li>
-                                <li>	Techniques uses to define stakeholder requirements </li>
-                                <li>	How a business analysis project originates</li>
-                                <!-- <li>	Facilitate the successful implementation of the product, service, or end result of the program or project</li> -->
-                              </ul>
-                            </p>
-                            
-                          </div>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-              </div>
-            </div>
-        </div>
-    </Section>
-
-    </div>
+		<div class="skillpage">
+			<Section class="row row-cols-1 row-cols-md-2  quiz-cards">
+				<div class='quiz-card card col'>
+					<div class='quiz-data row'>
+						<div class='quiz-img col-6'>
+							<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.c-VJumIrfOg9qE7Fd4-GfQAAAA%26pid%3DApi&f=1' class='responsive'>
+						</div>
+						<div class='quiz-info col-6'>
+							<h4 class="card-title">Business anaylsis</h4>
+							<ul class="quiz-info-list card-body">
+								<li>
+									<i class="fa fa-clock-o mr-2" aria-hidden="true"></i>
+									<b>~60 minutes</b> duration                    
+								</li>
+								<li>
+									<i class="fa fa-check-square-o mr-2" aria-hidden="true"></i>
+									<b>65 percent</b> required to pass and get a badge</li>
+								<li>
+									<i class="fa fa-calendar-check-o mr-2" aria-hidden="true"></i>
+									You can <b>retake</b> this assessment if you don't pass
+								</li>
+						</ul>
+						<router-link tag="button"  :to="{ name:'Question', params: {slug: 'business-analysis'} }" exact type="button" class='btn btn-danger quiz-btn' data-toggle='modal' data-target='#exampleModal'>
+							Start Quiz
+						</router-link>
+						</div>
+					</div>
+				</div>
+				<div class='quiz-card card col'>
+					<div class='quiz-data row'>
+						<div class='quiz-img col-6'>
+							<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.c-VJumIrfOg9qE7Fd4-GfQAAAA%26pid%3DApi&f=1' class='responsive'>
+						</div>
+						<div class='quiz-info col-6'>
+							<h4 class="card-title">Business anaylsis</h4>
+							<ul class="quiz-info-list card-body">
+								<li>
+									<i class="fas fa-clock-o mr-2" aria-hidden="true"></i>
+									<b>~60 minutes</b> duration                    
+								</li>
+								<li>
+									<i class="fa fa-check-square-o mr-2" aria-hidden="true"></i>
+									<b>65 percent</b> required to pass and get a badge</li>
+								<li>
+									<i class="fas fa-calendar-check-o mr-2"></i>
+									You can <b>retake</b> this assessment if you don't pass
+								</li>
+						</ul>
+						<router-link tag="button"  :to="{ name:'Question', params: {slug: 'business-analysis-1'} }" exact type="button" class='btn btn-danger quiz-btn' data-toggle='modal' data-target='#exampleModal'>
+							Start Quiz
+						</router-link>
+						</div>
+					</div>
+				</div>
+				<div class='quiz-card card col'>
+					<div class='quiz-data row'>
+						<div class='quiz-img col-6'>
+							<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.c-VJumIrfOg9qE7Fd4-GfQAAAA%26pid%3DApi&f=1' class='responsive'>
+						</div>
+						<div class='quiz-info col-6'>
+							<h4 class="card-title">Business anaylsis</h4>
+							<ul class="quiz-info-list card-body">
+								<li>
+									<i class="fa fa-clock-o mr-2" aria-hidden="true"></i>
+									<b>~60 minutes</b> duration                    
+								</li>
+								<li>
+									<i class="fa fa-check-square-o mr-2" aria-hidden="true"></i>
+									<b>65 percent</b> required to pass and get a badge</li>
+								<li>
+									<i class="fa fa-calendar-check-o mr-2" aria-hidden="true"></i>
+									You can <b>retake</b> this assessment if you don't pass
+								</li>
+						</ul>
+						<button type="button" class='btn btn-danger quiz-btn' data-toggle='modal' data-target='#exampleModal'>
+							Start Quiz
+						</button>
+						</div>
+					</div>
+				</div>
+				<div class='quiz-card card col'>
+					<div class='quiz-data row'>
+						<div class='quiz-img col-6'>
+							<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.c-VJumIrfOg9qE7Fd4-GfQAAAA%26pid%3DApi&f=1' class='responsive'>
+						</div>
+						<div class='quiz-info col-6'>
+							<h4 class="card-title">Business anaylsis</h4>
+							<ul class="quiz-info-list card-body">
+								<li>
+									<i class="fas fa-clock-o mr-2" aria-hidden="true"></i>
+									<b>~60 minutes</b> duration                    
+								</li>
+								<li>
+									<i class="fa fa-check-square-o mr-2" aria-hidden="true"></i>
+									<b>65 percent</b> required to pass and get a badge</li>
+								<li>
+									<i class="fas fa-calendar-check-o mr-2"></i>
+									You can <b>retake</b> this assessment if you don't pass
+								</li>
+						</ul>
+						<button type="button" class='btn btn-danger quiz-btn' data-toggle='modal' data-target='#exampleModal'>
+							Start Quiz
+						</button>
+						</div>
+					</div>
+				</div>
+			</Section>
+		</div>
         
     </div>    
 </template>
@@ -156,7 +149,8 @@ export default {
 }
 
 .quiz-card{
-	width: 100%;
+	width: 15rem !important;
+	margin-bottom: 3rem;
 }
 
 .quiz-info, .quiz-img{
@@ -204,4 +198,46 @@ Section{
     text-justify: auto;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,700&display=swap');
+
+
+html{
+    font-size: 62.5%;
+    /* font-family: 'Lato', sans-serif; */
+}
+
+.startmodal{
+    width: 50vw;
+    height: 70vh;
+    /* margin: auto; */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.6rem;
+}
+
+.header{
+    text-align: center;
+}
+
+.info-header{
+    font-weight: 600;
+    line-height: 1.75;
+    margin-bottom: 8px !important;
+    color: rgba(0,0,0,.9);
+}
+
+.info-text{
+    line-height: 1.5;
+}
+
+.overview_list{
+    list-style-type: none;
+    /* font-size: 0; */
+}
+
+/* li{
+    margin-bottom: 1.5rem;
+} */
 </style>

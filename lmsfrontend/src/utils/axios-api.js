@@ -14,7 +14,7 @@ const getAPI = axios.create({
 
 
     // baseURL: 'http://127.0.0.1:8000',
-    baseURL: 'http://littapi.herokuapp.com',
+    baseURL: 'https://littapi.herokuapp.com',
     timeout: 20000,
 })
 
@@ -74,7 +74,7 @@ getAPI.interceptors.response.use(
       return Promise.reject(error);
     }
 
-    if (error.response.status === 401) {
+    if (error.response.status === 403) {
       originalRequest._retry = true;
       const refreshToken = localStorageService.getRefreshToken();
       const res = await getAPI.post("/api-token-refresh/", {
