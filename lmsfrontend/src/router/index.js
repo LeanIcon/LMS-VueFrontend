@@ -127,6 +127,15 @@ Vue.use(VueRouter)
         requiresAuth: false,
       }
     },
+    {
+      path: "/score",
+      name: "Score",
+      component: () => import("../views/Score.vue"),
+      meta: {
+        requiresLogin: false,
+        requiresAuth: false,
+    }
+    },
   ];
 
 const router = new VueRouter({
