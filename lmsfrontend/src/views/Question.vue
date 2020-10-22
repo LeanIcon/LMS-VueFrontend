@@ -29,10 +29,10 @@
   </div>
 
         <div class="main_container card">
-            <div class="inner"><p class="question-item">{{ currentIndex }}. {{ practice_test.practice_test.quiz.question_set[currentIndex].label }}</p>
+            <div class="inner"><p class="question-item noselect">{{ currentIndex }}. {{ practice_test.practice_test.quiz.question_set[currentIndex].label }}</p>
                 <div class="items">
                     <div class="pick" v-for="answerData in practice_test.practice_test.quiz.question_set[currentIndex].answer_set" :key="answerData.id">
-                        <input type="radio" :value="answerData.id" class="answer" name="choice"><span class="checkmark">{{ answerData.label }}</span>                    
+                        <input type="radio" :value="answerData.id" class="answer" name="choice"><span class="checkmark noselect">{{ answerData.label }}</span>                    
                     </div>
                 </div>
             </div>
@@ -99,7 +99,7 @@ export default {
             finished: false,
             quizTaker: '',
             question: '',
-            answer: '',
+            answer: 0,
             timePassed: 0,
             timerInterval: null,
             cur_progress: 0,
@@ -168,7 +168,7 @@ export default {
             this.timerInterval = setInterval(() => (this.timePassed += 1), 1000);
           },
 
-          submitAnswer: function sendResponse(){
+          sendResponse(){
               this.$store.dispatch('saveAnswer', {
                   quizTaker: this.quizTaker,
                   question: this.question,
@@ -194,7 +194,7 @@ export default {
                 this.finished = true
 
                 this.quizTaker = this.practice_test.practice_test.quiz.quiztakers_set.id
-                this.answer = document.querySelector('input[name="choice"]:checked').value
+                this.answer = parseInt(document.querySelector('input[name="choice"]:checked').value, 10)
                 this.question = this.practice_test.practice_test.quiz.question_set[this.currentIndex].id
             } else {
                 this.currentIndex += 1;
@@ -203,13 +203,15 @@ export default {
                 console.log(this.cur_progress)
 
                 this.quizTaker = this.practice_test.practice_test.quiz.quiztakers_set.id
-                this.answer = document.querySelector('input[name="choice"]:checked').value
+                this.answer = parseInt(document.querySelector('input[name="choice"]:checked').value, 10)
                 this.question = this.practice_test.practice_test.quiz.question_set[this.currentIndex].id
             }
+
+            console.log(this.$store)
         },
         handler: function(){
             this.moveNext();
-            this.submitAnswer();
+            this.sendResponse();
         }
 
 
@@ -326,6 +328,16 @@ z-index: 1;
 .main_container {
     box-sizing: border-box;
 }
+
+.noselect { 
+  -webkit-touch-callout: none; /* iOS Safari */ 
+    -webkit-user-select: none; /* Safari */ 
+     -khtml-user-select: none; /* Konqueror HTML */ 
+       -moz-user-select: none; /* Firefox */ 
+        -ms-user-select: none; /* Internet Explorer/Edge */ 
+            user-select: none; /* Non-prefixed version, currently 
+                                  supported by Chrome and Opera */ 
+} 
 
 
 .base-timer {
