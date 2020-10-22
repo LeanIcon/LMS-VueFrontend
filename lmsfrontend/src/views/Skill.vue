@@ -28,7 +28,7 @@
 									You can <b>retake</b> this assessment if you don't pass
 								</li>
 						</ul>
-						<router-link tag="button"  :to="{ name:'Question', params: {slug: 'business-analysis'} }" exact type="button" class='btn btn-danger quiz-btn' data-toggle='modal' data-target='#exampleModal'>
+						<router-link tag="button"  :to="{ name:'Question', params: {slug: 'business-analysis-1'} }" exact type="button" class='btn btn-danger quiz-btn' data-toggle='modal' data-target='#exampleModal'>
 							Start Quiz
 						</router-link>
 						</div>
@@ -54,7 +54,7 @@
 									You can <b>retake</b> this assessment if you don't pass
 								</li>
 						</ul>
-						<router-link tag="button"  :to="{ name:'Question', params: {slug: 'business-analysis-1'} }" exact type="button" class='btn btn-danger quiz-btn' data-toggle='modal' data-target='#exampleModal'>
+						<router-link tag="button"  :to="{ name:'Question', params: {slug: 'business-analysis-2'} }" exact type="button" class='btn btn-danger quiz-btn' data-toggle='modal' data-target='#exampleModal'>
 							Start Quiz
 						</router-link>
 						</div>
@@ -80,7 +80,7 @@
 									You can <b>retake</b> this assessment if you don't pass
 								</li>
 						</ul>
-						<button type="button" class='btn btn-danger quiz-btn' data-toggle='modal' data-target='#exampleModal'>
+						<button type="button"  :to="{ name:'Question', params: {slug: 'business-analysis-3'} }" class='btn btn-danger quiz-btn' data-toggle='modal' data-target='#exampleModal'>
 							Start Quiz
 						</button>
 						</div>
@@ -106,7 +106,7 @@
 									You can <b>retake</b> this assessment if you don't pass
 								</li>
 						</ul>
-						<button type="button" class='btn btn-danger quiz-btn' data-toggle='modal' data-target='#exampleModal'>
+						<button type="button"  :to="{ name:'Question', params: {slug: 'business-analysis-4'} }" class='btn btn-danger quiz-btn' data-toggle='modal' data-target='#exampleModal'>
 							Start Quiz
 						</button>
 						</div>
