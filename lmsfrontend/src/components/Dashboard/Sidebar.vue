@@ -77,7 +77,7 @@
                         </div>
 
                         <div id="menu-text">
-                            <p>Skill IQ</p>
+                            <p>Quiz</p>
                         </div>
                     </div>
                 </router-link>
