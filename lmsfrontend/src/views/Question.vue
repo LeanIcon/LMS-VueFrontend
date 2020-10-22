@@ -43,7 +43,7 @@
                 <button class="btn">Submit</button>
             </div>
             <div class="bar-limit"></div>
-            <div class="progress-bar"></div>
+            <div class="progress-bar"  v-bind:style="{ width: cur_progress + '%' }"></div>
         </div>
     </div>
 <!-- 
@@ -60,9 +60,7 @@
         <button class="btn" type="submit">Next</button>
     </div> -->
     <!-- <p>quiz</p> -->
-    
   </div>
-  
 </template>
 
 <script>
@@ -76,18 +74,18 @@ const FULL_DASH_ARRAY = 283;
 const WARNING_THRESHOLD = 10;
 const ALERT_THRESHOLD = 5;
 
-const COLOR_CODES = {
-  info: {
-    color: "green"
-  },
-  warning: {
-    color: "orange",
-    threshold: WARNING_THRESHOLD
-  },
-  alert: {
-    color: "red",
-    threshold: ALERT_THRESHOLD
-  }
+const COLOR_CODES ={
+      info:{
+        color: "green"
+      },
+      warning:{
+        color: "orange",
+        threshold: WARNING_THRESHOLD
+      },
+      alert:{
+        color: "red",
+        threshold: ALERT_THRESHOLD
+      }
 };
 
 const TIME_LIMIT = 3600;
@@ -103,7 +101,8 @@ export default {
             question: '',
             answer: '',
             timePassed: 0,
-            timerInterval: null
+            timerInterval: null,
+            cur_progress: 0,
             // quiz: practice_test.quiz,
         }
     },
@@ -112,103 +111,100 @@ export default {
         Sidebar,
         Dashboardnavbar,
     },
-
-  
     computed: {
         ...mapState(["practice_test"]),
         circleDasharray() {
-      return `${(this.timeFraction * FULL_DASH_ARRAY).toFixed(0)} 283`;
+              return `${(this.timeFraction * FULL_DASH_ARRAY).toFixed(0)} 283`;
         },
         formattedTimeLeft() {
-      const timeLeft = this.timeLeft;
-      const minutes = Math.floor(timeLeft / 60);
-      let seconds = timeLeft % 60;
+              const timeLeft = this.timeLeft;
+              const minutes = Math.floor(timeLeft / 60);
+              let seconds = timeLeft % 60;
 
-      if (seconds < 10) {
-        seconds = `0${seconds}`;
-      }
+              if (seconds < 10) {
+                seconds = `0${seconds}`;
+              }
 
-      return `${minutes}:${seconds}`;
+              return `${minutes}:${seconds}`;
+        },
 
-      
-                },
-
-            timeLeft() {
-      return TIME_LIMIT - this.timePassed;
-                        },
+        timeLeft() {
+             return TIME_LIMIT - this.timePassed;
+        },
 
         timeFraction() {
-      const rawTimeFraction = this.timeLeft / TIME_LIMIT;
-      return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
-                    },
+              const rawTimeFraction = this.timeLeft / TIME_LIMIT;
+              return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
+        },
 
-                    remainingPathColor() {
-      const { alert, warning, info } = COLOR_CODES;
+        remainingPathColor() {
+              const { alert, warning, info } = COLOR_CODES;
 
-      if (this.timeLeft <= alert.threshold) {
-        return alert.color;
-      } else if (this.timeLeft <= warning.threshold) {
-        return warning.color;
-      } else {
-        return info.color;
-      }
-                    }
+            if (this.timeLeft <= alert.threshold) {
+                return alert.color;
+            }else if (this.timeLeft <= warning.threshold) {
+                return warning.color;
+            } else {
+                return info.color;
+            }
+        }
     },
 
     watch: {
         timeLeft(newValue) {
-      if (newValue === 0) {
-        this.onTimesUp();
-      }
-    }
+            if (newValue === 0) {
+                this.onTimesUp();
+            }
+        }
     },
     
     methods: {
-        ...mapActions("practice_test", ["getPracticeTest"]),
-        // console.log()
+          ...mapActions("practice_test", ["getPracticeTest"], "saveAnswer"),
+          onTimesUp() {
+            clearInterval(this.timerInterval);
+          },
 
-        // created: function(){
-            // }
-            onTimesUp() {
-      clearInterval(this.timerInterval);
-    },
+          startTimer() {
+            this.timerInterval = setInterval(() => (this.timePassed += 1), 1000);
+          },
 
-    startTimer() {
-      this.timerInterval = setInterval(() => (this.timePassed += 1), 1000);
-    },
-
-        submitAnswer: function sendResponse(){
-            this.$store.dispatch('sendResponse', {
-                quizTaker: this.quizTaker,
-                question: this.question,
-                answer: this.answer,
-            }).then(({ status }) => {
-                console.log('answer sent')
-                console.log(status)
-            }).catch(err=>{
-                console.log(err)
-            })
-        },
+          submitAnswer: function sendResponse(){
+              this.$store.dispatch('saveAnswer', {
+                  quizTaker: this.quizTaker,
+                  question: this.question,
+                  answer: this.answer,
+              }).then(({ status }) => {
+                  console.log('answer sent')
+                  console.log(status)
+              }).catch(err=>{
+                  console.log(err)
+              })
+          },
 
         moveNext: function nextQuestion(){
+            // var progressBar = document.body.getElementsByClassName('bar-limit');
+            // console.log(progressBar)
+
             if (this.currentIndex >= 40) {
                 //submit form
-                this.currentIndex += 1; 
+                this.currentIndex += 1;
+                this.cur_progress = (this.currentIndex/40)*100
+                console.log(this.cur_progress)
                 console.log('questions finished')
                 this.finished = true
 
                 this.quizTaker = this.practice_test.practice_test.quiz.quiztakers_set.id
                 this.answer = document.querySelector('input[name="choice"]:checked').value
                 this.question = this.practice_test.practice_test.quiz.question_set[this.currentIndex].id
-            
-               } else {
-                this.currentIndex += 1; 
+            } else {
+                this.currentIndex += 1;
                 console.log(document.querySelector('input[name="choice"]:checked').value)
+                this.cur_progress = (this.currentIndex/40)*100
+                console.log(this.cur_progress)
 
                 this.quizTaker = this.practice_test.practice_test.quiz.quiztakers_set.id
                 this.answer = document.querySelector('input[name="choice"]:checked').value
                 this.question = this.practice_test.practice_test.quiz.question_set[this.currentIndex].id
-                
             }
         },
         handler: function(){
@@ -222,7 +218,7 @@ export default {
     mounted(){
         const slug = this.$route.params.slug;
         this.getPracticeTest(slug);
-        this.startTimer();  
+        this.startTimer();
     },
 }
 </script>
@@ -285,7 +281,7 @@ z-index: 1;
 }
 
 .progress-bar{
-    width: 10%;
+    // width: 0%;
     height: 6px;
     background-color: rgba(195,0,12,1);
     position: absolute;
@@ -375,13 +371,14 @@ z-index: 1;
   }
 
   &__label {
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    top: 2px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: fixed;
+    // width: 300px;
+    bottom: 0px;
+    // height: 300px;
+    // top: 2px;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
     font-size: 48px;
   }
 }
