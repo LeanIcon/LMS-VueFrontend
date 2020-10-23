@@ -77,7 +77,7 @@
                         </div>
 
                         <div id="menu-text">
-                            <p>Quizzes</p>
+                            <p>Quiz</p>
                         </div>
                     </div>
                 </router-link>
