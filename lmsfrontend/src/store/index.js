@@ -18,6 +18,9 @@ import user from "./modules/user/user";
 // import lesson from "./modules/lesson";
 import feedback from"./modules/feedback";
 import practice_test from"./modules/practice_test";
+
+
+
  export default new Vuex.Store({
     modules: {
         course,
@@ -55,15 +58,15 @@ import practice_test from"./modules/practice_test";
         saveAnswer(context, userresponse){
             return new Promise((resolve, reject) => {
                 getAPI
-                .put(`/save-answer/`, {
+                .patch(`/save-answer/`, {
                     headers: { Authorization: `Bearer ${token}` },
-                    quizTaker: userresponse.quizTaker,
+                    quiztaker: userresponse.quizTaker,
                     question: userresponse.question,
                     answer: userresponse.answer
                 })
                 .then(({status}) => {
                     console.log('testing from line:18')
-                    if (status == 201) {
+                    if (status == 200) {
                     resolve(status);
                     }
                 })
@@ -72,7 +75,32 @@ import practice_test from"./modules/practice_test";
                     console.log("Check data not reading ref: actions.js >> course");
                 });
             })
-        }
+        },
+        
+        submitAnswer(context, userresponse, slug){
+            // var slug = this.$route.params.slug;
+            return new Promise((resolve, reject) => {
+                getAPI
+                .post(`/quizzes/${slug}/submit/`, {
+                    headers: { Authorization: `Bearer ${token}` },
+                    quiztaker: userresponse.quizTaker,
+                    question: userresponse.question,
+                    answer: userresponse.answer
+                }, )
+                .then(({status}) => {
+                    console.log('testing from line:87')
+                    console.log(slug)
+                    if (status == 200) {
+                    resolve(status);
+                    }
+                })
+                .catch((err) => {
+                    reject(err);
+                    console.log("Check data not reading ref: actions.js >> course");
+                    console.log(slug)
+                });
+            })
+        },
     },
     // getters: {
     //     getUser(state){
