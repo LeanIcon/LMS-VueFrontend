@@ -66,15 +66,15 @@ Vue.use(VueRouter)
         requiresLogin: true,
       },
     },
-    {
-      path: "/question",
-      name: "Question",
-      component: () => import("../views/Question.vue"),
-      meta: {
-        requiresAuth: true,
-        requiresLogin: true,
-      },
-    },
+    // {
+    //   path: "/question",
+    //   name: "Question",
+    //   component: () => import("../views/Question.vue"),
+    //   meta: {
+    //     requiresAuth: true,
+    //     requiresLogin: true,
+    //   },
+    // },
     
     {path: "/courses",name: "Courseregister",component: () => import("../views/course/Courses.vue")},
     {path: "/confirm",name: "Courseconfirm",component: () => import("../views/course/Courseconfirm.vue")},
@@ -110,6 +110,15 @@ Vue.use(VueRouter)
       }
     },
     {
+      path: "/quiz/:slug",
+      name: "Question",
+      component: () => import("../views/Question.vue"),
+      meta: {
+        requiresLogin: true,
+        requiresAuth: true,
+      }
+    },
+    {
       path: "/editprofile",
       name: "Editprofile",
       component: () => import("../views/user/Editprofile.vue"),
@@ -117,6 +126,15 @@ Vue.use(VueRouter)
         requiresLogin: false,
         requiresAuth: false,
       }
+    },
+    {
+      path: "/score",
+      name: "Score",
+      component: () => import("../views/Score.vue"),
+      meta: {
+        requiresLogin: false,
+        requiresAuth: false,
+    }
     },
   ];
 
