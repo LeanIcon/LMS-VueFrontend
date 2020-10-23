@@ -29,19 +29,34 @@
   </div>
 
         <div class="main_container card">
-            <div class="inner"><p class="question-item">{{ currentIndex }}. {{ practice_test.practice_test.quiz.question_set[currentIndex].label }}</p>
-                <div class="items">
-                    <div class="pick" v-for="answerData in practice_test.practice_test.quiz.question_set[currentIndex].answer_set" :key="answerData.id">
-                        <input type="radio" :value="answerData.id" class="answer" name="choice"><span class="checkmark">{{ answerData.label }}</span>                    
+            <div v-if="!finished">
+                <div class="inner"><p class="question-item noselect">{{ currentIndex }}. {{ practice_test.practice_test.quiz.question_set[currentIndex].label }}</p>
+                    <div class="items">
+                        <div class="pick" v-for="answerData in practice_test.practice_test.quiz.question_set[currentIndex].answer_set" :key="answerData.id">
+                            <input type="radio" :value="answerData.id" class="answer" name="choice"><span class="checkmark noselect">{{ answerData.label }}</span>                    
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div v-if="!finished">
                 <button class="btn" @click="handler">Next</button>
             </div>
             <div v-else>
-                <button class="btn">Submit</button>
+                <div class="inner"><p class="question-item noselect">You've successfully completed <b>{{ results.quiz.quiztakers_set.name }} </b></p>
+                    <div class="items">
+                        <p>40 set questions</p>
+                        <p><b>{{ (results.quiz.quiztakers_set.score / 40) * 100 }}</b>% answered correctly</p>
+                        <p>Your result: {{ results.quiz.quiztakers_set.score }} of 40</p>
+                    </div>
+                    <router-link tag="a"  :to="{ name:'Skill' }" exact>
+                        Back to quiz page
+                    </router-link>
+                </div>
+                <!-- <a href="">Back to quiz page</a> -->
+
+                <button class="btn" @click="handler">Retake Quiz</button>
             </div>
+            <!-- <div v-else>
+                <button class="btn" @click="submitAnswer">Submit</button>
+            </div> -->
             <div class="bar-limit"></div>
             <div class="progress-bar"  v-bind:style="{ width: cur_progress + '%' }"></div>
         </div>
@@ -68,6 +83,7 @@ import Sidebar from '@/components/Dashboard/Sidebar.vue'
 import Dashboardnavbar from '@/components/Dashboard/Dashboardnavbar.vue'
 import { mapState } from 'vuex'
 import { mapActions } from 'vuex'
+import { getAPI } from "../utils/axios-api";
 // import { getAPI } from "../utils/axios-api";
 
 const FULL_DASH_ARRAY = 283;
@@ -90,6 +106,8 @@ const COLOR_CODES ={
 
 const TIME_LIMIT = 3600;
 
+const token = localStorage.getItem("access_token");
+
 export default {
 // @ is an alias to /src
     name: 'Dashboard',
@@ -99,10 +117,11 @@ export default {
             finished: false,
             quizTaker: '',
             question: '',
-            answer: '',
+            answer: 0,
             timePassed: 0,
             timerInterval: null,
             cur_progress: 0,
+            results: null,
             // quiz: practice_test.quiz,
         }
     },
@@ -115,6 +134,7 @@ export default {
         ...mapState(["practice_test"]),
         circleDasharray() {
               return `${(this.timeFraction * FULL_DASH_ARRAY).toFixed(0)} 283`;
+              
         },
         formattedTimeLeft() {
               const timeLeft = this.timeLeft;
@@ -147,7 +167,9 @@ export default {
             } else {
                 return info.color;
             }
+
         }
+
     },
 
     watch: {
@@ -159,16 +181,17 @@ export default {
     },
     
     methods: {
-          ...mapActions("practice_test", ["getPracticeTest"], "saveAnswer"),
+          ...mapActions("practice_test", ["getPracticeTest"], "saveAnswer", "submitAnswer"),
           onTimesUp() {
             clearInterval(this.timerInterval);
           },
 
           startTimer() {
             this.timerInterval = setInterval(() => (this.timePassed += 1), 1000);
+            
           },
 
-          submitAnswer: function sendResponse(){
+          sendResponse(){
               this.$store.dispatch('saveAnswer', {
                   quizTaker: this.quizTaker,
                   question: this.question,
@@ -181,35 +204,81 @@ export default {
               })
           },
 
+          submitAnswer(){
+            const slug = this.$route.params.slug
+            getAPI
+                .post(`/quizzes/${slug}/submit/`, {
+                    headers: { Authorization: `Bearer ${token}` },
+                    quiztaker: this.quizTaker,
+                    question: this.question,
+                    answer: this.answer
+                })
+                .then(({status}) => {
+                    console.log('testing from line:87')
+                    console.log(slug)
+                    if (status == 200) {
+                    console.log(status);
+                    }
+                })
+                .catch((err) => {
+                    console.log(err);
+                    console.log("Check data not reading ref: actions.js >> course");
+                    console.log(slug)
+                });
+          },
+
+          getResults(){
+            const slug = this.$route.params.slug
+            console.log('get all results this is slug:' + slug)
+            getAPI
+                .get(`/quizzes/${slug}/`, {
+                    headers: { Authorization: `Bearer ${token}` },
+                })
+                .then((res) => {
+                    this.results = res.data
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+          },
+
         moveNext: function nextQuestion(){
             // var progressBar = document.body.getElementsByClassName('bar-limit');
             // console.log(progressBar)
 
-            if (this.currentIndex >= 40) {
+            if (this.currentIndex == 38) {
                 //submit form
-                this.currentIndex += 1;
-                this.cur_progress = (this.currentIndex/40)*100
+                // this.currentIndex += 1;
+                this.cur_progress = (this.currentIndex/38)*100
+                // this.cur_progress = 100
                 console.log(this.cur_progress)
                 console.log('questions finished')
-                this.finished = true
 
                 this.quizTaker = this.practice_test.practice_test.quiz.quiztakers_set.id
-                this.answer = document.querySelector('input[name="choice"]:checked').value
+                this.answer = parseInt(document.querySelector('input[name="choice"]:checked').value, 10)
                 this.question = this.practice_test.practice_test.quiz.question_set[this.currentIndex].id
+                this.submitAnswer()
+                this.finished = true
+                this.getResults()
             } else {
                 this.currentIndex += 1;
                 console.log(document.querySelector('input[name="choice"]:checked').value)
-                this.cur_progress = (this.currentIndex/40)*100
+                this.cur_progress = (this.currentIndex/38)*100
                 console.log(this.cur_progress)
 
                 this.quizTaker = this.practice_test.practice_test.quiz.quiztakers_set.id
-                this.answer = document.querySelector('input[name="choice"]:checked').value
+                this.answer = parseInt(document.querySelector('input[name="choice"]:checked').value, 10)
                 this.question = this.practice_test.practice_test.quiz.question_set[this.currentIndex].id
             }
+
+            // console.log(this.$store)
+            
+            console.log('this is test id' + this.practice_test.practice_test.quiz.name);
+
         },
         handler: function(){
             this.moveNext();
-            this.submitAnswer();
+            this.sendResponse();
         }
 
 
@@ -326,6 +395,16 @@ z-index: 1;
 .main_container {
     box-sizing: border-box;
 }
+
+.noselect { 
+  -webkit-touch-callout: none; /* iOS Safari */ 
+    -webkit-user-select: none; /* Safari */ 
+     -khtml-user-select: none; /* Konqueror HTML */ 
+       -moz-user-select: none; /* Firefox */ 
+        -ms-user-select: none; /* Internet Explorer/Edge */ 
+            user-select: none; /* Non-prefixed version, currently 
+                                  supported by Chrome and Opera */ 
+} 
 
 
 .base-timer {

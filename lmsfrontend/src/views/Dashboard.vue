@@ -112,16 +112,6 @@ export default {
     Sidebar,
     Dashboardnavbar,
   },
-
-  // computed: {
-  //   getLogin() {
-  //     return this.$store.getters['loggedIn']
-  //   },
-    
-  //   getUserToken() {
-  //       return this.$store.getters['userToken']
-  //   }
-  // }
 }
 </script>
 
