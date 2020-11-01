@@ -26,6 +26,13 @@ Vue.use(VuePlyr, {
 
 Vue.use(VueSweetalert2);  
 
+
+
+// const store = new Vuex.Store({
+//   ...
+//   plugins: [vuexLocalStorage.plugin]
+// });
+
 const eventsHub = new Vue();
 
 Vue.use(IdleVue, {
