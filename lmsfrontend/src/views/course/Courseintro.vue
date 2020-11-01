@@ -36,14 +36,29 @@
                             <a class="btn btn-lg btn-primary" href="https://res.cloudinary.com/littlms/raw/upload/v1599331781/Questions_bank_for_BA_b4gmnb.doc">Download <i class="fa fa-download"></i></a>
                         </div>
                     </div>
-                    <div class=" video-div">
-                            
-                    <video controls src="https://res.cloudinary.com/littlms/video/upload/v1599179957/2020-07-24_Design_Thinking_Define_Stage_SWOT_and_TOWS_Analysis_ihwgnl.mp4">
-                    </video>
-                    <div class="course2-btn">
+                    <div class=" video-div">  
+                        <!-- video element -->
+                        <vue-plyr>
+                        <video poster="../../../src/assets/course01.jpg" src="https://res.cloudinary.com/littlms/video/upload/v1599179957/2020-07-24_Design_Thinking_Define_Stage_SWOT_and_TOWS_Analysis_ihwgnl.mp4">
+                            <source src="https://res.cloudinary.com/littlms/video/upload/v1599179957/2020-07-24_Design_Thinking_Define_Stage_SWOT_and_TOWS_Analysis_ihwgnl.mp4" type="video/mp4" size="720">
+                            <source src="https://res.cloudinary.com/littlms/video/upload/v1599179957/2020-07-24_Design_Thinking_Define_Stage_SWOT_and_TOWS_Analysis_ihwgnl.mp4" type="video/mp4" size="1080">
+                            <!-- <track kind="captions" label="English" srclang="en" src="captions-en.vtt" default> -->
+                        </video>
+                        </vue-plyr>                         
+                        <!-- <video src="https://res.cloudinary.com/littlms/video/upload/v1599179957/2020-07-24_Design_Thinking_Define_Stage_SWOT_and_TOWS_Analysis_ihwgnl.mp4" class="video">
+                        </video>
+                        <div class="controls">
+                            <div class="time-bar">
+                                <div class="video-progress"></div>
+                            </div>
+                            <div class="buttons">
+                                <button id="play-pause"></button>
+                            </div>
+                        </div> -->
+                    <!-- <div class="course2-btn">
                             <router-link :to = "{ name:'Coursepage' }" exact class="btn btn-lg btn-primary">Start</router-link>
     
-                        </div>
+                    </div> -->
                     </div>    
                 </main >
             </div>    
@@ -56,6 +71,11 @@
 // import Dashboardnavbar from '@/components/Dashboard/Dashboardnavbar.vue'
 // import Coursesidebar from '@/components/Course/Coursesidebar.vue'
 // import HamburgerSlide from '@/components/Course/HamburgerSlide.vue'
+// import Plyr from 'plyr';
+
+// // const player = new Plyr('#player');
+// const player = new Plyr(document.getElementById('player'));
+// console.log(player)
 export default {
     name: 'Courseintro',
 
@@ -92,7 +112,7 @@ hr{
 }
 
 #main .main-header div{
-    display: inline-block;
+    /* display: inline-block; */
     padding: 10px;
 }
 
@@ -108,12 +128,11 @@ hr{
 .video-div{
     background-color: #F0F5F7;
     padding:50px;
-    /* height: 480px; */
+    position: relative;
 }
 
-video{
-    height: 70%;
-    width: 70%;
+.video{
+    width: 100%;
     margin: auto;
 }
 
@@ -125,6 +144,50 @@ video{
     padding-left: 45rem;
 }
 
+.controls{
+    display: flex;
+    position: absolute;
+    bottom: 0%;
+    width: 100%;
+    flex-wrap: wrap;
+    background: rgba(0, 0, 0, 0.7);
+}
 
+.buttons{
+    padding: 10px;
+}
+
+.buttons button{
+    background: none;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+}    
+
+.buttons button:before{
+    content: '\f144';
+    font-family: 'Font Awesome 5 Free';
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    font-size: 28px;
+    color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+}  
+
+.buttons button.play:before{
+    content: '\f144';
+}
+
+.buttons button.pause:before{
+    content: '\f28b';
+}
+
+.video-progress{
+    height: 10px;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
 </style>
 
