@@ -13,13 +13,25 @@ import 'popper.js/dist/umd/popper.min.js';
 import '@fortawesome/fontawesome-free/css/all.css';
 import '@fortawesome/fontawesome-free/js/all.js';
 import 'font-awesome/css/font-awesome.min.css';
-import VueSweetalert2 from 'vue-sweetalert2';  
+import VueSweetalert2 from 'vue-sweetalert2';
+import VuePlyr from 'vue-plyr'
+ 
+// The second argument is optional and sets the default config values for every player.
+Vue.use(VuePlyr, {
+  plyr: {
+    fullscreen: { enabled: false }
+  },
+  emit: ['ended']
+})
+
 Vue.use(VueSweetalert2);  
-// import axios from 'axios';
 
-// custom
-// import * from './utils/tokenObj'
 
+
+// const store = new Vuex.Store({
+//   ...
+//   plugins: [vuexLocalStorage.plugin]
+// });
 
 const eventsHub = new Vue();
 
@@ -31,6 +43,8 @@ Vue.use(IdleVue, {
 // console.log(accessToken)
 
 Vue.config.productionTip = false
+
+// const player = new Plyr('#player');
 
 // const token = localStorage.getItem('access_token');
 // if(token) {

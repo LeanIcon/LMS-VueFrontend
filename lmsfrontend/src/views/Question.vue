@@ -368,6 +368,8 @@ z-index: 1;
 .inner{
     margin: 3rem;
     font-size: 15px;
+    overflow-x: hidden;
+    height: 100%;
 }
 
 .btn{
@@ -409,9 +411,10 @@ z-index: 1;
 
 .base-timer {
   position: absolute;
-  right: 250px;
+  right: 4rem;
   width: 100px;
   height: 100px;
+  top: 4rem;
 
   &__svg {
     transform: scaleX(-1);
@@ -450,15 +453,15 @@ z-index: 1;
   }
 
   &__label {
-    position: fixed;
+    position: absolute;
     // width: 300px;
-    bottom: 0px;
     // height: 300px;
-    // top: 2px;
-    // display: flex;
-    // align-items: center;
-    // justify-content: center;
-    font-size: 48px;
+    top: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    left: 15%;
   }
 }
 
