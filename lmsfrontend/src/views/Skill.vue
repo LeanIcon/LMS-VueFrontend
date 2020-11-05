@@ -69,14 +69,14 @@
 							<h4 class="card-title">Business anaylsis</h4>
 							<ul class="quiz-info-list card-body">
 								<li>
-									<i class="fas fa-clock-o mr-2" aria-hidden="true"></i>
+									<i class="fa fa-clock-o mr-2" aria-hidden="true"></i>
 									<b>~60 minutes</b> duration                    
 								</li>
 								<li>
 									<i class="fa fa-check-square-o mr-2" aria-hidden="true"></i>
 									<b>65 percent</b> required to pass and get a badge</li>
 								<li>
-									<i class="fas fa-calendar-check-o mr-2"></i>
+									<i class="fa fa-calendar-check-o mr-2" aria-hidden="true"></i>
 									You can <b>retake</b> this assessment if you don't pass
 								</li>
 						</ul>
@@ -95,32 +95,6 @@
 							<h4 class="card-title">Business anaylsis</h4>
 							<ul class="quiz-info-list card-body">
 								<li>
-									<i class="fa fa-clock-o mr-2" aria-hidden="true"></i>
-									<b>~60 minutes</b> duration                    
-								</li>
-								<li>
-									<i class="fa fa-check-square-o mr-2" aria-hidden="true"></i>
-									<b>65 percent</b> required to pass and get a badge</li>
-								<li>
-									<i class="fa fa-calendar-check-o mr-2" aria-hidden="true"></i>
-									You can <b>retake</b> this assessment if you don't pass
-								</li>
-						</ul>
-						<button type="button"  :to="{ name:'Question', params: {slug: 'business-analysis-3'} }" class='btn btn-danger quiz-btn' data-toggle='modal' data-target='#exampleModal'>
-							Start Quiz
-						</button>
-						</div>
-					</div>
-				</div>
-				<div class='quiz-card card col'>
-					<div class='quiz-data row'>
-						<div class='quiz-img col-6'>
-							<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.c-VJumIrfOg9qE7Fd4-GfQAAAA%26pid%3DApi&f=1' class='responsive'>
-						</div>
-						<div class='quiz-info col-6'>
-							<h4 class="card-title">Business anaylsis</h4>
-							<ul class="quiz-info-list card-body">
-								<li>
 									<i class="fas fa-clock-o mr-2" aria-hidden="true"></i>
 									<b>~60 minutes</b> duration                    
 								</li>
@@ -132,7 +106,7 @@
 									You can <b>retake</b> this assessment if you don't pass
 								</li>
 						</ul>
-						<button type="button"  :to="{ name:'Question', params: {slug: 'business-analysis-4'} }" class='btn btn-danger quiz-btn' data-toggle='modal' data-target='#exampleModal'>
+						<button type="button" class='btn btn-danger quiz-btn' data-toggle='modal' data-target='#exampleModal'>
 							Start Quiz
 						</button>
 						</div>
