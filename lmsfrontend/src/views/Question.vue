@@ -54,10 +54,11 @@
                         <p>40 set questions</p>
                         <p><b>{{ (results.quiz.quiztakers_set.score / 40) * 100 }}</b>% answered correctly</p>
                         <p>Your result: {{ results.quiz.quiztakers_set.score }} of 40</p>
+                        <p>Not happy with your score? <a :href="$router.resolve({ name:'Question', params: {slug: $route.params.slug} }).href">Retake</a></p>
                     </div>
                 </div>
-                <a class="btn" :href="$router.resolve({ name:'Question', params: {slug: $route.params.slug} }).href">Retake Quiz</a>
-                <!-- <router-link class="btn" :to="{ name:'Question', params: {slug: $route.params.slug} }" tag="a">Retake Quiz</router-link> -->
+                <!-- <a class="btn" >Quizzes</a> -->
+                <router-link class="btn" :to="{ name:'Skill'}" tag="a">Quiz</router-link>
                 <!-- this.$route.params.slug -->
             </div>
             <!-- ======================= -->
@@ -96,7 +97,7 @@ const COLOR_CODES ={
       }
 };
 
-const TIME_LIMIT = 10;
+const TIME_LIMIT = 3600;
 
 const token = localStorage.getItem("access_token");
 
@@ -105,7 +106,7 @@ export default {
     name: 'Dashboard',
     data () {
         return{
-            currentIndex: 0,
+            currentIndex: 1,
             finished: false,
             quizTaker: '',
             question: '',
@@ -305,9 +306,6 @@ export default {
             this.moveNext();
             this.sendResponse();
         }
-        // prev:
-
-
     },
     // get data from store **pass the action name**
     mounted(){
