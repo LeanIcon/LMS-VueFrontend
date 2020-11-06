@@ -45,7 +45,7 @@
                     </div>
                 </div>
                 <button class="btn" @click="handler">Next</button>
-                 <button class="bck" @click="moveBack" v-if="currentIndex == 2">Back</button>
+                 <button class="bck" @click="moveBack" v-if="currentIndex >= 2">Back</button>
                  
             </div>
             <div v-else>
@@ -97,7 +97,7 @@ const COLOR_CODES ={
       }
 };
 
-const TIME_LIMIT = 60;
+const TIME_LIMIT = 10;
 
 const token = localStorage.getItem("access_token");
 
