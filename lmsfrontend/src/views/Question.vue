@@ -8,36 +8,45 @@
         </div>
 
     <div class="question">
-        <div class="base-timer">
-    <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-      <g class="base-timer__circle">
-        <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
-        <path
-          :stroke-dasharray="circleDasharray"
-          class="base-timer__path-remaining"
-          :class="remainingPathColor"
-          d="
-            M 50, 50
-            m -45, 0
-            a 45,45 0 1,0 90,0
-            a 45,45 0 1,0 -90,0
-          "
-        ></path>
-      </g>
-    </svg>
-    <span class="base-timer__label">{{ formattedTimeLeft }}</span>
-  </div>
+        <!-- ===================================== -->
+                    <!-- the quiz timer -->
+        <!-- ===================================== -->
+        <div class="base-timer" v-if="!finished">
+            <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <g class="base-timer__circle">
+                <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
+                <path
+                :stroke-dasharray="circleDasharray"
+                class="base-timer__path-remaining"
+                :class="remainingPathColor"
+                d="
+                    M 50, 50
+                    m -45, 0
+                    a 45,45 0 1,0 90,0
+                    a 45,45 0 1,0 -90,0
+                "
+                ></path>
+            </g>
+            </svg>
+            <span class="base-timer__label">{{ formattedTimeLeft }}</span>
+        </div>
 
+        <!-- ============================== -->
+                <!-- Quiz Card -->
+        <!-- ============================== -->
         <div class="main_container card">
             <div v-if="!finished">
                 <div class="inner"><p class="question-item noselect">{{ currentIndex }}. {{ practice_test.practice_test.quiz.question_set[currentIndex].label }}</p>
                     <div class="items">
                         <div class="pick" v-for="answerData in practice_test.practice_test.quiz.question_set[currentIndex].answer_set" :key="answerData.id">
-                            <input type="radio" :value="answerData.id" class="answer" name="choice"><span class="checkmark noselect">{{ answerData.label }}</span>                    
+                            <input type="radio" :value="answerData.id" class="answer" name="choice"><span class="checkmark noselect">{{ answerData.label }}</span>     
+                            <!-- <p>{{ $route.params.slug }}</p>                -->
                         </div>
                     </div>
                 </div>
                 <button class="btn" @click="handler">Next</button>
+                 <button class="bck" @click="moveBack" v-if="currentIndex >= 2">Back</button>
+                 
             </div>
             <div v-else>
                 <div class="inner"><p class="question-item noselect">You've successfully completed <b>{{ results.quiz.quiztakers_set.name }} </b></p>
@@ -45,36 +54,20 @@
                         <p>40 set questions</p>
                         <p><b>{{ (results.quiz.quiztakers_set.score / 40) * 100 }}</b>% answered correctly</p>
                         <p>Your result: {{ results.quiz.quiztakers_set.score }} of 40</p>
+                        <p>Not happy with your score? <a :href="$router.resolve({ name:'Question', params: {slug: $route.params.slug} }).href">Retake</a></p>
                     </div>
-                    <router-link tag="a"  :to="{ name:'Skill' }" exact>
-                        Back to quiz page
-                    </router-link>
                 </div>
-                <!-- <a href="">Back to quiz page</a> -->
-
-                <button class="btn" @click="handler">Retake Quiz</button>
+                <!-- <a class="btn" >Quizzes</a> -->
+                <router-link class="btn" :to="{ name:'Skill'}" tag="a">Quiz</router-link>
+                <!-- this.$route.params.slug -->
             </div>
-            <!-- <div v-else>
-                <button class="btn" @click="submitAnswer">Submit</button>
-            </div> -->
+            <!-- ======================= -->
+                <!-- PROGRESS BAR -->
+            <!-- ======================= -->
             <div class="bar-limit"></div>
             <div class="progress-bar"  v-bind:style="{ width: cur_progress + '%' }"></div>
         </div>
     </div>
-<!-- 
-    <div class="question">
-        <div class="main_container card"  v-for="quizData in practice_test.practice_test.quiz.question_set" :key="quizData.id">
-            <div class="inner"><p>{{quizData.id}}. {{ quizData.label }}</p>
-                <div class="items">
-                    <div class="pick" v-for="answerData in quizData.answer_set" :key="answerData.id">
-                        <input type="radio" class="answer" :name="`choice${quizData.id}`"><span class="checkmark">{{ answerData.label }}</span>                    
-                    </div>
-                </div>
-            </div>            
-        </div>
-        <button class="btn" type="submit">Next</button>
-    </div> -->
-    <!-- <p>quiz</p> -->
   </div>
 </template>
 
@@ -104,7 +97,7 @@ const COLOR_CODES ={
       }
 };
 
-const TIME_LIMIT = 3600;
+const TIME_LIMIT = 10;
 
 const token = localStorage.getItem("access_token");
 
@@ -113,7 +106,7 @@ export default {
     name: 'Dashboard',
     data () {
         return{
-            currentIndex: 0,
+            currentIndex: 1,
             finished: false,
             quizTaker: '',
             question: '',
@@ -130,12 +123,15 @@ export default {
         Sidebar,
         Dashboardnavbar,
     },
+
     computed: {
         ...mapState(["practice_test"]),
+
         circleDasharray() {
               return `${(this.timeFraction * FULL_DASH_ARRAY).toFixed(0)} 283`;
               
         },
+
         formattedTimeLeft() {
               const timeLeft = this.timeLeft;
               const minutes = Math.floor(timeLeft / 60);
@@ -184,10 +180,13 @@ export default {
           ...mapActions("practice_test", ["getPracticeTest"], "saveAnswer", "submitAnswer"),
           onTimesUp() {
             clearInterval(this.timerInterval);
+            this.submitAnswer()
+            this.getResults()
+
           },
 
           startTimer() {
-            this.timerInterval = setInterval(() => (this.timePassed += 1), 1000);
+            this.timerInterval = setInterval(() => (this.timePassed += 1), 3000);
             
           },
 
@@ -215,15 +214,14 @@ export default {
                 })
                 .then(({status}) => {
                     console.log('testing from line:87')
-                    console.log(slug)
                     if (status == 200) {
-                    console.log(status);
+                        console.log(status);
+                        this.finished = true
                     }
                 })
                 .catch((err) => {
                     console.log(err);
                     console.log("Check data not reading ref: actions.js >> course");
-                    console.log(slug)
                 });
           },
 
@@ -243,9 +241,6 @@ export default {
           },
 
         moveNext: function nextQuestion(){
-            // var progressBar = document.body.getElementsByClassName('bar-limit');
-            // console.log(progressBar)
-
             if (this.currentIndex == 38) {
                 //submit form
                 // this.currentIndex += 1;
@@ -276,12 +271,41 @@ export default {
             console.log('this is test id' + this.practice_test.practice_test.quiz.name);
 
         },
+        moveBack: function prevQuestion(){
+            if (this.currentIndex == 38) {
+                //submit form
+                // this.currentIndex += 1;
+                this.cur_progress = (this.currentIndex/38)*100
+                // this.cur_progress = 100
+                console.log(this.cur_progress)
+                console.log('questions finished')
+
+                this.quizTaker = this.practice_test.practice_test.quiz.quiztakers_set.id
+                this.answer = parseInt(document.querySelector('input[name="choice"]:checked').value, 10)
+                this.question = this.practice_test.practice_test.quiz.question_set[this.currentIndex].id
+                this.submitAnswer()
+                this.finished = true
+                this.getResults()
+            } else {
+                this.currentIndex -= 1;
+                console.log(document.querySelector('input[name="choice"]:checked').value)
+                this.cur_progress = (this.currentIndex/38)*100
+                console.log(this.cur_progress)
+
+                this.quizTaker = this.practice_test.practice_test.quiz.quiztakers_set.id
+                this.answer = parseInt(document.querySelector('input[name="choice"]:checked').value, 10)
+                this.question = this.practice_test.practice_test.quiz.question_set[this.currentIndex].id
+            }
+
+            // console.log(this.$store)
+            
+            console.log('this is test id' + this.practice_test.practice_test.quiz.name);
+
+        },
         handler: function(){
             this.moveNext();
             this.sendResponse();
         }
-
-
     },
     // get data from store **pass the action name**
     mounted(){
@@ -385,6 +409,20 @@ z-index: 1;
     right: 40px;
     bottom: 40px;   
 }
+.bck{
+    border: none;
+    background-color: rgb(0, 124, 195); 
+    text-decoration: none;
+    width: 20%;
+    color: #fff;
+    height: 2rem;
+    outline: none;
+    border-radius: 0px; 
+    position: absolute;  
+    right: 40px;
+    left: 35px;
+    bottom: 40px;   
+}
 
 .answer{
     margin-right: 1rem;    
@@ -454,14 +492,14 @@ z-index: 1;
 
   &__label {
     position: absolute;
-    // width: 300px;
+    width: 100%;
     // height: 300px;
     top: 25%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 30px;
-    left: 15%;
+    // left: 15%;
   }
 }
 
