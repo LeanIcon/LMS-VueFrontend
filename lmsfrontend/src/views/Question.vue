@@ -45,6 +45,7 @@
                     </div>
                 </div>
                 <button class="btn" @click="handler">Next</button>
+                 <button class="bck" @click="handler">Back</button>
             </div>
             <div v-else>
                 <div class="inner"><p class="question-item noselect">You've successfully completed <b>{{ results.quiz.quiztakers_set.name }} </b></p>
@@ -375,6 +376,20 @@ z-index: 1;
     border-radius: 0px; 
     position: absolute;  
     right: 40px;
+    bottom: 40px;   
+}
+.bck{
+    border: none;
+    background-color: rgb(0, 124, 195); 
+    text-decoration: none;
+    width: 20%;
+    color: #fff;
+    height: 2rem;
+    outline: none;
+    border-radius: 0px; 
+    position: absolute;  
+    right: 40px;
+    left: 35px;
     bottom: 40px;   
 }
 

@@ -14,7 +14,7 @@
 							<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.c-VJumIrfOg9qE7Fd4-GfQAAAA%26pid%3DApi&f=1' class='responsive'>
 						</div>
 						<div class='quiz-info col-6'>
-							<h4 class="card-title">Business anaylsis</h4>
+							<h4 class="card-title">Business anaylsis <b>1</b></h4>
 							<ul class="quiz-info-list card-body">
 								<li>
 									<i class="fa fa-clock-o mr-2" aria-hidden="true"></i>
@@ -40,7 +40,7 @@
 							<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.c-VJumIrfOg9qE7Fd4-GfQAAAA%26pid%3DApi&f=1' class='responsive'>
 						</div>
 						<div class='quiz-info col-6'>
-							<h4 class="card-title">Business anaylsis</h4>
+							<h4 class="card-title">Business anaylsis <b>2</b></h4>
 							<ul class="quiz-info-list card-body">
 								<li>
 									<i class="fas fa-clock-o mr-2" aria-hidden="true"></i>
@@ -66,7 +66,7 @@
 							<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.c-VJumIrfOg9qE7Fd4-GfQAAAA%26pid%3DApi&f=1' class='responsive'>
 						</div>
 						<div class='quiz-info col-6'>
-							<h4 class="card-title">Business anaylsis</h4>
+							<h4 class="card-title">Business anaylsis <b>3</b></h4>
 							<ul class="quiz-info-list card-body">
 								<li>
 									<i class="fa fa-clock-o mr-2" aria-hidden="true"></i>
@@ -92,7 +92,7 @@
 							<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.c-VJumIrfOg9qE7Fd4-GfQAAAA%26pid%3DApi&f=1' class='responsive'>
 						</div>
 						<div class='quiz-info col-6'>
-							<h4 class="card-title">Business anaylsis</h4>
+							<h4 class="card-title">Business anaylsis <b>4</b></h4>
 							<ul class="quiz-info-list card-body">
 								<li>
 									<i class="fas fa-clock-o mr-2" aria-hidden="true"></i>
