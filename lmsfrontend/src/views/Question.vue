@@ -45,6 +45,8 @@
                     </div>
                 </div>
                 <button class="btn" @click="handler">Next</button>
+                 <button class="bck" @click="moveBack" v-if="currentIndex == 1">Back</button>
+                 
             </div>
             <div v-else>
                 <div class="inner"><p class="question-item noselect">You've successfully completed <b>{{ results.quiz.quiztakers_set.name }} </b></p>
@@ -184,7 +186,7 @@ export default {
           },
 
           startTimer() {
-            this.timerInterval = setInterval(() => (this.timePassed += 1), 1000);
+            this.timerInterval = setInterval(() => (this.timePassed += 1), 3000);
             
           },
 
@@ -255,6 +257,37 @@ export default {
                 this.getResults()
             } else {
                 this.currentIndex += 1;
+                console.log(document.querySelector('input[name="choice"]:checked').value)
+                this.cur_progress = (this.currentIndex/38)*100
+                console.log(this.cur_progress)
+
+                this.quizTaker = this.practice_test.practice_test.quiz.quiztakers_set.id
+                this.answer = parseInt(document.querySelector('input[name="choice"]:checked').value, 10)
+                this.question = this.practice_test.practice_test.quiz.question_set[this.currentIndex].id
+            }
+
+            // console.log(this.$store)
+            
+            console.log('this is test id' + this.practice_test.practice_test.quiz.name);
+
+        },
+        moveBack: function prevQuestion(){
+            if (this.currentIndex == 38) {
+                //submit form
+                // this.currentIndex += 1;
+                this.cur_progress = (this.currentIndex/38)*100
+                // this.cur_progress = 100
+                console.log(this.cur_progress)
+                console.log('questions finished')
+
+                this.quizTaker = this.practice_test.practice_test.quiz.quiztakers_set.id
+                this.answer = parseInt(document.querySelector('input[name="choice"]:checked').value, 10)
+                this.question = this.practice_test.practice_test.quiz.question_set[this.currentIndex].id
+                this.submitAnswer()
+                this.finished = true
+                this.getResults()
+            } else {
+                this.currentIndex -= 1;
                 console.log(document.querySelector('input[name="choice"]:checked').value)
                 this.cur_progress = (this.currentIndex/38)*100
                 console.log(this.cur_progress)
@@ -374,6 +407,20 @@ z-index: 1;
     border-radius: 0px; 
     position: absolute;  
     right: 40px;
+    bottom: 40px;   
+}
+.bck{
+    border: none;
+    background-color: rgb(0, 124, 195); 
+    text-decoration: none;
+    width: 20%;
+    color: #fff;
+    height: 2rem;
+    outline: none;
+    border-radius: 0px; 
+    position: absolute;  
+    right: 40px;
+    left: 35px;
     bottom: 40px;   
 }
 
