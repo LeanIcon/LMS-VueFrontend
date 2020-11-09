@@ -97,7 +97,7 @@ const COLOR_CODES ={
       }
 };
 
-const TIME_LIMIT = 10;
+const TIME_LIMIT = 60;
 
 const token = localStorage.getItem("access_token");
 
@@ -181,12 +181,13 @@ export default {
           onTimesUp() {
             clearInterval(this.timerInterval);
             this.submitAnswer()
+            alert('You Run out of time!')
             this.getResults()
 
           },
 
           startTimer() {
-            this.timerInterval = setInterval(() => (this.timePassed += 1), 3000);
+            this.timerInterval = setInterval(() => (this.timePassed += 1), 1000);
             
           },
 
