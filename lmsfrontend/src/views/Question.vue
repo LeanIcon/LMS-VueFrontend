@@ -39,7 +39,7 @@
                 <div class="inner"><p class="question-item noselect">{{ currentIndex }}. {{ practice_test.practice_test.quiz.question_set[currentIndex].label }}</p>
                     <div class="items">
                         <div class="pick" v-for="answerData in practice_test.practice_test.quiz.question_set[currentIndex].answer_set" :key="answerData.id">
-                            <input type="radio" :value="answerData.id" class="answer" name="choice"><span class="checkmark noselect">{{ answerData.label }}</span>     
+                            <input type="radio" :value="answerData.id" :id="answerData.id" class="answer" name="choice" :checked="answerDetail[currentIndex] ==  answerData.id"><span class="checkmark noselect">{{ answerData.label }}</span>     
                             <!-- <p>{{ $route.params.slug }}</p>                -->
                         </div>
                     </div>
@@ -60,6 +60,7 @@
                 <!-- <a class="btn" >Quizzes</a> -->
                 <router-link class="btn" :to="{ name:'Skill'}" tag="a">Quiz</router-link>
                 <!-- this.$route.params.slug -->
+                <p>{{ results }}</p>
             </div>
             <!-- ======================= -->
                 <!-- PROGRESS BAR -->
@@ -97,7 +98,7 @@ const COLOR_CODES ={
       }
 };
 
-const TIME_LIMIT = 60;
+const TIME_LIMIT = 3600;
 
 const token = localStorage.getItem("access_token");
 
@@ -106,7 +107,7 @@ export default {
     name: 'Dashboard',
     data () {
         return{
-            currentIndex: 1,
+            currentIndex: 0,
             finished: false,
             quizTaker: '',
             question: '',
@@ -115,6 +116,9 @@ export default {
             timerInterval: null,
             cur_progress: 0,
             results: null,
+            selectedAnswer: 0,
+            answers: [],
+            answerDetail: {},
             // quiz: practice_test.quiz,
         }
     },
@@ -235,6 +239,7 @@ export default {
                 })
                 .then((res) => {
                     this.results = res.data
+                    console.log(this.results)
                 })
                 .catch((err) => {
                     console.log(err);
@@ -242,10 +247,10 @@ export default {
           },
 
         moveNext: function nextQuestion(){
-            if (this.currentIndex == 38) {
+            if (this.currentIndex == 39) {
                 //submit form
                 // this.currentIndex += 1;
-                this.cur_progress = (this.currentIndex/38)*100
+                this.cur_progress = (this.currentIndex/39)*100
                 // this.cur_progress = 100
                 console.log(this.cur_progress)
                 console.log('questions finished')
@@ -257,14 +262,25 @@ export default {
                 this.finished = true
                 this.getResults()
             } else {
-                this.currentIndex += 1;
                 console.log(document.querySelector('input[name="choice"]:checked').value)
-                this.cur_progress = (this.currentIndex/38)*100
+                this.cur_progress = (this.currentIndex/39)*100
                 console.log(this.cur_progress)
+
 
                 this.quizTaker = this.practice_test.practice_test.quiz.quiztakers_set.id
                 this.answer = parseInt(document.querySelector('input[name="choice"]:checked').value, 10)
                 this.question = this.practice_test.practice_test.quiz.question_set[this.currentIndex].id
+
+                // testing answer from dict
+                this.answerDetail[this.currentIndex] = this.answer;
+
+                this.currentIndex += 1;
+                console.log(this.answerDetail)
+                // const radioBtn = document.getElementById(`${this.answerDetail[this.currentIndex]}`)
+                // console.log('========================================================')
+                // console.log(`this is the radio selected:' ${radioBtn}`)
+                // console.log('========================================================')
+                // radioBtn.checked = true;
             }
 
             // console.log(this.$store)
@@ -273,10 +289,10 @@ export default {
 
         },
         moveBack: function prevQuestion(){
-            if (this.currentIndex == 38) {
+            if (this.currentIndex == 39) {
                 //submit form
                 // this.currentIndex += 1;
-                this.cur_progress = (this.currentIndex/38)*100
+                this.cur_progress = (this.currentIndex/39)*100
                 // this.cur_progress = 100
                 console.log(this.cur_progress)
                 console.log('questions finished')
@@ -290,8 +306,15 @@ export default {
             } else {
                 this.currentIndex -= 1;
                 console.log(document.querySelector('input[name="choice"]:checked').value)
-                this.cur_progress = (this.currentIndex/38)*100
+                this.cur_progress = (this.currentIndex/39)*100
                 console.log(this.cur_progress)
+
+                // console.log(this.answerDetail)
+                // const radioBtn = document.getElementById(`${this.answerDetail[this.currentIndex]}`)
+                // console.log('========================================================')
+                // console.log(`this is the radio selected: ${radioBtn}`)
+                // console.log('========================================================')
+                // radioBtn.checked = true;
 
                 this.quizTaker = this.practice_test.practice_test.quiz.quiztakers_set.id
                 this.answer = parseInt(document.querySelector('input[name="choice"]:checked').value, 10)
