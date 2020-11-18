@@ -36,16 +36,16 @@
         <!-- ============================== -->
         <div class="main_container card">
             <div v-if="!finished">
-                <div class="inner"><p class="question-item noselect">{{ currentIndex }}. {{ practice_test.practice_test.quiz.question_set[currentIndex].label }}</p>
+                <div class="inner"><p class="question-item noselect">{{ currentIndex + 1 }}. {{ practice_test.practice_test.quiz.question_set[currentIndex].label }}</p>
                     <div class="items">
                         <div class="pick" v-for="answerData in practice_test.practice_test.quiz.question_set[currentIndex].answer_set" :key="answerData.id">
-                            <input type="radio" :value="answerData.id" class="answer" name="choice"><span class="checkmark noselect">{{ answerData.label }}</span>     
+                            <input type="radio" :value="answerData.id" :id="answerData.id" class="answer" name="choice" :checked="answerDetail[currentIndex] ==  answerData.id"><span class="checkmark noselect">{{ answerData.label }}</span>     
                             <!-- <p>{{ $route.params.slug }}</p>                -->
                         </div>
                     </div>
                 </div>
                 <button class="btn" @click="handler">Next</button>
-                 <button class="bck" @click="moveBack" v-if="currentIndex >= 2">Back</button>
+                <button class="bck" @click="moveBack" v-if="currentIndex >= 2">Back</button>
                  
             </div>
             <div v-else>
@@ -53,13 +53,14 @@
                     <div class="items">
                         <p>40 set questions</p>
                         <p><b>{{ (results.quiz.quiztakers_set.score / 40) * 100 }}</b>% answered correctly</p>
-                        <p>Your result: {{ results.quiz.quiztakers_set.score }} of 40</p>
+                        <p>Your result: {{ score }} of 40</p>
                         <p>Not happy with your score? <a :href="$router.resolve({ name:'Question', params: {slug: $route.params.slug} }).href">Retake</a></p>
                     </div>
                 </div>
                 <!-- <a class="btn" >Quizzes</a> -->
                 <router-link class="btn" :to="{ name:'Skill'}" tag="a">Quiz</router-link>
                 <!-- this.$route.params.slug -->
+                <p>{{ results }}</p>
             </div>
             <!-- ======================= -->
                 <!-- PROGRESS BAR -->
@@ -77,6 +78,8 @@ import Dashboardnavbar from '@/components/Dashboard/Dashboardnavbar.vue'
 import { mapState } from 'vuex'
 import { mapActions } from 'vuex'
 import { getAPI } from "../utils/axios-api";
+import VueNotifications from 'vue-notifications';
+
 // import { getAPI } from "../utils/axios-api";
 
 const FULL_DASH_ARRAY = 283;
@@ -106,7 +109,7 @@ export default {
     name: 'Dashboard',
     data () {
         return{
-            currentIndex: 1,
+            currentIndex: 0,
             finished: false,
             quizTaker: '',
             question: '',
@@ -115,7 +118,33 @@ export default {
             timerInterval: null,
             cur_progress: 0,
             results: null,
+            selectedAnswer: false,
+            answerDetail: {},
+            score: 0,
             // quiz: practice_test.quiz,
+        }
+    },
+
+    notifications: {
+        showSuccessMsg: {
+        type: VueNotifications.types.success,
+        title: 'Hello there',
+        message: 'That\'s the success!'
+        },
+        showInfoMsg: {
+        type: VueNotifications.types.info,
+        title: 'Hey you',
+        message: 'Here is some info for you'
+        },
+        showWarnMsg: {
+        type: VueNotifications.types.warn,
+        title: 'Wow, man',
+        message: 'That\'s the kind of warning'
+        },
+        showErrorMsg: {
+        type: VueNotifications.types.error,
+        title: 'Hey there!',
+        message: 'Your time is Up!!'
         }
     },
 
@@ -180,9 +209,10 @@ export default {
           ...mapActions("practice_test", ["getPracticeTest"], "saveAnswer", "submitAnswer"),
           onTimesUp() {
             clearInterval(this.timerInterval);
+            this.showErrorMsg()
             this.submitAnswer()
-            alert('You Run out of time!')
-            this.getResults()
+            setTimeout(this.getResults, 3000);
+            
 
           },
 
@@ -235,6 +265,8 @@ export default {
                 })
                 .then((res) => {
                     this.results = res.data
+                    this.score = this.results.quiz.quiztakers_set.score
+                    console.log(this.results)
                 })
                 .catch((err) => {
                     console.log(err);
@@ -242,14 +274,8 @@ export default {
           },
 
         moveNext: function nextQuestion(){
-            if (this.currentIndex == 38) {
-                //submit form
-                // this.currentIndex += 1;
-                this.cur_progress = (this.currentIndex/38)*100
-                // this.cur_progress = 100
-                console.log(this.cur_progress)
-                console.log('questions finished')
-
+            if (this.currentIndex == 39) {
+                this.cur_progress = (this.currentIndex/39)*100
                 this.quizTaker = this.practice_test.practice_test.quiz.quiztakers_set.id
                 this.answer = parseInt(document.querySelector('input[name="choice"]:checked').value, 10)
                 this.question = this.practice_test.practice_test.quiz.question_set[this.currentIndex].id
@@ -257,30 +283,17 @@ export default {
                 this.finished = true
                 this.getResults()
             } else {
-                this.currentIndex += 1;
-                console.log(document.querySelector('input[name="choice"]:checked').value)
-                this.cur_progress = (this.currentIndex/38)*100
-                console.log(this.cur_progress)
-
+                this.cur_progress = (this.currentIndex/39)*100
                 this.quizTaker = this.practice_test.practice_test.quiz.quiztakers_set.id
                 this.answer = parseInt(document.querySelector('input[name="choice"]:checked').value, 10)
                 this.question = this.practice_test.practice_test.quiz.question_set[this.currentIndex].id
+                this.answerDetail[this.currentIndex] = this.answer;
+                this.currentIndex += 1;
             }
-
-            // console.log(this.$store)
-            
-            console.log('this is test id' + this.practice_test.practice_test.quiz.name);
-
         },
         moveBack: function prevQuestion(){
-            if (this.currentIndex == 38) {
-                //submit form
-                // this.currentIndex += 1;
-                this.cur_progress = (this.currentIndex/38)*100
-                // this.cur_progress = 100
-                console.log(this.cur_progress)
-                console.log('questions finished')
-
+            if (this.currentIndex == 39) {
+                this.cur_progress = (this.currentIndex/39)*100
                 this.quizTaker = this.practice_test.practice_test.quiz.quiztakers_set.id
                 this.answer = parseInt(document.querySelector('input[name="choice"]:checked').value, 10)
                 this.question = this.practice_test.practice_test.quiz.question_set[this.currentIndex].id
@@ -289,19 +302,11 @@ export default {
                 this.getResults()
             } else {
                 this.currentIndex -= 1;
-                console.log(document.querySelector('input[name="choice"]:checked').value)
-                this.cur_progress = (this.currentIndex/38)*100
-                console.log(this.cur_progress)
-
+                this.cur_progress = (this.currentIndex/39)*100
                 this.quizTaker = this.practice_test.practice_test.quiz.quiztakers_set.id
                 this.answer = parseInt(document.querySelector('input[name="choice"]:checked').value, 10)
                 this.question = this.practice_test.practice_test.quiz.question_set[this.currentIndex].id
             }
-
-            // console.log(this.$store)
-            
-            console.log('this is test id' + this.practice_test.practice_test.quiz.name);
-
         },
         handler: function(){
             this.moveNext();
