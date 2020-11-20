@@ -138,14 +138,14 @@ export default {
         },
         showWarnMsg: {
         type: VueNotifications.types.warn,
-        title: 'Wow, man',
-        message: 'That\'s the kind of warning'
+        title: 'hey!',
+        message:'Your internet connection is unstable!'
         },
         showErrorMsg: {
         type: VueNotifications.types.error,
         title: 'Hey there!',
         message: 'Your time is Up!!'
-        }
+        },
     },
 
     components:{
@@ -229,8 +229,18 @@ export default {
               }).then(({ status }) => {
                   console.log('answer sent')
                   console.log(status)
+                //   if (status == 404){
+                //       this.showWarnMsg
+                      
+                //   }
               }).catch(err=>{
                   console.log(err)
+                  
+                  this.showWarnMsg()
+                  clearInterval(this.timerInterval);
+                  setTimeout(this.getResults, 3000);
+                  this.finished = true
+            
               })
           },
 
@@ -319,6 +329,7 @@ export default {
         this.getPracticeTest(slug);
         this.startTimer();
     },
+    
 }
 </script>
 
