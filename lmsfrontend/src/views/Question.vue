@@ -128,6 +128,21 @@ export default {
     },
 
     notifications: {
+        showSuccessMsg: {
+        type: VueNotifications.types.success,
+        title: 'Hello there',
+        message: 'That\'s the success!'
+        },
+        showInfoMsg: {
+        type: VueNotifications.types.info,
+        title: 'Hey you',
+        message: 'Here is some info for you'
+        },
+        showWarnMsg: {
+        type: VueNotifications.types.warn,
+        title: 'hey!',
+        message:'Your internet connection is unstable!'
+        },
         // showSuccessMsg: {
         // type: VueNotifications.types.success,
         // title: 'Hello there',
@@ -147,7 +162,7 @@ export default {
         type: VueNotifications.types.error,
         title: 'Hey there!',
         message: 'Your time is Up!!'
-        }
+        },
     },
 
     components:{
@@ -250,8 +265,18 @@ export default {
               }).then(({ status }) => {
                   console.log('answer sent')
                   console.log(status)
+                //   if (status == 404){
+                //       this.showWarnMsg
+                      
+                //   }
               }).catch(err=>{
                   console.log(err)
+                  
+                  this.showWarnMsg()
+                  clearInterval(this.timerInterval);
+                  setTimeout(this.getResults, 3000);
+                  this.finished = true
+            
               })
           },
 
@@ -343,6 +368,7 @@ export default {
         this.getPracticeTest(slug);
         this.startTimer();
     },
+    
 }
 </script>
 
