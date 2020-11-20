@@ -36,16 +36,16 @@
         <!-- ============================== -->
         <div class="main_container card">
             <div v-if="!finished">
-                <div class="inner"><p class="question-item noselect">{{ currentIndex + 1 }}. {{ practice_test.practice_test.quiz.question_set[currentIndex].label }}</p>
+                <div class="inner"><p class="question-item noselect">{{ currentIndex + 1 }}. {{ practice_test.practice_test.quiz.question_set[questions[currentIndex]].label }}</p>
                     <div class="items">
-                        <div class="pick" v-for="answerData in practice_test.practice_test.quiz.question_set[currentIndex].answer_set" :key="answerData.id">
+                        <div class="pick" v-for="answerData in practice_test.practice_test.quiz.question_set[questions[currentIndex]].answer_set" :key="answerData.id">
                             <input type="radio" :value="answerData.id" :id="answerData.id" class="answer" name="choice" :checked="answerDetail[currentIndex] ==  answerData.id"><span class="checkmark noselect">{{ answerData.label }}</span>     
                             <!-- <p>{{ $route.params.slug }}</p>                -->
                         </div>
                     </div>
                 </div>
                 <button class="btn" @click="handler">Next</button>
-                <button class="bck" @click="moveBack" v-if="currentIndex >= 2">Back</button>
+                <button class="bck" @click="moveBack" v-if="currentIndex >= 1">Back</button>
                  
             </div>
             <div v-else>
@@ -104,6 +104,7 @@ const TIME_LIMIT = 60;
 
 const token = localStorage.getItem("access_token");
 
+
 export default {
 // @ is an alias to /src
     name: 'Dashboard',
@@ -121,7 +122,8 @@ export default {
             selectedAnswer: false,
             answerDetail: {},
             score: 0,
-            // quiz: practice_test.quiz,
+            questions: [],
+            questionPointer: 0,
         }
     },
 
@@ -141,6 +143,21 @@ export default {
         title: 'hey!',
         message:'Your internet connection is unstable!'
         },
+        // showSuccessMsg: {
+        // type: VueNotifications.types.success,
+        // title: 'Hello there',
+        // message: 'That\'s the success!'
+        // },
+        // showInfoMsg: {
+        // type: VueNotifications.types.info,
+        // title: 'Hey you',
+        // message: 'Here is some info for you'
+        // },
+        // showWarnMsg: {
+        // type: VueNotifications.types.warn,
+        // title: 'Wow, man',
+        // message: 'That\'s the kind of warning'
+        // },
         showErrorMsg: {
         type: VueNotifications.types.error,
         title: 'Hey there!',
@@ -197,6 +214,12 @@ export default {
 
     },
 
+    created(){
+        this.questions = Array.from({length: 40}, () => Math.floor(Math.random() * 40));
+        this.randomize()
+        // console.log(this.questions)
+    },
+
     watch: {
         timeLeft(newValue) {
             if (newValue === 0) {
@@ -206,18 +229,31 @@ export default {
     },
     
     methods: {
+        shuffleQuestions(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                const temp = array[i];
+                this.$set(array, i, array[j]);
+                this.$set(array, j, temp);
+            }
+        },
+
           ...mapActions("practice_test", ["getPracticeTest"], "saveAnswer", "submitAnswer"),
           onTimesUp() {
             clearInterval(this.timerInterval);
             this.showErrorMsg()
             this.submitAnswer()
-            setTimeout(this.getResults, 3000);
-            
-
+            setTimeout(this.getResults, 3000);     
           },
+
+            randomize() {
+                this.shuffleQuestions(this.questions);
+                console.log(this.questions)
+            },
 
           startTimer() {
             this.timerInterval = setInterval(() => (this.timePassed += 1), 1000);
+
             
           },
 
@@ -286,6 +322,7 @@ export default {
         moveNext: function nextQuestion(){
             if (this.currentIndex == 39) {
                 this.cur_progress = (this.currentIndex/39)*100
+                            console.log(this.questions)
                 this.quizTaker = this.practice_test.practice_test.quiz.quiztakers_set.id
                 this.answer = parseInt(document.querySelector('input[name="choice"]:checked').value, 10)
                 this.question = this.practice_test.practice_test.quiz.question_set[this.currentIndex].id
@@ -301,6 +338,8 @@ export default {
                 this.currentIndex += 1;
             }
         },
+
+        
         moveBack: function prevQuestion(){
             if (this.currentIndex == 39) {
                 this.cur_progress = (this.currentIndex/39)*100
