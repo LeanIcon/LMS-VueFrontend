@@ -39,7 +39,7 @@
                 <div class="inner"><p class="question-item noselect">{{ currentIndex + 1 }}. {{ practice_test.practice_test.quiz.question_set[questions[currentIndex]].label }}</p>
                     <div class="items">
                         <div class="pick" v-for="answerData in practice_test.practice_test.quiz.question_set[questions[currentIndex]].answer_set" :key="answerData.id">
-                            <input type="radio" :value="answerData.id" :id="answerData.id" class="answer" name="choice" :checked="answerDetail[questions[currentIndex]] ==  answerData.id"><span class="checkmark noselect">{{ answerData.label }}</span>     
+                            <input type="radio" :value="answerData.id" :id="answerData.id" class="answer" name="choice" :checked="answerDetail[currentIndex] ==  answerData.id"><span class="checkmark noselect">{{ answerData.label }}</span>     
                             <!-- <p>{{ $route.params.slug }}</p>                -->
                         </div>
                     </div>
