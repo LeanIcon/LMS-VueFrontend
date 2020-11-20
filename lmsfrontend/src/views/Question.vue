@@ -39,7 +39,7 @@
                 <div class="inner"><p class="question-item noselect">{{ currentIndex + 1 }}. {{ practice_test.practice_test.quiz.question_set[questions[currentIndex]].label }}</p>
                     <div class="items">
                         <div class="pick" v-for="answerData in practice_test.practice_test.quiz.question_set[questions[currentIndex]].answer_set" :key="answerData.id">
-                            <input type="radio" :value="answerData.id" :id="answerData.id" class="answer" name="choice" :checked="answerDetail[currentIndex] ==  answerData.id"><span class="checkmark noselect">{{ answerData.label }}</span>     
+                            <input type="radio" :value="answerData.id" :id="answerData.id" class="answer" name="choice" :checked="answerDetail[questions[currentIndex]] ==  answerData.id"><span class="checkmark noselect">{{ answerData.label }}</span>     
                             <!-- <p>{{ $route.params.slug }}</p>                -->
                         </div>
                     </div>
@@ -300,7 +300,7 @@ export default {
                             console.log(this.questions)
                 this.quizTaker = this.practice_test.practice_test.quiz.quiztakers_set.id
                 this.answer = parseInt(document.querySelector('input[name="choice"]:checked').value, 10)
-                this.question = this.practice_test.practice_test.quiz.question_set[this.currentIndex].id
+                this.question = this.practice_test.practice_test.quiz.question_set[this.questions[this.currentIndex]].id
                 this.submitAnswer()
                 this.finished = true
                 this.getResults()
@@ -308,7 +308,7 @@ export default {
                 this.cur_progress = (this.currentIndex/39)*100
                 this.quizTaker = this.practice_test.practice_test.quiz.quiztakers_set.id
                 this.answer = parseInt(document.querySelector('input[name="choice"]:checked').value, 10)
-                this.question = this.practice_test.practice_test.quiz.question_set[this.currentIndex].id
+                this.question = this.practice_test.practice_test.quiz.question_set[this.questions[this.currentIndex]].id
                 this.answerDetail[this.currentIndex] = this.answer;
                 this.currentIndex += 1;
             }
@@ -320,7 +320,7 @@ export default {
                 this.cur_progress = (this.currentIndex/39)*100
                 this.quizTaker = this.practice_test.practice_test.quiz.quiztakers_set.id
                 this.answer = parseInt(document.querySelector('input[name="choice"]:checked').value, 10)
-                this.question = this.practice_test.practice_test.quiz.question_set[this.currentIndex].id
+                this.question = this.practice_test.practice_test.quiz.question_set[this.questions[this.currentIndex]].id
                 this.submitAnswer()
                 this.finished = true
                 this.getResults()
@@ -329,7 +329,7 @@ export default {
                 this.cur_progress = (this.currentIndex/39)*100
                 this.quizTaker = this.practice_test.practice_test.quiz.quiztakers_set.id
                 this.answer = parseInt(document.querySelector('input[name="choice"]:checked').value, 10)
-                this.question = this.practice_test.practice_test.quiz.question_set[this.currentIndex].id
+                this.question = this.practice_test.practice_test.quiz.question_set[this.questions[this.currentIndex]].id
             }
         },
         handler: function(){
