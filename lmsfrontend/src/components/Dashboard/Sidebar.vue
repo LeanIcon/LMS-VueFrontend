@@ -127,7 +127,7 @@ export default {
 .sidebar-container{
     width: 5rem;
     height: 100vh;
-    background-color: rgba(195,0,12,1);
+    background-color: #c80002;
     overflow-x: hidden;
 }
 
@@ -184,8 +184,8 @@ export default {
 .menu-tab:hover #menu-text{
     background-color: #fff;
     text-decoration: none;
-    color: rgba(195,0,12,1);
-    fill: rgba(195,0,12,1);
+    color: #c80002;
+    fill: #c80002;
     cursor: pointer;
 }
 </style>
