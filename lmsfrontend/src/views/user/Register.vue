@@ -1,75 +1,36 @@
 <template>
-<div class="register">
-    <router-link to="/register"></router-link>
-      <router-view/>
-    <Footer></Footer>
-   <div id="content-container">
-        <div class="sign_in_page">
-            <div class="row">
-                
-                <div class="image_thumb col">
-                            <!-- <p>{{ errinfo }}</p> -->
-                    <div class="alert alert-box" v-if="alertUser">
-                        <span class="closebtn" @click="formEvent">&times;</span> 
-                        <strong>Error!</strong> {{ errinfo }}
-                    </div>
-                    <img src="https://res.cloudinary.com/littlms/image/upload/q_65/v1599265733/image%20sources%20litt/pexels_retha_ferguson_3810788.592f68c3_i8ahps.webp" alt="image_thumb">
-                </div>
-                <div class="back_arrow">
-                     <router-link :to = "{ name:'Home' }" class="back_arrow"><img src="@/assets/arrow.png"  height=20px width=25px></router-link>
-                    
+    <body>
+        <div class="main">
+                    <router-link to="/register"></router-link>
+                <router-view/>
+
+                    <div class='form-container'>
+                    <form class="registration-form" id="registration-form signup-form" v-on:submit.prevent="register"  method="POST">
+                        <h2>Sign Up to LiTT LMS</h2>
+                        <div class="form-group-1">
+                            <input type="text" name="fname" id="name" placeholder="First Name"  class="input-container" v-model="firstname" required />
+                            <input type="text" name="lname" id="name" placeholder="Last Name" class="input-container" v-model="lastname" required />
+                            <input type="email" name="email" id="email" placeholder="Email" class="input-container" v-model="email" required />
+                            <input type="password" name="password" id="password" placeholder="Password" class="input-container" v-model="password" required />
+                            <input type="password" name="password" id="password" placeholder="Confirm Password" class="input-container" v-model="confirm_password" :error="!valid()" required />
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                            <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree to the  <a href="#" class="term-service">Terms and Conditions</a></label>
+                        </div>
+                        <div class="form-submit" v-on:submit.prevent="register" >
+                            <input type="submit" name="submit" id="submit" v-on:submit.prevent="register" class="submit" value="Sign Up"/>
+                        </div>
+                    </form>
                 </div>
 
-                <div class="signup-container col">
-                    
-                    <div class="sign-process">
-                        <div id="container_title">
-                            <h2>
-                                Sign Up to LiTT LMS
-                            </h2>
-                        </div>
-
-
-                        <form id='signup-form' v-on:submit.prevent="register">
-                            <input type="text" placeholder="First Name" class="input-container" v-model="firstname">
-                            <input type="text" placeholder="Last Name" class="input-container" v-model="lastname">
-                            <input type="text" placeholder="Email" class="input-container" v-model="email">
-                            <!-- <input type="text" placeholder="Phone Number" class="input-container" v-model="firstname"> -->
-                            <!-- <input type="text" placeholder="Country or region of residence" class="input-container" v-model="firstname"> -->
-                            <input type="password" placeholder="password" class="input-container" v-model="password">
-                            <input type="password" placeholder="confirm password" class="input-container" v-model="confirm_password" :error="!valid()">
-                            <!-- <input type="text" placeholder="confirm password" class="input-container" v-model="student_type" :error="!valid()"> -->
-                        </form>
-                        <div class="group">
-                            <input id="check" type="checkbox" class="check" checked>
-                            <label for="check"><span class="icon"></span>
-                                <p class="agree">
-                                 I agree with the terms and conditions
-                                </p>
-                            </label>
-                        </div>
-                        <button class="btn signup_now" type="submit"  form='signup-form'>
-                            Sign Up
-                        </button>
-                        <div class="forgot_password">
-                            <router-link :to = "{ name:'Signin' }" exact>Already a member?</router-link>
-                        </div>
-                    </div>
-                </div>
             </div>            
-        </div>
-    </div>
-</div>    
+    </body>
 </template>
 
 <script>
-import Footer from '@/components/Footer.vue'
-// import { store } from '../store/modules/user';
   export default {
     name: 'Register',
-    components: {
-    Footer,    
-  },
     data () {
     return {
         alertUser: false,
@@ -142,164 +103,338 @@ import Footer from '@/components/Footer.vue'
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+/* @extend display-flex; */
+display-flex {
+  display: flex;
+  display: -webkit-flex; }
 
-.register{
-    width: 100%;
-    overflow: hidden;
-}
+/* @extend list-type-ulli; */
+list-type-ulli, ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0; }
 
-.alert {
-  padding: 20px;
-  background-color: #f44336;
-  color: white;
-  text-align: center;
-}
+/* roboto-slab-300 - latin */
+@font-face {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: 300;
+  src: url("../../assets/fonts/roboto-slab/roboto-slab-v7-latin-300.eot");
+  /* IE9 Compat Modes */
+  src: local("Roboto Slab Light"), local("RobotoSlab-Light"), url("../../assets/fonts/roboto-slab/roboto-slab-v7-latin-300.eot?#iefix") format("embedded-opentype"), url("../../assets/fonts/roboto-slab/roboto-slab-v7-latin-300.woff2") format("woff2"), url("../../assets/fonts/roboto-slab/roboto-slab-v7-latin-300.woff") format("woff"), url("../../assets/fonts/roboto-slab/roboto-slab-v7-latin-300.ttf") format("truetype"), url("../../assets/fonts/roboto-slab/roboto-slab-v7-latin-300.svg#RobotoSlab") format("svg");
+  /* Legacy iOS */ }
+/* roboto-slab-regular - latin */
+@font-face {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: 400;
+  src: url("../../assets/fonts/roboto-slab/roboto-slab-v7-latin-regular.eot");
+  /* IE9 Compat Modes */
+  src: local("Roboto Slab Regular"), local("RobotoSlab-Regular"), url("../../assets/fonts/roboto-slab/roboto-slab-v7-latin-regular.eot?#iefix") format("embedded-opentype"), url("../../assets/fonts/roboto-slab/roboto-slab-v7-latin-regular.woff2") format("woff2"), url("../../assets/fonts/roboto-slab/roboto-slab-v7-latin-regular.woff") format("woff"), url("../../assets/fonts/roboto-slab/roboto-slab-v7-latin-regular.ttf") format("truetype"), url("../../assets/fonts/roboto-slab/roboto-slab-v7-latin-regular.svg#RobotoSlab") format("svg");
+  /* Legacy iOS */ }
+/* roboto-slab-700 - latin */
+@font-face {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: 700;
+  src: url("../../assets/fonts/roboto-slab/roboto-slab-v7-latin-700.eot");
+  /* IE9 Compat Modes */
+  src: local("Roboto Slab Bold"), local("RobotoSlab-Bold"), url("../../assets/fonts/roboto-slab/roboto-slab-v7-latin-700.eot?#iefix") format("embedded-opentype"), url("../../assets/fonts/roboto-slab/roboto-slab-v7-latin-700.woff2") format("woff2"), url("../../assets/fonts/roboto-slab/roboto-slab-v7-latin-700.woff") format("woff"), url("../../assets/fonts/roboto-slab/roboto-slab-v7-latin-700.ttf") format("truetype"), url("../../assets/fonts/roboto-slab/roboto-slab-v7-latin-700.svg#RobotoSlab") format("svg");
+  /* Legacy iOS */ }
+a:focus, a:active {
+  text-decoration: none;
+  outline: none;
+  transition: all 300ms ease 0s;
+  -moz-transition: all 300ms ease 0s;
+  -webkit-transition: all 300ms ease 0s;
+  -o-transition: all 300ms ease 0s;
+  -ms-transition: all 300ms ease 0s; }
 
-.alert-box{
-    position: absolute;
-    top: 0;
-    left: 20%;
-    margin: auto;
-    width: 60%
-}
+input, select, textarea {
+  outline: none;
+  appearance: unset !important;
+  -moz-appearance: unset !important;
+  -webkit-appearance: unset !important;
+  -o-appearance: unset !important;
+  -ms-appearance: unset !important; }
 
-.alert.success {background-color: #4CAF50;}
-.alert.info {background-color: #2196F3;}
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+  appearance: none !important;
+  -moz-appearance: none !important;
+  -webkit-appearance: none !important;
+  -o-appearance: none !important;
+  -ms-appearance: none !important;
+  margin: 0; }
 
-.closebtn {
-  margin-left: 15px;
-  color: white;
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  -o-box-shadow: none !important;
+  -ms-box-shadow: none !important; }
+
+input[type=checkbox] {
+  appearance: checkbox !important;
+  -moz-appearance: checkbox !important;
+  -webkit-appearance: checkbox !important;
+  -o-appearance: checkbox !important;
+  -ms-appearance: checkbox !important; }
+
+input[type=radio] {
+  appearance: radio !important;
+  -moz-appearance: radio !important;
+  -webkit-appearance: radio !important;
+  -o-appearance: radio !important;
+  -ms-appearance: radio !important; }
+
+img {
+  max-width: 100%;
+  height: auto; }
+
+figure {
+  margin: 0; }
+
+p {
+  margin-bottom: 0px; }
+
+input:-webkit-autofill {
+  box-shadow: 0 0 0 30px white inset;
+  -moz-box-shadow: 0 0 0 30px white inset;
+  -webkit-box-shadow: 0 0 0 30px white inset;
+  -o-box-shadow: 0 0 0 30px white inset;
+  -ms-box-shadow: 0 0 0 30px white inset; }
+
+h2 {
+  line-height: 1.8;
+  margin: 0;
+  padding: 0;
   font-weight: bold;
-  float: right;
-  font-size: 22px;
-  line-height: 20px;
+  color: #222;
+  font-family: 'Roboto Slab';
+  font-size: 20px;
+  margin-bottom: 30px;
+  text-transform: uppercase; }
+
+h3 {
+  font-weight: bold;
+  color: #222;
+  font-size: 15px;
+  margin: 0px;
+  margin-bottom: 35px; }
+
+.clear {
+  clear: both; }
+
+body {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #fff;
+  background-image: url("../../assets/auth-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  -ms-background-size: cover;
+  background-position: center center;
+  font-weight: 400;
+  font-family: 'Roboto Slab';
+  margin: 0px; 
+  background-attachment: fixed;
+  /* overflow: hidden; */
+}
+
+.main {
+  /* padding: 60px 0; */
+  position: relative; 
+  height: 100vh;
+}
+
+.form-container {
+  width: 586px;
+  background: rgba(255, 255, 255, 0.95);
+  /* margin-left: 165px; */
+  border-radius: 0px;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  -o-border-radius: 0px;
+  -ms-border-radius: 0px; 
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.registration-form {
+  padding: 100px 60px 70px 60px;
+  width: 80%;
+}
+
+input, select {
+  width: 100%;
+  display: block;
+  border: none;
+  border-bottom: 3px solid #ebebeb;
+  padding: 5px 0;
+  color: #222;
+  margin-bottom: 31px;
+  font-family: 'Roboto Slab'; 
+  background-color: rgba(255, 255, 255, 0);
+}
+
+  input:focus, select:focus {
+    color: #222;
+    border-bottom: 2px solid rgba(190,30,45,255); }
+
+input[type=checkbox]:not(old) {
+  width: 2em;
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+  display: none; }
+
+input[type=checkbox]:not(old) + label {
+  display: inline-block;
+  margin-top: 7px;
+  margin-bottom: 25px; }
+
+input[type=checkbox]:not(old) + label > span {
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  margin-right: 15px;
+  margin-bottom: 3px;
+  border: 1px solid #ebebeb;
+  background: white;
+  background-image: -moz-linear-gradient(white, white);
+  background-image: -ms-linear-gradient(white, white);
+  background-image: -o-linear-gradient(white, white);
+  background-image: -webkit-linear-gradient(white, white);
+  background-image: linear-gradient(white, white);
+  vertical-align: bottom; }
+
+input[type=checkbox]:not(old):checked + label > span {
+  background-image: -moz-linear-gradient(white, white);
+  background-image: -ms-linear-gradient(white, white);
+  background-image: -o-linear-gradient(white, white);
+  background-image: -webkit-linear-gradient(white, white);
+  background-image: linear-gradient(white, white); }
+
+input[type=checkbox]:not(old):checked + label > span:before {
+  content: '\f26b';
+  display: block;
+  color: #222;
+  font-size: 11px;
+  line-height: 1.2;
+  text-align: center;
+  font-family: 'Material-Design-Iconic-Font';
+  font-weight: bold; }
+
+.label-agree-term {
+  color: #999; }
+
+.term-service {
+  color: #222; }
+
+.submit {
+  width: auto;
+  background: rgba(190,30,45);
+  color: #fff;
+  padding: 16px 17px;
+  font-size: 13px;
+  border: none;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
   cursor: pointer;
-  transition: 0.3s;
+  /* box-shadow: 0px 1px 5px 0px rgba(190,30,45, 0.7);
+  -moz-box-shadow: 0px 1px 5px 0px rgba(190,30,45, 0.7);
+  -webkit-box-shadow: 0px 5px 15px 0px rgba(190,30,45, 0.7);
+  -o-box-shadow: 0px 1px 5px 0px rgba(190,30,45, 0.7);
+  -ms-box-shadow: 0px 1px 5px 0px rgba(190,30,45, 0.7);  */
 }
+  .submit:hover {
+    background: rgb(173, 26, 41); }
 
-.closebtn:hover {
-  color: black;
-}
+ul {
+  background: 0 0;
+  z-index: 9; }
 
-.footer-container{
-    z-index: 100;
-}
+ul li {
+  padding: 3px 0px;
+  z-index: 2;
+  color: #999; }
+  ul li:last-child {
+    border-bottom: 1px solid #ebebeb; }
 
-.agree{
-    margin-left: .5rem;
-}
+ul li:not(.init) {
+  display: none;
+  background: #fff;
+  color: #222;
+  padding: 5px 10px;
+  border-left: 1px solid #ebebeb;
+  border-right: 1px solid #ebebeb;
+  border-top: 1px solid #ebebeb; }
 
-.image_thumb img{
-    width: 50vw;
-    height: 85vh;
-    position: relative;
-    z-index:-1;
-}
+ul li:not(.init):hover, ul li.selected:not(.init) {
+  background: #4966b1;
+  color: #fff; }
 
-form input{
-    display: block;
-}
+li.init {
+  cursor: pointer;
+  position: relative;
+  border-bottom: 2px solid #ebebeb; }
+  li.init:after {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    font-size: 20px;
+    color: #999;
+    font-family: 'Material-Design-Iconic-Font';
+    content: '\f2f9'; }
 
-.signin-container, .signup-container{
-    margin: auto;
-    padding: auto;
-    place-items: center;
-    place-content: center;
-}
-.signup-container{
-    text-align: center;
-}
+#confirm_type {
+  margin-bottom: 30px; }
 
-.sign-process{
-    width: 55%;
-    margin: auto;
-    padding: auto;
-}
+.form-group-2 {
+  margin-top: 15px;
+  margin-bottom: 30px; }
 
-form input{
-    margin: auto;
-    margin-bottom: 10px;
-    width: 98%;
-    height: 40px;
-}
+.form-check {
+  margin-bottom: 20px; }
 
-#container_title h2{
-    font-family: 'Noto Sans TC', sans-serif, 'Source Sans Pro';
-    font-size: 40px;
-    font-weight: 500;
-    margin: auto;
-    margin-bottom: 20px;
-}
+.select-list {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 55px; }
 
-.btn{
-    margin-top: 20px;
-}
+.list-item {
+  position: absolute;
+  width: 100%; }
 
-.login_btn{
-    background:rgba(190,30,45,255);
-    border-radius: 5px;
-    color: #fff;
-    width: 48%;
-}
+#confirm_type {
+  z-index: 99; }
 
-.signup_btn{
-    background: #fff;
-    border: 1px solid #000;
-    border-radius: 5px;
-    color: rgb(0, 0, 0);
-    width: 48%;    
-}
+#hour_appointment {
+  z-index: 9; }
 
-.login_btn:hover{
-    background-color: rgb(134, 15, 15);
-    color: #fff;
-}
+@media screen and (max-width: 1024px) {
+  .form-container {
+    margin: 0 auto; } }
+@media screen and (max-width: 768px) {
+  .form-container {
+    width: calc( 100% - 30px);
+    max-width: 100%; } }
 
-.signup_btn:hover{
-    background-color: rgb(134, 15, 15);
-    color: #fff;
-    border-radius: 5px;
-    border: none;
-}
+/*# sourceMappingURL=style.css.map */
 
-.signup_now{
-    width: 180px;
-    margin: 0 auto;
-    border-radius: 5px;
-    background:rgba(190,30,45,255);
-    color: #fff;
-}
-
-.signup_now:hover{
-    background-color: rgb(134, 15, 15);
-    color: #fff;
-}
-
-.forgot_password{
-    margin-top: 10px;
-}
-
-
-/** .footer{
-    background: rgba(190,30,45,255);
-    height: 15vh;
-    color: #fff;
-    place-content: center;
-    text-align: center;
-}
-
-.litt_logo img{
-    height: 120px;
-}
-
-.footer-creds{
-    margin: auto;
-}
-
-.footer-creds a{
-    text-decoration: none;
-    color: #fff;
-    margin-left: 20px;
-}**/
 </style>

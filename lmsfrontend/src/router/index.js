@@ -31,6 +31,15 @@ Vue.use(VueRouter)
         requiresLogin: false,
       },
     },
+    {
+      path: "/test",
+      name: "Test",
+      component: () => import("../views/user/testpage.vue"),
+      meta: {
+        requiresAuth: false,
+        requiresLogin: false,
+      },
+    },
     // ==============
     //    Route for Registration page
     // ==============
