@@ -17,11 +17,17 @@
                  
             </div>
             <div v-else>
-                <div class="inner"><p class="question-item noselect">You've successfully completed <b>{{ results.quiz.quiztakers_set.name }} </b></p>
+                <div class="inner"><p class="question-item noselect">You've successfully completed {{ practice_test.practice_test.quiz.name }}</p>
                     <div class="items">
                         <p>40 set questions</p>
                         <p><b>{{ (results.quiz.quiztakers_set.score / 40) * 100 }}</b>% answered correctly</p>
                         <p>Your result: {{ score }} of 40</p>
+                        <div v-if="(results.quiz.quiztakers_set.score / 40) * 100 >= 65">
+                            <p>You reached the pass mark</p>
+                        </div>
+                        <div v-if="(results.quiz.quiztakers_set.score / 40) * 100 <= 65">
+                            <p>You failed the test please retry</p>
+                        </div>
                         <p>Not happy with your score? <a :href="$router.resolve({ name:'Question', params: {slug: $route.params.slug} }).href">Retake</a></p>
                     </div>
                 </div>
@@ -55,7 +61,7 @@ export default {
             question: '',
             answer: 0,
             cur_progress: 0,
-            results: null,
+            results: 0,
             selectedAnswer: false,
             answerDetail: {},
             score: 0,
@@ -114,7 +120,7 @@ export default {
             //   }
             }).catch(err=>{
                 console.log(err)
-                this.$notification.error("hello world", { infiniteTimer: false, position: 'bottomRight', showCloseIcn: true});                
+                this.$notification.error("You have an unstable internet connection, Please retry the quiz \n Your previous answers won't be saved", { infiniteTimer: false, position: 'bottomRight', showCloseIcn: true});                
                 // this.showWarnMsg()
                 clearInterval(this.timerInterval);
                 setTimeout(this.getResults, 3000);

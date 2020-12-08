@@ -8,10 +8,12 @@
         </div>
 
     <div class="question">
-        <questionTimer>
-        </questionTimer>
+        <div v-if="!finished">
+            <questionTimer ref='timer'>
+            </questionTimer>
+        </div>
 
-        <questionCard>
+        <questionCard ref='question'>
         </questionCard>
     </div>
   </div>
@@ -61,9 +63,14 @@ export default {
         tabSwitch: function(){
             if (document.visibilityState != "visible") {
                 // this.$notification.new("Your Quiz has been cancelled! \n you switched tabs. Please retry!", { infiniteTimer: false, position: 'bottomRight', showCloseIcn: true, timer: 10});     
-                this.$notification.error("Your Quiz has been cancelled! \n you switched tabs. Returned to your Dashboard. Please retry!", { infiniteTimer: false, position: 'bottomRight', showCloseIcn: true, timer: 10});     
+                this.$notification.error("Your Quiz has been cancelled! \n Reason: You switched between tabs. Please retry!", { infiniteTimer: false, position: 'bottomRight', showCloseIcn: true, timer: 10});     
                 this.quizCancelled = true 
-                this.$router.push({ name: 'Dashboard' })      
+                this.finished = true 
+                // this.submitAnswer()
+                clearInterval(this.$refs.timer.timerInterval);
+                this.$refs.question.onTimesUp();
+                // this.$refs.question.getResults();
+                // this.$router.push({ name: 'Dashboard' })      
             }
         }
     },
