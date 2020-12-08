@@ -48,6 +48,10 @@ export default {
         window.removeEventListener("visibilitychange", this.tabSwitch );
     },
     
+    created() {
+        window.addEventListener("visibilitychange", this.tabSwitch)
+    }, 
+    
     methods: {
         handler: function(){
             this.moveNext();
@@ -55,10 +59,11 @@ export default {
         },
 
         tabSwitch: function(){
-            if (document.visibilityState != "visible" && this.quizStarted == true) {
+            if (document.visibilityState != "visible") {
                 // this.$notification.new("Your Quiz has been cancelled! \n you switched tabs. Please retry!", { infiniteTimer: false, position: 'bottomRight', showCloseIcn: true, timer: 10});     
-                this.$notification.error("Your Quiz has been cancelled! \n you switched tabs. Please retry!", { infiniteTimer: false, position: 'bottomRight', showCloseIcn: true, timer: 10});     
-                this.quizCancelled = true       
+                this.$notification.error("Your Quiz has been cancelled! \n you switched tabs. Returned to your Dashboard. Please retry!", { infiniteTimer: false, position: 'bottomRight', showCloseIcn: true, timer: 10});     
+                this.quizCancelled = true 
+                this.$router.push({ name: 'Dashboard' })      
             }
         }
     },

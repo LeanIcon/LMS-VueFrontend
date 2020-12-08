@@ -103,10 +103,10 @@
               <h2>Recent Activity</h2>
             </div>
             <div class="row">
-                <div class="col-xl-6 col-lg-12 col-md-12 b">
+                <div class="col-xl-6 col-lg-12 col-md-12 mb-3">
                   <ActivityCard></ActivityCard>
                 </div>
-                <div class="col-xl-6 col-lg-12 col-md-12">
+                <div class="col-xl-6 col-lg-12 col-md-12 mb-3">
                   <quizCard></quizCard>
                 </div>
             </div>
