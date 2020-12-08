@@ -528,7 +528,7 @@ blockquote:before{
 
 /* --- Background Image --- */
 .home-bg{
-   background-image:url(https://res.cloudinary.com/littlms/image/upload/c_scale,h_1791,q_65/v1599265741/image%20sources%20litt/home-background.9137fcea_wdgqzy.webp);
+   background-image:url(../assets/homebg.jpg);
 }
 
 .cta-bg{
