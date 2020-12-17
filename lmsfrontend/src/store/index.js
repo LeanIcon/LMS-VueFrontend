@@ -17,6 +17,7 @@ import course from "./modules/course";
 import user from "./modules/user/user";
 // import lesson from "./modules/lesson";
 import feedback from"./modules/feedback";
+import userprofile from"./modules/userprofile";
 import practice_test from"./modules/practice_test";
 import VuexPersist from 'vuex-persist';
 
@@ -35,6 +36,7 @@ const vuexLocalStorage = new VuexPersist({
         course,
         user,
         // lesson,
+        userprofile,
         feedback,
         practice_test,
 

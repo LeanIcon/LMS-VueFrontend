@@ -48,10 +48,10 @@
                </svg>
                 <ul class="dropdown-menu user-area">
                      <div class="user-profile-bar row">
-                        <img src="https://ui-avatars.com/api/?background=0D8ABC&color=fff&name=Admin" alt="" class="avatar-icon col-3">
+                        <img :src="`https://ui-avatars.com/api/?background=0D8ABC&color=fff&name=${profileInfo.firstname}`" alt="" class="avatar-icon col-3">
                         <router-link :to = "{ name:'Editprofile' }" class="profile-data col-9" tag="div" exact>
-                           <h4>Adminstrator</h4>
-                           <p>test.littlms@gmail.com</p>                           
+                           <h4>{{profileInfo.firstname}} {{profileInfo.lastname}}</h4>
+                           <p>{{profileInfo.email}}</p>                           
                         </router-link>
                      </div>
                      <hr>
@@ -72,6 +72,12 @@
 // import { store } from '../store/user';
 export default {
    name: "Dashboardnavbar",
+   data(){
+      return{
+         profileData: this.$store.state.userprofile.profileData,
+         profileInfo: this.$store.state.userprofile.profileInfo,
+    }
+   },
    methods:{
       // // When the user clicks on div, open the popup
       // toggleNotification: function myFunction() {
