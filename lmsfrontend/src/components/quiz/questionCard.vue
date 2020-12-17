@@ -95,10 +95,10 @@ export default {
 
         ...mapActions("practice_test", ["getPracticeTest"], "saveAnswer", "submitAnswer"),
         onTimesUp() {
-        clearInterval(this.timerInterval);
-        // this.showErrorMsg()
-        this.submitAnswer()
-        setTimeout(this.getResults, 3000);     
+            clearInterval(this.timerInterval);
+            // this.showErrorMsg()
+            this.submitAnswer().then(this.getResults)
+                 
         },
 
         randomize() {
@@ -114,10 +114,6 @@ export default {
             }).then(({ status }) => {
                 console.log('answer sent')
                 console.log(status)
-            //   if (status == 404){
-            //       this.showWarnMsg
-                    
-            //   }
             }).catch(err=>{
                 console.log(err)
                 this.$notification.error("You have an unstable internet connection, Please retry the quiz \n Your previous answers won't be saved", { infiniteTimer: false, position: 'bottomRight', showCloseIcn: true});                
@@ -130,42 +126,42 @@ export default {
         },
 
         submitAnswer(){
-        const slug = this.$route.params.slug
-        getAPI
-            .post(`/quizzes/${slug}/submit/`, {
-                headers: { Authorization: `Bearer ${token}` },
-                quiztaker: this.quizTaker,
-                question: this.question,
-                answer: this.answer
-            })
-            .then(({status}) => {
-                console.log('testing from line:87')
-                if (status == 200) {
-                    console.log(status);
-                    this.finished = true
-                }
-            })
-            .catch((err) => {
-                console.log(err);
-                console.log("Check data not reading ref: actions.js >> course");
+            const slug = this.$route.params.slug
+            getAPI
+                .post(`/quizzes/${slug}/submit/`, {
+                    headers: { Authorization: `Bearer ${token}` },
+                    quiztaker: this.quizTaker,
+                    question: this.question,
+                    answer: this.answer
+                })
+                .then(({status}) => {
+                    console.log('testing from line:87')
+                    if (status == 200) {
+                        console.log(status);
+                        this.finished = true
+                    }
+                })
+                .catch((err) => {
+                    console.log(err);
+                    console.log("Check data not reading ref: actions.js >> course");
             });
         },
 
         getResults(){
-        const slug = this.$route.params.slug
-        console.log('get all results this is slug:' + slug)
-        getAPI
-            .get(`/quizzes/${slug}/`, {
-                headers: { Authorization: `Bearer ${token}` },
-            })
-            .then((res) => {
-                this.results = res.data
-                this.score = this.results.quiz.quiztakers_set.score
-                console.log(this.results)
-            })
-            .catch((err) => {
-                console.log(err);
-            });
+            const slug = this.$route.params.slug
+            console.log('get all results this is slug:' + slug)
+            getAPI
+                .get(`/quizzes/${slug}/`, {
+                    headers: { Authorization: `Bearer ${token}` },
+                })
+                .then((res) => {
+                    this.results = res.data
+                    this.score = this.results.quiz.quiztakers_set.score
+                    console.log(this.results)
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
         },
 
         moveNext: function nextQuestion(){
