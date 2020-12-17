@@ -294,12 +294,12 @@
 
 <script>
 import Footer from '@/components/Footer.vue'
-import Navbar from '@/components/Navbar.vue'
+// import Navbar from '@/components/Navbar.vue'
 export default {
    name: 'Landingpage',
   components :{
 	Footer ,   
-	Navbar
+	// Navbar
   },
 }
 

@@ -58,12 +58,43 @@ export default {
         handler: function(){
             this.moveNext();
             this.sendResponse();
+
+
         },
+        cancelQuiz: function(){
+
+            this.$swal({
+
+              title: 'Your Quiz has been cancelled!',
+
+              text: "You switched between tabs. Please retry!",
+
+              type: 'warning',
+
+              showCancelButton: false,
+
+              confirmButtonColor: '#3085d6',
+
+              cancelButtonColor: '#d33',
+
+              confirmButtonText: 'Retake Quiz'
+
+            }).then((result) => {
+
+              if (result.value) {
+
+                this.$router.push({ name: 'Skill' }) 
+              }                        
+
+            })
+        },
+
 
         tabSwitch: function(){
             if (document.visibilityState != "visible") {
                 // this.$notification.new("Your Quiz has been cancelled! \n you switched tabs. Please retry!", { infiniteTimer: false, position: 'bottomRight', showCloseIcn: true, timer: 10});     
-                this.$notification.error("Your Quiz has been cancelled! \n Reason: You switched between tabs. Please retry!", { infiniteTimer: false, position: 'bottomRight', showCloseIcn: true, timer: 10});     
+                this.cancelQuiz()
+                this.$notification.error("Your Quiz has been cancelled! \n Reason: You switched between tabs. Please retry!", { infiniteTimer: false, position: 'topRight', showCloseIcn: true, timer: 10});     
                 this.quizCancelled = true 
                 this.finished = true 
                 // this.submitAnswer()
@@ -72,6 +103,7 @@ export default {
                 // this.$refs.question.getResults();
                 // this.$router.push({ name: 'Dashboard' })      
             }
+
         }
     },
 
