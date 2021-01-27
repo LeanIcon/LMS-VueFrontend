@@ -66,6 +66,15 @@ Vue.use(VueRouter)
         requiresLogin: true,
       },
     },
+    {
+      path: "/help",
+      name: "Help",
+      component: () => import("../views/Help.vue"),
+      meta: {
+        requiresAuth: true,
+        requiresLogin: true,
+      },
+    },
     // {
     //   path: "/question",
     //   name: "Question",

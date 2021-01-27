@@ -23,27 +23,27 @@
 							<ul class="list-group">
 								<li class="list-group-item mt-3">
 									<span class="name">Business Analysis Quiz One</span>
-								<router-link tag="div" data-dismiss="modal"  :to="{ name:'Question', params: {slug: 'business-analysis-1'} }" exact type="button" class='btn btn-default btn-xs pull-right remove-item' data-toggle='modal' data-target='#exampleModal'>
+								<router-link tag="div" data-dismiss="modal" :to="{ name:'Question', params: {slug: 'business-analysis-1'} }" exact type="button" class='btn btn-default btn-xs pull-right remove-item' data-toggle='modal' data-target='#exampleModal'>
 									<i class="fas fa-arrow-right"></i>
 								</router-link>
 								</li>
 								<li class="list-group-item">
-									<span class="name">Business Analysis Quiz Two</span> 
-										<div class="btn btn-default btn-xs pull-right remove-item">
+									<span class="name">Business Analysis Quiz Two</span>
+                  <router-link tag="div" data-dismiss="modal" :to="{ name:'Question', params: {slug: 'business-analysis-2'} }" exact type="button" class='btn btn-default btn-xs pull-right remove-item' data-toggle='modal' data-target='#exampleModal'>
 									<i class="fas fa-arrow-right"></i>
-									</div>
+								</router-link>
 								</li>
 								<li class="list-group-item">
 									<span class="name">Business Analysis Quiz Three</span>
-										<div class="btn btn-default btn-xs pull-right remove-item">
+									<router-link tag="div" data-dismiss="modal"  :to="{ name:'Question', params: {slug: 'business-analysis-1'} }" exact type="button" class='btn btn-default btn-xs pull-right remove-item' data-toggle='modal' data-target='#exampleModal'>
 									<i class="fas fa-arrow-right"></i>
-									</div>
+								</router-link>
 								</li>
 								<li class="list-group-item">
-									<span class="name">Business Analysis Quiz Four</span> 
-										<div class="btn btn-default btn-xs pull-right remove-item">
-									<i class="fas fa-arrow-right"></i>
-									</div>
+									<span class="name">Business Analysis Quiz Four</span>
+                  <router-link tag="div" data-dismiss="modal"  :to="{ name:'Question', params: {slug: 'business-analysis-1'} }" exact type="button" class='btn btn-default btn-xs pull-right remove-item' data-toggle='modal' data-target='#exampleModal'>
+                  <i class="fas fa-arrow-right"></i>
+								</router-link>
 								</li>
 							</ul>
 						</div>
