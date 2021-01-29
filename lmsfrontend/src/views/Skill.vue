@@ -35,13 +35,13 @@
 								</li>
 								<li class="list-group-item">
 									<span class="name">Business Analysis Quiz Three</span>
-									<router-link tag="div" data-dismiss="modal"  :to="{ name:'Question', params: {slug: 'business-analysis-1'} }" exact type="button" class='btn btn-default btn-xs pull-right remove-item' data-toggle='modal' data-target='#exampleModal'>
+									<router-link tag="div" data-dismiss="modal"  :to="{ name:'Question', params: {slug: 'business-analysis-3'} }" exact type="button" class='btn btn-default btn-xs pull-right remove-item' data-toggle='modal' data-target='#exampleModal'>
 									<i class="fas fa-arrow-right"></i>
 								</router-link>
 								</li>
 								<li class="list-group-item">
 									<span class="name">Business Analysis Quiz Four</span>
-                  <router-link tag="div" data-dismiss="modal"  :to="{ name:'Question', params: {slug: 'business-analysis-1'} }" exact type="button" class='btn btn-default btn-xs pull-right remove-item' data-toggle='modal' data-target='#exampleModal'>
+                  <router-link tag="div" data-dismiss="modal"  :to="{ name:'Question', params: {slug: 'business-analysis-4'} }" exact type="button" class='btn btn-default btn-xs pull-right remove-item' data-toggle='modal' data-target='#exampleModal'>
                   <i class="fas fa-arrow-right"></i>
 								</router-link>
 								</li>

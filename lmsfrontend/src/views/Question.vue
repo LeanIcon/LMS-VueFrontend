@@ -8,10 +8,10 @@
         </div>
 
     <div class="question">
-        <div v-if="!finished">
+        <!-- <div v-if="!finished">
             <questionTimer ref='timer'>
             </questionTimer>
-        </div>
+        </div> -->
 
         <questionCard ref='question'>
         </questionCard>
@@ -22,7 +22,7 @@
 <script>
 import Sidebar from '@/components/Dashboard/Sidebar.vue'
 import questionCard from '@/components/quiz/questionCard.vue'
-import questionTimer from '@/components/quiz/questionTimer.vue'
+// import questionTimer from '@/components/quiz/questionTimer.vue'
 import Dashboardnavbar from '@/components/Dashboard/Dashboardnavbar.vue'
 // import VueNotifications from 'vue-notifications';
 
@@ -34,7 +34,7 @@ export default {
     name: 'Dashboard',
     data () {
         return{
-            answer: 0,            
+            answer: 0,
             finished: false,
         }
     },
@@ -43,7 +43,7 @@ export default {
         Sidebar,
         Dashboardnavbar,
         questionCard,
-        questionTimer,
+        // questionTimer,
     },
 
     destroyed() {
@@ -58,34 +58,20 @@ export default {
         handler: function(){
             this.moveNext();
             this.sendResponse();
-
-
         },
         cancelQuiz: function(){
-
             this.$swal({
-
-              title: 'Your Quiz has been cancelled!',
-
-              text: "You switched between tabs. Please retry!",
-
-              type: 'warning',
-
-              showCancelButton: false,
-
-              confirmButtonColor: '#3085d6',
-
-              cancelButtonColor: '#d33',
-
-              confirmButtonText: 'Retake Quiz'
-
+                title: 'Your Quiz has been cancelled!',
+                text: "You switched between tabs. Please retry!",
+                type: 'warning',
+                showCancelButton: false,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Retake Quiz'
             }).then((result) => {
-
-              if (result.value) {
-
+            if (result.value) {
                 this.$router.push({ name: 'Skill' }) 
-              }                        
-
+            }
             })
         },
 
@@ -98,7 +84,7 @@ export default {
                 this.quizCancelled = true 
                 this.finished = true 
                 // this.submitAnswer()
-                clearInterval(this.$refs.timer.timerInterval);
+                clearInterval(this.$refs.question.timerInterval);
                 this.$refs.question.onTimesUp();
                 // this.$refs.question.getResults();
                 // this.$router.push({ name: 'Dashboard' })      

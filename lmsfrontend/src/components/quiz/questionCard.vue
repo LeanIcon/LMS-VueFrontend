@@ -1,47 +1,73 @@
 <template>
-        <!-- ============================== -->
-                <!-- Quiz Card -->
-        <!-- ============================== -->
-        <div class="main_container card">
-            <div v-if="!finished">
-                <div class="inner"><p class="question-item noselect">{{ currentIndex + 1 }}. {{ practice_test.practice_test.quiz.question_set[questions[currentIndex]].label }}</p>
-                    <div class="items">
-                        <div class="pick" v-for="answerData in practice_test.practice_test.quiz.question_set[questions[currentIndex]].answer_set" :key="answerData.id">
-                            <input type="radio" :value="answerData.id" :id="answerData.id" class="answer" name="choice" :checked="answerDetail[currentIndex] ==  answerData.id"><span class="checkmark noselect">{{ answerData.label }}</span>     
-                            <!-- <p>{{ $route.params.slug }}</p>                -->
+        <div>
+            <!-- ============================== -->
+                    <!-- Quiz Card -->
+            <!-- ============================== -->
+            <div class="main_container card" style="height: 100%">
+                <div v-if="!finished">
+                    <div class="inner"><p class="question-item noselect">{{ currentIndex + 1 }}. {{ practice_test.practice_test.quiz.question_set[questions[currentIndex]].label }}</p>
+                        <div class="items">
+                            <div class="pick" v-for="answerData in practice_test.practice_test.quiz.question_set[questions[currentIndex]].answer_set" :key="answerData.id">
+                                <input type="radio" :value="answerData.id" :id="answerData.id" class="answer" name="choice" :checked="answerDetail[currentIndex] ==  answerData.id"><span class="checkmark noselect">{{ answerData.label }}</span>     
+                                <!-- <p>{{ $route.params.slug }}</p>                -->
+                            </div>
                         </div>
                     </div>
-                </div>
-                <button class="btn" @click="handler">Next</button>
-                <button class="bck" @click="moveBack" v-if="currentIndex >= 1">Back</button>
-                 
-            </div>
-            <div v-else>
-                <div class="inner"><p class="question-item noselect">You've successfully completed {{ practice_test.practice_test.quiz.name }}</p>
-                    <div class="items">
-                        <p>40 set questions</p>
-                        <p><b>{{ (results.quiz.quiztakers_set.score / 40) * 100 }}</b>% answered correctly</p>
-                        <p>Your result: {{ score }} of 40</p>
-                        <div v-if="(results.quiz.quiztakers_set.score / 40) * 100 >= 65">
-                            <p>You reached the pass mark</p>
-                        </div>
-                        <div v-if="(results.quiz.quiztakers_set.score / 40) * 100 <= 65">
-                            <p>You failed the test please retry</p>
-                        </div>
-                        <p>Not happy with your score? <a :href="$router.resolve({ name:'Question', params: {slug: $route.params.slug} }).href">Retake</a></p>
+                    <div class="btn-container">
+                        <button class="btn-nxt" @click="handler">Next</button>
+                        <button class="bck" @click="moveBack" v-if="currentIndex >= 1">Back</button>
                     </div>
                 </div>
-                <!-- <a class="btn" >Quizzes</a> -->
-                <router-link class="btn" :to="{ name:'Skill'}" tag="a">Quiz</router-link>
-                <!-- this.$route.params.slug -->
-                <p>{{ results }}</p>
+                <div v-else>
+                    <div class="inner"><p class="question-item noselect">You've successfully completed {{ practice_test.practice_test.quiz.name }}</p>
+                        <div class="items">
+                            <p>40 set questions</p>
+                            <p><b>{{ (results.quiztaker_set.score / 40) * 100 }}</b>% answered correctly</p>
+                            <p>Your result: {{ score }} of 40</p>
+                            <div v-if="(results.quiztaker_set.score / 40) * 100 >= 65">
+                                <p>You reached the pass mark</p>
+                            </div>
+                            <div v-if="(results.quiztaker_set.score / 40) * 100 <= 65">
+                                <p>You failed the test please retry</p>
+                            </div>
+                            <p>Not happy with your score? <a :href="$router.resolve({ name:'Question', params: {slug: $route.params.slug} }).href">Retake</a></p>
+                        </div>
+                    </div>
+                    <!-- <a class="btn" >Quizzes</a> -->
+                    <div class="btn-container">
+                        <router-link class="btn-nxt" :to="{ name:'Skill'}" tag="button">Quiz</router-link>
+                    </div>
+                    <!-- this.$route.params.slug -->
+                </div>
+                <!-- ======================= -->
+                    <!-- PROGRESS BAR -->
+                <!-- ======================= -->
+                <div class="bar-limit"></div>
+                <div class="progress-bar"  v-bind:style="{ width: cur_progress + '%' }"></div>
             </div>
-            <!-- ======================= -->
-                <!-- PROGRESS BAR -->
-            <!-- ======================= -->
-            <div class="bar-limit"></div>
-            <div class="progress-bar"  v-bind:style="{ width: cur_progress + '%' }"></div>
-        </div> 
+                    <!-- ===================================== -->
+                        <!-- the quiz timer -->
+            <!-- ===================================== -->
+            <div class="base-timer" v-if="!finished">
+                <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <g class="base-timer__circle">
+                    <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
+                    <path
+                    :stroke-dasharray="circleDasharray"
+                    class="base-timer__path-remaining"
+                    :class="remainingPathColor"
+                    d="
+                        M 50, 50
+                        m -45, 0
+                        a 45,45 0 1,0 90,0
+                        a 45,45 0 1,0 -90,0
+                    "
+                    ></path>
+                </g>
+                </svg>
+                <span class="base-timer__label">{{ formattedTimeLeft }}</span>
+            </div>
+        </div>
 </template>
 <script>
 import { mapState } from 'vuex'
@@ -49,17 +75,38 @@ import { mapActions } from 'vuex'
 import { getAPI } from "../../utils/axios-api";
 
 const token = localStorage.getItem("access_token");
+const FULL_DASH_ARRAY = 283;
+const WARNING_THRESHOLD = 10;
+const ALERT_THRESHOLD = 5;
+
+const COLOR_CODES ={
+    info:{
+        color: "green"
+    },
+    warning:{
+        color: "orange",
+        threshold: WARNING_THRESHOLD
+    },
+    alert:{
+        color: "red",
+        threshold: ALERT_THRESHOLD
+    }
+};
+
+const TIME_LIMIT = 60;
 
 
 export default {
     name: "questionCard",
     data () {
         return{
-            currentIndex: 0,
             finished: false,
+            timePassed: 0,
+            timerInterval: null,
+            currentIndex: 0,
             quizTaker: '',
             question: '',
-            answer: 0,
+            answer: '',
             cur_progress: 0,
             results: 0,
             selectedAnswer: false,
@@ -75,10 +122,48 @@ export default {
     computed: {
         ...mapState(["practice_test"]),
 
+        circleDasharray() {
+              return `${(this.timeFraction * FULL_DASH_ARRAY).toFixed(0)} 283`;              
+        },
+
+        formattedTimeLeft() {
+            const timeLeft = this.timeLeft;
+            const minutes = Math.floor(timeLeft / 60);
+            let seconds = timeLeft % 60;
+
+            if (seconds < 10) {
+            seconds = `0${seconds}`;
+            }
+
+            return `${minutes}:${seconds}`;
+        },
+
+        timeLeft() {
+            return TIME_LIMIT - this.timePassed;
+        },
+
+        timeFraction() {
+            const rawTimeFraction = this.timeLeft / TIME_LIMIT;
+            return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
+        },
+
+        remainingPathColor() {
+            const { alert, warning, info } = COLOR_CODES;
+
+            if (this.timeLeft <= alert.threshold) {
+                return alert.color;
+            }else if (this.timeLeft <= warning.threshold) {
+                return warning.color;
+            } else {
+                return info.color;
+            }
+        },
+
     },
 
     created(){
-        this.questions = Array.from({length: 40}, () => Math.floor(Math.random() * 40));
+        this.questions = Array.from(Array(40).keys());
+        // console.log(this.questions)
         this.randomize()
         // console.log(this.questions)
     },
@@ -94,12 +179,6 @@ export default {
         },
 
         ...mapActions("practice_test", ["getPracticeTest"], "saveAnswer", "submitAnswer"),
-        onTimesUp() {
-            clearInterval(this.timerInterval);
-            // this.showErrorMsg()
-            this.submitAnswer().then(this.getResults)
-                 
-        },
 
         randomize() {
             this.shuffleQuestions(this.questions);
@@ -127,6 +206,7 @@ export default {
 
         submitAnswer(){
             const slug = this.$route.params.slug
+            // this.answer = parseInt(document.querySelector('input[name="choice"]:checked').value, 10)
             getAPI
                 .post(`/quizzes/${slug}/submit/`, {
                     headers: { Authorization: `Bearer ${token}` },
@@ -134,12 +214,17 @@ export default {
                     question: this.question,
                     answer: this.answer
                 })
-                .then(({status}) => {
+                .then(res => {
+                    clearInterval(this.timerInterval);
                     console.log('testing from line:87')
-                    if (status == 200) {
+                    if (res.status == 200) {
                         console.log(status);
                         this.finished = true
+                        this.results = res.data
                     }
+                    console.log('======================//Debug//===============')
+                    console.log(res.data)
+                    console.log('======================//Debug//===============')
                 })
                 .catch((err) => {
                     console.log(err);
@@ -156,7 +241,7 @@ export default {
                 })
                 .then((res) => {
                     this.results = res.data
-                    this.score = this.results.quiz.quiztakers_set.score
+                    this.score = this.results.quiztakers_set.score
                     console.log(this.results)
                 })
                 .catch((err) => {
@@ -208,18 +293,37 @@ export default {
             this.sendResponse();
         },
 
+        onTimesUp() {
+            clearInterval(this.timerInterval);
+            this.submitAnswer()
+        },
+
+        startTimer() {
+            this.timerInterval = setInterval(() => (this.timePassed += 1), 1000);
+        },
+
     },
 
         // get data from store **pass the action name**
     mounted(){
         const slug = this.$route.params.slug;
         this.getPracticeTest(slug);
+        this.startTimer();
     },
-    
+
+
+    watch: {
+        timeLeft(newValue) {
+            if (newValue === 0) {
+                this.onTimesUp();
+            }
+        }
+    },
+    // get data from store **pass the action name**
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .main_container{
     margin: 10rem 20em 0 20em;
     margin: auto;
@@ -256,32 +360,38 @@ export default {
     height: 100%;
 }
 
-.btn{
+.btn-nxt{
     border: none;
-    background-color: rgb(0, 124, 195); 
+    background-color: #007cc3;
     text-decoration: none;
     width: 20%;
     color: #fff;
     height: 2rem;
     outline: none;
-    border-radius: 0px; 
-    position: absolute;  
-    right: 40px;
-    bottom: 40px;   
+    border-radius: 0px;
+    position: absolute;
+    margin: auto;
+    right: 0;
 }
+
 .bck{
     border: none;
-    background-color: rgb(0, 124, 195); 
+    background-color: #007cc3;
     text-decoration: none;
     width: 20%;
     color: #fff;
     height: 2rem;
     outline: none;
-    border-radius: 0px; 
-    position: absolute;  
-    right: 40px;
-    left: 35px;
-    bottom: 40px;   
+    border-radius: 0px;
+    position: absolute;
+    margin: auto;
+    left: 0;
+}
+
+.btn-container{
+    margin: 0 3rem;
+    position: relative;
+    height: 70px;
 }
 
 .answer{
@@ -312,4 +422,59 @@ export default {
 }
 
 
+.base-timer {
+  position: absolute;
+  right: 4rem;
+  width: 100px;
+  height: 100px;
+  top: 4rem;
+
+  &__svg {
+    transform: scaleX(-1);
+  }
+
+  &__circle {
+    fill: none;
+    stroke: none;
+  }
+
+  &__path-elapsed {
+    stroke-width: 7px;
+    stroke: grey;
+  }
+
+  &__path-remaining {
+    stroke-width: 7px;
+    stroke-linecap: round;
+    transform: rotate(90deg);
+    transform-origin: center;
+    transition: 1s linear all;
+    fill-rule: nonzero;
+    stroke: currentColor;
+
+    &.green {
+      color: rgb(65, 184, 131);
+    }
+
+    &.orange {
+      color: orange;
+    }
+
+    &.red {
+      color: red;
+    }
+  }
+
+  &__label {
+    position: absolute;
+    width: 100%;
+    // height: 300px;
+    top: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    // left: 15%;
+  }
+}
 </style>
