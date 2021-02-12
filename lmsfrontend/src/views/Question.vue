@@ -77,12 +77,15 @@ export default {
 
 
         tabSwitch: function(){
-            if (document.visibilityState != "visible") {
+            if (document.visibilityState != "visible" && this.finished == false) {
                 // this.$notification.new("Your Quiz has been cancelled! \n you switched tabs. Please retry!", { infiniteTimer: false, position: 'bottomRight', showCloseIcn: true, timer: 10});     
                 this.cancelQuiz()
                 this.$notification.error("Your Quiz has been cancelled! \n Reason: You switched between tabs. Please retry!", { infiniteTimer: false, position: 'topRight', showCloseIcn: true, timer: 10});     
                 this.quizCancelled = true 
                 this.finished = true 
+                console.log('====================//Debug//=================')
+                console.log(this.finished)
+                console.log('====================//Debug switch//=================')
                 // this.submitAnswer()
                 clearInterval(this.$refs.question.timerInterval);
                 this.$refs.question.onTimesUp();
