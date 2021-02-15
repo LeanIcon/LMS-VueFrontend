@@ -23,7 +23,7 @@
                         <div class="items">
                             <p>40 set questions</p>
                             <p><b>{{ (results.quiztaker_set.score / 40) * 100 }}</b>% answered correctly</p>
-                            <p>Your result: {{ score }} of 40</p>
+                            <p>Your result: {{ results.quiztaker_set.score }} of 40</p>
                             <div v-if="(results.quiztaker_set.score / 40) * 100 >= 65">
                                 <p>You reached the pass mark</p>
                             </div>
@@ -227,6 +227,7 @@ export default {
                     console.log('======================//Debug//===============')
                 })
                 .catch((err) => {
+                    this.finished = true
                     console.log(err);
                     console.log("Check data not reading ref: actions.js >> course");
             });

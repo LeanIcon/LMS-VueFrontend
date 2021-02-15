@@ -69,15 +69,16 @@ export default {
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Retake Quiz'
             }).then((result) => {
-            if (result.value) {
-                this.$router.push({ name: 'Skill' }) 
-            }
+                if (result.value) {
+                    this.$router.push({ name: 'Skill' })
+                }
             })
         },
 
 
         tabSwitch: function(){
-            if (document.visibilityState != "visible" && this.finished == false) {
+            if (document.visibilityState != "visible" && this.$refs.question.finished == false) {
+                console.log(this.$refs.question.finished)
                 // this.$notification.new("Your Quiz has been cancelled! \n you switched tabs. Please retry!", { infiniteTimer: false, position: 'bottomRight', showCloseIcn: true, timer: 10});     
                 this.cancelQuiz()
                 this.$notification.error("Your Quiz has been cancelled! \n Reason: You switched between tabs. Please retry!", { infiniteTimer: false, position: 'topRight', showCloseIcn: true, timer: 10});     
