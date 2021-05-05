@@ -9,8 +9,7 @@
 
             <div class="main-body">
                 
-                <main id="main">
-                                    <main>
+                <main id="main"><main>
                 <div class="main-header">
                         <!-- <HamburgerSlide></HamburgerSlide> -->
                         <div class="header-text"> <h2>Learn Business Analysis</h2></div>
@@ -53,12 +52,12 @@ export default {
     // }
 }
 
- </script>   
+</script>   
 
 <style scoped>
 .dashnav{
-  position: static;
-  z-index: 0;
+    position: static;
+    z-index: 0;
 }
 
 .main-body{

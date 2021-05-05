@@ -287,18 +287,20 @@
 
 				</div>
 			</div>
-         <Footer></Footer>
+			<!-- <div class="page-footer">
+				<Footer></Footer>
+			</div> -->
 		</div>
 
 </template>
 
 <script>
-import Footer from '@/components/Footer.vue'
+// import Footer from '@/components/Footer.vue'
 // import Navbar from '@/components/Navbar.vue'
 export default {
    name: 'Landingpage',
   components :{
-	Footer ,   
+	// Footer ,   
 	// Navbar
   },
 }
@@ -1502,6 +1504,10 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	}
 	
 	/*-- Footer --*/
+	.page-footer{
+		max-width: 100vw !important;
+	}
+
 	.footer-logo {
 		text-align:center;
 	}

@@ -13,9 +13,9 @@ const getAPI = axios.create({
     // Unused due to database conflict
 
 
-    baseURL: 'http://127.0.0.1:8000',
+    baseURL: 'http://127.0.0.1:9000',
     // baseURL: 'https://littapi.herokuapp.com',
-    timeout: 2000000000000000000000000000000000000000,
+    timeout: 20000,
 })
 
 // // before a request is made start the nprogress
