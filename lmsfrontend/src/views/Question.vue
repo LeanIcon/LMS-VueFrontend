@@ -46,13 +46,15 @@ export default {
         // questionTimer,
     },
 
-    destroyed() {
-        window.removeEventListener("visibilitychange", this.tabSwitch );
-    },
+
+    // disabled tabswitch functionality 
+    // destroyed() {
+    //     window.removeEventListener("visibilitychange", this.tabSwitch );
+    // },
     
-    created() {
-        window.addEventListener("visibilitychange", this.tabSwitch)
-    }, 
+    // created() {
+    //     window.addEventListener("visibilitychange", this.tabSwitch)
+    // }, 
     
     methods: {
         handler: function(){
@@ -76,25 +78,25 @@ export default {
         },
 
 
-        tabSwitch: function(){
-            if (document.visibilityState != "visible" && this.$refs.question.finished == false) {
-                console.log(this.$refs.question.finished)
-                // this.$notification.new("Your Quiz has been cancelled! \n you switched tabs. Please retry!", { infiniteTimer: false, position: 'bottomRight', showCloseIcn: true, timer: 10});     
-                this.cancelQuiz()
-                this.$notification.error("Your Quiz has been cancelled! \n Reason: You switched between tabs. Please retry!", { infiniteTimer: false, position: 'topRight', showCloseIcn: true, timer: 10});     
-                this.quizCancelled = true 
-                this.finished = true 
-                console.log('====================//Debug//=================')
-                console.log(this.finished)
-                console.log('====================//Debug switch//=================')
-                // this.submitAnswer()
-                clearInterval(this.$refs.question.timerInterval);
-                this.$refs.question.onTimesUp();
-                // this.$refs.question.getResults();
-                // this.$router.push({ name: 'Dashboard' })      
-            }
+        // tabSwitch: function(){
+        //     if (document.visibilityState != "visible" && this.$refs.question.finished == false) {
+        //         console.log(this.$refs.question.finished)
+        //         // this.$notification.new("Your Quiz has been cancelled! \n you switched tabs. Please retry!", { infiniteTimer: false, position: 'bottomRight', showCloseIcn: true, timer: 10});     
+        //         this.cancelQuiz()
+        //         this.$notification.error("Your Quiz has been cancelled! \n Reason: You switched between tabs. Please retry!", { infiniteTimer: false, position: 'topRight', showCloseIcn: true, timer: 10});     
+        //         this.quizCancelled = true 
+        //         this.finished = true 
+        //         console.log('====================//Debug//=================')
+        //         console.log(this.finished)
+        //         console.log('====================//Debug switch//=================')
+        //         // this.submitAnswer()
+        //         clearInterval(this.$refs.question.timerInterval);
+        //         this.$refs.question.onTimesUp();
+        //         // this.$refs.question.getResults();
+        //         // this.$router.push({ name: 'Dashboard' })      
+        //     }
 
-        }
+        // }
     },
 
 }
