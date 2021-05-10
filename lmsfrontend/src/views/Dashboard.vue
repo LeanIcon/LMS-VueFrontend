@@ -441,7 +441,7 @@ h5,
   border-radius: .375rem;
   background-color: #fff;
   background-clip: border-box;
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
 }
 
 .card-body {

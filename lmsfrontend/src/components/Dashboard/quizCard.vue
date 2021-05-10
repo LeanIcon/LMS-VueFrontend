@@ -39,7 +39,7 @@ export default {
 .course {
 	background-color: #fff;
 	border-radius: 10px;
-	box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
 	display: flex;
 	max-width: 100%;
 	overflow: hidden;
@@ -116,7 +116,7 @@ export default {
 	background-color: #ffca48;
 	border: 0;
 	border-radius: 50px;
-	box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
 	color: #fff;
 	font-size: 16px;
 	padding: 12px 25px;

@@ -32,8 +32,8 @@
   text-align: center;
   position: absolute;
   bottom: 0;
-  width: 100vw;
   margin: auto;
+  /* width: 90vw !important; */
 }
 
 .footer-creds > a{

@@ -8,10 +8,10 @@
         </div>
 
     <div class="question">
-        <div v-if="!finished">
+        <!-- <div v-if="!finished">
             <questionTimer ref='timer'>
             </questionTimer>
-        </div>
+        </div> -->
 
         <questionCard ref='question'>
         </questionCard>
@@ -22,7 +22,7 @@
 <script>
 import Sidebar from '@/components/Dashboard/Sidebar.vue'
 import questionCard from '@/components/quiz/questionCard.vue'
-import questionTimer from '@/components/quiz/questionTimer.vue'
+// import questionTimer from '@/components/quiz/questionTimer.vue'
 import Dashboardnavbar from '@/components/Dashboard/Dashboardnavbar.vue'
 // import VueNotifications from 'vue-notifications';
 
@@ -34,7 +34,7 @@ export default {
     name: 'Dashboard',
     data () {
         return{
-            answer: 0,            
+            answer: 0,
             finished: false,
         }
     },
@@ -43,68 +43,60 @@ export default {
         Sidebar,
         Dashboardnavbar,
         questionCard,
-        questionTimer,
+        // questionTimer,
     },
 
-    destroyed() {
-        window.removeEventListener("visibilitychange", this.tabSwitch );
-    },
+
+    // disabled tabswitch functionality 
+    // destroyed() {
+    //     window.removeEventListener("visibilitychange", this.tabSwitch );
+    // },
     
-    created() {
-        window.addEventListener("visibilitychange", this.tabSwitch)
-    }, 
+    // created() {
+    //     window.addEventListener("visibilitychange", this.tabSwitch)
+    // }, 
     
     methods: {
         handler: function(){
             this.moveNext();
             this.sendResponse();
-
-
         },
         cancelQuiz: function(){
-
             this.$swal({
-
-              title: 'Your Quiz has been cancelled!',
-
-              text: "You switched between tabs. Please retry!",
-
-              type: 'warning',
-
-              showCancelButton: false,
-
-              confirmButtonColor: '#3085d6',
-
-              cancelButtonColor: '#d33',
-
-              confirmButtonText: 'Retake Quiz'
-
+                title: 'Your Quiz has been cancelled!',
+                text: "You switched between tabs. Please retry!",
+                type: 'warning',
+                showCancelButton: false,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Retake Quiz'
             }).then((result) => {
-
-              if (result.value) {
-
-                this.$router.push({ name: 'Skill' }) 
-              }                        
-
+                if (result.value) {
+                    this.$router.push({ name: 'Skill' })
+                }
             })
         },
 
 
-        tabSwitch: function(){
-            if (document.visibilityState != "visible") {
-                // this.$notification.new("Your Quiz has been cancelled! \n you switched tabs. Please retry!", { infiniteTimer: false, position: 'bottomRight', showCloseIcn: true, timer: 10});     
-                this.cancelQuiz()
-                this.$notification.error("Your Quiz has been cancelled! \n Reason: You switched between tabs. Please retry!", { infiniteTimer: false, position: 'topRight', showCloseIcn: true, timer: 10});     
-                this.quizCancelled = true 
-                this.finished = true 
-                // this.submitAnswer()
-                clearInterval(this.$refs.timer.timerInterval);
-                this.$refs.question.onTimesUp();
-                // this.$refs.question.getResults();
-                // this.$router.push({ name: 'Dashboard' })      
-            }
+        // tabSwitch: function(){
+        //     if (document.visibilityState != "visible" && this.$refs.question.finished == false) {
+        //         console.log(this.$refs.question.finished)
+        //         // this.$notification.new("Your Quiz has been cancelled! \n you switched tabs. Please retry!", { infiniteTimer: false, position: 'bottomRight', showCloseIcn: true, timer: 10});     
+        //         this.cancelQuiz()
+        //         this.$notification.error("Your Quiz has been cancelled! \n Reason: You switched between tabs. Please retry!", { infiniteTimer: false, position: 'topRight', showCloseIcn: true, timer: 10});     
+        //         this.quizCancelled = true 
+        //         this.finished = true 
+        //         console.log('====================//Debug//=================')
+        //         console.log(this.finished)
+        //         console.log('====================//Debug switch//=================')
+        //         // this.submitAnswer()
+        //         clearInterval(this.$refs.question.timerInterval);
+        //         this.$refs.question.onTimesUp();
+        //         // this.$refs.question.getResults();
+        //         // this.$router.push({ name: 'Dashboard' })      
+        //     }
 
-        }
+        // }
     },
 
 }

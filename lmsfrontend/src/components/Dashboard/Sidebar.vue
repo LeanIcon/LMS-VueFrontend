@@ -109,15 +109,18 @@ export default {
 </script>
 
 <style scoped>
+p{
+    font-size: 15px;
+}
 .sidebar-container{
-    width: 5rem;
+    width: 4.5rem;
     height: 100vh;
     background-color: #c80002;
     overflow-x: hidden;
 }
 
 .sidebar-logo > img{
-    width: 6rem;
+    width: 5rem;
     margin-bottom: 2rem;
 }
 
@@ -127,18 +130,18 @@ export default {
 
 .menu-tab{
     background-color: rgba(0, 0, 0, 0.219);
-    width: 80px;
-    height: 85px;
-    margin-bottom: 10px;
+    width: 72px;
+    height: 75px;
+    margin-bottom: 5px;
     text-align: center;
     position: relative;
     padding: 20% 0;
 }
 
 .tab-icons{
-    width: 27px;
+    width: 25px;
     text-align: center;
-    height: 27px;
+    height: 25px;
     margin: auto;
 }
 
