@@ -4,7 +4,7 @@
             <Sidebar></Sidebar>
         </div>
         <div class="dashnav">
-          <Dashboardnavbar></Dashboardnavbar>
+          <Dashboardnavbar v-bind:profileInfo="profileInfo"></Dashboardnavbar>
         </div>
         <div class="home-content">
           <div class="containter-data">
@@ -27,10 +27,10 @@
                           </div>
                         </div>
                       </div>
-                      <p class="mt-3 mb-0 text-muted text-sm">
+                      <!-- <p class="mt-3 mb-0 text-muted text-sm">
                         <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
                         <span class="text-nowrap">Since last month</span>
-                      </p>
+                      </p> -->
                     </div>
                   </div>
                 </div>
@@ -48,10 +48,10 @@
                           </div>
                         </div>
                       </div>
-                      <p class="mt-3 mb-0 text-muted text-sm">
+                      <!-- <p class="mt-3 mb-0 text-muted text-sm">
                         <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
                         <span class="text-nowrap">Since last month</span>
-                      </p>
+                      </p> -->
                     </div>
                   </div>
                 </div>
@@ -69,10 +69,10 @@
                           </div>
                         </div>
                       </div>
-                      <p class="mt-3 mb-0 text-muted text-sm">
+                      <!-- <p class="mt-3 mb-0 text-muted text-sm">
                         <span class="text-warning mr-2"><i class="fas fa-arrow-down"></i> 1.10%</span>
                         <span class="text-nowrap">9 retakes</span>
-                      </p>
+                      </p> -->
                     </div>
                   </div>
                 </div>
@@ -90,10 +90,10 @@
                           </div>
                         </div>
                       </div>
-                      <p class="mt-3 mb-0 text-muted text-sm">
+                      <!-- <p class="mt-3 mb-0 text-muted text-sm">
                         <span class="text-success mr-2"><i class="fas fa-arrow-up"></i> 12%</span>
                         <span class="text-nowrap">Since last month</span>
-                      </p>
+                      </p> -->
                     </div>
                   </div>
                 </div>
@@ -124,12 +124,16 @@ import Dashboardnavbar from '@/components/Dashboard/Dashboardnavbar.vue'
 export default {
 // @ is an alias to /src
   name: 'Dashboard',
-
   components:{
     Sidebar,
     Dashboardnavbar,
     ActivityCard,
     quizCard
+  },
+  
+  mounted () {
+      this.$store.dispatch('fetchProfile'),
+      this.$store.dispatch('fetchInfo')
   },
 }
 </script>
@@ -437,7 +441,7 @@ h5,
   border-radius: .375rem;
   background-color: #fff;
   background-clip: border-box;
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
 }
 
 .card-body {

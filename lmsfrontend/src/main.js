@@ -15,10 +15,8 @@ import '@fortawesome/fontawesome-free/js/all.js';
 import 'font-awesome/css/font-awesome.min.css';
 import VueSweetalert2 from 'vue-sweetalert2';
 import VuePlyr from 'vue-plyr';
-// import VueNotifications from 'vue-notifications';
-// import miniToastr from 'mini-toastr'
 import VueNotification from "@kugatsu/vuenotification";
- 
+
 Vue.use(VueNotification, {
   timer: 10,
   error: {
@@ -34,21 +32,7 @@ Vue.use(VueNotification, {
     color: "black"
   }
 });
-// miniToastr.init()
 
-// function toast ({title, message, type, timeout, cb}) {
-//   return miniToastr[type](message, title, timeout, cb)
-// }
-
-// const options = {
-//   success: toast,
-//   error: toast,
-//   info: toast,
-//   warn: toast
-// }
-
-// Vue.use(VueNotifications, options)
- 
 // The second argument is optional and sets the default config values for every player.
 Vue.use(VuePlyr, {
   plyr: {

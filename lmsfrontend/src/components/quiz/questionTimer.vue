@@ -42,7 +42,7 @@ const COLOR_CODES ={
       }
 };
 
-const TIME_LIMIT = 3600;
+const TIME_LIMIT = 10;
 
 
 export default {
@@ -83,7 +83,7 @@ export default {
         },
 
         timeLeft() {
-             return TIME_LIMIT - this.timePassed;
+          return TIME_LIMIT - this.timePassed;
         },
 
         timeFraction() {
@@ -101,15 +101,18 @@ export default {
             } else {
                 return info.color;
             }
-
         },
 
     }, 
     
-    methods:{      
-        startTimer() {
-            this.timerInterval = setInterval(() => (this.timePassed += 1), 1000);
-        },
+    methods:{    
+      onTimesUp() {
+        clearInterval(this.timerInterval);
+        this.$refs.question.submitAnswer()
+      },  
+      startTimer() {
+        this.timerInterval = setInterval(() => (this.timePassed += 1), 1000);
+      },
     },
     // get data from store **pass the action name**
     mounted(){

@@ -31,15 +31,6 @@ Vue.use(VueRouter)
         requiresLogin: false,
       },
     },
-    {
-      path: "/test",
-      name: "Test",
-      component: () => import("../views/user/testpage.vue"),
-      meta: {
-        requiresAuth: false,
-        requiresLogin: false,
-      },
-    },
     // ==============
     //    Route for Registration page
     // ==============
@@ -70,6 +61,15 @@ Vue.use(VueRouter)
       path: "/dashboard",
       name: "Dashboard",
       component: () => import("../views/Dashboard.vue"),
+      meta: {
+        requiresAuth: true,
+        requiresLogin: true,
+      },
+    },
+    {
+      path: "/help",
+      name: "Help",
+      component: () => import("../views/Help.vue"),
       meta: {
         requiresAuth: true,
         requiresLogin: true,
