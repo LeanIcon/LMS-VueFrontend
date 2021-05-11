@@ -1,292 +1,288 @@
 <template>
-		<div id="header" class="transparent-nav">
-           <Footer></Footer>
-			<div class="container">
-				<Navbar></Navbar>
-			</div>
-		
-			<!-- /Header -->
-						<!-- Home -->
-			<div id="home" class="hero-area">
+	<div id="header" class="transparent-nav">
+		<div class="container">
+			<Navbar></Navbar>
+		</div>
+	
+		<!-- /Header -->
+					<!-- Home -->
+		<div id="home" class="hero-area">
 
-				<!-- Backgound Image -->
-				<div class="bg-image bg-parallax overlay hero-image home-bg"></div>
-				<!-- /Backgound Image -->
+			<!-- Backgound Image -->
+			<div class="bg-image bg-parallax overlay hero-image home-bg"></div>
+			<!-- /Backgound Image -->
 
-				<div class="home-wrapper">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-8">
-								<h1 class="white-text">LEAN ICON AGILE TRAINING</h1>
-								<p class="lead white-text">Learn to Successfully Put Agile Practices Into Action. Improve your Ability to Plan, Manage & Lead in Your Project Teams with Agile</p>
-								<router-link :to = "{ name:'Signin' }">
-									<a class="main-button icon-button" style="cursor: pointer;">Get Started!</a>
-								</router-link>
-							</div>
-						</div>
-					</div>
-				</div>
-
-			</div>
-
-			<!-- Courses -->
-			<div id="courses" class="section">
-
-				<!-- container -->
+			<div class="home-wrapper">
 				<div class="container">
-
-					<!-- row -->
-					<div class="row">
-						<div class="section-header text-center col-12">
-							<h2>Explore Courses</h2>
-							<p class="lead">Learn the several paths to a successful agility.</p>
+					<div class="row hero-content">
+						<div class="col-12 mx-5">
+							<h1 class="white-text">LEAN ICON AGILE TRAINING</h1>
+							<p class="hero-lead white-text">See our growth, progress and evolution</p>
+							<router-link :to = "{ name:'Signin' }">
+								<a class="main-button icon-button" style="cursor: pointer;">Get Started!</a>
+							</router-link>
 						</div>
 					</div>
-					<!-- /row -->
-
-					<!-- courses -->
-					<div id="courses-wrapper">
-
-						<!-- row -->
-						<div class="row">
-
-							<!-- single course -->
-							<div class="col-md-3 col-sm-6 col-xs-6">
-								<div class="course">
-									<a href="#" class="course-img">
-										<img src="../assets/course01.jpg" alt="">
-										<i class="course-link-icon fas fa-chalkboard-teacher"></i>
-									</a>
-									<a href='/accounts/signup/'>Agile Leadership</a>
-								</div>
-							</div>
-							<!-- /single course -->
-
-							<!-- single course -->
-							<div class="col-md-3 col-sm-6 col-xs-6">
-								<div class="course">
-									<a href="#" class="course-img">
-										<img src="../assets/course02.jpg" alt="">
-										<i class="course-link-icon fas fa-chalkboard-teacher"></i>
-									</a>
-									<a class="course-title" href="#">Agile Software Engineering </a>
-									<div class="course-details">
-									</div>
-								</div>
-							</div>
-							<!-- /single course -->
-
-							<!-- single course -->
-							<div class="col-md-3 col-sm-6 col-xs-6">
-								<div class="course">
-									<a href="#" class="course-img">
-										<img src="../assets/course03.jpg" alt="">
-										<i class="course-link-icon fas fa-chalkboard-teacher"></i>
-									</a>
-									<a class="course-title" href="#">Agile Human Resource Management</a>
-									<div class="course-details">
-									</div>
-								</div>
-							</div>
-							<!-- /single course -->
-
-							<div class="col-md-3 col-sm-6 col-xs-6">
-								<div class="course">
-									<a href="#" class="course-img">
-										<img src="../assets/course04.jpg" alt="">
-										<i class="course-link-icon fas fa-chalkboard-teacher"></i>
-									</a>
-									<a class="course-title" href="#">Agile Management</a>
-								</div>
-							</div>
-							<!-- /single course -->
-
-						</div>
-						<!-- /row -->
-
-
-					</div>
-					<!-- /courses -->
-			<!-- /Home -->
-
-			<!-- About -->
-			<div id="about" class="section">
-
-				<!-- container -->
-				<div class="container">
-
-					<!-- row -->
-					<div class="row">
-
-						<div class="col-md-6">
-							<div class="section-header">
-								<h2>Welcome to LiTT LMS</h2>
-							</div>
-
-							<!-- feature -->
-							<div class="feature">
-								<i class="feature-icon fa fa-flask"></i>
-								<div class="feature-content">
-									<h4>Online Courses </h4>
-									<p>Gain new skills and earn a certificate of completion.</p>
-								</div>
-							</div>
-							<!-- /feature -->
-
-							<!-- feature -->
-							<div class="feature">
-								<i class="feature-icon fa fa-users"></i>
-								<div class="feature-content">
-									<h4>Expert Coaches</h4>
-									<p>learn with like-minded experts.</p>
-								</div>
-							</div>
-							<!-- /feature -->
-
-							<!-- feature -->
-							<div class="feature">
-								<i class="feature-icon fa fa-comments"></i>
-								<div class="feature-content">
-									<h4>Agile Community</h4>
-									<p onclick="location.href='/accounts/signup/'">Join a team of agile minded experts</p>
-								</div>
-							</div>
-							<!-- /feature -->
-
-						</div>
-
-						<div class="col-md-6">
-							<div class="about-img">
-								<img src="../assets/about.png" alt="">
-							</div>
-						</div>
-
-					</div>
-					<!-- row -->
-
-				</div>
-				<!-- container -->
-			</div>
-			<!-- /About -->
-
-			<!-- Courses -->
-					<div class="row">
-						<div class="center-btn">
-							<!--a class="main-button icon-button" href="#">More Courses-->
-						</div>
-					</div>
-
-				</div>
-				<!-- container -->
-
-			</div>
-			<!-- /Courses -->
-
-			<!-- Call To Action -->
-			<div id="cta" class="section">
-
-				<!-- Backgound Image -->
-				<div class="bg-image bg-parallax overlay cta-image cta-bg"></div>
-				<!-- /Backgound Image -->
-
-				<!-- container -->
-				<div class="container">
-
-					<!-- row -->
-					<div class="row">
-
-						<div class="col-md-8">
-							<h2 class="white-text">Agile Training.</h2>
-							<p class="lead white-text">Agile training is a way to improve project performance by teaching the basic concepts of Agile to an organization or team and how to implement it. ... Training can help expose the underlying Agile concepts and clarify the differences between the various implementation methods..</p>
-                     <router-link :to = "{ name:'Signin' }">
-                        <a class="main-button icon-button" href="#">Get Started!</a>
-                     </router-link>
-						</div>
-
-					</div>
-					<!-- /row -->
-
-				</div>
-				<!-- /container -->
-
-			</div>
-			<!-- /Call To Action -->
-
-			<!-- Why us -->
-			<div id="why-us" class="section">
-
-				<!-- container -->
-				<div class="container">
-
-					<!-- row -->
-					<div class="row">
-
-					</div>
-					<!-- /row -->
-
-					<hr class="section-hr">
-
-					<!-- row -->
-					<div class="row">
-
-						<div class="col-md-6">
-							<h2>WHY LITT LMS...</h2>
-							<!--p class="lead">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.-->
-							<p>In everything we do, what we care about is making human lives better through continuous personal growth and we believe together we can drive it through the LITT LMS.</p>
-						</div>
-
-						<div class="col-md-5 col-md-offset-1">
-							<object data="https://www.youtube.com/embed/6mv_18Yftt8" width="560" height="315"></object>
-						</div>
-
-					</div>
-					<!-- /row -->
-
-				</div>
-				<!-- /container -->
-
-			</div>
-			<!-- /Why us -->
-
-			<!-- Contact CTA -->
-			<div id="contact-cta" class="section contact-container">
-
-				<!-- Backgound Image -->
-				<div class="bg-image bg-parallax overlay cta2-image"></div>
-				<!-- Backgound Image -->
-
-				<!-- container -->
-				<div class="container">
-
-					<!-- row -->
-					<div class="row">
-
-						<div class="col-md-8 col-md-offset-2 text-center">
-							<!--h2 class="white-text" onclick="location.href='https:leanicontechnology.com/'"></h2>>Contact Us</h2>
-							
-							<!-p class="lead white-text">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.-->
-							<a class="main-button icon-button" href="https://leanicontechnology.com/">Contact Us Now</a>
-						</div>
-
-					</div>
-					<!-- /row -->
-
 				</div>
 			</div>
-			<!-- <div class="page-footer">
-				<Footer></Footer>
-			</div> -->
+
 		</div>
 
+		<!-- Courses -->
+		<div id="courses" class="section">
+
+			<!-- container -->
+			<div class="container">
+
+				<!-- row -->
+				<div class="row">
+					<div class="section-header text-center col-12">
+						<h2>Explore Courses</h2>
+						<p class="lead">Learn the several paths to a successful agility.</p>
+					</div>
+				</div>
+				<!-- /row -->
+
+				<!-- courses -->
+				<div id="courses-wrapper">
+
+					<!-- row -->
+					<div class="row">
+
+						<!-- single course -->
+						<div class="col-md-3 col-sm-6 col-xs-6">
+							<div class="course">
+								<a href="#" class="course-img">
+									<img src="../assets/course01.jpg" alt="">
+									<i class="course-link-icon fas fa-chalkboard-teacher"></i>
+								</a>
+								<a href='/accounts/signup/'>Agile Leadership</a>
+							</div>
+						</div>
+						<!-- /single course -->
+
+						<!-- single course -->
+						<div class="col-md-3 col-sm-6 col-xs-6">
+							<div class="course">
+								<a href="#" class="course-img">
+									<img src="../assets/course02.jpg" alt="">
+									<i class="course-link-icon fas fa-chalkboard-teacher"></i>
+								</a>
+								<a class="course-title" href="#">Agile Software Engineering </a>
+								<div class="course-details">
+								</div>
+							</div>
+						</div>
+						<!-- /single course -->
+
+						<!-- single course -->
+						<div class="col-md-3 col-sm-6 col-xs-6">
+							<div class="course">
+								<a href="#" class="course-img">
+									<img src="../assets/course03.jpg" alt="">
+									<i class="course-link-icon fas fa-chalkboard-teacher"></i>
+								</a>
+								<a class="course-title" href="#">Agile Human Resource Management</a>
+								<div class="course-details">
+								</div>
+							</div>
+						</div>
+						<!-- /single course -->
+
+						<div class="col-md-3 col-sm-6 col-xs-6">
+							<div class="course">
+								<a href="#" class="course-img">
+									<img src="../assets/course04.jpg" alt="">
+									<i class="course-link-icon fas fa-chalkboard-teacher"></i>
+								</a>
+								<a class="course-title" href="#">Agile Management</a>
+							</div>
+						</div>
+						<!-- /single course -->
+
+					</div>
+					<!-- /row -->
+
+
+				</div>
+				<!-- /courses -->
+		<!-- /Home -->
+
+		<!-- About -->
+		<div id="about" class="section">
+
+			<!-- container -->
+			<div class="container">
+
+				<!-- row -->
+				<div class="row">
+
+					<div class="col-md-6">
+						<div class="section-header">
+							<h2>Welcome to LiTT LMS</h2>
+						</div>
+
+						<!-- feature -->
+						<div class="feature">
+							<i class="feature-icon fa fa-flask"></i>
+							<div class="feature-content">
+								<h4>Online Courses </h4>
+								<p>Gain new skills and earn a certificate of completion.</p>
+							</div>
+						</div>
+						<!-- /feature -->
+
+						<!-- feature -->
+						<div class="feature">
+							<i class="feature-icon fa fa-users"></i>
+							<div class="feature-content">
+								<h4>Expert Coaches</h4>
+								<p>learn with like-minded experts.</p>
+							</div>
+						</div>
+						<!-- /feature -->
+
+						<!-- feature -->
+						<div class="feature">
+							<i class="feature-icon fa fa-comments"></i>
+							<div class="feature-content">
+								<h4>Agile Community</h4>
+								<p onclick="location.href='/accounts/signup/'">Join a team of agile minded experts</p>
+							</div>
+						</div>
+						<!-- /feature -->
+
+					</div>
+
+					<div class="col-md-6">
+						<div class="about-img">
+							<img src="../assets/about.png" alt="">
+						</div>
+					</div>
+
+				</div>
+				<!-- row -->
+
+			</div>
+			<!-- container -->
+		</div>
+		<!-- /About -->
+
+		<!-- Courses -->
+				<div class="row">
+					<div class="center-btn">
+						<!--a class="main-button icon-button" href="#">More Courses-->
+					</div>
+				</div>
+
+			</div>
+			<!-- container -->
+
+		</div>
+		<!-- /Courses -->
+
+		<!-- Call To Action -->
+		<div id="cta" class="section">
+
+			<!-- Backgound Image -->
+			<div class="bg-image bg-parallax overlay cta-image cta-bg"></div>
+			<!-- /Backgound Image -->
+
+			<!-- container -->
+			<div class="container">
+
+				<!-- row -->
+				<div class="row">
+
+					<div class="col-md-8">
+						<h2 class="white-text">Agile Training.</h2>
+						<p class="lead white-text">Agile training is a way to improve project performance by teaching the basic concepts of Agile to an organization or team and how to implement it. ... Training can help expose the underlying Agile concepts and clarify the differences between the various implementation methods..</p>
+					<router-link :to = "{ name:'Signin' }">
+					<a class="main-button icon-button" href="#">Get Started!</a>
+					</router-link>
+					</div>
+
+				</div>
+				<!-- /row -->
+
+			</div>
+			<!-- /container -->
+
+		</div>
+		<!-- /Call To Action -->
+
+		<!-- Why us -->
+		<div id="why-us" class="section">
+
+			<!-- container -->
+			<div class="container">
+
+				<!-- row -->
+				<div class="row">
+
+				</div>
+				<!-- /row -->
+
+				<hr class="section-hr">
+
+				<!-- row -->
+				<div class="row">
+
+					<div class="col-md-6">
+						<h2>WHY LITT LMS...</h2>
+						<!--p class="lead">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.-->
+						<p>In everything we do, what we care about is making human lives better through continuous personal growth and we believe together we can drive it through the LITT LMS.</p>
+					</div>
+
+					<div class="col-md-5 col-md-offset-1">
+						<object data="https://www.youtube.com/embed/6mv_18Yftt8" width="560" height="315"></object>
+					</div>
+
+				</div>
+				<!-- /row -->
+
+			</div>
+			<!-- /container -->
+
+		</div>
+		<!-- /Why us -->
+
+		<!-- Contact CTA -->
+		<div id="contact-cta" class="section contact-container">
+
+			<!-- Backgound Image -->
+			<div class="bg-image bg-parallax overlay cta2-image"></div>
+			<!-- Backgound Image -->
+
+			<!-- container -->
+			<div class="container">
+
+				<!-- row -->
+				<div class="row">
+
+					<div class="col-md-8 col-md-offset-2 text-center">
+						<!--h2 class="white-text" onclick="location.href='https:leanicontechnology.com/'"></h2>>Contact Us</h2>
+						
+						<!-p class="lead white-text">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.-->
+						<a class="main-button icon-button" href="https://leanicontechnology.com/">Contact Us Now</a>
+					</div>
+
+				</div>
+				<!-- /row -->
+
+			</div>
+		</div>	
+		<Footer></Footer>
+	</div>
 </template>
 
 <script>
-// import Footer from '@/components/Footer.vue'
+import Footer from '@/components/Footer.vue'
 // import Navbar from '@/components/Navbar.vue'
 export default {
 	name: 'Landingpage',
 	components :{
-		// Footer ,   
+		Footer ,
 		// Navbar
 	},
 }
@@ -294,6 +290,14 @@ export default {
 </script>
 <style scoped>
 @import url("https://fonts.googleapis.com/css?family=Lato:700%7CMontserrat:400,600");
+
+.hero-lead{
+	font-size: 20px;
+}
+
+.hero-content{
+	text-align: center;
+}
 
 button {
 	position:absolute;
@@ -307,10 +311,6 @@ button {
 	text-transform:uppercase;
 	font-weight:600;
 	background:#fff;
-}
-
-.contact-container{
-	margin-bottom: 5rem;
 }
 
 body {
@@ -636,49 +636,6 @@ ul,ol{
 	/*-- Call to action --*/
 	#cta {
 		text-align:center;
-	}
-	
-	/*-- Footer --*/
-	.page-footer{
-		max-width: 100vw !important;
-	}
-
-	.footer-logo {
-		text-align:center;
-	}
-	
-	.footer-nav {
-		text-align:center;
-	}
-	.footer-nav li {
-		margin-top: 10px;
-	}
-	
-	.footer-social {
-		text-align:center;
-	}
-	.footer-social li {
-		margin-top: 10px;
-	}
-	
-	.footer-copyright {
-		text-align:center;
-		line-height:inherit;
-		margin-top:20px;
-	}
-	
-	/*-- Contact page --*/
-	.contact-form  {
-		margin-bottom:40px;
-	}
-
-	.contact-form button {
-		float:none !important;
-	}
-	
-	/*-- Blog page --*/
-	#main {
-		margin-bottom:80px;
 	}
 }
 
