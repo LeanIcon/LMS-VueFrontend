@@ -1,15 +1,12 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Landingpage.vue'
-// import BasicLayout from '../views/BasicLayout.vue'
+import Home from '../views/Home/Landingpage.vue'
+import Overview from '../views/Home/Overview.vue'
 import CourseLesson from '../views/course/CourseLesson.vue'
 
 Vue.use(VueRouter)
 
   const routes = [
-    // ==============
-    //    Route for homepage
-    // ==============
     {
       path: "/",
       name: "Home",
@@ -19,9 +16,15 @@ Vue.use(VueRouter)
         requiresLogin: false,
       },
     },
-    // ==============
-    //    Route for Signin page
-    // ==============
+    {
+      path: "/overview",
+      name: "Overview",
+      component: Overview,
+      meta: {
+        requiresAuth: false,
+        requiresLogin: false,
+      },
+    },
     {
       path: "/signin",
       name: "Signin",
@@ -31,9 +34,6 @@ Vue.use(VueRouter)
         requiresLogin: false,
       },
     },
-    // ==============
-    //    Route for Registration page
-    // ==============
     {
       path: "/register",
       name: "Register",
@@ -42,9 +42,6 @@ Vue.use(VueRouter)
         requiresAuth: false,
       },
     },
-    // ==============
-    //    Route for Password Reset
-    // ==============
     {
       path: "/forgotpassword",
       name: "Forgotpassword",
@@ -54,9 +51,6 @@ Vue.use(VueRouter)
         requiresLogin: true,
       },
     },
-    // ==============
-    //    Route for User Dashboard
-    // ==============
     {
       path: "/dashboard",
       name: "Dashboard",
@@ -75,16 +69,6 @@ Vue.use(VueRouter)
         requiresLogin: true,
       },
     },
-    // {
-    //   path: "/question",
-    //   name: "Question",
-    //   component: () => import("../views/Question.vue"),
-    //   meta: {
-    //     requiresAuth: true,
-    //     requiresLogin: true,
-    //   },
-    // },
-    
     {path: "/courses",name: "Courseregister",component: () => import("../views/course/Courses.vue")},
     {path: "/confirm",name: "Courseconfirm",component: () => import("../views/course/Courseconfirm.vue")},
     
@@ -99,16 +83,6 @@ Vue.use(VueRouter)
         
       ]
   },
-    // {
-    //   path: "/courseintro",
-    //   name: "Courseintro",
-    //   component: () => import("../views/course/Courseintro.vue"),
-    // },
-    // {
-    //   path: "/coursepage",
-    //   name: "Coursepage",
-    //   component: () => import("../views/course/Coursepage.vue"),
-    // },
     {
       path: "/skill",
       name: "Skill",

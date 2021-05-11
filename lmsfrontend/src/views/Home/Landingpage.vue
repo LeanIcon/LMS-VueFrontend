@@ -16,8 +16,8 @@
 				<div class="container">
 					<div class="row hero-content">
 						<div class="col-12 mx-5">
-							<h1 class="white-text">LEAN ICON AGILE TRAINING</h1>
-							<p class="hero-lead white-text">See our growth, progress and evolution</p>
+							<h1 class="white-text" style="font-size: 50px;">See your Growth, Progress and Evolution</h1>
+							<p class="hero-lead white-text">Learn to Successfully Put Agile Practices Into Action. Improve your Ability to Plan,<br> Manage & Lead in Your Project Teams with Agile</p>
 							<router-link :to = "{ name:'Signin' }">
 								<a class="main-button icon-button" style="cursor: pointer;">Get Started!</a>
 							</router-link>
@@ -53,10 +53,10 @@
 						<div class="col-md-3 col-sm-6 col-xs-6">
 							<div class="course">
 								<a href="#" class="course-img">
-									<img src="../assets/course01.jpg" alt="">
+									<img src="../../assets/course01.jpg" alt="">
 									<i class="course-link-icon fas fa-chalkboard-teacher"></i>
 								</a>
-								<a href='/accounts/signup/'>Agile Leadership</a>
+								<a href='/accounts/signup/'>Business Analysis</a>
 							</div>
 						</div>
 						<!-- /single course -->
@@ -65,7 +65,7 @@
 						<div class="col-md-3 col-sm-6 col-xs-6">
 							<div class="course">
 								<a href="#" class="course-img">
-									<img src="../assets/course02.jpg" alt="">
+									<img src="../../assets/course02.jpg" alt="">
 									<i class="course-link-icon fas fa-chalkboard-teacher"></i>
 								</a>
 								<a class="course-title" href="#">Agile Software Engineering </a>
@@ -79,7 +79,7 @@
 						<div class="col-md-3 col-sm-6 col-xs-6">
 							<div class="course">
 								<a href="#" class="course-img">
-									<img src="../assets/course03.jpg" alt="">
+									<img src="../../assets/course03.jpg" alt="">
 									<i class="course-link-icon fas fa-chalkboard-teacher"></i>
 								</a>
 								<a class="course-title" href="#">Agile Human Resource Management</a>
@@ -92,7 +92,7 @@
 						<div class="col-md-3 col-sm-6 col-xs-6">
 							<div class="course">
 								<a href="#" class="course-img">
-									<img src="../assets/course04.jpg" alt="">
+									<img src="../../assets/course04.jpg" alt="">
 									<i class="course-link-icon fas fa-chalkboard-teacher"></i>
 								</a>
 								<a class="course-title" href="#">Agile Management</a>
@@ -156,7 +156,7 @@
 
 					<div class="col-md-6">
 						<div class="about-img">
-							<img src="../assets/about.png" alt="">
+							<img src="../../assets/about.png" alt="">
 						</div>
 					</div>
 
@@ -388,7 +388,7 @@ ul,ol{
 
 /* --- Background Image --- */
 .home-bg{
-	background-image:url(../assets/homebg.jpg);
+	background-image:url(../../assets/homebg.jpg);
 }
 
 .cta-bg{
