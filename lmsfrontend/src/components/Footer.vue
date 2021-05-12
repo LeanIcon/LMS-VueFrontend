@@ -1,6 +1,6 @@
 <template>
     <div class="footer row px-5 pt-5">
-        <div class="col-5 cred-note">
+        <div class="col-md-5 col-sm-12 cred-note">
             <h5 class="footer-title">ABOUT US</h5>
             <div class="footer-info">
                 <p class="info-data">
@@ -9,7 +9,7 @@
                 <div class="end-logo"><img src="" alt=""></div>
             </div>
         </div>
-        <div class="col-2 cred-note">
+        <div class="col-md-2 col-sm-6 cred-note">
             <h5 class="footer-title">QUICK LINKS</h5>
             <div class="footer-info">
                 <ul class="footer-links">
@@ -21,7 +21,7 @@
                 </ul>
             </div>
         </div>
-        <div class="col-2 cred-note">
+        <div class="col-md-2 col-sm-6 cred-note">
             <h5 class="footer-title">SUPPORT</h5>
             <div class="footer-info">
                 <ul class="footer-links">
@@ -31,7 +31,7 @@
                 </ul>
             </div>
         </div>
-        <div class="col-3 cred-note">
+        <div class="col-md-3 col-sm-12 cred-note">
             <h5 class="footer-title">FOLLOW US</h5>
             <div class="footer-info">
             </div>
@@ -53,6 +53,9 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.footer-title{
+    font-weight: 600;
+}
 .footer{
   background: #3D3D3D;
   height: 30%;
