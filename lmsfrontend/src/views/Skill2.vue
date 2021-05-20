@@ -20,13 +20,13 @@
 
 
             <div class="quiz-content m-5">
-                <h1 class="content-header">
+                <h1 class="content-header ini-title">
                     Quizzes
                 </h1>
                 <p class="additional-info">Select your preferred quiz and try it out! </p>
 
                 <div class="row quiz-cards">
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-xl-4">
                         <div class="quiz-card--item card">
                             <div class="card--header row">
                                 <div class="logo-box col-sm-3">
@@ -51,7 +51,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-xl-4">
                         <div class="quiz-card--item card">
                             <div class="card--header row">
                                 <div class="logo-box col-sm-3">
@@ -79,46 +79,48 @@
                 </div>
             </div>
             <div class="audio-slides m-5">
-                <h1 class="content-header">
+                <h1 class="content-header ini-title">
                     Short Audio Lessons
                 </h1>
                 <p class="additional-info">Course Content</p>
-                <div class="audio-slides--cards col-12 card"></div>
-                <div class="audio-slides--cards col-12 card"></div>
-                <div class="audio-slides--cards col-12 card"></div>
-                <div class="audio-slides--cards col-12 card"></div>
+                <div class="audio-playlist row">
+                    <div class="col-md-12 col-xl-4">
+                        <div class="audio-slides--cards"></div>
+                    </div>
+                    <div class="col-md-12 col-xl-4">
+                        <div class="audio-slides--cards"></div>
+                    </div>
+                    <div class="col-md-12 col-xl-4">
+                        <div class="audio-slides--cards"></div>
+                    </div>
+                    <div class="col-md-12 col-xl-4">
+                        <div class="audio-slides--cards"></div>
+                    </div>
+                </div>
             </div>
         </div>
+        <Footer/>
     </div>
 </template>
 
 <script>
 import Sidebar from '@/components/Dashboard/Sidebar.vue'
 import Dashboardnavbar from '@/components/Dashboard/Dashboardnavbar.vue'
+import Footer from '@/components/Dashboard/Footer.vue'
 
 export default {
 // @ is an alias to /src
-    name: 'Dashboard',
+    name: 'Skill',
 
     components:{
         Sidebar,
         Dashboardnavbar,
+        Footer,
     },
 }
 </script>
 
 <style lang="scss" scoped>
-.sidebar{
-    position: fixed;
-    z-index: 2;
-    top: 0;
-}
-
-.dashnav{
-    position: static;
-    z-index: 1;
-}
-
 .page--body--container{
     padding-left: 4.5rem;
     width: 100%;
@@ -241,13 +243,13 @@ export default {
 }
 
 .audio-slides--cards{
-    margin: 0 -15px 0 15px ;
+    // margin: 0 -15px 0 15px ;
     height: 50px;
     border-radius: 32px;
     background: #f9f9f9;
     box-shadow: 5px 5px 10px #dadada94, -5px -5px 10px #ffffff;
     margin-bottom: 20px;
-    width: 98%;
+    // width: 98%;
     border: none;
 }
 </style>

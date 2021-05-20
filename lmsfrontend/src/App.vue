@@ -23,4 +23,24 @@ export default {
 *{
   font-family: 'Noto Sans', 'Lato', sans-serif;
 }
+
+.sidebar{
+    position: fixed;
+    z-index: 2;
+    top: 0;
+}
+
+.dashnav{
+    position: static;
+    z-index: 1;
+}
+
+.page--body--container{
+    padding-left: 4.5rem;
+    width: 100%;
+}
+
+.ini-title{
+    font-family: 'Poppins', 'Lato'
+}
 </style>
