@@ -86,7 +86,7 @@ Vue.use(VueRouter)
     {
       path: "/skill",
       name: "Skill",
-      component: () => import("../views/Skill.vue"),
+      component: () => import("../views/Skill2.vue"),
       meta: {
         requiresLogin: true,
         requiresAuth: true,

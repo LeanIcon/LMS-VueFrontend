@@ -2,15 +2,6 @@
      <div class="dashboard-nav user-bar">
       <div class="nav-area nav-list row">
 
-         <div class="search-icon nav-item col">
-            <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 24 24" fill="none"
-               stroke="rgba(248,244,244,1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-               class="feather feather-search">
-               <circle cx="11" cy="11" r="8"></circle>
-               <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
-         </div>
-
          <div class="right-shift row col">
             <div class="bell-icon nav-item col icon dropdown">
                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
@@ -144,6 +135,7 @@ export default {
 .nav-list{
     /* display: inline-flex; */
     height: 52px;
+    position: relative;
 }
 
 .right-shift{

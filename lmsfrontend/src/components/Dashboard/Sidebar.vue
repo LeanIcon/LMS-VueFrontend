@@ -115,7 +115,7 @@ p{
 .sidebar-container{
     width: 4.5rem;
     height: 100vh;
-    background-color: #c80002;
+    background-color: #C30003;
     overflow-x: hidden;
 }
 
@@ -170,8 +170,8 @@ p{
 .menu-tab:hover #menu-text{
     background-color: #fff;
     text-decoration: none;
-    color: #c80002;
-    fill: #c80002;
+    color: #C30003;
+    fill: #C30003;
     cursor: pointer;
 }
 </style>

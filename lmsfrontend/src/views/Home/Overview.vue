@@ -56,6 +56,15 @@
                 </div>
         </section>
 
+        <section class="row section-three mt-5">
+            <div class="col-3 user-image">
+                <img src="@/assets/images/user1.jpg" alt="testimonial user" class="rounded-image user-inactive">
+                <img src="@/assets/images/user2.jpg" alt="testimonial user" class="rounded-image user-current">
+            </div>
+            <div class="col-9">
+            </div>
+        </section>
+
 
 
 
@@ -79,14 +88,16 @@ export default {
     background-color: white;
     color: black;
 }
+
 .benefit-one{
     height: 100%;
     padding: 3.5rem 4.5rem;
 
 }
 
-.section-two{
+.section-two, .section-three{
     width: 100%;
+    margin: auto;
 }
 
 .overview{
@@ -197,4 +208,31 @@ export default {
 .footer{
     margin-top: 15rem;
 }
+
+.rounded-image{
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+}
+
+.user-image{
+    position: relative;
+    margin: auto;
+    text-align: center;
+}
+
+.user-current {
+    position: relative;
+    z-index: 2;
+    top: -130px;
+    left: 40px;
+}
+
+.user-inactive {
+    position: relative;
+    z-index: 1;
+    height: 150px;
+    width: 150px;
+}
+
 </style>
