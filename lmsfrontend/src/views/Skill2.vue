@@ -12,6 +12,7 @@
             <div class="display-banner">
                 <!-- <img src="../assets/images/display-image.png" alt="" class="display-image"> -->
                 <div class="banner--overlay"></div>
+                
             </div>
             <div class="progress-bar">
                 <div class="bar-limit"></div>
@@ -76,6 +77,16 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="audio-slides m-5">
+                <h1 class="content-header">
+                    Short Audio Lessons
+                </h1>
+                <p class="additional-info">Course Content</p>
+                <div class="audio-slides--cards col-12 card"></div>
+                <div class="audio-slides--cards col-12 card"></div>
+                <div class="audio-slides--cards col-12 card"></div>
+                <div class="audio-slides--cards col-12 card"></div>
             </div>
         </div>
     </div>
@@ -157,7 +168,7 @@ export default {
 }
 
 .content-header{
-    font-size: 35px;
+    font-size: 25px;
     line-height: 19px;
     font-weight: bold;
 }
@@ -171,7 +182,7 @@ export default {
     margin: auto;
     border: none;
     height: 230px;
-    width: 520px;
+    // width: 520px;
     border-radius: 32px;
     background: #f9f9f9;
     box-shadow: 5px 5px 10px #dadada94, -5px -5px 10px #ffffff;
@@ -227,5 +238,16 @@ export default {
     border-radius: 20px;
     width: 120px;
 
+}
+
+.audio-slides--cards{
+    margin: 0 -15px 0 15px ;
+    height: 50px;
+    border-radius: 32px;
+    background: #f9f9f9;
+    box-shadow: 5px 5px 10px #dadada94, -5px -5px 10px #ffffff;
+    margin-bottom: 20px;
+    width: 98%;
+    border: none;
 }
 </style>
