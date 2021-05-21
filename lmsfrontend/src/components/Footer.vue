@@ -1,62 +1,93 @@
 <template>
-  <div class="footer row">
-         <div class="litt_logo col-4">
-            <img src="../assets/gh_01_ek2.png" alt="">
-         </div>
-           <div class="footer-creds col-8">
-                 <a href="contactUs.html">Contact</a>
-                 <a href="Privacy.html">Privacy</a>
-                 <a href="tos.html">Terms of use</a>
-                 <a href="Accessibility.html">Accessibility</a>
-                 <a href="cookie.html">Cookie Prefrences</a>
-          </div>
-   </div>            
+    <div class="footer row px-5 pt-5">
+        <div class="col-md-5 col-sm-12 cred-note">
+            <h5 class="footer-title">ABOUT US</h5>
+            <div class="footer-info">
+                <p class="info-data">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem illum praesentium voluptatibus sit eius rem optio repudiandae quos, ea nam asperiores fuga tenetur vero deleniti voluptatem ab voluptates est cum?
+                </p>
+                <div class="end-logo"><img src="" alt=""></div>
+            </div>
+        </div>
+        <div class="col-md-2 col-sm-6 cred-note">
+            <h5 class="footer-title">QUICK LINKS</h5>
+            <div class="footer-info">
+                <ul class="footer-links">
+                    <li>My Account</li>
+                    <li>Cart</li>
+                    <li>Courses</li>
+                    <li>Register</li>
+                    <li>Contact Us</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-2 col-sm-6 cred-note">
+            <h5 class="footer-title">SUPPORT</h5>
+            <div class="footer-info">
+                <ul class="footer-links">
+                    <li>Tech Support</li>
+                    <li>Documentation</li>
+                    <li>F.A.Q</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-12 cred-note">
+            <h5 class="footer-title">FOLLOW US</h5>
+            <div class="footer-info">
+            </div>
+        </div>
+
+        <div class="inline pt-2">
+            <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a> | <a href="#">Cookies</a> 
+            <div class="end-sec"><p>&#169; Lean Icon Technology. All rights reserved</p></div>
+        </div>
+
+    </div>
 </template>
 
 <script>
     export default {
     name: 'Footer',
-    /**props: {
-        msg: String
-    }**/
     }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.footer-title{
+    font-weight: 600;
+}
 .footer{
-  background: rgba(190,30,45,255);
-  height: 15vh;
+  background: #3D3D3D;
+  height: 30%;
   color: #fff;
   place-content: center;
   text-align: center;
-  position: absolute;
-  bottom: 0;
+  position: relative;
   margin: auto;
   /* width: 90vw !important; */
 }
 
-.footer-creds > a{
-    color: rgb(255, 255, 255);
+.footer-links{
     list-style: none;
-    width: 100%;
-    padding-right: 50px;
-    text-decoration:none;
     text-align: left;
-
+    padding: 0;
 }
 
-.footer-creds{
-    margin-top: 2.4rem;
+.cred-note{
+    text-align: left;
 }
 
-img{
-    height: 6rem;
+p, li{
+    font-weight: 100;
 }
 
-.footer-creds > a:hover{
-    text-decoration:none;
-    color: #fff;
+.inline a{
+    color: white;
+    text-decoration: none;
+    font-weight: 100;
 }
 
+.end-sec{
+    color: rgba(255, 255, 255, 0.548);
+}
 </style>
