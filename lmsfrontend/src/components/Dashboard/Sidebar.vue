@@ -1,5 +1,5 @@
 <template>
-    <div class="sidebar-container">
+    <div class="sidebar-container" style="z-index: 10000; position: fixed;">
         <div class="sidebar-rect">
             <div class="sidebar-logo">
                 <img src="@/assets/gh_01.png" alt="sidebar-logo">

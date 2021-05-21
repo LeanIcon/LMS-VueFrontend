@@ -2,13 +2,19 @@
     <div class="skill">
         <div class="sidebar">
             <Sidebar></Sidebar>
-        </div>
-        <div class="dashnav">
             <Dashboardnavbar></Dashboardnavbar>
         </div>
 
 
         <div class="page--body--container">
+            <div class="header-content">
+                <div class="info-header">
+                    <h1 class="caption">
+                        Build In-demand agile skills with free access to Quizzes and more. Upgrade below for full access!
+                    </h1>
+                    <div class="caption-button btn btn-primary">Upgrade Now</div>
+                </div>
+            </div>
             <div class="display-banner">
                 <!-- <img src="../assets/images/display-image.png" alt="" class="display-image"> -->
                 <div class="banner--overlay"></div>
@@ -26,7 +32,7 @@
                 <p class="additional-info">Select your preferred quiz and try it out! </p>
 
                 <div class="row quiz-cards">
-                    <div class="col-md-6 col-xl-4">
+                    <div class="col-md-6 col-lg-6 col-xl-6">
                         <div class="quiz-card--item card">
                             <div class="card--header row">
                                 <div class="logo-box col-sm-3">
@@ -51,7 +57,57 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-xl-4">
+                    <div class="col-md-6 col-lg-6 col-xl-6">
+                        <div class="quiz-card--item card">
+                            <div class="card--header row">
+                                <div class="logo-box col-sm-3">
+                                    <img src="@/assets/images/quizlogo2.png" alt="pba logo">
+                                </div>
+                                <div class=" quiz-title col-sm-9">
+                                    <h1 class="card--bold--title">Practical Requirement Engineering</h1>
+                                </div>
+                            </div>
+                            <div class="progress--btn row">
+                                <div class="col-md-8" style="margin: auto;">
+                                    <div class="test-bar">
+                                        <div class="test-limit"></div>
+                                        <p class="progress-info">2/4 Practice Test</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="btn card-btn">
+                                        View Quiz
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-6">
+                        <div class="quiz-card--item card">
+                            <div class="card--header row">
+                                <div class="logo-box col-sm-3">
+                                    <img src="@/assets/images/quizlogo.png" alt="pba logo">
+                                </div>
+                                <div class=" quiz-title col-sm-9">
+                                    <h1 class="card--bold--title">Practical Business Analysis</h1>
+                                </div>
+                            </div>
+                            <div class="progress--btn row">
+                                <div class="col-md-8" style="margin: auto;">
+                                    <div class="test-bar">
+                                        <div class="test-limit"></div>
+                                        <p class="progress-info">2/4 Practice Test</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="btn card-btn">
+                                        View Quiz
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-6">
                         <div class="quiz-card--item card">
                             <div class="card--header row">
                                 <div class="logo-box col-sm-3">
@@ -124,6 +180,29 @@ export default {
 .page--body--container{
     padding-left: 4.5rem;
     width: 100%;
+}
+
+.header-content{
+    display: flex;
+    align-items: center;
+    color: #f5f5ed;
+    position: absolute;
+    z-index: 1;
+    max-width: 65rem;
+    height: 22rem;
+    margin: auto;
+    margin-left: 5rem;
+}
+
+.caption{
+    font-size: 35px;
+    font-weight: 600;
+}
+
+.caption-button{
+    border-radius: 0px;
+    font-size: 18px;
+    margin-top: .8rem;
 
 }
 

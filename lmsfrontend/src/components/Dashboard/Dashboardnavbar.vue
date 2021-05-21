@@ -87,6 +87,10 @@ export default {
 </script>
 
 <style scoped>
+.dashboard-nav{
+    z-index: 20; 
+    position: absolute;
+}
 .logout{
    color: red;
 }
