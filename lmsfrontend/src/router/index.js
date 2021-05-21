@@ -111,6 +111,15 @@ Vue.use(VueRouter)
       }
     },
     {
+      path: "/quizoverview",
+      name: "QuizOverview",
+      component: () => import("../views/QuizOverview.vue"),
+      meta: {
+        requiresLogin: true,
+        requiresAuth: true,
+      }
+    },
+    {
       path: "/editprofile",
       name: "Editprofile",
       component: () => import("../views/user/Editprofile.vue"),

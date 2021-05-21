@@ -43,4 +43,8 @@ export default {
 .ini-title{
     font-family: 'Poppins', 'Lato'
 }
+
+.plyr__poster{
+    background-size: cover !important;
+}
 </style>

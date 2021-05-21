@@ -108,21 +108,21 @@
                 <div class="sub-title"><h1>Courses</h1></div>
                 <hr>
                 <div class="video-playlist row">
-                    <div class="video-element col-md-4 col-sm-6">
+                    <div class="video-element col-md-4 col-sm-6 col-xs-12">
                         <vue-plyr>
                             <video poster="@/assets/images/videoposter.png" src="https://res.cloudinary.com/littlms/video/upload/v1599179957/2020-07-24_Design_Thinking_Define_Stage_SWOT_and_TOWS_Analysis_ihwgnl.mp4">
                                 <source src="https://res.cloudinary.com/littlms/video/upload/v1599179957/2020-07-24_Design_Thinking_Define_Stage_SWOT_and_TOWS_Analysis_ihwgnl.mp4" type="video/mp4" size="1080">
                             </video>
                         </vue-plyr>
                     </div>
-                    <div class="video-element col-md-4 col-sm-6">
+                    <div class="video-element col-md-4 col-sm-6 col-xs-12">
                         <vue-plyr>
                             <video poster="@/assets/images/videoposter.png" src="https://res.cloudinary.com/littlms/video/upload/v1599179957/2020-07-24_Design_Thinking_Define_Stage_SWOT_and_TOWS_Analysis_ihwgnl.mp4">
                                 <source src="https://res.cloudinary.com/littlms/video/upload/v1599179957/2020-07-24_Design_Thinking_Define_Stage_SWOT_and_TOWS_Analysis_ihwgnl.mp4" type="video/mp4" size="1080">
                             </video>
                         </vue-plyr>
                     </div>
-                    <div class="video-element col-md-4 col-sm-6">
+                    <div class="video-element col-md-4 col-sm-6 col-xs-12">
                         <vue-plyr>
                             <video poster="@/assets/images/videoposter.png" src="https://res.cloudinary.com/littlms/video/upload/v1599179957/2020-07-24_Design_Thinking_Define_Stage_SWOT_and_TOWS_Analysis_ihwgnl.mp4">
                                 <source src="https://res.cloudinary.com/littlms/video/upload/v1599179957/2020-07-24_Design_Thinking_Define_Stage_SWOT_and_TOWS_Analysis_ihwgnl.mp4" type="video/mp4" size="1080">
@@ -266,7 +266,7 @@ export default {
 }
 
 .extras--courses{
-    margin: 2rem 7rem;
+    margin: 2rem 7rem 5rem 7rem;
 }
 
 .sub-title h1{
@@ -280,5 +280,9 @@ export default {
     border-bottom: 3px solid #f2881a;
     width: 90px;
     margin-bottom: -1rem;
+}
+
+.video-element{
+    max-width: 32rem;
 }
 </style>
