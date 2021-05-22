@@ -67,7 +67,7 @@ export default {
       return{
          profileData: this.$store.state.userprofile.profileData,
          profileInfo: this.$store.state.userprofile.profileInfo,
-    }
+      }
    },
    methods:{
       // // When the user clicks on div, open the popup
@@ -88,8 +88,8 @@ export default {
 
 <style scoped>
 .dashboard-nav{
-    z-index: 20; 
-    position: absolute;
+   z-index: 20; 
+   position: absolute;
 }
 .logout{
    color: red;

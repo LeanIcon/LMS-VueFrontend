@@ -32,101 +32,28 @@
                 <p class="additional-info">Select your preferred quiz and try it out! </p>
 
                 <div class="row quiz-cards">
-                    <div class="col-md-6 col-lg-6 col-xl-6">
-                        <div class="quiz-card--item card">
-                            <div class="card--header row">
-                                <div class="logo-box col-sm-3">
-                                    <img src="@/assets/images/quizlogo.png" alt="pba logo">
-                                </div>
-                                <div class=" quiz-title col-sm-9">
-                                    <h1 class="card--bold--title">Practical Business Analysis</h1>
-                                </div>
-                            </div>
-                            <div class="progress--btn row">
-                                <div class="col-md-8" style="margin: auto;">
-                                    <div class="test-bar">
-                                        <div class="test-limit"></div>
-                                        <p class="progress-info">2/4 Practice Test</p>
+                    <div class="col-md-6 col-lg-6 col-xl-6" v-for="quiz_category in quizCategories" :key="quiz_category.id">
+                        <div v-if="quiz_category.name != 'Uncategorised'">
+                            <div class="quiz-card--item card">
+                                <div class="card--header row">
+                                    <div class="logo-box col-sm-3">
+                                        <img :src="`${quiz_category.img_url}`" alt="pba logo">
+                                    </div>
+                                    <div class=" quiz-title col-sm-9">
+                                        <h1 class="card--bold--title">{{quiz_category.name}}</h1>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="btn card-btn">
-                                        View Quiz
+                                <div class="progress--btn row">
+                                    <div class="col-md-8" style="margin: auto;">
+                                        <div class="test-bar">
+                                            <div class="test-limit"></div>
+                                            <p class="progress-info">2/4 Practice Test</p>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-6">
-                        <div class="quiz-card--item card">
-                            <div class="card--header row">
-                                <div class="logo-box col-sm-3">
-                                    <img src="@/assets/images/quizlogo2.png" alt="pba logo">
-                                </div>
-                                <div class=" quiz-title col-sm-9">
-                                    <h1 class="card--bold--title">Practical Requirement Engineering</h1>
-                                </div>
-                            </div>
-                            <div class="progress--btn row">
-                                <div class="col-md-8" style="margin: auto;">
-                                    <div class="test-bar">
-                                        <div class="test-limit"></div>
-                                        <p class="progress-info">2/4 Practice Test</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="btn card-btn">
-                                        View Quiz
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-6">
-                        <div class="quiz-card--item card">
-                            <div class="card--header row">
-                                <div class="logo-box col-sm-3">
-                                    <img src="@/assets/images/quizlogo.png" alt="pba logo">
-                                </div>
-                                <div class=" quiz-title col-sm-9">
-                                    <h1 class="card--bold--title">Practical Business Analysis</h1>
-                                </div>
-                            </div>
-                            <div class="progress--btn row">
-                                <div class="col-md-8" style="margin: auto;">
-                                    <div class="test-bar">
-                                        <div class="test-limit"></div>
-                                        <p class="progress-info">2/4 Practice Test</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="btn card-btn">
-                                        View Quiz
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-6">
-                        <div class="quiz-card--item card">
-                            <div class="card--header row">
-                                <div class="logo-box col-sm-3">
-                                    <img src="@/assets/images/quizlogo2.png" alt="pba logo">
-                                </div>
-                                <div class=" quiz-title col-sm-9">
-                                    <h1 class="card--bold--title">Practical Requirement Engineering</h1>
-                                </div>
-                            </div>
-                            <div class="progress--btn row">
-                                <div class="col-md-8" style="margin: auto;">
-                                    <div class="test-bar">
-                                        <div class="test-limit"></div>
-                                        <p class="progress-info">2/4 Practice Test</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="btn card-btn">
-                                        View Quiz
+                                    <div class="col-md-4">
+                                        <div class="btn card-btn">
+                                            View Quiz
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -140,16 +67,16 @@
                 </h1>
                 <p class="additional-info">Course Content</p>
                 <div class="audio-playlist row">
-                    <div class="col-md-12 col-xl-4">
+                    <div class="col-md-12 col-xl-6">
                         <div class="audio-slides--cards"></div>
                     </div>
-                    <div class="col-md-12 col-xl-4">
+                    <div class="col-md-12 col-xl-6">
                         <div class="audio-slides--cards"></div>
                     </div>
-                    <div class="col-md-12 col-xl-4">
+                    <div class="col-md-12 col-xl-6">
                         <div class="audio-slides--cards"></div>
                     </div>
-                    <div class="col-md-12 col-xl-4">
+                    <div class="col-md-12 col-xl-6">
                         <div class="audio-slides--cards"></div>
                     </div>
                 </div>
@@ -167,11 +94,20 @@ import Footer from '@/components/Dashboard/Footer.vue'
 export default {
 // @ is an alias to /src
     name: 'Skill',
+    data(){
+        return{
+            quizCategories: this.$store.state.quiz_category.quiz_category,
+        }
+    },
 
     components:{
         Sidebar,
         Dashboardnavbar,
         Footer,
+    },  
+
+    mounted () {
+        this.$store.dispatch('fetchQuizCategory')
     },
 }
 </script>
@@ -195,7 +131,7 @@ export default {
 }
 
 .caption{
-    font-size: 35px;
+    font-size: 30px;
     font-weight: 600;
 }
 

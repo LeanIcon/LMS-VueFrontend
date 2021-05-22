@@ -310,13 +310,6 @@
             // get data from store **pass the action name**
         mounted(){
             const slug = this.$route.params.slug;
-            console.log(slug)
-            console.log(slug)
-            console.log(slug)
-            console.log(slug)
-            console.log(slug)
-            console.log(slug)
-            console.log(slug)
             this.getPracticeTest(slug);
             this.startTimer();
         },

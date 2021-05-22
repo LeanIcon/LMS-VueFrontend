@@ -8,6 +8,14 @@
         </div>
         
         <div class="page--body--container">
+            <div class="header-content">
+                <div class="info-header">
+                    <h1 class="caption">
+                        Practical Business Analysis
+                    </h1>
+                    <p class="addtional-caption">Congrats! You have taken the first step to assess your current skills.</p>
+                </div>
+            </div>
             <div class="display-banner">
                 <!-- <img src="../assets/images/display-image.png" alt="" class="display-image"> -->
                 <div class="banner--overlay"></div>                
@@ -154,6 +162,24 @@ export default {
 </script>
 
 <style scoped>
+
+.header-content{
+    display: flex;
+    align-items: center;
+    color: #f5f5ed;
+    position: absolute;
+    z-index: 0;
+    max-width: 65rem;
+    height: 22rem;
+    margin: auto;
+    margin-left: 5rem;
+}
+
+.caption{
+    font-family: 'Poppins';
+    line-height: 20px;
+}
+
 .display-banner{
     position: relative;
     background: url(../assets/images/display-image.png);
@@ -162,6 +188,7 @@ export default {
     background-blend-mode: multiply;
     background-repeat: no-repeat;
     height: 22rem;
+    z-index: -1;
 }
 
 .display-banner:before{

@@ -6,7 +6,7 @@
                     <a @click="goback()">
                         <i class="back--btn fa fa-arrow-left"></i>
                     </a>
-                    <div class="btn-beta"><p>Beta</p></div>
+                    <div class="btn-beta"><p>BETA</p></div>
                 </div>
             </div>
             <div class="ini-page-body">
@@ -88,7 +88,7 @@ export default {
 }
 
 .header-title{
-    margin-top: 3rem;
+    margin-top: 1rem;
     font-weight: 700;
 }
 
