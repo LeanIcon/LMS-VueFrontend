@@ -30,7 +30,6 @@
                     Quizzes
                 </h1>
                 <p class="additional-info">Select your preferred quiz and try it out! </p>
-                {{quizCategories}}
                 <div class="row quiz-cards">
                     <div class="col-md-6 col-lg-6 col-xl-6" v-for="quiz_category in quizCategories" :key="quiz_category.id">
                         <div v-if="quiz_category.name != 'Uncategorised'">
