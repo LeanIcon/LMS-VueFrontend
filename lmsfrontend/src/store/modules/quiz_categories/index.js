@@ -15,7 +15,7 @@ export default ({
     },
     actions: {
         fetchQuizCategory({commit}){
-                getAPI.get('/category/', { headers: { Authorization: `Bearer ${ token }`} } )
+                getAPI.get('/quiz/category/', { headers: { Authorization: `Bearer ${ token }`} } )
                 .then(response => {
                     commit('GET_QUIZ_CATEGORY', response.data)
                     console.log(response.data)

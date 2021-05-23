@@ -102,7 +102,7 @@ Vue.use(VueRouter)
       }
     },
     {
-      path: "/quizdetail",
+      path: "/quizdetail/:slug",
       name: "QuizDetail",
       component: () => import("../views/QuizDetail.vue"),
       meta: {

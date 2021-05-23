@@ -32,6 +32,7 @@
                         <br>Let's Go!
                     </h1>
                     <div class="additional-content">
+                        {{quizCategoryDetail}}
                         Business analysis is a research discipline of identifying business needs and determining solutions to business problems. Solutions often include a software-systems development component, but may also consist of process improvement, organisational change or strategic planning and policy development.
                         <br><b>Related Topics:</b>
                         <br>Corporate/Organizational Structure, SWOT Analysis, PESTEL/PESTLE Analysis
@@ -40,62 +41,11 @@
                 </div>
                 <div class="col-lg-6 mt-5">
                     <div class="quiz-card--listing">
-                        <div class="quiz-cards card">
+                        <div class="quiz-cards card" v-for="category in quizCategoryDetail" :key="category.id">
                             <div class="ini-card-bottom row">
                                 <div class="col-sm-8">
                                     <div class="ml-3">
-                                        <h1 class="ini-title content-header">Quiz 1</h1>
-                                        <div class="retake-count">
-                                            <div class="pass-limit"></div>
-                                        </div>
-                                        <p class="data-history">0/10 Average Score Count</p>
-
-                                    </div>
-                                </div>
-                                <div class="col-sm-4 btn-container">
-                                    <div class="btn card-btn">Start</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="quiz-cards card">
-                            <div class="ini-card-bottom row">
-                                <div class="col-sm-8">
-                                    <div class="ml-3">
-                                        <h1 class="ini-title content-header">Quiz 2</h1>
-                                        <div class="retake-count">
-                                            <div class="pass-limit"></div>
-                                        </div>
-                                        <p class="data-history">0/10 Average Score Count</p>
-
-                                    </div>
-                                </div>
-                                <div class="col-sm-4 btn-container">
-                                    <div class="btn card-btn">Start</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="quiz-cards card">
-                            <div class="ini-card-bottom row">
-                                <div class="col-sm-8">
-                                    <div class="ml-3">
-                                        <h1 class="ini-title content-header">Quiz 3</h1>
-                                        <div class="retake-count">
-                                            <div class="pass-limit"></div>
-                                        </div>
-                                        <p class="data-history">0/10 Average Score Count</p>
-
-                                    </div>
-                                </div>
-                                <div class="col-sm-4 btn-container">
-                                    <div class="btn card-btn">Start</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="quiz-cards card">
-                            <div class="ini-card-bottom row">
-                                <div class="col-sm-8">
-                                    <div class="ml-3">
-                                        <h1 class="ini-title content-header">Quiz 4</h1>
+                                        <h1 class="ini-title content-header">Quiz {{category++}}</h1>
                                         <div class="retake-count">
                                             <div class="pass-limit"></div>
                                         </div>
@@ -145,6 +95,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+import { mapActions } from 'vuex'
 import Sidebar from '@/components/Dashboard/Sidebar.vue'
 import Dashboardnavbar from '@/components/Dashboard/Dashboardnavbar.vue'
 import Footer from '@/components/Dashboard/Footer.vue'
@@ -153,10 +105,29 @@ export default {
 // @ is an alias to /src
     name: 'QuizDetail',
 
+    data(){
+        return{
+            quizCategoryDetail: this.$store.state.quiz_detail.quiz_category_detail.quiz_category,
+        }
+    },
+
     components:{
         Sidebar,
         Dashboardnavbar,
         Footer,
+    },
+
+    methods: {
+        ...mapActions(["fetchQuizCategoryDetail"]),
+    },
+
+    computed: {
+        ...mapState(["category_detail"]),
+    },
+        // get data from store **pass the action name**
+    mounted(){
+        const slug = this.$route.params.slug;
+        this.fetchQuizCategoryDetail(slug);
     },
 }
 </script>
