@@ -50,7 +50,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <router-link class="btn card-btn" :to="{ name:'QuizDetail', params: {slug: `${quiz_category.id}`} }" exact tag="div">
+                                        <router-link class="btn card-btn" :to="{ name:'QuizDetail', params: {slug: `${quiz_category.id}`} }" exact tag="a">
                                             View Quiz
                                         </router-link>
                                     </div>

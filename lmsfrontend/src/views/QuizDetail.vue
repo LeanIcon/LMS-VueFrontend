@@ -11,7 +11,8 @@
             <div class="header-content">
                 <div class="info-header">
                     <h1 class="caption">
-                        Practical Business Analysis
+                        {{ CategoryInfo.name }}
+                        <!-- Practical Business Analysis -->
                     </h1>
                     <p class="addtional-caption">Congrats! You have taken the first step to assess your current skills.</p>
                 </div>
@@ -40,11 +41,11 @@
                 </div>
                 <div class="col-lg-6 mt-5">
                     <div class="quiz-card--listing">
-                        <div class="quiz-cards card" v-for="category in quizCategoryDetail" :key="category.id">
+                        <div class="quiz-cards card" v-for="category in CategoryDetail" :key="category.id">
                             <div class="ini-card-bottom row">
                                 <div class="col-sm-8">
                                     <div class="ml-3">
-                                        <h1 class="ini-title content-header">Quiz {{category++}}</h1>
+                                        <h1 class="ini-title content-header">Quiz {{ category.order }}</h1>
                                         <div class="retake-count">
                                             <div class="pass-limit"></div>
                                         </div>
@@ -94,8 +95,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
-import { mapActions } from 'vuex'
+import { getAPI } from '../utils/axios-api'
 import Sidebar from '@/components/Dashboard/Sidebar.vue'
 import Dashboardnavbar from '@/components/Dashboard/Dashboardnavbar.vue'
 import Footer from '@/components/Dashboard/Footer.vue'
@@ -106,7 +106,10 @@ export default {
 
     data(){
         return{
-            quizCategoryDetail: this.$store.state.quiz_detail.quiz_category_detail.quiz_category,
+            CategoryDetail: {},
+            CategoryInfo: {},
+            slug: '',
+            token: ''
         }
     },
 
@@ -117,16 +120,39 @@ export default {
     },
 
     methods: {
-        ...mapActions(["fetchQuizCategoryDetail"]),
+        // ...mapActions(["fetchQuizCategoryDetail"]),
+        async loadCategoryDetail() {
+            await getAPI.get(`/quiz/category/${ this.slug}/`, { headers: { Authorization: `Bearer ${ this.token }`}})
+                .then(({ data }) => {                    
+                    this.CategoryDetail = data.quiz_category;
+                })
+                .catch(({ response }) => {
+                    console.log(response);
+                });
+        },
+
+        async loadCategory() {
+            await getAPI.get(`/quiz_category/${ this.slug }/`, { headers: { Authorization: `Bearer ${ this.token }`}})
+                .then(({ data }) => {                    
+                    this.CategoryInfo = data.category;
+                })
+                .catch(({ response }) => {
+                    console.log(response);
+                });
+        },
     },
 
     computed: {
-        ...mapState(["category_detail"]),
+        // ...mapState(["category_detail"]),
     },
         // get data from store **pass the action name**
     mounted(){
         const slug = this.$route.params.slug;
-        this.fetchQuizCategoryDetail(slug);
+        this.slug = slug
+        const token = localStorage.getItem('access_token');
+        this.token = token
+        this.loadCategoryDetail()
+        this.loadCategory()
     },
 }
 </script>

@@ -89,6 +89,11 @@ getAPI.interceptors.response.use(
         return getAPI(originalRequest);
       }
     }
+
+    if (error.response.status === 404) {
+      // router.push('/dashboard')
+      console.log('Add custom error page here :( 404')
+    }
     return Promise.reject(error);
   }
 );
