@@ -17,7 +17,10 @@ import VueSweetalert2 from 'vue-sweetalert2';
 import VuePlyr from 'vue-plyr';
 import VueNotification from "@kugatsu/vuenotification";
 import VueTippy, { TippyComponent } from "vue-tippy";
+import VueSanitize from "vue-sanitize";
 
+
+Vue.use(VueSanitize);
 Vue.use(VueTippy);
 Vue.component("tippy", TippyComponent);
 Vue.use(VueNotification, {
