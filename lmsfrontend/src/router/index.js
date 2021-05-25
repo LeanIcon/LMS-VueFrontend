@@ -102,6 +102,15 @@ Vue.use(VueRouter)
       }
     },
     {
+      path: "/test/:slug",
+      name: "Test",
+      component: () => import("../views/quiz/quizPage.vue"),
+      meta: {
+        requiresLogin: true,
+        requiresAuth: true,
+      }
+    },
+    {
       path: "/quizdetail/:slug",
       name: "QuizDetail",
       component: () => import("../views/QuizDetail.vue"),

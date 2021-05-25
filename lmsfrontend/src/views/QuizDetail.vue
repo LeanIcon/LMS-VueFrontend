@@ -50,11 +50,11 @@
                                             <div class="pass-limit"></div>
                                         </div>
                                         <p class="data-history">0/10 Average Score Count</p>
-
                                     </div>
                                 </div>
                                 <div class="col-sm-4 btn-container">
-                                    <div class="btn card-btn">Start</div>
+                                    <router-link :to="{ name:'QuizOverview', params:{title: `${category.name}`, quiz_id: `${category.slug}`} }" class="btn card-btn" tag="a" exact>Start</router-link>
+                                    <!-- <div>Start</div> -->
                                 </div>
                             </div>
                         </div>
@@ -133,7 +133,7 @@ export default {
 
         async loadCategory() {
             await getAPI.get(`/quiz_category/${ this.slug }/`, { headers: { Authorization: `Bearer ${ this.token }`}})
-                .then(({ data }) => {                    
+                .then(({ data }) => {
                     this.CategoryInfo = data.category;
                 })
                 .catch(({ response }) => {

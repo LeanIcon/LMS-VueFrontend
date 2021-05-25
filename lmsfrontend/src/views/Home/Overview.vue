@@ -56,14 +56,14 @@
                 </div>
         </section>
 
-        <section class="row section-three mt-5">
+        <!-- <section class="row section-three mt-5">
             <div class="col-3 user-image">
                 <img src="@/assets/images/user1.jpg" alt="testimonial user" class="rounded-image user-inactive">
                 <img src="@/assets/images/user2.jpg" alt="testimonial user" class="rounded-image user-current">
             </div>
             <div class="col-9">
             </div>
-        </section>
+        </section> -->
 
 
 
