@@ -14,7 +14,7 @@
                <div class="progress-bar"  v-bind:style="{ width: cur_progress + '%' }"></div>
                <div class="" v-if="!finished">
                   <div style="display: flex; flex-direction: row;">
-                     <p class="mr-1">{{currentIndex}}. </p>
+                     <p class="mr-1">{{currentIndex+1}}. </p>
                      <span v-html="`${practice_test.practice_test.quiz.question_set[questions[currentIndex]].label}`"></span>
                   </div>
                   <div class="items mt-2">
@@ -28,7 +28,7 @@
                      <button class="bck" @click="moveBack" v-if="currentIndex >= 1">Back</button>
                   </div>
                </div>
-               <div v-else>
+               <div v-if="results.quiztaker_set">
                   <div class="items">
                      <p>40 set questions</p>
                      <p><b>{{ (results.quiztaker_set.score / 40) * 100 }}</b>% answered correctly</p>
@@ -62,7 +62,7 @@ export default {
             finished: false,
             timePassed: 0,
             timerInterval: null,
-            currentIndex: 1,
+            currentIndex: 0,
             quizTaker: '',
             question: '',
             answer: '',
@@ -206,8 +206,8 @@ export default {
       },
 
       moveNext: function nextQuestion(){
-            if (this.currentIndex == 40) {
-               this.cur_progress = (this.currentIndex/39)*100
+            if (this.currentIndex == 39) {
+               this.cur_progress = ((this.currentIndex+1)/39)*100
                this.quizTaker = this.practice_test.practice_test.quiz.quiztakers_set.id
                this.answer = parseInt(document.querySelector('input[name="choice"]:checked').value, 10)
                this.question = this.practice_test.practice_test.quiz.question_set[this.questions[this.currentIndex]].id
@@ -215,7 +215,7 @@ export default {
                this.finished = true
                this.getResults()
             } else {
-               this.cur_progress = (this.currentIndex/39)*100
+               this.cur_progress = ((this.currentIndex+1)/39)*100
                this.quizTaker = this.practice_test.practice_test.quiz.quiztakers_set.id
                this.answer = parseInt(document.querySelector('input[name="choice"]:checked').value, 10)
                this.question = this.practice_test.practice_test.quiz.question_set[this.questions[this.currentIndex]].id
@@ -227,13 +227,13 @@ export default {
       
       moveBack: function prevQuestion(){
             if (this.currentIndex == 39) {
-               this.cur_progress = (this.currentIndex/39)*100
+               this.cur_progress = ((this.currentIndex+1)/39)*100
                this.quizTaker = this.practice_test.practice_test.quiz.quiztakers_set.id
                this.answer = parseInt(document.querySelector('input[name="choice"]:checked').value, 10)
                this.question = this.practice_test.practice_test.quiz.question_set[this.questions[this.currentIndex]].id
             } else {
                this.currentIndex -= 1;
-               this.cur_progress = (this.currentIndex/39)*100
+               this.cur_progress = ((this.currentIndex+1)/39)*100
                this.quizTaker = this.practice_test.practice_test.quiz.quiztakers_set.id
                this.answer = parseInt(document.querySelector('input[name="choice"]:checked').value, 10)
                this.question = this.practice_test.practice_test.quiz.question_set[this.questions[this.currentIndex]].id
@@ -250,9 +250,12 @@ export default {
 
    mounted(){
       this.startTimer();
-      const slug = this.$route.params.slug;
-      this.getPracticeTest(slug);      
    },
+   beforeMount(){
+      const slug = this.$route.params.slug;
+      this.getPracticeTest(slug);
+
+   }
 }
 </script>
 
@@ -318,7 +321,7 @@ export default {
 
 
 .answer{
-   margin-right: 1rem;    
+   margin-right: 1rem;
 }
 
 .pick>li{
@@ -350,6 +353,7 @@ export default {
    background: linear-gradient(0deg, #3b3b3bb4, #3b3b3bb4), url('../../assets/images/poster-main.png');
    background-repeat: no-repeat;
    background-size: cover;
+   background-attachment: fixed;
 }
 
 .info-bar{
@@ -361,16 +365,17 @@ export default {
    display: flex;
    align-items: center;
    place-content: flex-end;
+   z-index: 10;
 }
 
 .back--btn{
-   font-size: 15px;
+   font-size: 13px;
 }
 
 .btn-link{
    color: #3B3B3B;
    margin: auto;
-   font-size: 19px;
+   font-size: 15px;
    font-weight: 600;
    width: 100%;
    text-align: right;
@@ -379,8 +384,8 @@ export default {
 
 .quiz-body{
    background-color: #3B3B3B;
-   height: 100vh;
-   width: 100vw;
+   min-height: 100vh;
+   /* width: 100vw; */
    margin: auto;
    display: flex;
 }
@@ -390,7 +395,8 @@ export default {
    width: 65%;
    /* height: 65%; */
    margin: auto;
-   /* padding: 1rem; */
+   margin-top: 9rem;
+   margin-bottom: 9rem;
 }
 
 .quiz-timer{
@@ -399,7 +405,7 @@ export default {
    height: 6rem;
    width: 7rem;
    background-color: #C4C3C3;
-   top: 80%;
+   /* top: 80%; */
    display: flex;
    flex-direction: column;
 }

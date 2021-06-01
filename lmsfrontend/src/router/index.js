@@ -102,7 +102,7 @@ Vue.use(VueRouter)
       }
     },
     {
-      path: "/test/:slug",
+      path: "/test/",
       name: "Test",
       component: () => import("../views/quiz/quizPage.vue"),
       meta: {
