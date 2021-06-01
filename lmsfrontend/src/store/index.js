@@ -18,6 +18,8 @@ import user from "./modules/user/user";
 // import lesson from "./modules/lesson";
 import feedback from"./modules/feedback";
 import userprofile from"./modules/userprofile";
+import quiz_category from"./modules/quiz_categories";
+import quiz_detail from"./modules/quiz_detail";
 import practice_test from"./modules/practice_test";
 import VuexPersist from 'vuex-persist';
 
@@ -39,6 +41,8 @@ const vuexLocalStorage = new VuexPersist({
         userprofile,
         feedback,
         practice_test,
+        quiz_category,
+        quiz_detail,
 
     },
 

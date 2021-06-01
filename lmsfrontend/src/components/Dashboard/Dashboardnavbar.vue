@@ -2,15 +2,6 @@
      <div class="dashboard-nav user-bar">
       <div class="nav-area nav-list row">
 
-         <div class="search-icon nav-item col">
-            <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 24 24" fill="none"
-               stroke="rgba(248,244,244,1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-               class="feather feather-search">
-               <circle cx="11" cy="11" r="8"></circle>
-               <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
-         </div>
-
          <div class="right-shift row col">
             <div class="bell-icon nav-item col icon dropdown">
                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
@@ -76,7 +67,7 @@ export default {
       return{
          profileData: this.$store.state.userprofile.profileData,
          profileInfo: this.$store.state.userprofile.profileInfo,
-    }
+      }
    },
    methods:{
       // // When the user clicks on div, open the popup
@@ -96,6 +87,10 @@ export default {
 </script>
 
 <style scoped>
+.dashboard-nav{
+   z-index: 20; 
+   position: absolute;
+}
 .logout{
    color: red;
 }
@@ -138,30 +133,32 @@ export default {
 }
 
 .nav-item > svg{
-    stroke: rgba(188,188,203,1);
+   stroke: rgba(188,188,203,1);
 }
 
 .nav-list{
-    /* display: inline-flex; */
-    height: 52px;
+   /* display: inline-flex; */
+   height: 52px;
+   position: relative;
+   margin: auto;
 }
 
 .right-shift{
-    position: absolute;
-    /* padding-top: 50%, 0; */
-    right: 0px;
-    width: 7rem;
-    height: 52px;
+   position: absolute;
+   /* padding-top: 50%, 0; */
+   right: 0px;
+   width: 7rem;
+   height: 52px;
 }
 
 /* .search-icon{
-    margin-left: 7rem;
-    margin-top: 10px;
+   margin-left: 7rem;
+   margin-top: 10px;
 } */
 
 /* .bell-icon{
-    margin-right: 20px;
-    margin-top: 2px;
+   margin-right: 20px;
+   margin-top: 2px;
 } */
 
 .icon{
@@ -213,30 +210,30 @@ export default {
 
 /* Popup arrow */
 .popup .popuptext::after {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
+   position: absolute;
+   top: 100%;
+   left: 50%;
+   margin-left: -5px;
+   border-width: 5px;
+   border-style: solid;
+   border-color: #555 transparent transparent transparent;
 }
 
 /* Toggle this class - hide and show the popup */
 .popup .show {
-  visibility: visible;
-  -webkit-animation: fadeIn 1s;
-  animation: fadeIn 1s;
+   visibility: visible;
+   -webkit-animation: fadeIn 1s;
+   animation: fadeIn 1s;
 }
 
 /* Add animation (fade in the popup) */
 @-webkit-keyframes fadeIn {
-  from {opacity: 0;} 
-  to {opacity: 1;}
+   from {opacity: 0;} 
+   to {opacity: 1;}
 }
 
 @keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity:1 ;}
+   from {opacity: 0;}
+   to {opacity:1 ;}
 }
 </style>

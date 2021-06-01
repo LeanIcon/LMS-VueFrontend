@@ -16,7 +16,10 @@ import 'font-awesome/css/font-awesome.min.css';
 import VueSweetalert2 from 'vue-sweetalert2';
 import VuePlyr from 'vue-plyr';
 import VueNotification from "@kugatsu/vuenotification";
+import VueTippy, { TippyComponent } from "vue-tippy";
 
+Vue.use(VueTippy);
+Vue.component("tippy", TippyComponent);
 Vue.use(VueNotification, {
   timer: 10,
   error: {
