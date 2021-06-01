@@ -56,7 +56,7 @@
 									<img src="../../assets/course01.jpg" alt="">
 									<i class="course-link-icon fas fa-chalkboard-teacher"></i>
 								</a>
-								<a href='/accounts/signup/'>Business Analysis</a>
+								<a href='/overview/'>Business Analysis</a>
 							</div>
 						</div>
 						<!-- /single course -->
@@ -197,9 +197,9 @@
 					<div class="col-md-8">
 						<h2 class="white-text">Agile Training.</h2>
 						<p class="lead white-text">Agile training is a way to improve project performance by teaching the basic concepts of Agile to an organization or team and how to implement it. ... Training can help expose the underlying Agile concepts and clarify the differences between the various implementation methods..</p>
-					<router-link :to = "{ name:'Signin' }">
-					<a class="main-button icon-button" href="#">Get Started!</a>
-					</router-link>
+						<router-link :to = "{ name:'Signin' }">
+						<a class="main-button icon-button" href="#">Get Started!</a>
+						</router-link>
 					</div>
 
 				</div>
@@ -260,10 +260,10 @@
 				<!-- row -->
 				<div class="row">
 
-					<div class="col-md-8 col-md-offset-2 text-center">
-						<!--h2 class="white-text" onclick="location.href='https:leanicontechnology.com/'"></h2>>Contact Us</h2>
+					<div class="col-md-12 col-md-offset-2 text-center">
+						<h2 class="white-text" onclick="location.href='https:leanicontechnology.com/'">Contact Us</h2>
 						
-						<!-p class="lead white-text">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.-->
+						<p class="lead white-text">Need Help contact us let's guide you for your career path</p>
 						<a class="main-button icon-button" href="https://leanicontechnology.com/">Contact Us Now</a>
 					</div>
 

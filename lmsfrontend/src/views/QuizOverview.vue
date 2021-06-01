@@ -6,21 +6,19 @@
                     <a @click="goback()">
                         <i class="back--btn fa fa-arrow-left"></i>
                     </a>
-                    <div class="btn-beta"><p>Beta</p></div>
+                    <div class="btn-beta"><p>BETA</p></div>
                 </div>
             </div>
             <div class="ini-page-body">
                 <div class="content-header">
                     <h1 class="header-title ini-title">
-                        Practical Business Analysis <br> skill Assessment
+                        {{quizTitle}} <br> skill Assessment
                     </h1>
                     <div class="header-body">
                         We rely on users to help us calibrate our skill assessments before they can be published. While this skill assessment is in beta, your performance will not be recorded and you will not get a Skill IQ.
                     </div>
                     <div class="btn-container">
-                        <div class="btn btn--get-started">
-                            Got it. Start the test
-                        </div>
+                        <router-link :to="{name:'Test', params: {slug: `${quiz_id}`}}" class="btn btn--get-started" exact tag="div">Got it. Start the test</router-link>
                     </div>
                     <div class="video--player">
                         <vue-plyr>
@@ -40,11 +38,27 @@
 <script>
 export default {
     name: "QuizOverview",
+    data(){
+        return{
+            quizTitle: '',
+            quiz_id: '',
+        }
+    },
     methods: {
         goback(){
             this.$router.go(-1)
+        },
+        checkparams(){
+            if (!this.$route.params.title) {
+                this.$router.push("/skill"); // redirect to quiz page
+            }
         }
-    }
+    },
+    mounted() {
+        this.quizTitle = this.$route.params.title;
+        this.quiz_id = this.$route.params.quiz_id;
+        this.checkparams()
+    },
 }
 </script>
 
@@ -88,7 +102,7 @@ export default {
 }
 
 .header-title{
-    margin-top: 3rem;
+    margin-top: 1rem;
     font-weight: 700;
 }
 

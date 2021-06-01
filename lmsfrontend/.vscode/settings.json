@@ -1,20 +1,21 @@
 {
     "vue3snippets.enable-compile-vue-file-on-did-save-code": false,
     "workbench.colorCustomizations": {
-        "activityBar.activeBackground": "#0a0229",
+        "activityBar.activeBackground": "#011e27",
         "activityBar.activeBorder": "#422c74",
-        "activityBar.background": "#0a0229",
+        "activityBar.background": "#011e27",
         "activityBar.foreground": "#e7e7e7",
         "activityBar.inactiveForeground": "#e7e7e799",
         "activityBarBadge.background": "#422c74",
         "activityBarBadge.foreground": "#e7e7e7",
-        "statusBar.background": "#0a0229",
-        "statusBar.foreground": "#0a0229",
-        "statusBarItem.hoverBackground": "#0a0229",
-        "titleBar.activeBackground": "#0a0229",
+        "statusBar.background": "#011e27",
+        "statusBar.foreground": "#011e27",
+        "statusBarItem.hoverBackground": "#011e27",
+        "titleBar.activeBackground": "#011e27",
         "titleBar.activeForeground": "#e7e7e7",
-        "titleBar.inactiveBackground": "#0a0229",
+        "titleBar.inactiveBackground": "#011e27",
         "titleBar.inactiveForeground": "#e7e7e799"
     },
-    "peacock.color": "#215732"
+    "peacock.color": "#215732",
+    "editor.tabSize": 3,
 }

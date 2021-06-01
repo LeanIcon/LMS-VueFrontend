@@ -8,6 +8,15 @@
         </div>
         
         <div class="page--body--container">
+            <div class="header-content">
+                <div class="info-header">
+                    <h1 class="caption">
+                        {{ CategoryInfo.name }}
+                        <!-- Practical Business Analysis -->
+                    </h1>
+                    <p class="addtional-caption">Congrats! You have taken the first step to assess your current skills.</p>
+                </div>
+            </div>
             <div class="display-banner">
                 <!-- <img src="../assets/images/display-image.png" alt="" class="display-image"> -->
                 <div class="banner--overlay"></div>                
@@ -32,71 +41,20 @@
                 </div>
                 <div class="col-lg-6 mt-5">
                     <div class="quiz-card--listing">
-                        <div class="quiz-cards card">
+                        <div class="quiz-cards card" v-for="category in CategoryDetail" :key="category.id">
                             <div class="ini-card-bottom row">
                                 <div class="col-sm-8">
                                     <div class="ml-3">
-                                        <h1 class="ini-title content-header">Quiz 1</h1>
+                                        <h1 class="ini-title content-header">Quiz {{ category.order }}</h1>
                                         <div class="retake-count">
                                             <div class="pass-limit"></div>
                                         </div>
                                         <p class="data-history">0/10 Average Score Count</p>
-
                                     </div>
                                 </div>
                                 <div class="col-sm-4 btn-container">
-                                    <div class="btn card-btn">Start</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="quiz-cards card">
-                            <div class="ini-card-bottom row">
-                                <div class="col-sm-8">
-                                    <div class="ml-3">
-                                        <h1 class="ini-title content-header">Quiz 2</h1>
-                                        <div class="retake-count">
-                                            <div class="pass-limit"></div>
-                                        </div>
-                                        <p class="data-history">0/10 Average Score Count</p>
-
-                                    </div>
-                                </div>
-                                <div class="col-sm-4 btn-container">
-                                    <div class="btn card-btn">Start</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="quiz-cards card">
-                            <div class="ini-card-bottom row">
-                                <div class="col-sm-8">
-                                    <div class="ml-3">
-                                        <h1 class="ini-title content-header">Quiz 3</h1>
-                                        <div class="retake-count">
-                                            <div class="pass-limit"></div>
-                                        </div>
-                                        <p class="data-history">0/10 Average Score Count</p>
-
-                                    </div>
-                                </div>
-                                <div class="col-sm-4 btn-container">
-                                    <div class="btn card-btn">Start</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="quiz-cards card">
-                            <div class="ini-card-bottom row">
-                                <div class="col-sm-8">
-                                    <div class="ml-3">
-                                        <h1 class="ini-title content-header">Quiz 4</h1>
-                                        <div class="retake-count">
-                                            <div class="pass-limit"></div>
-                                        </div>
-                                        <p class="data-history">0/10 Average Score Count</p>
-
-                                    </div>
-                                </div>
-                                <div class="col-sm-4 btn-container">
-                                    <div class="btn card-btn">Start</div>
+                                    <router-link :to="{ name:'QuizOverview', params:{title: `${category.name}`, quiz_id: `${category.slug}`} }" class="btn card-btn" tag="a" exact>Start</router-link>
+                                    <!-- <div>Start</div> -->
                                 </div>
                             </div>
                         </div>
@@ -137,6 +95,7 @@
 </template>
 
 <script>
+import { getAPI } from '../utils/axios-api'
 import Sidebar from '@/components/Dashboard/Sidebar.vue'
 import Dashboardnavbar from '@/components/Dashboard/Dashboardnavbar.vue'
 import Footer from '@/components/Dashboard/Footer.vue'
@@ -145,15 +104,78 @@ export default {
 // @ is an alias to /src
     name: 'QuizDetail',
 
+    data(){
+        return{
+            CategoryDetail: {},
+            CategoryInfo: {},
+            slug: '',
+            token: ''
+        }
+    },
+
     components:{
         Sidebar,
         Dashboardnavbar,
         Footer,
     },
+
+    methods: {
+        // ...mapActions(["fetchQuizCategoryDetail"]),
+        async loadCategoryDetail() {
+            await getAPI.get(`/quiz/category/${ this.slug}/`, { headers: { Authorization: `Bearer ${ this.token }`}})
+                .then(({ data }) => {                    
+                    this.CategoryDetail = data.quiz_category;
+                })
+                .catch(({ response }) => {
+                    console.log(response);
+                });
+        },
+
+        async loadCategory() {
+            await getAPI.get(`/quiz_category/${ this.slug }/`, { headers: { Authorization: `Bearer ${ this.token }`}})
+                .then(({ data }) => {
+                    this.CategoryInfo = data.category;
+                })
+                .catch(({ response }) => {
+                    console.log(response);
+                });
+        },
+    },
+
+    computed: {
+        // ...mapState(["category_detail"]),
+    },
+        // get data from store **pass the action name**
+    mounted(){
+        const slug = this.$route.params.slug;
+        this.slug = slug
+        const token = localStorage.getItem('access_token');
+        this.token = token
+        this.loadCategoryDetail()
+        this.loadCategory()
+    },
 }
 </script>
 
 <style scoped>
+
+.header-content{
+    display: flex;
+    align-items: center;
+    color: #f5f5ed;
+    position: absolute;
+    z-index: 0;
+    max-width: 65rem;
+    height: 22rem;
+    margin: auto;
+    margin-left: 5rem;
+}
+
+.caption{
+    font-family: 'Poppins';
+    line-height: 20px;
+}
+
 .display-banner{
     position: relative;
     background: url(../assets/images/display-image.png);
@@ -162,6 +184,7 @@ export default {
     background-blend-mode: multiply;
     background-repeat: no-repeat;
     height: 22rem;
+    z-index: -1;
 }
 
 .display-banner:before{
