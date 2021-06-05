@@ -36,6 +36,8 @@
 </template>
 
 <script>
+// import { mapState } from 'vuex'
+// import { mapActions } from 'vuex'
 export default {
     name: "QuizOverview",
     data(){
@@ -45,6 +47,8 @@ export default {
         }
     },
     methods: {
+        
+        // ...mapActions("practice_test", ["getPracticeTest"], "saveAnswer", "submitAnswer"),
         goback(){
             this.$router.go(-1)
         },
@@ -54,14 +58,18 @@ export default {
             }
         }
     },
+    computed: {
+        // ...mapState(["practice_test"]),
+    },
     mounted() {
         this.quizTitle = this.$route.params.title;
         this.quiz_id = this.$route.params.quiz_id;
+        // this.getPracticeTest(this.quiz_id);
         this.checkparams()
     },
 }
 </script>
-
+ 
 <style scoped>
 .page{
     /* height: 100vh; */

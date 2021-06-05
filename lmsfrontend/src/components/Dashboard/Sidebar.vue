@@ -44,7 +44,7 @@
                     <!-- </div> -->
                 </router-link>
 
-                <router-link :to="{ name:'Courseregister' }" tag="div" class="course-tab menu-tab" class-active="active" >
+                <router-link :to="{ name:'Courseregister' }" tag="div" :exact="False"  class="course-tab menu-tab" class-active="active" >
                     <div class="menu-items">
                         <div class="course-tab tab-icons">
                             <!-- <img src="../assets/course-icon.png" alt="course icon"> -->
@@ -62,7 +62,7 @@
                 </router-link>
 
 
-                <router-link :to="{ name:'Skill' }" exact tag="div" class="course-tab menu-tab" class-active="active" >
+                <router-link :to="{ name:'Skill' }" :exact="False" tag="div" class="course-tab menu-tab" class-active="active" >
                     <div class="menu-items">
                         <div class="course-tab tab-icons">                           
                         <svg id="Capa_1" enable-background="new 0 0 512 512" height="512" viewBox="0 0 512 512" width="512" xmlns="http://www.w3.org/2000/svg">

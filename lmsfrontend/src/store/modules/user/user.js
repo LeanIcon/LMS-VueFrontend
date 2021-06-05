@@ -48,6 +48,39 @@ export default ({
             })
         },
 
+        resetPassword(context, usercredentials) {
+            return new Promise((resolve, reject) => {
+                getAPI.post('/api/password_reset/', {
+                    email: usercredentials.email,
+                })
+                .then(({ status }) => {
+                    if(status == 200){
+                        resolve(status);
+                    }
+                })
+                .catch(err => {
+                    reject(err);
+                })
+            })
+        },
+
+        changePassword(context, usercredentials) {
+            return new Promise((resolve, reject) => {
+                getAPI.post('/api/password_reset/confirm/', {
+                    token: usercredentials.token,
+                    password: usercredentials.password,
+                })
+                .then(({ status }) => {
+                    if(status == 200){
+                        resolve(status);
+                    }
+                })
+                .catch(err => {
+                    reject(err);
+                })
+            })
+        },
+
         userRegister(context, usercredentials){
             return new Promise((resolve, reject) => {
                 getAPI.post('/api/users/', {

@@ -46,10 +46,20 @@ Vue.use(VueRouter)
       path: "/forgotpassword",
       name: "Forgotpassword",
       component: () => import("../views/user/Forgotpassword.vue"),
-      meta: {
-        requiresAuth: true,
-        requiresLogin: true,
-      },
+      // meta: {
+      //   requiresAuth: true,
+      //   requiresLogin: true,
+      // },
+    },
+    {
+      path: "/reset",
+      name: "Resetpassword",
+      component: () => import("../views/user/Resetpassword.vue"),
+      props: route => ({ query: route.query.token })
+      // meta: {
+      //   requiresAuth: true,
+      //   requiresLogin: true,
+      // },
     },
     {
       path: "/dashboard",
@@ -102,7 +112,7 @@ Vue.use(VueRouter)
       }
     },
     {
-      path: "/test/:slug",
+      path: "/test/",
       name: "Test",
       component: () => import("../views/quiz/quizPage.vue"),
       meta: {

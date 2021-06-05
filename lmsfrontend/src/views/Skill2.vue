@@ -36,7 +36,7 @@
                             <div class="quiz-card--item card">
                                 <div class="card--header row">
                                     <div class="logo-box col-sm-3">
-                                        <img :src="`${quiz_category.img_url}`" alt="pba logo">
+                                        <img :src="`${quiz_category.img_url}`" alt="quiz logo">
                                     </div>
                                     <div class=" quiz-title col-sm-9">
                                         <h1 class="card--bold--title">{{quiz_category.name}}</h1>
@@ -50,7 +50,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <router-link class="btn card-btn" :to="{ name:'QuizDetail', params: {slug: `${quiz_category.id}`} }" exact tag="a">
+                                        <router-link class="btn card-btn" :to="{ name:'QuizDetail', params: {slug: `${quiz_category.id}`} }" tag="a">
                                             View Quiz
                                         </router-link>
                                     </div>
