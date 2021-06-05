@@ -55,6 +55,7 @@ Vue.use(VueRouter)
       path: "/reset",
       name: "Resetpassword",
       component: () => import("../views/user/Resetpassword.vue"),
+      props: route => ({ query: route.query.token })
       // meta: {
       //   requiresAuth: true,
       //   requiresLogin: true,

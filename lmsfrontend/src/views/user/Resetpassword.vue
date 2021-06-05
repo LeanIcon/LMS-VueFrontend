@@ -13,10 +13,10 @@
               <p>Your password must be different from previously used passwords.</p>
             </div>
             <div class="col-md-6 info_section">
-              <form action="" method="post">
-                <input type="password" placeholder="New Password" class="mb-3">
+              <form action="" method="post" v-on:submit.prevent="changePassword">
+                <input type="password" v-model="password" placeholder="New Password" class="mb-3">
                 <input type="password" placeholder="Confirm Password" class="mb-3">
-                <button class="btn">Send</button>
+                <button class="btn" v-on:submit.prevent="changePassword">Send</button>
               </form>
             </div>
           </div>
@@ -30,9 +30,37 @@
 
 export default {
   name: 'Resetpassword',
+  data(){
+    return{
+      password: ''
+    }
+  },
   components :{
     // Footer
   },
+  methods:{
+      changePassword() { 
+        this.$store.dispatch('changePassword', {
+          password: this.password,
+          token: this.$route.query.token,
+        })
+        // Replace '/' with the homepage
+        .then(() => {
+          this.$router.push('/signin')
+        })
+        .catch(err => {
+            this.errinfo = 'Invalid login credentials'
+            console.log(err)
+            alert('err')
+        })
+    },
+  },
+  mounted(){
+    // alert(this.$route.query.token)
+    if(this.$route.query.token == undefined){
+      this.$router.push('/forgotpassword')
+    }
+  }
 }
 </script>
 <style scoped>
