@@ -5,28 +5,20 @@
         <div class="col-md-5 bg_img">
           <!-- <img src="@/assets/images/forgotpassbg.jpg" alt="" class="h-100"> -->
         </div>
-        <div v-if="!token_requested" class="col-md-7">
+        <div class="col-md-7">
           <div class="border_line"></div>
           <div class="display_content row mx-3">
             <div class="col-md-6 user_info">
-              <h1>Forgot your password?</h1>
-              <p>Enter the email associated with your account and we’ll sean anemail with instructions to reset your password</p>
+              <h1>Create new password</h1>
+              <p>Your password must be different from previously used passwords.</p>
             </div>
             <div class="col-md-6 info_section">
-              <form action="" method="POST" v-on:submit.prevent="resetPass">
-                <input type="email" placeholder="Enter your email address" v-model="email" required>
-                <button class="btn" v-on:submit.prevent="resetPass">Send</button>
+              <form action="" method="post">
+                <input type="password" placeholder="New Password" class="mb-3">
+                <input type="password" placeholder="Confirm Password" class="mb-3">
+                <button class="btn">Send</button>
               </form>
             </div>
-          </div>
-        </div>
-        <div v-if="token_requested" class="col-md-7">
-          <div class="border_line"></div>
-          <div class="display_content" style="text-align: center;">
-            <h1>Check your email</h1>
-            <p>We have sent a password recovery instrcution to your email</p>
-            <p class="mt-5">Did not receive the mail? Check your spam filter, <br>or <a  @click="this.token_requested = false" style="color: #E01010;" href="">try another email address</a>
-            </p>
           </div>
         </div>
         <img src="@/assets/images/Vector 1.png" alt="" class="vector_img">
@@ -37,32 +29,10 @@
     // @ is an alias to /src
 
 export default {
-  name: 'Home',
-  data () {
-    return {
-      email: '',
-      token_requested: false,
-    }
-  },
+  name: 'Resetpassword',
   components :{
     // Footer
   },
-  methods: {
-    resetPass() { 
-        this.$store.dispatch('resetPassword', {
-          email: this.email,
-        })
-        // Replace '/' with the homepage
-        .then(() => {
-          this.token_requested = true
-        })
-        .catch(err => {
-            this.errinfo = 'Invalid login credentials'
-            console.log(err)
-            alert('err')
-        })
-    },
-  }
 }
 </script>
 <style scoped>
