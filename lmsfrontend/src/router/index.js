@@ -139,6 +139,15 @@ Vue.use(VueRouter)
       }
     },
     {
+      path: "/results",
+      name: "QuizResults",
+      component: () => import("../views/quiz/QuizResults.vue"),
+      meta: {
+        requiresLogin: true,
+        requiresAuth: true,
+      }
+    },
+    {
       path: "/editprofile",
       name: "Editprofile",
       component: () => import("../views/user/Editprofile.vue"),

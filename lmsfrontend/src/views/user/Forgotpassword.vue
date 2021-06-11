@@ -1,7 +1,7 @@
 <template>
   <div class="forgotpassword">
       <div class="page__container row">
-        <a class="return_btn">&lt; Back</a>
+        <a class="return_btn" @click="goBack()"><i class="back--btn fa fa-arrow-left"></i> Back</a>
         <div class="col-md-5 bg_img">
           <!-- <img src="@/assets/images/forgotpassbg.jpg" alt="" class="h-100"> -->
         </div>
@@ -15,7 +15,11 @@
             <div class="col-md-6 info_section">
               <form action="" method="POST" v-on:submit.prevent="resetPass">
                 <input type="email" placeholder="Enter your email address" v-model="email" required>
-                <button class="btn" v-on:submit.prevent="resetPass">Send</button>
+                <button class="btn" v-on:submit.prevent="resetPass">
+                  <!-- <span class="spinner-grow float-left spinner-grow-sm" role="status" aria-hidden="true"></span> -->
+                    <!-- <span class="sr-only">Loading...</span> -->
+                    Send
+              </button>
               </form>
             </div>
           </div>
@@ -33,11 +37,12 @@
       </div>
   </div>
 </template>
-<script>
-    // @ is an alias to /src
 
+
+
+<script>
 export default {
-  name: 'Home',
+  name: 'Forgotpassword',
   data () {
     return {
       email: '',
@@ -48,6 +53,9 @@ export default {
     // Footer
   },
   methods: {
+    goBack(){
+      this.$router.go(-1)
+    },
     resetPass() { 
         this.$store.dispatch('resetPassword', {
           email: this.email,
@@ -57,20 +65,32 @@ export default {
           this.token_requested = true
         })
         .catch(err => {
-            this.errinfo = 'Invalid login credentials'
-            console.log(err)
-            alert('err')
+          if(err == 400){
+            this.$notification.error("Something went wrong. Please check your email and try again", { infiniteTimer: false});
+          } else if (err == 500){
+            this.$notification.error("There is a problem from our side. Please try again later", { infiniteTimer: false});
+          } else {
+            this.$notification.error("Something went wrong. Please try again later", { infiniteTimer: false});
+          }
+          this.email = ''
         })
     },
   }
 }
 </script>
+
+
+
 <style scoped>
 .return_btn{
   position: absolute;
   top: 2rem;
   right: 2rem;
+  color: #030303;
+  cursor: pointer;
+  text-decoration: none;
 }
+
 .vector_img{
   width: 100vw;
   position: absolute;

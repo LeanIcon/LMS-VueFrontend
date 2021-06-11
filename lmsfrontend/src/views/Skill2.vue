@@ -27,7 +27,7 @@
 
             <div class="quiz-content m-5">
                 <h1 class="content-header ini-title">
-                    Quizzes
+                    Practice Test
                 </h1>
                 <p class="additional-info">Select your preferred quiz and try it out! </p>
                 <div class="row quiz-cards">
@@ -60,7 +60,7 @@
                     </div>
                 </div>
             </div>
-            <div class="audio-slides m-5">
+            <!-- <div class="audio-slides m-5">
                 <h1 class="content-header ini-title">
                     Short Audio Lessons
                 </h1>
@@ -79,7 +79,7 @@
                         <div class="audio-slides--cards"></div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
         <Footer/>
     </div>

@@ -28,7 +28,7 @@
                      <button class="bck" @click="moveBack" v-if="currentIndex >= 1">Back</button>
                   </div>
                </div>
-               <div v-if="results.quiztaker_set">
+               <!-- <div v-if="results.quiztaker_set">
                   <div class="items">
                      <p>40 set questions</p>
                      <p><b>{{ (results.quiztaker_set.score / 40) * 100 }}</b>% answered correctly</p>
@@ -41,7 +41,7 @@
                      </div>
                      <p>Not happy with your score? <a :href="$router.resolve({ name:'Test', params: {slug: $route.params.slug} }).href">Retake</a></p>
                   </div>
-               </div>
+               </div> -->
             </div>
          </div>
       </div>
@@ -54,7 +54,7 @@ import { mapActions } from 'vuex'
 import { getAPI } from "../../utils/axios-api";
 const token = localStorage.getItem("access_token");
 
-const TIME_LIMIT = 6000;
+const TIME_LIMIT = 360;
 export default {
    name: 'Test',
    data () {
@@ -75,6 +75,7 @@ export default {
             questionPointer: 0,
             quizStarted: false,
             quizCancelled: false,
+            quiz_slug: '',
             // practice_test: 'test',
       }
    },
@@ -167,10 +168,9 @@ export default {
       },
 
       submitAnswer(){
-            const slug = this.$route.params.slug
             // this.answer = parseInt(document.querySelector('input[name="choice"]:checked').value, 10)
             getAPI
-               .post(`/quizzes/${slug}/submit/`, {
+               .post(`/quizzes/${this.quiz_slug}/submit/`, {
                   headers: { Authorization: `Bearer ${token}` },
                   quiztaker: this.quizTaker,
                   question: this.question,
@@ -182,6 +182,7 @@ export default {
                         console.log(status);
                         this.finished = true
                         this.results = res.data
+                        this.resultsPage(this.results)
                   }
                })
                .catch((err) => {
@@ -190,19 +191,26 @@ export default {
             });
       },
 
-      getResults(){
-            const slug = this.$route.params.slug
-            getAPI
-               .get(`/quizzes/${slug}/`, {
-                  headers: { Authorization: `Bearer ${token}` },
-               })
-               .then((res) => {
-                  this.results = res.data
-                  this.score = this.results.quiztakers_set.score
-               })
-               .catch((err) => {
-                  console.log(err);
-               });
+      // getResults(){
+      //       const slug = this.$route.params.slug
+      //       getAPI
+      //          .get(`/quizzes/${slug}/`, {
+      //             headers: { Authorization: `Bearer ${token}` },
+      //          })
+      //          .then((res) => {
+      //             this.results = res.data
+      //             this.score = this.results.quiztakers_set.score
+      //          })
+      //          .catch((err) => {
+      //             console.log(err);
+      //          });
+      // },
+
+      resultsPage(results){
+         this.$router.push({
+               name: 'QuizResults',
+               params: { slug: this.quiz_slug, results: results}
+         });
       },
 
       moveNext: function nextQuestion(){
@@ -211,9 +219,10 @@ export default {
                this.quizTaker = this.practice_test.practice_test.quiz.quiztakers_set.id
                this.answer = parseInt(document.querySelector('input[name="choice"]:checked').value, 10)
                this.question = this.practice_test.practice_test.quiz.question_set[this.questions[this.currentIndex]].id
+               console.log('first')
                this.submitAnswer()
+               console.log('second')
                this.finished = true
-               this.getResults()
             } else {
                this.cur_progress = ((this.currentIndex+1)/39)*100
                this.quizTaker = this.practice_test.practice_test.quiz.quiztakers_set.id
@@ -244,17 +253,18 @@ export default {
             this.moveNext();
             this.sendResponse();
       },
-
-
+      checkparams(){
+         if (!this.$route.params.slug) {
+               this.$router.push("/skill"); // redirect to quiz page
+         } else {
+            this.quiz_slug = this.$route.params.slug
+            this.startTimer();
+            this.getPracticeTest(this.quiz_slug);
+         }
+      }
    },
-
    mounted(){
-      this.startTimer();
-   },
-   beforeMount(){
-      const slug = this.$route.params.slug;
-      this.getPracticeTest(slug);
-
+      this.checkparams()
    }
 }
 </script>

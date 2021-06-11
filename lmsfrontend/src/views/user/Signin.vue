@@ -12,8 +12,7 @@
                     <input type="password" name="password" id="password" placeholder="Password" class="input-container" v-model="password" required />
                 </div>
                 <div class="form-check">
-                    <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
-                    <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree to the  <a href="#" class="term-service">Terms and Conditions</a></label>
+                    <router-link to="forgotpassword" tag="a" class="forgot-password">Forgoten your password?</router-link>
                 </div>
                 <div class="form-submit" v-on:submit.prevent="login" >
                     <input type="submit" name="submit" id="submit" v-on:submit.prevent="login" class="submit" value="Sign In"/>
@@ -57,18 +56,18 @@
             email: this.email,
             password: this.password
             })
-            // Replace '/' with the homepage
             .then(() => {
-            this.$router.push({ name: 'Dashboard' })
+              this.$router.push({ name: 'Dashboard' })
             })
             .catch(err => {
-                this.errinfo = 'Invalid login credentials'
-                console.log(err)
-                this.userExists = true
-                this.alertUser = true
-                this.incorrectAuth = true
-                this.email = ''
-                this.password = ''
+              if(err == 401){
+                this.$notification.error("Wrong email password combination. Please check and try again", { infiniteTimer: false});
+              } else if (err == 500){
+                this.$notification.error("There is a problem from our side. Please try again later", { infiniteTimer: false});
+              } else {
+                this.$notification.error("Something went wrong. Please try again later", { infiniteTimer: false});
+              }
+              this.password = ''
             })
         },
     },

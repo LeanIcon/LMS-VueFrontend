@@ -133,7 +133,8 @@ export default {
   
   mounted () {
       this.$store.dispatch('fetchProfile'),
-      this.$store.dispatch('fetchInfo')
+      this.$store.dispatch('fetchInfo'),
+      this.$store.dispatch('fetchQuizCategory')
   },
 }
 </script>

@@ -12,7 +12,7 @@
                             <input type="text" name="lname" id="name" placeholder="Last Name" class="input-container" v-model="lastname" required />
                             <input type="email" name="email" id="email" placeholder="Email" class="input-container" v-model="email" required />
                             <input type="password" name="password" id="password" placeholder="Password" class="input-container" v-model="password" required />
-                            <input type="password" name="password" id="password" placeholder="Confirm Password" class="input-container" v-model="confirm_password" :error="!valid()" required />
+                            <input type="password" name="password" id="password" placeholder="Confirm Password" class="input-container" v-model="confirm_password"  required />
                         </div>
                         <div class="form-check">
                             <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
@@ -59,6 +59,8 @@
             }
             this.alertUser = false
         },
+
+
         register() { 
             if(this.valid()){
                 this.$store.dispatch('userRegister', {
@@ -70,29 +72,32 @@
                 })
                 // Replace '/' with the homepage
                 .then(({ status }) => {
-                    console.log('check your email')
-                    console.log(status)
+                  if(status == 200){
+                    this.$notification.info("Your have been successfully registered, Check your email and activate your account", { infiniteTimer: false});
                     this.$router.push({ name: 'Signin' })
+                  }
                 })
                 .catch(err => {
-                    this.errinfo = 'Email is already registered'
-                    console.log(err)
-                    this.userExists = true
-                    this.alertUser = true
+                  if(err == 400){
+                    this.$notification.error("Email has already been registered please check and try again", { infiniteTimer: false});
+                  } else if (err == 500){
+                    this.$notification.error("There is a problem from our side. Please try again later", { infiniteTimer: false});
+                  } else {
+                    this.$notification.error("Something went wrong. Please try again later", { infiniteTimer: false});
+                  }
                 })
             }else{
-                this.alertUser = true;
                 this.password = '';
                 this.confirm_password = '';
             }
         },
         valid(){
-            if (this.password != this.confirm_password){
-                this.errinfo = "passwords don't match";
-                return false;
+          if (this.password != this.confirm_password){
+            this.$notification.error("Passwords do not match. Please check and try again", { infiniteTimer: false});
+            return false  
             } else if(this.password.length <= 10) {
-                this.errinfo = "password is too weak";
-                return false;
+              this.$notification.error("Passwords is too weak", { infiniteTimer: false});
+              return false  
             } else {
                 return true
             }
