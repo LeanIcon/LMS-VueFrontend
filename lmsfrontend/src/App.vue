@@ -47,4 +47,23 @@ export default {
 .plyr__poster{
     background-size: cover !important;
 }
+
+body:after{
+  content: "beta";
+  position: fixed;
+  width: 80px;
+  height: 25px;
+  background: #580202;
+  top: 7px;
+  right: -20px;
+  text-align: center;
+  font-size: 13px;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fff;
+  line-height: 27px;
+  transform:rotate(45deg);
+  z-index: 100;
+}
 </style>

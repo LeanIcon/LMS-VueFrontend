@@ -44,7 +44,7 @@
                     <!-- </div> -->
                 </router-link>
 
-                <router-link :to="{ name:'Courseregister' }" tag="div" :exact="False"  class="course-tab menu-tab" class-active="active" >
+                <router-link :to="{ name:'Courseregister' }" tag="div" :exact="false"  class="course-tab menu-tab" class-active="active" >
                     <div class="menu-items">
                         <div class="course-tab tab-icons">
                             <!-- <img src="../assets/course-icon.png" alt="course icon"> -->

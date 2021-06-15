@@ -4,6 +4,7 @@
          <router-link :to="{ name:'Skill'}" tag="a" exact class="btn-link"> <i class="back--btn fa fa-arrow-left"></i> Quiz</router-link>
       </div>
       <div class="quiz-body">
+         <!-- {{test}} -->
          <div class="quiz-card-container">
             <div class="quiz-timer">
                <h2 class="time-int">{{formattedTimeLeft}}</h2>
@@ -15,11 +16,11 @@
                <div class="" v-if="!finished">
                   <div style="display: flex; flex-direction: row;">
                      <p class="mr-1">{{currentIndex+1}}. </p>
-                     <span v-html="`${practice_test.practice_test.quiz.question_set[questions[currentIndex]].label}`"></span>
+                     <span v-html="`${test.quiz.question_set[questions[currentIndex]].label}`"></span>
                   </div>
                   <div class="items mt-2">
-                     <div class="pick" v-for="answerData in practice_test.practice_test.quiz.question_set[questions[currentIndex]].answer_set" :key="answerData.id">
-                        <input type="radio" @change="onChange($event)" :value="answerData.id" :id="answerData.id" class="answer" name="choice" :checked="answerDetail[currentIndex] ==  answerData.id"><span class="checkmark noselect">{{ answerData.label }}</span>     
+                     <div class="pick" v-for="answerData in test.quiz.question_set[questions[currentIndex]].answer_set" :key="answerData.id">
+                        <input type="radio" @change="onChange($event)" :value="answerData.id" :id="answerData.id" class="answer" name="choice" :checked="answerDetail[currentIndex] ==  answerData.id"><label class="checkmark noselect" :for="answerData.id">{{ answerData.label }}</label>     
                         <!-- <p>{{ $route.params.slug }}</p>                -->
                      </div>
                   </div>
@@ -49,8 +50,6 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
-import { mapActions } from 'vuex'
 import { getAPI } from "../../utils/axios-api";
 const token = localStorage.getItem("access_token");
 
@@ -76,7 +75,7 @@ export default {
             quizStarted: false,
             quizCancelled: false,
             quiz_slug: '',
-            // practice_test: 'test',
+            test: '',
       }
    },
    
@@ -89,8 +88,6 @@ export default {
    },
 
    computed:{
-      ...mapState(["practice_test"]),
-
       formattedTimeLeft() {
             const timeLeft = this.timeLeft;
             const minutes = Math.floor(timeLeft / 60);
@@ -127,9 +124,7 @@ export default {
             this.$set(array, i, array[j]);
             this.$set(array, j, temp);
          }
-      },   
-      
-      ...mapActions("practice_test", ["getPracticeTest"], "saveAnswer", "submitAnswer"),
+      },
 
       onChange(event) {
          var optionText = event.target.value;
@@ -167,6 +162,21 @@ export default {
             })
       },
 
+      getQuestions(){
+         getAPI
+            .get(`/quizzes/${this.quiz_slug}/`, {
+               headers: { Authorization: `Bearer ${token}` },
+            })
+            .then((response) => {
+               this.test = response.data
+               console.log(response.data);
+            })
+            .catch((err) => {
+               console.log(err);
+               console.log("Check data not reading ref: actions.js >> course");
+         });
+      },
+
       submitAnswer(){
             // this.answer = parseInt(document.querySelector('input[name="choice"]:checked').value, 10)
             getAPI
@@ -191,21 +201,6 @@ export default {
             });
       },
 
-      // getResults(){
-      //       const slug = this.$route.params.slug
-      //       getAPI
-      //          .get(`/quizzes/${slug}/`, {
-      //             headers: { Authorization: `Bearer ${token}` },
-      //          })
-      //          .then((res) => {
-      //             this.results = res.data
-      //             this.score = this.results.quiztakers_set.score
-      //          })
-      //          .catch((err) => {
-      //             console.log(err);
-      //          });
-      // },
-
       resultsPage(results){
          this.$router.push({
                name: 'QuizResults',
@@ -216,18 +211,18 @@ export default {
       moveNext: function nextQuestion(){
             if (this.currentIndex == 39) {
                this.cur_progress = ((this.currentIndex+1)/39)*100
-               this.quizTaker = this.practice_test.practice_test.quiz.quiztakers_set.id
+               this.quizTaker = this.test.quiz.quiztakers_set.id
                this.answer = parseInt(document.querySelector('input[name="choice"]:checked').value, 10)
-               this.question = this.practice_test.practice_test.quiz.question_set[this.questions[this.currentIndex]].id
+               this.question = this.test.quiz.question_set[this.questions[this.currentIndex]].id
                console.log('first')
                this.submitAnswer()
                console.log('second')
                this.finished = true
             } else {
                this.cur_progress = ((this.currentIndex+1)/39)*100
-               this.quizTaker = this.practice_test.practice_test.quiz.quiztakers_set.id
+               this.quizTaker = this.test.quiz.quiztakers_set.id
                this.answer = parseInt(document.querySelector('input[name="choice"]:checked').value, 10)
-               this.question = this.practice_test.practice_test.quiz.question_set[this.questions[this.currentIndex]].id
+               this.question = this.test.quiz.question_set[this.questions[this.currentIndex]].id
                this.answerDetail[this.currentIndex] = this.answer;
                this.currentIndex += 1;
             }
@@ -237,15 +232,15 @@ export default {
       moveBack: function prevQuestion(){
             if (this.currentIndex == 39) {
                this.cur_progress = ((this.currentIndex+1)/39)*100
-               this.quizTaker = this.practice_test.practice_test.quiz.quiztakers_set.id
+               this.quizTaker = this.test.quiz.quiztakers_set.id
                this.answer = parseInt(document.querySelector('input[name="choice"]:checked').value, 10)
-               this.question = this.practice_test.practice_test.quiz.question_set[this.questions[this.currentIndex]].id
+               this.question = this.test.quiz.question_set[this.questions[this.currentIndex]].id
             } else {
                this.currentIndex -= 1;
                this.cur_progress = ((this.currentIndex+1)/39)*100
-               this.quizTaker = this.practice_test.practice_test.quiz.quiztakers_set.id
+               this.quizTaker = this.test.quiz.quiztakers_set.id
                this.answer = parseInt(document.querySelector('input[name="choice"]:checked').value, 10)
-               this.question = this.practice_test.practice_test.quiz.question_set[this.questions[this.currentIndex]].id
+               this.question = this.test.quiz.question_set[this.questions[this.currentIndex]].id
             }
       },
 
@@ -258,12 +253,15 @@ export default {
                this.$router.push("/skill"); // redirect to quiz page
          } else {
             this.quiz_slug = this.$route.params.slug
-            this.startTimer();
-            this.getPracticeTest(this.quiz_slug);
+            this.getQuestions()
+            // this.getPracticeTest(this.quiz_slug);
          }
       }
    },
    mounted(){
+      this.startTimer();
+   },
+   beforeMount(){
       this.checkparams()
    }
 }
@@ -332,6 +330,14 @@ export default {
 
 .answer{
    margin-right: 1rem;
+}
+
+.pick{
+   height: 25px;
+}
+
+.pick:hover{
+   cursor: pointer;
 }
 
 .pick>li{

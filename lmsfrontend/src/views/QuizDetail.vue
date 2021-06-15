@@ -40,7 +40,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 mt-5">
-                    <div class="quiz-card--listing">
+                    <div v-if="loaded" class="quiz-card--listing">
                         <div class="quiz-cards card" v-for="category in CategoryDetail" :key="category.id">
                             <div class="ini-card-bottom row">
                                 <div class="col-sm-8">
@@ -59,6 +59,11 @@
                             </div>
                         </div>
                     </div>
+                    <div v-if="!loaded" class="quiz-card--listing load-placeholder">
+                        <div class="spinner-border" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -66,21 +71,21 @@
                 <div class="sub-title"><h1>Courses</h1></div>
                 <hr>
                 <div class="video-playlist row">
-                    <div class="video-element col-md-4 col-sm-6 col-xs-12">
+                    <div class="video-element col-lg-4 col-md-12 col-sm-12 mb-3">
                         <vue-plyr>
                             <video poster="@/assets/images/videoposter.png" src="https://res.cloudinary.com/littlms/video/upload/v1599179957/2020-07-24_Design_Thinking_Define_Stage_SWOT_and_TOWS_Analysis_ihwgnl.mp4">
                                 <source src="https://res.cloudinary.com/littlms/video/upload/v1599179957/2020-07-24_Design_Thinking_Define_Stage_SWOT_and_TOWS_Analysis_ihwgnl.mp4" type="video/mp4" size="1080">
                             </video>
                         </vue-plyr>
                     </div>
-                    <div class="video-element col-md-4 col-sm-6 col-xs-12">
+                    <div class="video-element col-lg-4 col-md-12 col-sm-12 mb-3">
                         <vue-plyr>
                             <video poster="@/assets/images/videoposter.png" src="https://res.cloudinary.com/littlms/video/upload/v1599179957/2020-07-24_Design_Thinking_Define_Stage_SWOT_and_TOWS_Analysis_ihwgnl.mp4">
                                 <source src="https://res.cloudinary.com/littlms/video/upload/v1599179957/2020-07-24_Design_Thinking_Define_Stage_SWOT_and_TOWS_Analysis_ihwgnl.mp4" type="video/mp4" size="1080">
                             </video>
                         </vue-plyr>
                     </div>
-                    <div class="video-element col-md-4 col-sm-6 col-xs-12">
+                    <div class="video-element col-lg-4 col-md-12 col-sm-12 mb-3">
                         <vue-plyr>
                             <video poster="@/assets/images/videoposter.png" src="https://res.cloudinary.com/littlms/video/upload/v1599179957/2020-07-24_Design_Thinking_Define_Stage_SWOT_and_TOWS_Analysis_ihwgnl.mp4">
                                 <source src="https://res.cloudinary.com/littlms/video/upload/v1599179957/2020-07-24_Design_Thinking_Define_Stage_SWOT_and_TOWS_Analysis_ihwgnl.mp4" type="video/mp4" size="1080">
@@ -109,7 +114,8 @@ export default {
             CategoryDetail: {},
             CategoryInfo: {},
             slug: '',
-            token: ''
+            token: '',
+            loaded: false
         }
     },
 
@@ -125,6 +131,9 @@ export default {
             await getAPI.get(`/quiz/category/${ this.slug}/`, { headers: { Authorization: `Bearer ${ this.token }`}})
                 .then(({ data }) => {                    
                     this.CategoryDetail = data.quiz_category;
+                })
+                .then(()=>{
+                    this.loaded = true;
                 })
                 .catch(({ response }) => {
                     console.log(response);
@@ -157,7 +166,11 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang='scss'>
+.load-placeholder{
+    text-align: center;
+    margin-top: 8rem;
+}
 
 .header-content{
     display: flex;

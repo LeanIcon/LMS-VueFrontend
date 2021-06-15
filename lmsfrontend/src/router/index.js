@@ -46,20 +46,17 @@ Vue.use(VueRouter)
       path: "/forgotpassword",
       name: "Forgotpassword",
       component: () => import("../views/user/Forgotpassword.vue"),
-      // meta: {
-      //   requiresAuth: true,
-      //   requiresLogin: true,
-      // },
+    },
+    {
+      path: "/500",
+      name: "Error500",
+      component: () => import("../views/error/500.vue"),
     },
     {
       path: "/reset",
       name: "Resetpassword",
       component: () => import("../views/user/Resetpassword.vue"),
       props: route => ({ query: route.query.token })
-      // meta: {
-      //   requiresAuth: true,
-      //   requiresLogin: true,
-      // },
     },
     {
       path: "/dashboard",

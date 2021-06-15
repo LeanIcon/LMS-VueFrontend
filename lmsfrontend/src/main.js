@@ -82,7 +82,11 @@ router.beforeEach((to, from, next) => {
     if (!store.getters.loggedIn) {
       next({ name: "Signin" });
     } else {
-      next();
+      next();      
+      // Scroll page to top on every route change
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 100);
     }
   } else {
     next();
