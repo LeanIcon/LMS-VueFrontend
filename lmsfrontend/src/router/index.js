@@ -127,7 +127,7 @@ Vue.use(VueRouter)
       }
     },
     {
-      path: "/quizoverview",
+      path: "/quizoverview/:quiz_id",
       name: "QuizOverview",
       component: () => import("../views/QuizOverview.vue"),
       meta: {

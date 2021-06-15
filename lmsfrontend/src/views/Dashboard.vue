@@ -19,7 +19,7 @@
                       <div class="row">
                         <div class="col">
                           <h5 class="card-title text-uppercase text-muted mb-0">Learning Streak</h5>
-                          <span class="h2 font-weight-bold mb-0">3 Days</span>
+                          <span class="h2 font-weight-bold mb-0">N/A Days</span>
                         </div>
                         <div class="col-auto">
                           <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
@@ -40,7 +40,7 @@
                       <div class="row">
                         <div class="col">
                           <h5 class="card-title text-uppercase text-muted mb-0">Courses Taken</h5>
-                          <span class="h2 font-weight-bold mb-0">1</span>
+                          <span class="h2 font-weight-bold mb-0">N/A</span>
                         </div>
                         <div class="col-auto">
                           <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
@@ -61,7 +61,7 @@
                       <div class="row">
                         <div class="col">
                           <h5 class="card-title text-uppercase text-muted mb-0">Quizzes Taken</h5>
-                          <span class="h2 font-weight-bold mb-0">3</span>
+                          <span class="h2 font-weight-bold mb-0">N/A</span>
                         </div>
                         <div class="col-auto">
                           <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
@@ -82,7 +82,7 @@
                       <div class="row">
                         <div class="col">
                           <h5 class="card-title text-uppercase text-muted mb-0">Performance</h5>
-                          <span class="h2 font-weight-bold mb-0">49.65%</span>
+                          <span class="h2 font-weight-bold mb-0">N/A</span>
                         </div>
                         <div class="col-auto">
                           <div class="icon icon-shape bg-info text-white rounded-circle shadow">
@@ -99,7 +99,7 @@
                 </div>
               </div>
             </div>
-            <div class="title">
+            <!-- <div class="title">
               <h2>Recent Activity</h2>
             </div>
             <div class="row">
@@ -109,7 +109,7 @@
                 <div class="col-xl-6 col-lg-12 col-md-12 mb-3">
                   <quizCard></quizCard>
                 </div>
-            </div>
+            </div> -->
 
           </div>
         </div>
@@ -118,8 +118,8 @@
 
 <script>
 import Sidebar from '@/components/Dashboard/Sidebar.vue'
-import ActivityCard from '@/components/Dashboard/ActivityCard.vue'
-import quizCard from '@/components/Dashboard/quizCard.vue' 
+// import ActivityCard from '@/components/Dashboard/ActivityCard.vue'
+// import quizCard from '@/components/Dashboard/quizCard.vue' 
 import Dashboardnavbar from '@/components/Dashboard/Dashboardnavbar.vue'
 export default {
 // @ is an alias to /src
@@ -127,8 +127,8 @@ export default {
   components:{
     Sidebar,
     Dashboardnavbar,
-    ActivityCard,
-    quizCard
+    // ActivityCard,
+    // quizCard
   },
   
   mounted () {
@@ -183,9 +183,6 @@ export default {
   box-sizing: border-box;
 }
 
-@-ms-viewport {
-  width: device-width;
-}
 
 figcaption,
 footer,

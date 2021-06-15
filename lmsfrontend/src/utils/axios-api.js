@@ -8,7 +8,8 @@ import router from "../router";
 Vue.use(NProgress)
 
 const nprogress = new NProgress()
-const baseURL ='https://littapi.herokuapp.com'
+// const baseURL ='https://littapi.herokuapp.com'
+const baseURL ='http://127.0.0.1:9000'
 
 const getAPI = axios.create({
     // Unused due to database conflict

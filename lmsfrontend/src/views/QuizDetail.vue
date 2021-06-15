@@ -33,9 +33,9 @@
                         <br>Let's Go!
                     </h1>
                     <div class="additional-content">
-                        Business analysis is a research discipline of identifying business needs and determining solutions to business problems. Solutions often include a software-systems development component, but may also consist of process improvement, organisational change or strategic planning and policy development.
+                            {{ CategoryInfo.description }}
                         <br><b>Related Topics:</b>
-                        <br>Corporate/Organizational Structure, SWOT Analysis, PESTEL/PESTLE Analysis
+                        <br>{{ CategoryInfo.related_topics }}
 
                     </div>
                 </div>

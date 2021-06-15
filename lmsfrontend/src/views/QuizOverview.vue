@@ -53,18 +53,24 @@ export default {
             this.$router.go(-1)
         },
         checkparams(){
-            if (!this.$route.params.title) {
+            if (!this.$route.params.quiz_id) {
                 this.$router.push("/skill"); // redirect to quiz page
             }
+        },
+
+        strip_(char){
+            this.quizTitle = char.replace(/-/g, " ")
         }
     },
     computed: {
         // ...mapState(["practice_test"]),
     },
     mounted() {
-        this.quizTitle = this.$route.params.title;
+        // const Title = this.$route.params.quiz_id
         this.quiz_id = this.$route.params.quiz_id;
+        this.strip_(this.quiz_id)
         // this.getPracticeTest(this.quiz_id);
+        // this.quizTitle = this.quiz_id.replace.replace(/-/g, " ");
         this.checkparams()
     },
 }
@@ -112,6 +118,7 @@ export default {
 .header-title{
     margin-top: 1rem;
     font-weight: 700;
+    text-transform: capitalize;
 }
 
 .content-header{
