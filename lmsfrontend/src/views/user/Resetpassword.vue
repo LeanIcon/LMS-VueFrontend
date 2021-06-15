@@ -5,14 +5,14 @@
         <div class="col-md-5 bg_img">
           <!-- <img src="@/assets/images/forgotpassbg.jpg" alt="" class="h-100"> -->
         </div>
-        <div class="col-md-7">
+        <div class="col-md-7 sec2">
           <div class="border_line"></div>
           <div class="display_content row mx-3">
-            <div class="col-md-6 user_info">
+            <div class="col-lg-4 col-md-12  user_info">
               <h1>Create new password</h1>
               <p>Your password must be different from previously used passwords.</p>
             </div>
-            <div class="col-md-6 info_section">
+            <div class="col-lg-8 col-md-12 info_section">
               <form action="" method="post" v-on:submit.prevent="changePassword">
                 <input type="password" v-model="password" placeholder="New Password" class="mb-3">
                 <input type="password" placeholder="Confirm Password" class="mb-3">
@@ -96,10 +96,14 @@ input:focus, .btn:focus{
 
 button{
   height: 3rem;
-  background-color:#E01010;
+  background-color:#494949;
   color: #fefefe;
   font-size: 1.2rem;
   font-weight: 500;
+}
+
+button:hover{
+  background-color:#3b3b3b;
 }
 
 .border_line{
@@ -148,6 +152,59 @@ form, .user_info{
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   margin: auto;
+}
+
+@media screen and (max-width: 1024px) {
+   .display_content{
+      display: flex;
+      flex-direction: row;
+      margin: auto;
+   }
+
+   .info_section{
+      width: 100%;
+   }
+
+   .user_info{
+      text-align: center;
+   }
+
+   .return_btn{
+      visibility: hidden;
+   }
+   .user_info h1{
+      font-size: 33px;
+      font-weight: 600;
+   }
+}
+
+@media screen and (max-width: 754px) {
+   .bg_img{
+      display: none;
+   }
+
+   .sec2{
+      margin: auto;
+      height: 100vh;
+   }
+
+   .user_info h1{
+      font-size: 27px;
+      font-weight: 600;
+   }
+
+   input{
+      width: 100%;
+   }
+
+   form{
+      width: 70%;
+   }
+
+   .display_content{
+      height: 100%;
+      place-content: center;
+   }
 }
 
 </style>
