@@ -29,7 +29,6 @@ console.log(token);
 
 export const getPracticeTest = ({ commit }, slug) => {
   getAPI
-    // .get(`/quizzes/${quiz_slug}/`, {
     .get(`/quizzes/${slug}/`, {
       headers: { Authorization: `Bearer ${token}` },
     })

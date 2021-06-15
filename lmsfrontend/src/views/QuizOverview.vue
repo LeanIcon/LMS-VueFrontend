@@ -12,7 +12,7 @@
             <div class="ini-page-body">
                 <div class="content-header">
                     <h1 class="header-title ini-title">
-                        {{quizTitle}} <br> skill Assessment
+                        {{quizTitle}} <br> Skill Assessment
                     </h1>
                     <div class="header-body">
                         We rely on users to help us calibrate our skill assessments before they can be published. While this skill assessment is in beta, your performance will not be recorded and you will not get a Skill IQ.
@@ -53,18 +53,24 @@ export default {
             this.$router.go(-1)
         },
         checkparams(){
-            if (!this.$route.params.title) {
+            if (!this.$route.params.quiz_id) {
                 this.$router.push("/skill"); // redirect to quiz page
             }
+        },
+
+        strip_(char){
+            this.quizTitle = char.replace(/-/g, " ")
         }
     },
     computed: {
         // ...mapState(["practice_test"]),
     },
     mounted() {
-        this.quizTitle = this.$route.params.title;
+        // const Title = this.$route.params.quiz_id
         this.quiz_id = this.$route.params.quiz_id;
+        this.strip_(this.quiz_id)
         // this.getPracticeTest(this.quiz_id);
+        // this.quizTitle = this.quiz_id.replace.replace(/-/g, " ");
         this.checkparams()
     },
 }
@@ -112,6 +118,7 @@ export default {
 .header-title{
     margin-top: 1rem;
     font-weight: 700;
+    text-transform: capitalize;
 }
 
 .content-header{
@@ -151,5 +158,21 @@ export default {
 .video-element{
     height: 30rem;
     background-size: cover !important;
+}
+
+@media screen and (max-width: 768px) {
+    .header-body{
+        max-width: 100%;
+    }
+    .btn-container{
+        width: 100%;
+        text-align: left;
+    }
+    .page{
+        padding: 1rem;
+    }
+    .content-header{
+        height: 100%;
+    }
 }
 </style>

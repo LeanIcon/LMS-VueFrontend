@@ -18,8 +18,11 @@ import VuePlyr from 'vue-plyr';
 import VueNotification from "@kugatsu/vuenotification";
 import VueTippy, { TippyComponent } from "vue-tippy";
 import VueSanitize from "vue-sanitize";
+// import Donut from 'vue-css-donut-chart';
+// import 'vue-css-donut-chart/dist/vcdonut.css';
 
 
+// Vue.use(Donut);
 Vue.use(VueSanitize);
 Vue.use(VueTippy);
 Vue.component("tippy", TippyComponent);
@@ -27,7 +30,7 @@ Vue.use(VueNotification, {
   timer: 10,
   error: {
     background: "red",
-    color: "white"
+    color: "white",
   },
   success: {
     background: "green",
@@ -79,7 +82,11 @@ router.beforeEach((to, from, next) => {
     if (!store.getters.loggedIn) {
       next({ name: "Signin" });
     } else {
-      next();
+      next();      
+      // Scroll page to top on every route change
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 100);
     }
   } else {
     next();

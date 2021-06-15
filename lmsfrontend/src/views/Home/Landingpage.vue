@@ -15,7 +15,7 @@
 			<div class="home-wrapper">
 				<div class="container">
 					<div class="row hero-content">
-						<div class="col-12 mx-5">
+						<div class="col-12">
 							<h1 class="white-text" style="font-size: 50px;">See your Growth, Progress and Evolution</h1>
 							<p class="hero-lead white-text">Learn to Successfully Put Agile Practices Into Action. Improve your Ability to Plan,<br> Manage & Lead in Your Project Teams with Agile</p>
 							<router-link :to = "{ name:'Signin' }">

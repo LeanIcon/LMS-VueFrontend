@@ -1,21 +1,25 @@
 <template>
   <div class="forgotpassword">
       <div class="page__container row">
-        <a class="return_btn">&lt; Back</a>
+        <a class="return_btn" @click="goBack()"><i class="back--btn fa fa-arrow-left"></i> Back</a>
         <div class="col-md-5 bg_img">
           <!-- <img src="@/assets/images/forgotpassbg.jpg" alt="" class="h-100"> -->
         </div>
-        <div v-if="!token_requested" class="col-md-7">
+        <div v-if="!token_requested" class="col-md-7 sec2">
           <div class="border_line"></div>
           <div class="display_content row mx-3">
-            <div class="col-md-6 user_info">
+            <div class="col-lg-4 col-md-12 user_info">
               <h1>Forgot your password?</h1>
-              <p>Enter the email associated with your account and we’ll sean anemail with instructions to reset your password</p>
+              <p>Enter the email associated with your account and we’ll send an with instructions to reset your password</p>
             </div>
-            <div class="col-md-6 info_section">
+            <div class="col-lg-8 col-md-12 info_section">
               <form action="" method="POST" v-on:submit.prevent="resetPass">
                 <input type="email" placeholder="Enter your email address" v-model="email" required>
-                <button class="btn" v-on:submit.prevent="resetPass">Send</button>
+                <button class="btn" v-on:submit.prevent="resetPass">
+                  <!-- <span class="spinner-grow float-left spinner-grow-sm" role="status" aria-hidden="true"></span> -->
+                    <!-- <span class="sr-only">Loading...</span> -->
+                    Send
+              </button>
               </form>
             </div>
           </div>
@@ -33,11 +37,12 @@
       </div>
   </div>
 </template>
-<script>
-    // @ is an alias to /src
 
+
+
+<script>
 export default {
-  name: 'Home',
+  name: 'Forgotpassword',
   data () {
     return {
       email: '',
@@ -48,6 +53,9 @@ export default {
     // Footer
   },
   methods: {
+    goBack(){
+      this.$router.go(-1)
+    },
     resetPass() { 
         this.$store.dispatch('resetPassword', {
           email: this.email,
@@ -57,20 +65,32 @@ export default {
           this.token_requested = true
         })
         .catch(err => {
-            this.errinfo = 'Invalid login credentials'
-            console.log(err)
-            alert('err')
+          if(err == 400){
+            this.$notification.error("Something went wrong. Please check your email and try again", { infiniteTimer: false});
+          } else if (err == 500){
+            this.$notification.error("There is a problem from our side. Please try again later", { infiniteTimer: false});
+          } else {
+            this.$notification.error("Something went wrong. Please try again later", { infiniteTimer: false});
+          }
+          this.email = ''
         })
     },
   }
 }
 </script>
+
+
+
 <style scoped>
 .return_btn{
   position: absolute;
   top: 2rem;
   right: 2rem;
+  color: #030303;
+  cursor: pointer;
+  text-decoration: none;
 }
+
 .vector_img{
   width: 100vw;
   position: absolute;
@@ -98,10 +118,14 @@ input:focus, .btn:focus{
 
 button{
   height: 3rem;
-  background-color:#E01010;
+  background-color:#494949;
   color: #fefefe;
   font-size: 1.2rem;
   font-weight: 500;
+}
+
+button:hover{
+  background-color:#3b3b3b;
 }
 
 .border_line{
@@ -151,5 +175,59 @@ form, .user_info{
   transform: translateY(-50%);
   margin: auto;
 }
+
+@media screen and (max-width: 1024px) {
+  .display_content{
+      display: flex;
+      flex-direction: row;
+      margin: auto;
+  }
+
+  .info_section{
+      width: 100%;
+  }
+
+  .user_info{
+      text-align: center;
+  }
+
+  .return_btn{
+      visibility: hidden;
+  }
+  .user_info h1{
+      font-size: 33px;
+      font-weight: 600;
+  }
+}
+
+@media screen and (max-width: 754px) {
+  .bg_img{
+      display: none;
+  }
+
+  .sec2{
+      margin: auto;
+      height: 100vh;
+  }
+
+  .user_info h1{
+      font-size: 27px;
+      font-weight: 600;
+  }
+
+  input{
+      width: 100%;
+  }
+
+  form{
+      width: 70%;
+  }
+
+  .display_content{
+      height: 100%;
+      place-content: center;
+  }
+}
+
 
 </style>

@@ -43,6 +43,7 @@ export default ({
                     resolve()
                 })
                 .catch(err => {
+                    err = err.response.status
                     reject(err)
                 })
             })
@@ -59,7 +60,8 @@ export default ({
                     }
                 })
                 .catch(err => {
-                    reject(err);
+                    err = err.response.status
+                    reject(err)
                 })
             })
         },
@@ -96,7 +98,8 @@ export default ({
                     }
                 })
                 .catch(err => {
-                    reject(err);
+                    err = err.response.status
+                    reject(err)
                 })
             })
         }

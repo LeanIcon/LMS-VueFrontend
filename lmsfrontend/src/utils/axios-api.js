@@ -5,16 +5,18 @@ import LocalStorageService from "./token";
 import router from "../router";
 
 
-Vue.use(NProgress);
+Vue.use(NProgress)
 
-// const nprogress = new NProgress();
+const nprogress = new NProgress()
+// const baseURL ='https://littapi.herokuapp.com'
+const baseURL ='http://127.0.0.1:9000'
 
 const getAPI = axios.create({
     // Unused due to database conflict
 
 
-    baseURL: 'http://127.0.0.1:9000',
-    // baseURL: 'https://littapi.herokuapp.com',
+    // baseURL: 'http://127.0.0.1:9000',
+    baseURL: baseURL,
     timeout: 20000,
 })
 
@@ -40,19 +42,17 @@ const localStorageService = LocalStorageService.getService();
 
 // Add a request interceptor
 getAPI.interceptors.request.use(
-   config => {
-       const token = localStorageService.getAccessToken();
-       if (token) {
-           config.headers['Authorization'] = 'Bearer ' + token;
-       }
-      //  config.headers['Content-Type'] = 'application/json';
-      console.log('Debug :50')
-       return config;
-   },
-   error => {
-       Promise.reject(error)
-       console.log('Debug :55')
-   });
+  config => {
+    nprogress.start()
+    const token = localStorageService.getAccessToken()
+    if (token) {
+      config.headers['Authorization'] = 'Bearer ' + token;
+    }
+    return config
+  },
+  error => {
+      Promise.reject(error)
+  });
 
 
 
@@ -60,7 +60,7 @@ getAPI.interceptors.request.use(
 
 getAPI.interceptors.response.use(
   (response) => {
-    console.log("Debug :63");
+    nprogress.done()
     return response;
   },
   async function(error) {
@@ -68,7 +68,7 @@ getAPI.interceptors.response.use(
 
     if (
       error.response.status === 401 &&
-      originalRequest.url === "https://littapi.herokuapp.com/auth-token"
+      originalRequest.url === `${baseURL}/auth-token`
     ) {
       router.push("/signin");
       return Promise.reject(error);
@@ -80,20 +80,21 @@ getAPI.interceptors.response.use(
       const res = await getAPI.post("/api-token-refresh/", {
         refresh: refreshToken,
       });
-      console.log("401 here i come: axios-api line: 81");
       if (res.status === 200) {
         localStorageService.setToken(res.data);
         getAPI.defaults.headers.common["Authorization"] =
           "Bearer " + localStorageService.getAccessToken();
-          console.log('Debug success')
         return getAPI(originalRequest);
       }
     }
 
     if (error.response.status === 404) {
-      // router.push('/dashboard')
-      console.log('Add custom error page here :( 404')
+      console.log('404')
     }
+
+    // if (error.response.status === 500) {
+    //   router.push('/500')
+    // }
     return Promise.reject(error);
   }
 );
