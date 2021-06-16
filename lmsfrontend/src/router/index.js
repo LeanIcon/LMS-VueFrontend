@@ -59,6 +59,11 @@ Vue.use(VueRouter)
       props: route => ({ query: route.query.token })
     },
     {
+      path: "/accounts/activate/:header/:token_id",
+      name: "ActivateAccount",
+      component: () => import("../views/user/ActivateAccount.vue"),
+    },
+    {
       path: "/dashboard",
       name: "Dashboard",
       component: () => import("../views/Dashboard.vue"),

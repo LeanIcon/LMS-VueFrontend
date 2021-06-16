@@ -174,5 +174,77 @@ export default {
     .content-header{
         height: 100%;
     }
+    .sidebar{
+        display: none;
+    }
+
+    .mobileNav{
+        display: initial;
+    }
+}
+
+
+@media screen and (max-width: 754px) {
+
+    .home-content{
+        background-color: #EDEDED;
+        position: absolute;
+        width: 100%;
+        padding-left: 0;
+        top: 52px;
+        height: 150%;
+    }
+    .page--body--container {
+        padding-left: 0rem;
+        width: 100%;
+    }
+
+    .footer{
+        display: none;
+    }
+
+    .header-content{
+        margin-left: auto;
+        text-align: center;
+        height: 18rem;
+    }
+
+    .caption{
+        font-size: 25px;
+        padding: 0 1rem;
+    }
+
+    .display-banner{
+        height: 18rem;
+    }
+
+    .quiz-content{
+        margin: 1rem !important;
+        margin-bottom: 10rem !important;
+    }
+
+    .logo-box{
+        height: 4rem;
+        max-width: 30%;
+    }
+
+    .card--header{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .card--bold--title{
+        height: auto;
+        font-size: 23px;
+        margin: auto;
+        text-align: center;
+    }
+
+    .quiz-btn{
+        text-align: center;
+        margin-top: 2.5rem;
+    }
+
+
 }
 </style>

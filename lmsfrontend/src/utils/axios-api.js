@@ -8,31 +8,13 @@ import router from "../router";
 Vue.use(NProgress)
 
 const nprogress = new NProgress()
-// const baseURL ='https://littapi.herokuapp.com'
-const baseURL ='http://127.0.0.1:9000'
+const baseURL ='https://littapi.herokuapp.com'
+// const baseURL ='http://127.0.0.1:9000'
 
 const getAPI = axios.create({
-    // Unused due to database conflict
-
-
-    // baseURL: 'http://127.0.0.1:9000',
     baseURL: baseURL,
     timeout: 20000,
 })
-
-// // before a request is made start the nprogress
-// getAPI.interceptors.request.use(config => {
-//   nprogress.start();
-//   return config
-// })
-
-// // before a response is returned stop nprogress
-// getAPI.interceptors.response.use(res => {
-//   nprogress.done();
-//   return res;
-// })
-
-// export default getAPI
 
 export { getAPI }
 
@@ -43,6 +25,9 @@ const localStorageService = LocalStorageService.getService();
 // Add a request interceptor
 getAPI.interceptors.request.use(
   config => {
+    let regex = /.*csrftoken=([^;.]*).*$/; // Used to match csrftoken value from cookie
+    config.headers['X-CSRFToken'] = document.cookie.match(regex) === null ? null : document.cookie.match(regex)[1];
+
     nprogress.start()
     const token = localStorageService.getAccessToken()
     if (token) {

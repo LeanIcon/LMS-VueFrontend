@@ -9,6 +9,7 @@
             <div class="border_line"></div>
             <div class="display_content row mx-3">
             <div class="col-lg-4 col-md-12 user_info">
+              <img src="@/assets/gh_01.png" alt="sidebar-logo">
                <h1>Have an account?</h1>
                <p>Login to your dashboard.</p>
             </div>
@@ -199,58 +200,71 @@ form, .user_info{
    margin: auto;
 }
 
+.user_info img{
+  display: none;
+}
 
 @media screen and (max-width: 1024px) {
-   .display_content{
+  .display_content{
       display: flex;
       flex-direction: row;
       margin: auto;
-   }
+  }
 
-   .info_section{
+  .info_section{
       width: 100%;
-   }
+  }
 
-   .user_info{
+  .user_info{
       text-align: center;
-   }
+  }
 
-   .return_btn{
+  .return_btn{
       visibility: hidden;
-   }
-   .user_info h1{
+  }
+  .user_info h1{
       font-size: 33px;
       font-weight: 600;
-   }
+  }
 }
 
 @media screen and (max-width: 754px) {
-   .bg_img{
-      display: none;
-   }
+  .bg_img{
+    display: none;
+  }
 
-   .sec2{
-      margin: auto;
-      height: 100vh;
-   }
+  .sec2{
+    margin: auto;
+    height: 100vh;
+  }
 
-   .user_info h1{
-      font-size: 27px;
-      font-weight: 600;
-   }
+  .user_info h1{
+    font-size: 27px;
+    font-weight: 600;
+  }
 
-   input{
-      width: 100%;
-   }
+  input{
+    width: 100%;
+  }
 
-   form{
-      width: 70%;
-   }
+  form{
+    width: 80%;
+    max-width: 312px;
+  }
 
-   .display_content{
-      height: 100%;
-      place-content: center;
-   }
+  .display_content{
+  height: 100%;
+  height: 70%;
+  margin: auto;
+  display: inherit;
+  }
+
+  .user_info img{
+    display: inherit;
+    height: 130px;
+    text-align: center;
+    margin: auto;
+  }
 }
 
 </style>

@@ -9,6 +9,7 @@
           <div class="border_line"></div>
           <div class="display_content row mx-3">
             <div class="col-lg-4 col-md-12 user_info">
+              <img src="@/assets/gh_01.png" alt="official-logo">
               <h1>Forgot your password?</h1>
               <p>Enter the email associated with your account and we’ll send an with instructions to reset your password</p>
             </div>
@@ -16,8 +17,6 @@
               <form action="" method="POST" v-on:submit.prevent="resetPass">
                 <input type="email" placeholder="Enter your email address" v-model="email" required>
                 <button class="btn" v-on:submit.prevent="resetPass">
-                  <!-- <span class="spinner-grow float-left spinner-grow-sm" role="status" aria-hidden="true"></span> -->
-                    <!-- <span class="sr-only">Loading...</span> -->
                     Send
               </button>
               </form>
@@ -27,10 +26,13 @@
         <div v-if="token_requested" class="col-md-7">
           <div class="border_line"></div>
           <div class="display_content" style="text-align: center;">
-            <h1>Check your email</h1>
-            <p>We have sent a password recovery instrcution to your email</p>
-            <p class="mt-5">Did not receive the mail? Check your spam filter, <br>or <a  @click="this.token_requested = false" style="color: #E01010;" href="">try another email address</a>
-            </p>
+            <div class="col-lg-4 col-md-12 user_info">
+              <img src="@/assets/gh_01.png" alt="official-logo">
+              <h1>Check your email</h1>
+              <p>We have sent a password recovery instrcution to your email</p>
+              <p class="mt-5">Did not receive the mail? Check your spam filter, <br>or <a  @click="this.token_requested = false" style="color: #E01010;" href="">try another email address</a>
+              </p>
+            </div>
           </div>
         </div>
         <img src="@/assets/images/Vector 1.png" alt="" class="vector_img">
@@ -176,6 +178,11 @@ form, .user_info{
   margin: auto;
 }
 
+
+.user_info img{
+  display: none;
+}
+
 @media screen and (max-width: 1024px) {
   .display_content{
       display: flex;
@@ -202,32 +209,43 @@ form, .user_info{
 
 @media screen and (max-width: 754px) {
   .bg_img{
-      display: none;
+    display: none;
   }
 
   .sec2{
-      margin: auto;
-      height: 100vh;
+    margin: auto;
+    height: 100vh;
   }
 
   .user_info h1{
-      font-size: 27px;
-      font-weight: 600;
+    font-size: 27px;
+    font-weight: 600;
   }
 
   input{
-      width: 100%;
+    width: 100%;
   }
 
   form{
-      width: 70%;
+    width: 80%;
+    max-width: 312px;
   }
 
   .display_content{
-      height: 100%;
-      place-content: center;
+  height: 100%;
+  height: 70%;
+  margin: auto;
+  display: inherit;
+  }
+
+  .user_info img{
+    display: inherit;
+    height: 130px;
+    text-align: center;
+    margin: auto;
   }
 }
+
 
 
 </style>

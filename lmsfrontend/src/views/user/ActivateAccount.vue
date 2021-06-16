@@ -2,35 +2,16 @@
   <div class="forgotpassword">
       <div class="page__container row">
         <a class="return_btn">&lt; Back</a>
-        <div class="col-md-5 bg_img">
-          <!-- <img src="@/assets/images/forgotpassbg.jpg" alt="" class="h-100"> -->
-        </div>
-        <div class="col-md-7 sec2">
-          <div class="border_line"></div>
-          <div class="display_content row mx-3">
-            <div class="col-lg-4 col-md-12  user_info">
-              <img src="@/assets/gh_01.png" alt="sidebar-logo">
-              <h1>Create new password</h1>
-              <p>Your password must be different from previously used passwords.</p>
-            </div>
-            <div class="col-lg-8 col-md-12 info_section">
-              <form action="" method="post" v-on:submit.prevent="changePassword">
-                <input type="password" v-model="password" placeholder="New Password" class="mb-3">
-                <input type="password" placeholder="Confirm Password" class="mb-3">
-                <button class="btn" v-on:submit.prevent="changePassword">Send</button>
-              </form>
-            </div>
-          </div>
-        </div>
-        <img src="@/assets/images/Vector 1.png" alt="" class="vector_img">
       </div>
   </div>
 </template>
+
 <script>
+import { getAPI } from '../../utils/axios-api'
     // @ is an alias to /src
 
 export default {
-  name: 'Resetpassword',
+  name: 'ActivateAccount',
   data(){
     return{
       password: ''
@@ -40,26 +21,30 @@ export default {
     // Footer
   },
   methods:{
-      changePassword() { 
-        this.$store.dispatch('changePassword', {
-          password: this.password,
-          token: this.$route.query.token,
-        })
-        // Replace '/' with the homepage
-        .then(() => {
-          this.$router.push('/signin')
-        })
-        .catch(err => {
-            this.errinfo = 'Invalid login credentials'
-            console.log(err)
-            alert('err')
-        })
-    },
+    async activateAccount() {
+      await getAPI.post(`/accounts/activate/${this.$route.params.header}/${this.$route.params.token_id}/`)
+          .then((res) => {
+              const message = res.data.message
+              if(message.includes('confirmed')){
+                this.$notification.success("Your account has successfully been confirmed!", { infiniteTimer: false});
+                this.$router.push('/signin')
+              } else if(message.includes('invalid')) {
+                this.$notification.success("Invalid activation link. Please check your email and try again", { infiniteTimer: false});
+                this.$router.push('/register')
+              }
+          })
+          .catch(({ err }) => {
+            this.$notification.error("An error just occured please check and try again", { infiniteTimer: false});
+            this.$router.push('/register')
+              console.log(err);
+          });
+      },
   },
   mounted(){
+    this.activateAccount()
     // alert(this.$route.query.token)
-    if(this.$route.query.token == undefined){
-      this.$router.push('/forgotpassword')
+    if(this.$route.params.token_id == undefined){
+      this.$router.push('/signin')
     }
   }
 }

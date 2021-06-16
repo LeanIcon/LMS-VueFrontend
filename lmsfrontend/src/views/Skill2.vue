@@ -4,6 +4,9 @@
             <Sidebar></Sidebar>
             <Dashboardnavbar></Dashboardnavbar>
         </div>
+        <div class="mobileNav">
+            <MobileNav/>
+        </div>
 
 
         <div class="page--body--container">
@@ -35,10 +38,10 @@
                         <div v-if="quiz_category.name != 'Uncategorised'">
                             <div class="quiz-card--item card">
                                 <div class="card--header row">
-                                    <div class="logo-box col-sm-3">
+                                    <div class="logo-box col-xl-3 col-xs-2 col">
                                         <img :src="`${quiz_category.img_url}`" alt="quiz logo">
                                     </div>
-                                    <div class=" quiz-title col-sm-9">
+                                    <div class=" quiz-title col-xl-9 col-xs-10 col">
                                         <h1 class="card--bold--title">{{quiz_category.name}}</h1>
                                     </div>
                                 </div>
@@ -49,7 +52,7 @@
                                             <p class="progress-info">2/4 Practice Test</p>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-4 quiz-btn">
                                         <router-link class="btn card-btn" :to="{ name:'QuizDetail', params: {slug: `${quiz_category.id}`} }" tag="a">
                                             View Quiz
                                         </router-link>
@@ -81,12 +84,13 @@
                 </div>
             </div> -->
         </div>
-        <Footer/>
+        <Footer class="footer"/>
     </div>
 </template>
 
 <script>
 import Sidebar from '@/components/Dashboard/Sidebar.vue'
+import MobileNav from '@/components/Dashboard/MobileNav.vue'
 import Dashboardnavbar from '@/components/Dashboard/Dashboardnavbar.vue'
 import Footer from '@/components/Dashboard/Footer.vue'
 
@@ -103,6 +107,7 @@ export default {
         Sidebar,
         Dashboardnavbar,
         Footer,
+        MobileNav,
     },  
 
     mounted () {
@@ -112,6 +117,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.mobileNav{
+    display: none;
+}
+
 .page--body--container{
     padding-left: 4.5rem;
     width: 100%;
@@ -198,7 +207,6 @@ export default {
     margin: auto;
     border: none;
     height: 230px;
-    // width: 520px;
     border-radius: 32px;
     background: #f9f9f9;
     box-shadow: 5px 5px 10px #dadada94, -5px -5px 10px #ffffff;
@@ -265,5 +273,77 @@ export default {
     margin-bottom: 20px;
     // width: 98%;
     border: none;
+}
+
+
+@media screen and (max-width: 754px) {
+    .sidebar{
+        display: none;
+    }
+
+    .mobileNav{
+        display: initial;
+    }
+
+    .home-content{
+        background-color: #EDEDED;
+        position: absolute;
+        width: 100%;
+        padding-left: 0;
+        top: 52px;
+        height: 150%;
+    }
+    .page--body--container {
+        padding-left: 0rem;
+        width: 100%;
+    }
+
+    .footer{
+        display: none;
+    }
+
+    .header-content{
+        margin-left: auto;
+        text-align: center;
+        height: 18rem;
+    }
+
+    .caption{
+        font-size: 25px;
+        padding: 0 1rem;
+    }
+
+    .display-banner{
+        height: 18rem;
+    }
+
+    .quiz-content{
+        margin: 1rem !important;
+        margin-bottom: 10rem !important;
+    }
+
+    .logo-box{
+        height: 4rem;
+        max-width: 30%;
+    }
+
+    .card--header{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .card--bold--title{
+        height: auto;
+        font-size: 23px;
+        margin: auto;
+        text-align: center;
+    }
+
+    .quiz-btn{
+        text-align: center;
+        margin-top: 2.5rem;
+    }
+
+
 }
 </style>

@@ -10,6 +10,7 @@
             <div class="border_line"></div>
             <div class="display_content row">
                <div class="col-lg-4 col-md-12 user_info">
+              <img src="@/assets/gh_01.png" alt="sidebar-logo">
                   <h1>Join The Community</h1>
                   <p>Sign Up to upgrade your skills</p>
                </div>
@@ -24,11 +25,8 @@
                         <input type="checkbox" class="my-3 checkbox">
                         <p>Remember Me</p>
                      </div>
-                     <button class="btn" v-on:submit.prevent="register">
-                     <!-- <span class="spinner-grow float-left spinner-grow-sm" role="status" aria-hidden="true"></span> -->
-                        <!-- <span class="sr-only">Loading...</span> -->
-                        Register
-                  </button>
+                     <button class="btn" v-on:submit.prevent="register">Register</button>
+                     <p class="mt-3">Already registered? <router-link :to="{ name: 'Signin'}" tag="a" class="reset_link">Login</router-link></p>
                   </form>
                </div>
             </div>
@@ -36,8 +34,6 @@
       </div>
    </div>
 </template>
-
-
 
 <script>
    export default {
@@ -227,37 +223,75 @@ form, .user_info{
    margin: auto;
 }
 
+.user_info img{
+   display: none;
+}
+
+input:checked{
+   background-color:red !important;
+}
+
 @media screen and (max-width: 1024px) {
    .display_content{
-      display: flex;
-      flex-direction: row;
-      margin: auto;
+         display: flex;
+         flex-direction: row;
+         margin: auto;
    }
 
    .info_section{
-      width: 100%;
-      text-align: center;
+         width: 100%;
    }
 
    .user_info{
-      text-align: center;
+         text-align: center;
    }
 
    .return_btn{
-      visibility: hidden;
+         visibility: hidden;
+   }
+   .user_info h1{
+         font-size: 33px;
+         font-weight: 600;
+   }
+}
+
+@media screen and (max-width: 754px) {
+   .bg_img{
+      display: none;
+   }
+
+   .sec2{
+      margin: auto;
+      height: 100vh;
    }
 
    .user_info h1{
-      font-size: 30px;
-      margin: auto;
+      font-size: 27px;
+      font-weight: 600;
    }
 
-   .layer2{
-      height: 100vh;
-      overflow-y: scroll;
-      /* margin: 4rem 0; */
+   input{
+      width: 100%;
    }
-   
+
+   form{
+      width: 80%;
+      max-width: 312px;
+   }
+
+   .display_content{
+   height: 100%;
+   margin: auto;
+   display: inherit;
+   width: 100vw;
+   }
+
+   .user_info img{
+      display: inherit;
+      height: 130px;
+      text-align: center;
+      margin: auto;
+   }
 }
 
 </style>

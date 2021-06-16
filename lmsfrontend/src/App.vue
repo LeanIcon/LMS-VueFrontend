@@ -57,7 +57,7 @@ body:after{
   position: fixed;
   width: 80px;
   height: 25px;
-  background: #580202;
+  background: #850000;
   top: 7px;
   right: -20px;
   text-align: center;
