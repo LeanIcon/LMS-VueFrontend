@@ -18,7 +18,7 @@
 						<div class="col-12">
 							<h1 class="white-text" style="font-size: 50px;">See your Growth, Progress and Evolution</h1>
 							<p class="hero-lead white-text">Learn to Successfully Put Agile Practices Into Action. Improve your Ability to Plan,<br> Manage & Lead in Your Project Teams with Agile</p>
-							<router-link :to = "{ name:'Signin' }">
+							<router-link :to = "{ name:'Register' }">
 								<a class="main-button icon-button" style="cursor: pointer;">Get Started!</a>
 							</router-link>
 						</div>
