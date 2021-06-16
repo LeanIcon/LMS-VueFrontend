@@ -53,7 +53,7 @@
 import { getAPI } from "../../utils/axios-api";
 const token = localStorage.getItem("access_token");
 
-const TIME_LIMIT = 360;
+const TIME_LIMIT = 3600;
 export default {
    name: 'Test',
    data () {

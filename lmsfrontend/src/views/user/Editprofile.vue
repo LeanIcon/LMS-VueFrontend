@@ -6,7 +6,7 @@
         <form v-on:submit.prevent="updateProfile"  method="POST">
         <div class="row">
             <div class="col-md-3 border-right">
-                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" style="width:150px; height:150px" src="https://leanicontechnology.co.uk/wp-content/uploads/2020/03/UK-lOGO-01-01.png"><span class="font-weight-bold">Amelly</span><span class="text-black-50">amelly12@bbb.com</span><span> </span></div>
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" style="width:150px; height:150px" src="https://leanicontechnology.co.uk/wp-content/uploads/2020/03/UK-lOGO-01-01.png"><span class="font-weight-bold"></span><span class="text-black-50"></span><span> </span></div>
             </div>
             <div class="col-md-5 border-right">
                 <div class="p-3 py-5">

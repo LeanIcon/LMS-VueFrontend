@@ -344,6 +344,16 @@ export default {
         margin-top: 2.5rem;
     }
 
+        
+    .content-header{
+        font-size: 25px;
+        margin: 2rem 0 0 2rem;
+    }
+        
+    .additional-info{
+        margin: 0 0 2rem 2rem;
+    }
+
 
 }
 </style>

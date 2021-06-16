@@ -33,8 +33,8 @@ Vue.use(VueNotification, {
     color: "white",
   },
   success: {
-    background: "white",
-    color: "black"
+    background: "green",
+    color: "white"
   },
   info: {
     background: "white",

@@ -1,5 +1,8 @@
 <template>
     <div class="quizdetail">
+        <div class="mobileNav">
+            <MobileNav/>
+        </div>
         <div class="sidebar">
             <Sidebar></Sidebar>
         </div>
@@ -39,11 +42,11 @@
 
                     </div>
                 </div>
-                <div class="col-lg-6 mt-5">
+                <div class="col-lg-6 mt-5 card-container">
                     <div v-if="loaded" class="quiz-card--listing">
                         <div class="quiz-cards card" v-for="category in CategoryDetail" :key="category.id">
                             <div class="ini-card-bottom row">
-                                <div class="col-sm-8">
+                                <div class="col-sm-8 col-8">
                                     <div class="ml-3">
                                         <h1 class="ini-title content-header">Quiz {{ category.order }}</h1>
                                         <div class="retake-count">
@@ -52,7 +55,7 @@
                                         <p class="data-history">0/10 Average Score Count</p>
                                     </div>
                                 </div>
-                                <div class="col-sm-4 btn-container">
+                                <div class="col-sm-4 col-4 btn-container">
                                     <router-link :to="{ name:'QuizOverview', params:{title: `${category.name}`, quiz_id: `${category.slug}`} }" class="btn card-btn" tag="a" exact>Start</router-link>
                                     <!-- <div>Start</div> -->
                                 </div>
@@ -102,6 +105,7 @@
 <script>
 import { getAPI } from '../utils/axios-api'
 import Sidebar from '@/components/Dashboard/Sidebar.vue'
+import MobileNav from '@/components/Dashboard/MobileNav.vue'
 import Dashboardnavbar from '@/components/Dashboard/Dashboardnavbar.vue'
 import Footer from '@/components/Dashboard/Footer.vue'
 
@@ -120,6 +124,7 @@ export default {
     },
 
     components:{
+        MobileNav,
         Sidebar,
         Dashboardnavbar,
         Footer,
@@ -170,6 +175,10 @@ export default {
 .load-placeholder{
     text-align: center;
     margin-top: 8rem;
+}
+
+.mobileNav{
+    display: none;
 }
 
 .header-content{
@@ -345,6 +354,10 @@ export default {
         width: 100%;
     }
 
+    .page--content{
+        margin: 0;
+    }
+
     .footer{
         display: none;
     }
@@ -356,8 +369,9 @@ export default {
     }
 
     .caption{
-        font-size: 25px;
+        font-size: 30px;
         padding: 0 1rem;
+        margin-top: 2rem;
     }
 
     .display-banner{
@@ -391,6 +405,35 @@ export default {
         margin-top: 2.5rem;
     }
 
+    .quiz-cards{
+        width: 100%;
+        height: 6rem;
+    }
 
+    .card-container{
+        margin: auto;
+    }
+
+    .video-element{
+        width: 80%;
+        margin: auto;
+    }
+
+    .video-playlist{
+        width: 100vw;
+        margin: auto;
+    }
+
+    .extras--courses{
+        margin: auto;
+    }
+
+    .main-content--section{
+        padding: 1.8rem !important;
+    }
+
+    .content-title{
+        font-size: 35px;
+    }
 }
 </style>

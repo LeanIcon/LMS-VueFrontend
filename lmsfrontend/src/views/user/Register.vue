@@ -78,19 +78,20 @@
                   student_type: 'individual'
                   })
                   // Replace '/' with the homepage
-                  .then(({ status }) => {
-                     if(status == 200){
-                        this.$notification.info("Your have been successfully registered, Check your email and activate your account", { infiniteTimer: false});
+                  .then(res => {
+                     if(res){
+                        this.$notification.success("Your have been successfully registered, Check your email and activate your account", { infiniteTimer: false });
                         this.$router.push({ name: 'Signin' })
                      }
                   })
                   .catch(err => {
                      if(err == 400){
-                     this.$notification.error("Email has already been registered please check and try again", { infiniteTimer: false});
+                        this.$notification.error("Email has already been registered please check and try again", { infiniteTimer: false});
                      } else if (err == 500){
-                     this.$notification.error("There is a problem from our side. Please try again later", { infiniteTimer: false});
+                        this.$notification.error("There is a problem from our side. Please try again later", { infiniteTimer: false});
                      } else {
-                     this.$notification.error("Something went wrong. Please try again later", { infiniteTimer: false});
+                        console.log(err)
+                        this.$notification.error("Something went wrong. Please try again later", { infiniteTimer: false});
                      }
                   })
                }else{

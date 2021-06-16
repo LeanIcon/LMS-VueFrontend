@@ -94,11 +94,12 @@ export default ({
                 })
                 .then(({ status }) => {
                     if(status == 201){
+                        // this.$notification.info("Your have been successfully registered, Check your email and activate your account", { infiniteTimer: false });
                         resolve(status);
                     }
                 })
                 .catch(err => {
-                    err = err.response.status
+                    // const errs = err.response.status
                     reject(err)
                 })
             })

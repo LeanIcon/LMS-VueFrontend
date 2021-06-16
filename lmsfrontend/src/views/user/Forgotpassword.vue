@@ -29,7 +29,7 @@
             <div class="col-lg-4 col-md-12 user_info">
               <img src="@/assets/gh_01.png" alt="official-logo">
               <h1>Check your email</h1>
-              <p>We have sent a password recovery instrcution to your email</p>
+              <p>We have sent a password recovery token to your email address</p>
               <p class="mt-5">Did not receive the mail? Check your spam filter, <br>or <a  @click="this.token_requested = false" style="color: #E01010;" href="">try another email address</a>
               </p>
             </div>

@@ -6,7 +6,7 @@
                     <a @click="goback()">
                         <i class="back--btn fa fa-arrow-left"></i>
                     </a>
-                    <div class="btn-beta"><p>BETA</p></div>
+                    <div class="btn-beta"><p>Back</p></div>
                 </div>
             </div>
             <div class="ini-page-body">
@@ -174,6 +174,7 @@ export default {
     .content-header{
         height: 100%;
     }
+    
     .sidebar{
         display: none;
     }
@@ -186,65 +187,27 @@ export default {
 
 @media screen and (max-width: 754px) {
 
-    .home-content{
-        background-color: #EDEDED;
-        position: absolute;
-        width: 100%;
-        padding-left: 0;
-        top: 52px;
-        height: 150%;
-    }
-    .page--body--container {
-        padding-left: 0rem;
-        width: 100%;
+    .page{
+        padding: 2rem 0;
+        /* background-color: white; */
     }
 
-    .footer{
-        display: none;
+    .header-title{
+        font-size: 30px;
     }
 
-    .header-content{
-        margin-left: auto;
-        text-align: center;
-        height: 18rem;
+    .content-header{
+        height: 100%;
+        margin: 0 1.45rem;
+    }
+    
+    .video--player{
+        margin: 3rem auto;
+        width: 90%;
     }
 
-    .caption{
-        font-size: 25px;
-        padding: 0 1rem;
-    }
-
-    .display-banner{
-        height: 18rem;
-    }
-
-    .quiz-content{
-        margin: 1rem !important;
-        margin-bottom: 10rem !important;
-    }
-
-    .logo-box{
-        height: 4rem;
-        max-width: 30%;
-    }
-
-    .card--header{
-        display: flex;
-        flex-direction: row;
-    }
-
-    .card--bold--title{
+    .video-element{
         height: auto;
-        font-size: 23px;
-        margin: auto;
-        text-align: center;
     }
-
-    .quiz-btn{
-        text-align: center;
-        margin-top: 2.5rem;
-    }
-
-
 }
 </style>
