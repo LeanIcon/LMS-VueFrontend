@@ -8,9 +8,10 @@
   },
   "scripts": {
     "dev": "node build/dev-server.js",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --mode=staging",
     "start": "node server.js",
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service serve --mode=development",
+    "stage": "vue-cli-service serve --mode=staging",
     "lint": "vue-cli-service lint",
     "heroku-postbuild": "npm run prod"
   },

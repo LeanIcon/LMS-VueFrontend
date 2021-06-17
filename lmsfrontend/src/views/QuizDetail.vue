@@ -435,5 +435,13 @@ export default {
     .content-title{
         font-size: 35px;
     }
+
+    .load-placeholder{
+        margin: 2rem 0 4rem 0;
+    }
+
+    .sub-title{
+        margin-left: 1.5rem;
+    }
 }
 </style>

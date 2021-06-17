@@ -70,6 +70,11 @@ Vue.use(IdleVue, {
 
 Vue.config.productionTip = false
 
+// Vue.http.interceptors.push((request, next) => {
+//   var csrftoken = document.querySelector('input[name="csrfmiddlewaretoken"]').getAttribute("value");
+//   request.headers.set('X-CSRFTOKEN', csrftoken)
+//   next()
+// })
 // const player = new Plyr('#player');
 
 // const token = localStorage.getItem('access_token');
