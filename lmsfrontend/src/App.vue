@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <div class="beta-tag">BETA</div>
     <router-view/>
   </div>
 </template>
@@ -52,7 +53,7 @@ export default {
     background-size: cover !important;
 }
 
-body:after{
+.beta-tag{
   content: "beta";
   position: fixed;
   width: 80px;
@@ -73,5 +74,12 @@ body:after{
 
 .return_btn{
   z-index: 30;
+}
+
+@media screen and (max-width: 754px){
+  .tawk-min-container{
+    display: none !important;
+  }
+
 }
 </style>

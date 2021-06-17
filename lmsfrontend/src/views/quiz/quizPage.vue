@@ -2,6 +2,8 @@
    <div class="page">
       <div class="info-bar px-5">
          <router-link :to="{ name:'Skill'}" tag="a" exact class="btn-link"> <i class="back--btn fa fa-arrow-left"></i> Quiz</router-link>
+
+         <p class="m_timeout">{{formattedTimeLeft}}</p>
       </div>
       <div class="quiz-body">
          <!-- {{test}} -->
@@ -13,14 +15,14 @@
             <div class="question-main">
                <div class="bar-limit"></div>
                <div class="progress-bar"  v-bind:style="{ width: cur_progress + '%' }"></div>
-               <div class="" v-if="!finished">
+               <div class="" v-if="!finished && windowWidth >= 760">
                   <div style="display: flex; flex-direction: row;">
                      <p class="mr-1">{{currentIndex+1}}. </p>
                      <span v-html="`${test.quiz.question_set[questions[currentIndex]].label}`"></span>
                   </div>
                   <div class="items mt-2">
                      <div class="pick" v-for="answerData in test.quiz.question_set[questions[currentIndex]].answer_set" :key="answerData.id">
-                        <input type="radio" @change="onChange($event)" :value="answerData.id" :id="answerData.id" class="answer" name="choice" :checked="answerDetail[currentIndex] ==  answerData.id"><label class="checkmark noselect" :for="answerData.id">{{ answerData.label }}</label>     
+                        <input type="radio" @change="onChange($event)" :value="answerData.id" :id="answerData.id" class="answer" name="choice" :checked="answerDetail[currentIndex] ==  answerData.id"><label class="checkmark noselect" :for="answerData.id">{{ answerData.label }}</label>
                         <!-- <p>{{ $route.params.slug }}</p>                -->
                      </div>
                   </div>
@@ -46,231 +48,271 @@
             </div>
          </div>
       </div>
+      <div class="m_question"  v-if="!finished && windowWidth <= 765">
+         <div class="m_question_body">
+            <div class="questions_label">
+               <p class="question_no mr-1">{{currentIndex+1}}.</p>
+               <p v-html="`${test.quiz.question_set[questions[currentIndex]].label}`"></p>
+            </div>
+            <div class="m_choices">
+               <label class="answer-label" v-for="answerData in test.quiz.question_set[questions[currentIndex]].answer_set" :key="answerData.id" :for="answerData.id">
+                  <input type="radio" @change="onChange($event)" :value="answerData.id" :id="answerData.id" name="choice" :checked="answerDetail[currentIndex] ==  answerData.id">
+                  <p class="answer">{{ answerData.label }}</p>
+               </label>
+            </div>
+         </div>
+         <div class="m_controls d-flex px-2">
+            <p class="m_progress">{{currentIndex+1}}/40</p>
+            <button class="btn-nxt" @click="handler">Next</button>
+         </div>
+      </div>
    </div>
 </template>
 
+
+
 <script>
-import { getAPI } from "../../utils/axios-api";
-const token = localStorage.getItem("access_token");
+   import { getAPI } from "../../utils/axios-api";
+   const token = localStorage.getItem("access_token");
 
-const TIME_LIMIT = 3600;
-export default {
-   name: 'Test',
-   data () {
-      return{
-            finished: false,
-            timePassed: 0,
-            timerInterval: null,
-            currentIndex: 0,
-            quizTaker: '',
-            question: '',
-            answer: '',
-            cur_progress: 0,
-            results: 0,
-            selectedAnswer: false,
-            answerDetail: {},
-            score: 0,
-            questions: [],
-            questionPointer: 0,
-            quizStarted: false,
-            quizCancelled: false,
-            quiz_slug: '',
-            test: '',
-      }
-   },
-   
-   watch: {
-      timeLeft(newValue) {
-            if (newValue === 0) {
-               this.onTimesUp();
-            }
-      }
-   },
-
-   computed:{
-      formattedTimeLeft() {
-            const timeLeft = this.timeLeft;
-            const minutes = Math.floor(timeLeft / 60);
-            let seconds = timeLeft % 60;
-
-            if (seconds < 10) {
-               seconds = `0${seconds}`;
-            }
-
-            return `${minutes}:${seconds}`;
+   const TIME_LIMIT = 3600;
+   export default {
+      name: 'Test',
+      data () {
+         return{
+               finished: false,
+               timePassed: 0,
+               timerInterval: null,
+               currentIndex: 0,
+               quizTaker: '',
+               question: '',
+               answer: '',
+               cur_progress: 0,
+               results: 0,
+               selectedAnswer: false,
+               answerDetail: {},
+               score: 0,
+               questions: [],
+               questionPointer: 0,
+               quizStarted: false,
+               quizCancelled: false,
+               quiz_slug: '',
+               test: '',
+               window: '',
+               windowWidth: window.innerWidth,
+         }
       },
-
-      timeLeft() {
-         return TIME_LIMIT - this.timePassed;
-      },
-
-      timeFraction() {
-            const rawTimeFraction = this.timeLeft / TIME_LIMIT;
-            return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
-      },
-   },
-   
-   created(){
-      this.questions = Array.from(Array(40).keys());
-      this.randomize()
-   },
-   
-
-   methods:{ 
-      shuffleQuestions(array) {
-         for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            const temp = array[i];
-            this.$set(array, i, array[j]);
-            this.$set(array, j, temp);
+      
+      watch: {
+         timeLeft(newValue) {
+               if (newValue === 0) {
+                  this.onTimesUp();
+               }
+         },
+         windowWidth(newWidth) {
+            this.width = `${newWidth}`;
          }
       },
 
-      onChange(event) {
-         var optionText = event.target.value;
-         console.log(optionText)
-      }, 
+      computed:{
+         formattedTimeLeft() {
+               const timeLeft = this.timeLeft;
+               const minutes = Math.floor(timeLeft / 60);
+               let seconds = timeLeft % 60;
 
-      onTimesUp() {
-         clearInterval(this.timerInterval);
-         this.submitAnswer()
-      },  
+               if (seconds < 10) {
+                  seconds = `0${seconds}`;
+               }
 
-      startTimer() {
-         this.timerInterval = setInterval(() => (this.timePassed += 1), 1000);
+               return `${minutes}:${seconds}`;
+         },
+
+         timeLeft() {
+            return TIME_LIMIT - this.timePassed;
+         },
+
+         timeFraction() {
+               const rawTimeFraction = this.timeLeft / TIME_LIMIT;
+               return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
+         },
       },
-
-      randomize() {
-            this.shuffleQuestions(this.questions);
-      },
-
-      sendResponse(){
-            this.$store.dispatch('saveAnswer', {
-               quizTaker: this.quizTaker,
-               question: this.question,
-               answer: this.answer,
-            }).then(({ status }) => {
-               console.log(status)
-            }).catch(err=>{
-               console.log(err)
-               this.$notification.error("You have an unstable internet connection, Please retry the quiz \n Your previous answers won't be saved", { infiniteTimer: false, position: 'bottomRight', showCloseIcn: true});                
-               // this.showWarnMsg()
-               clearInterval(this.timerInterval);
-               setTimeout(this.getResults, 3000);
-               this.finished = true
       
-            })
+      created(){
+         this.questions = Array.from(Array(40).keys());
+         this.randomize()
+         window.addEventListener("resize", this.resizeHandler);
+         this.startTimer();
+         
       },
+      
 
-      getQuestions(){
-         getAPI
-            .get(`/quizzes/${this.quiz_slug}/`, {
-               headers: { Authorization: `Bearer ${token}` },
-            })
-            .then((response) => {
-               this.test = response.data
-               console.log(response.data);
-            })
-            .catch((err) => {
-               console.log(err);
-               console.log("Check data not reading ref: actions.js >> course");
-         });
-      },
+      methods:{ 
+         resizeHandler() {
+            this.windowWidth =  window.innerWidth
+         },
 
-      submitAnswer(){
-            // this.answer = parseInt(document.querySelector('input[name="choice"]:checked').value, 10)
-            getAPI
-               .post(`/quizzes/${this.quiz_slug}/submit/`, {
-                  headers: { Authorization: `Bearer ${token}` },
-                  quiztaker: this.quizTaker,
+         shuffleQuestions(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+               const j = Math.floor(Math.random() * (i + 1));
+               const temp = array[i];
+               this.$set(array, i, array[j]);
+               this.$set(array, j, temp);
+            }
+         },
+
+         onChange(event) {
+            var optionText = event.target.value;
+            console.log(optionText)
+         }, 
+
+         onTimesUp() {
+            clearInterval(this.timerInterval);
+            this.submitAnswer()
+         },  
+
+         startTimer() {
+            this.timerInterval = setInterval(() => (this.timePassed += 1), 1000);
+         },
+
+         randomize() {
+               this.shuffleQuestions(this.questions);
+         },
+
+         sendResponse(){
+               this.$store.dispatch('saveAnswer', {
+                  quizTaker: this.quizTaker,
                   question: this.question,
-                  answer: this.answer
-               })
-               .then(res => {
+                  answer: this.answer,
+               }).then(({ status }) => {
+                  console.log(status)
+               }).catch(err=>{
+                  console.log(err)
+                  this.$notification.error("You have an unstable internet connection, Please retry the quiz \n Your previous answers won't be saved", { infiniteTimer: false, position: 'bottomRight', showCloseIcn: true});                
+                  // this.showWarnMsg()
                   clearInterval(this.timerInterval);
-                  if (res.status == 200) {
-                        console.log(status);
-                        this.finished = true
-                        this.results = res.data
-                        this.resultsPage(this.results)
-                  }
+                  setTimeout(this.getResults, 3000);
+                  this.finished = true
+         
+               })
+         },
+
+         getQuestions(){
+            getAPI
+               .get(`/quizzes/${this.quiz_slug}/`, {
+                  headers: { Authorization: `Bearer ${token}` },
+               })
+               .then((response) => {
+                  this.test = response.data
                })
                .catch((err) => {
-                  console.log(err)
-                  this.finished = true
+                  console.log(err);
             });
-      },
+         },
 
-      resultsPage(results){
-         this.$router.push({
-               name: 'QuizResults',
-               params: { slug: this.quiz_slug, results: results}
-         });
-      },
+         submitAnswer(){
+               // this.answer = parseInt(document.querySelector('input[name="choice"]:checked').value, 10)
+               getAPI
+                  .post(`/quizzes/${this.quiz_slug}/submit/`, {
+                     headers: { Authorization: `Bearer ${token}` },
+                     quiztaker: this.quizTaker,
+                     question: this.question,
+                     answer: this.answer
+                  })
+                  .then(res => {
+                     clearInterval(this.timerInterval);
+                     if (res.status == 200) {
+                           console.log(status);
+                           this.finished = true
+                           this.results = res.data
+                           this.resultsPage(this.results)
+                     }
+                  })
+                  .catch((err) => {
+                     console.log(err)
+                     this.finished = true
+               });
+         },
 
-      moveNext: function nextQuestion(){
-            if (this.currentIndex == 39) {
-               this.cur_progress = ((this.currentIndex+1)/39)*100
-               this.quizTaker = this.test.quiz.quiztakers_set.id
-               this.answer = parseInt(document.querySelector('input[name="choice"]:checked').value, 10)
-               this.question = this.test.quiz.question_set[this.questions[this.currentIndex]].id
-               console.log('first')
-               this.submitAnswer()
-               console.log('second')
-               this.finished = true
+         resultsPage(results){
+            this.$router.push({
+                  name: 'QuizResults',
+                  params: { slug: this.quiz_slug, results: results}
+            });
+         },
+
+         moveNext: function nextQuestion(){
+               if (this.currentIndex == 39) {
+                  this.cur_progress = ((this.currentIndex+1)/39)*100
+                  this.quizTaker = this.test.quiz.quiztakers_set.id
+                  this.answer = parseInt(document.querySelector('input[name="choice"]:checked').value, 10)
+                  this.question = this.test.quiz.question_set[this.questions[this.currentIndex]].id
+                  console.log('first')
+                  this.submitAnswer()
+                  console.log('second')
+                  this.finished = true
+               } else {
+                  this.cur_progress = ((this.currentIndex+1)/39)*100
+                  this.quizTaker = this.test.quiz.quiztakers_set.id
+                  this.answer = parseInt(document.querySelector('input[name="choice"]:checked').value, 10)
+                  this.question = this.test.quiz.question_set[this.questions[this.currentIndex]].id
+                  this.answerDetail[this.currentIndex] = this.answer;
+                  this.currentIndex += 1;
+               }
+         },
+
+         
+         moveBack: function prevQuestion(){
+               if (this.currentIndex == 39) {
+                  this.cur_progress = ((this.currentIndex+1)/39)*100
+                  this.quizTaker = this.test.quiz.quiztakers_set.id
+                  this.answer = parseInt(document.querySelector('input[name="choice"]:checked').value, 10)
+                  this.question = this.test.quiz.question_set[this.questions[this.currentIndex]].id
+               } else {
+                  this.currentIndex -= 1;
+                  this.cur_progress = ((this.currentIndex+1)/39)*100
+                  this.quizTaker = this.test.quiz.quiztakers_set.id
+                  this.answer = parseInt(document.querySelector('input[name="choice"]:checked').value, 10)
+                  this.question = this.test.quiz.question_set[this.questions[this.currentIndex]].id
+               }
+         },
+
+         handler: function(){
+               this.moveNext();
+               this.sendResponse();
+         },
+         checkparams(){
+            if (!this.$route.params.slug) {
+                  this.$router.push("/skill"); // redirect to quiz page
             } else {
-               this.cur_progress = ((this.currentIndex+1)/39)*100
-               this.quizTaker = this.test.quiz.quiztakers_set.id
-               this.answer = parseInt(document.querySelector('input[name="choice"]:checked').value, 10)
-               this.question = this.test.quiz.question_set[this.questions[this.currentIndex]].id
-               this.answerDetail[this.currentIndex] = this.answer;
-               this.currentIndex += 1;
+               this.quiz_slug = this.$route.params.slug
+               this.getQuestions()
+               // this.getPracticeTest(this.quiz_slug);
             }
+         },
       },
 
-      
-      moveBack: function prevQuestion(){
-            if (this.currentIndex == 39) {
-               this.cur_progress = ((this.currentIndex+1)/39)*100
-               this.quizTaker = this.test.quiz.quiztakers_set.id
-               this.answer = parseInt(document.querySelector('input[name="choice"]:checked').value, 10)
-               this.question = this.test.quiz.question_set[this.questions[this.currentIndex]].id
-            } else {
-               this.currentIndex -= 1;
-               this.cur_progress = ((this.currentIndex+1)/39)*100
-               this.quizTaker = this.test.quiz.quiztakers_set.id
-               this.answer = parseInt(document.querySelector('input[name="choice"]:checked').value, 10)
-               this.question = this.test.quiz.question_set[this.questions[this.currentIndex]].id
-            }
+      destroyed() {
+         window.removeEventListener("resize", this.resizeHandler);
       },
 
-      handler: function(){
-            this.moveNext();
-            this.sendResponse();
-      },
-      checkparams(){
-         if (!this.$route.params.slug) {
-               this.$router.push("/skill"); // redirect to quiz page
-         } else {
-            this.quiz_slug = this.$route.params.slug
-            this.getQuestions()
-            // this.getPracticeTest(this.quiz_slug);
-         }
+      beforeMount(){
+         this.checkparams()
       }
-   },
-   mounted(){
-      this.startTimer();
-   },
-   beforeMount(){
-      this.checkparams()
    }
-}
 </script>
 
 
 
 
 <style scoped>
+.m_timeout{
+   display: none;
+}
+
+.m_question{
+   display: none;
+}
+
 .progress-bar{
    width: 10%;
    height: 6px;
@@ -393,8 +435,8 @@ export default {
    margin: auto;
    font-size: 15px;
    font-weight: 600;
-   width: 100%;
-   text-align: right;
+   width: 50%;
+   text-align: left;
    text-decoration: none;
 }
 
@@ -424,5 +466,95 @@ export default {
    /* top: 80%; */
    display: flex;
    flex-direction: column;
+}
+
+@media screen and (max-width: 754px) {
+   .m_question,
+   .m_timeout{
+      display: initial;
+   }
+
+   .btn-link{
+      font-size: 18px;
+   }
+
+   .m_timeout{
+      font-size: 18px;
+      font-weight: 600;
+      margin: auto;
+      margin-right: 1.2rem;
+      font-weight: 600;
+      width: 50%;
+      text-align: right;
+   }
+
+   .sidebar{
+      display: none;
+   }
+
+   .mobile-nav{
+      display: initial;
+   }
+
+   .answer-label{
+      width: 100%;
+      background-color: rgba(211, 210, 214, 0.521);
+      min-height: 3rem;
+      margin-bottom: 20px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      display: flex;
+   }
+
+   .answer-label input, 
+   .answer-label p {
+      margin: auto 0;
+      margin-right: 10px;
+   }
+
+   /* .answer-label p{
+      max-width: 98%;
+   } */
+
+   .m_question_body{
+      margin: 20px 10px;
+      margin-top: 4.5rem;
+   }
+
+   .quiz-body{
+      display: none;
+   }
+
+   .questions_label{
+      display: flex;
+      flex-direction: row;
+   }
+
+   .m_controls{
+      background-color: rgb(255, 255, 255);
+      color: #fff;
+      height: 4rem;
+      width: 100%;
+      place-content: space-between;
+      position: fixed;
+      bottom: 0;
+      border-top: 1px solid rgba(82, 82, 82, 0.582);
+      padding-top: 10px;
+   }
+   
+   .info-bar{
+      padding: 0 2rem !important;
+   }
+
+   .m_progress{
+      font-size: 22px;
+      color: #6d6b6b;
+   }
+
+   .btn-nxt{
+      height: 3rem;
+      margin: 0;
+      position: initial;
+   }
 }
 </style>

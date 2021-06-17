@@ -18,8 +18,13 @@ import VuePlyr from 'vue-plyr';
 import VueNotification from "@kugatsu/vuenotification";
 import VueTippy, { TippyComponent } from "vue-tippy";
 import VueSanitize from "vue-sanitize";
+import Tawk from 'vue-tawk'
 // import Donut from 'vue-css-donut-chart';
 // import 'vue-css-donut-chart/dist/vcdonut.css';
+
+Vue.use(Tawk, {
+    tawkSrc: 'https://embed.tawk.to/60cb579c7f4b000ac03821db/1f8d4sfoj'
+})
 
 
 // Vue.use(Donut);
@@ -67,8 +72,6 @@ Vue.use(IdleVue, {
 });
 
 // console.log(accessToken)
-
-Vue.config.productionTip = false
 
 // Vue.http.interceptors.push((request, next) => {
 //   var csrftoken = document.querySelector('input[name="csrfmiddlewaretoken"]').getAttribute("value");
