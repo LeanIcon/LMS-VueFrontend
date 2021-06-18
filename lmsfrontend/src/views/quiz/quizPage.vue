@@ -62,7 +62,7 @@
             </div>
          </div>
          <div class="m_controls d-flex px-2">
-            <p class="m_progress">{{currentIndex+1}}/40</p>
+            <p class="m_progress">{{currentIndex+1}}/40 left</p>
             <button class="btn-nxt" @click="handler">Next</button>
          </div>
       </div>
@@ -337,13 +337,13 @@
 
 .btn-nxt{
    border: none;
-   background-color: #007cc3;
+   background-color: #0f57f1;
    text-decoration: none;
    width: 20%;
    color: #fff;
-   height: 2rem;
+   height: 2rem !important;
    outline: none;
-   border-radius: 0px;
+   border-radius: 10px;
    position: absolute;
    margin: auto;
    right: 0;
@@ -468,7 +468,42 @@
    flex-direction: column;
 }
 
+input[type='radio']:after {
+   width: 13px;
+   height: 13px;
+   border-radius: 15px;
+   top: -3.2px;
+   left: 1.3px;
+   position: relative;
+   background-color: #ffffff;
+   content: '';
+   display: inline-block;
+   visibility: visible;
+   border: 2px solid white;
+}
+
+input[type='radio']:checked:after {
+   width: 13px;
+   height: 13px;
+   border-radius: 15px;
+   top: -3.4px;
+   left: 1.35px;
+   position: relative;
+   background-color: #4d6c94b9;
+   content: '';
+   display: inline-block;
+   visibility: visible;
+   border: 2px solid white;
+}
+
 @media screen and (max-width: 754px) {
+   .page{
+      background-color: rgba(243, 243, 243, 0.959);
+      height: 100vh;
+      width: 100vw;
+      position: absolute;
+   }
+
    .m_question,
    .m_timeout{
       display: initial;
@@ -498,12 +533,13 @@
 
    .answer-label{
       width: 100%;
-      background-color: rgba(211, 210, 214, 0.521);
+      background-color: #fefefe;
       min-height: 3rem;
       margin-bottom: 20px;
       padding: 10px 20px;
       border-radius: 8px;
       display: flex;
+      filter: drop-shadow(0px 1px 3px rgba(90, 85, 85, 0.1));
    }
 
    .answer-label input, 
@@ -533,12 +569,12 @@
    .m_controls{
       background-color: rgb(255, 255, 255);
       color: #fff;
-      height: 4rem;
+      height: 3.2rem;
       width: 100%;
       place-content: space-between;
       position: fixed;
       bottom: 0;
-      border-top: 1px solid rgba(82, 82, 82, 0.582);
+      border-top: 1px solid rgba(82, 82, 82, 0);
       padding-top: 10px;
    }
    
@@ -547,7 +583,7 @@
    }
 
    .m_progress{
-      font-size: 22px;
+      font-size: 18px;
       color: #6d6b6b;
    }
 
@@ -556,5 +592,6 @@
       margin: 0;
       position: initial;
    }
+
 }
 </style>
