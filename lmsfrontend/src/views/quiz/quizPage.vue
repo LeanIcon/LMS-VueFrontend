@@ -497,6 +497,9 @@ input[type='radio']:checked:after {
 }
 
 @media screen and (max-width: 754px) {
+   body{
+      background-color: red !important;
+   }
    .page{
       background-color: rgba(243, 243, 243, 0.959);
       height: 100vh;
@@ -555,6 +558,11 @@ input[type='radio']:checked:after {
    .m_question_body{
       margin: 20px 10px;
       margin-top: 4.5rem;
+   }
+
+   .m_choices{
+      padding-bottom: 10rem;
+      height: 100%;
    }
 
    .quiz-body{

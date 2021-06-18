@@ -22,9 +22,12 @@
                     </div>
                     <div class="video--player">
                         <vue-plyr>
-                            <video  class="video-element" poster="@/assets/images/quizposter.jpg" src="https://res.cloudinary.com/littlms/video/upload/v1599179957/2020-07-24_Design_Thinking_Define_Stage_SWOT_and_TOWS_Analysis_ihwgnl.mp4">
-                                <source src="https://res.cloudinary.com/littlms/video/upload/v1599179957/2020-07-24_Design_Thinking_Define_Stage_SWOT_and_TOWS_Analysis_ihwgnl.mp4" type="video/mp4" size="1080">
-                            </video>
+                            <!-- <video  class="video-element" poster="@/assets/images/quizposter.jpg" src="https://res.cloudinary.com/littlms/video/upload/v1599179957/2020-07-24_Design_Thinking_Define_Stage_SWOT_and_TOWS_Analysis_ihwgnl.mp4"> -->
+                                <!-- <source src="https://www.youtube.com/embed/AVUA_mH9XNI" type="video/mp4" size="1080"> -->
+                            <!-- </video> -->
+                            <div class="plyr__video-embed">
+                                <iframe width="1280" height="720" src="https://www.youtube.com/embed/AVUA_mH9XNI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
                         </vue-plyr>
                     </div>
                 </div>
