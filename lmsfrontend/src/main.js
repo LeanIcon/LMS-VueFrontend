@@ -19,6 +19,7 @@ import VueNotification from "@kugatsu/vuenotification";
 import VueTippy, { TippyComponent } from "vue-tippy";
 import VueSanitize from "vue-sanitize";
 import Tawk from 'vue-tawk'
+import VueLoading from 'vuejs-loading-plugin'
 // import Donut from 'vue-css-donut-chart';
 // import 'vue-css-donut-chart/dist/vcdonut.css';
 
@@ -26,6 +27,16 @@ Vue.use(Tawk, {
     tawkSrc: 'https://embed.tawk.to/60cb579c7f4b000ac03821db/1f8d4sfoj'
 })
 
+ 
+// overwrite defaults
+Vue.use(VueLoading, {
+  dark: true, // default false
+  text: 'Loading', // default 'Loading'
+  loading: false, // default false
+  // customLoader: myVueComponent, // replaces the spinner and text with your own
+  background: 'rgb(255,255,255)', // set custom background
+  classes: ['screen_load'] // array, object or string
+})
 
 // Vue.use(Donut);
 Vue.use(VueSanitize);

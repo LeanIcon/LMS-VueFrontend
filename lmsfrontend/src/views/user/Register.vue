@@ -67,6 +67,11 @@
                this.alertUser = false
          },
 
+         clearform(){
+            this.password = ''
+            this.email = ''
+            this.confirm_password = ''
+         },
 
          register() { 
                if(this.valid()){
@@ -76,7 +81,9 @@
                   email: this.email,
                   password: this.password,
                   student_type: 'individual'
-                  })
+                  }).then(
+                     this.clearform()
+                  )
                   // Replace '/' with the homepage
                   .then(res => {
                      if(res){
@@ -85,6 +92,7 @@
                      }
                   })
                   .catch(err => {
+                     alert(err)
                      if(err == 400){
                         this.$notification.error("Email has already been registered please check and try again", { infiniteTimer: false});
                      } else if (err == 500){

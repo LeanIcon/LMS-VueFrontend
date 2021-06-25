@@ -21,7 +21,7 @@
 
             <div class="header-info mt-5">
                <!-- <h1>Great Start! You did better than 20% of your peers</h1> -->
-               <h1>Think you can do better? <router-link :to="{ name:'Skill'}" tag="a" exact class="bck-btn">Try again </router-link></h1>
+               <h1>Think you can do better? <router-link :to="{ name:'Skill'}" tag="a" exact class="bck-btn"> Try again </router-link></h1>
             </div>
          </div>
          <div class="course-img col-md-4">
@@ -81,21 +81,31 @@ export default {
                this.results = res.data
                this.percentage = this.results.quiz.quiztakers_set.percentage
                this.name = this.results.quiz.name
-               console.log(this.results)
+               this.$loading(false)
             })
             .catch((err) => {
+               this.$loading(false)
                console.log(err);
             });
+      },
+      checkparams(){
+         if (!this.$route.params.slug) {
+            this.$loading(false)
+            this.$router.push("/skill"); // redirect to quiz page
+         } else {
+            const slug = this.$route.params.slug;
+            this.dummy = this.$route.params.results;            
+            this.getResults(slug);
+            // this.getPracticeTest(this.quiz_slug);
+         }
       },
    },
    mounted(){
       this.issueDate()
    },
    beforeMount(){
-      const slug = this.$route.params.slug;
-      this.dummy = this.$route.params.results;
-      this.getResults(slug);
-      console.log(this.dummy)
+      this.$loading(true)
+      this.checkparams()
    }
 }
 </script>
@@ -247,5 +257,28 @@ ul li{
 
 .svg_wrap .svg_value:after {
     content: "%";
+}
+
+
+@media screen and (max-width: 754px) {
+   .banner{
+      width: auto;
+   }
+
+   .banner-content h3{
+      font-size: 20px;
+   }
+
+   .svg_wrap{
+      margin-top: 3rem;
+   }
+
+   .head-two{
+      font-size: 30px;
+   }
+
+   .head-two{
+      font-size: 24px;
+   }
 }
 </style>

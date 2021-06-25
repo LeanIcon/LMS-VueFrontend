@@ -100,7 +100,7 @@ export default ({
                 })
                 .catch(err => {
                     // const errs = err.response.status
-                    reject(err)
+                    reject(err.response.status)
                 })
             })
         }

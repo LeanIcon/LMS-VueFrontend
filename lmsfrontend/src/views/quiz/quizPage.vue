@@ -1,5 +1,5 @@
 <template>
-   <div class="page">
+   <div class="page" oncontextmenu="return false;">
       <div class="info-bar px-5">
          <router-link :to="{ name:'Skill'}" tag="a" exact class="btn-link"> <i class="back--btn fa fa-arrow-left"></i> Quiz</router-link>
 
@@ -31,6 +31,11 @@
                      <button class="bck" @click="moveBack" v-if="currentIndex >= 1">Back</button>
                   </div>
                </div>
+               <div v-if="finished" class="w-100">
+                  <div class="spinner-border" role="status">
+                        <span class="sr-only">Loading...</span>
+                  </div>
+               </div>
                <!-- <div v-if="results.quiztaker_set">
                   <div class="items">
                      <p>40 set questions</p>
@@ -55,7 +60,7 @@
                <p v-html="`${test.quiz.question_set[questions[currentIndex]].label}`"></p>
             </div>
             <div class="m_choices">
-               <label class="answer-label" v-for="answerData in test.quiz.question_set[questions[currentIndex]].answer_set" :key="answerData.id" :for="answerData.id">
+               <label class="answer-label ripple" v-for="answerData in test.quiz.question_set[questions[currentIndex]].answer_set" :key="answerData.id" :for="answerData.id">
                   <input type="radio" @change="onChange($event)" :value="answerData.id" :id="answerData.id" name="choice" :checked="answerDetail[currentIndex] ==  answerData.id">
                   <p class="answer">{{ answerData.label }}</p>
                </label>
@@ -66,6 +71,7 @@
             <button class="btn-nxt" @click="handler">Next</button>
          </div>
       </div>
+      <div class="bg"></div>
    </div>
 </template>
 
@@ -147,6 +153,26 @@
       
 
       methods:{ 
+         frontendSec(){
+            document.onkeydown = function(e) {
+               if(event.keyCode == 123) {
+                  return false;
+               }
+               if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+                  return false;
+               }
+               if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+                  return false;
+               }
+               if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+                  return false;
+               }
+               if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+                  return false;
+               }
+            }
+         },
+
          resizeHandler() {
             this.windowWidth =  window.innerWidth
          },
@@ -203,6 +229,7 @@
                })
                .then((response) => {
                   this.test = response.data
+                  this.$loading(false)
                })
                .catch((err) => {
                   console.log(err);
@@ -224,6 +251,7 @@
                            console.log(status);
                            this.finished = true
                            this.results = res.data
+                           this.$loading(true)
                            this.resultsPage(this.results)
                      }
                   })
@@ -246,10 +274,9 @@
                   this.quizTaker = this.test.quiz.quiztakers_set.id
                   this.answer = parseInt(document.querySelector('input[name="choice"]:checked').value, 10)
                   this.question = this.test.quiz.question_set[this.questions[this.currentIndex]].id
-                  console.log('first')
-                  this.submitAnswer()
-                  console.log('second')
                   this.finished = true
+                  this.submitAnswer()
+                  this.$loading(true)
                } else {
                   this.cur_progress = ((this.currentIndex+1)/39)*100
                   this.quizTaker = this.test.quiz.quiztakers_set.id
@@ -282,7 +309,8 @@
          },
          checkparams(){
             if (!this.$route.params.slug) {
-                  this.$router.push("/skill"); // redirect to quiz page
+               this.$loading(false)
+               this.$router.push("/skill"); // redirect to quiz page
             } else {
                this.quiz_slug = this.$route.params.slug
                this.getQuestions()
@@ -296,7 +324,9 @@
       },
 
       beforeMount(){
+         this.$loading(true)
          this.checkparams()
+         // this.frontendSec()
       }
    }
 </script>
@@ -305,6 +335,18 @@
 
 
 <style scoped>
+.page{
+   -webkit-user-select: none;
+   -khtml-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   -o-user-select: none;
+   user-select: none;
+}
+
+.tawk-min-container{
+   display: none !important;
+}
 .m_timeout{
    display: none;
 }
@@ -341,9 +383,9 @@
    text-decoration: none;
    width: 20%;
    color: #fff;
-   height: 2rem !important;
+   height: 2.3rem;
    outline: none;
-   border-radius: 10px;
+   border-radius: 0px;
    position: absolute;
    margin: auto;
    right: 0;
@@ -351,11 +393,11 @@
 
 .bck{
    border: none;
-   background-color: #007cc3;
+   background-color: #0f57f1;
    text-decoration: none;
    width: 20%;
    color: #fff;
-   height: 2rem;
+   height: 2.3rem;
    outline: none;
    border-radius: 0px;
    position: absolute;
@@ -496,10 +538,13 @@ input[type='radio']:checked:after {
    border: 2px solid white;
 }
 
+.spinner-border{
+   text-align: center;
+}
+
+   
 @media screen and (max-width: 754px) {
-   body{
-      background-color: red !important;
-   }
+
    .page{
       background-color: rgba(243, 243, 243, 0.959);
       height: 100vh;
@@ -599,7 +644,49 @@ input[type='radio']:checked:after {
       height: 3rem;
       margin: 0;
       position: initial;
+      border-radius: 10px;
+      height: 2rem;
    }
 
+   .ripple {
+      background-position: center;
+      transition: background 0.8s;
+   }
+   .ripple:hover {
+      background: #1b080809 radial-gradient(linear, transparent 1%, #1b080809 1%) center/15000%;
+   }
+   .ripple:active {
+      background-color: #1b080809;
+      background-size: 100%;
+      transition: background 0s;
+   }
+
+   .bg{
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(243, 243, 243, 0.959);
+      z-index: -9;
+   }
+}
+</style>
+
+<style>
+
+@media print {
+    html, body {
+       display: none;  /* hide whole page */
+    }
+}
+
+@media screen and (max-width: 754px) {
+   span img,
+   p img,
+   img{
+      max-width: 100% !important;
+      height: auto;
+   }
 }
 </style>

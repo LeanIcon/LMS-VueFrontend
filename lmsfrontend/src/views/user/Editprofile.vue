@@ -1,5 +1,8 @@
 <template>
     <div class="editprofile">
+        <div class="mobileNav">
+            <MobileNav/>
+        </div>
          <router-link to="/editprofile"></router-link>
       <router-view/>
             <div class="container rounded bg-white mt-1 mb-5">
@@ -39,8 +42,6 @@
                     <div class="col-md-12"><label class="labels">Additional Details</label><input type="text" class="form-control" placeholder="additional details" v-model="profileData.profession_info"></div>
                 </div>
             </div>
-        <!-- test {{profileData}} -->
-        {{$store.state.userprofile.profileData}}
         </div>
         </form>
     </div>
@@ -49,6 +50,7 @@
 </template>
 
 <script>
+import MobileNav from '@/components/Dashboard/MobileNav.vue'
 // import { getAPI } from '../../utils/axios-api';
 // // import { mapState } from 'vuex';
 // const token = localStorage.getItem('access_token');
@@ -69,6 +71,9 @@ export default {
         submitted: false,
         profileData: this.$store.state.userprofile.profileData,
       }
+    },
+    components:{
+        MobileNav
     },
     // created() {
     //     // GET request using axios with error handling
@@ -96,17 +101,17 @@ export default {
                 
 
              //Replace '/' with the homepage
-             .then(({ status }) => {
-                 console.log('check your email')
-                  console.log(status)
-                this.$store.dispatch('fetchProfile')
-             })
-             .catch(err => {
-                 this.errinfo = 'Email is already registered'
-                 console.log(err)
-                 this.userExists = true
-                 this.alertUser = true
+            .then(({ status }) => {
+                console.log('check your email')
+                console.log(status)
+            this.$store.dispatch('fetchProfile')
             })
+            .catch(err => {
+                this.errinfo = 'Email is already registered'
+                console.log(err)
+                this.userExists = true
+                this.alertUser = true
+        })
         },
     },
     // computed: mapState(['profileData']),
@@ -153,5 +158,17 @@ export default {
     color: #fff;
     cursor: pointer;
     border: solid 1px #f44336;
+}
+
+.mobileNav{
+    display: none;
+}
+
+
+
+@media screen and (max-width: 754px) {
+    .mobileNav{
+        display: initial;
+    }
 }
 </style>
