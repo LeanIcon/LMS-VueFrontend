@@ -1,5 +1,8 @@
 <template>
     <div class="quizdetail">
+        <div class="mobileNav">
+            <MobileNav/>
+        </div>
         <div class="sidebar">
             <Sidebar></Sidebar>
         </div>
@@ -33,17 +36,17 @@
                         <br>Let's Go!
                     </h1>
                     <div class="additional-content">
-                        Business analysis is a research discipline of identifying business needs and determining solutions to business problems. Solutions often include a software-systems development component, but may also consist of process improvement, organisational change or strategic planning and policy development.
+                            {{ CategoryInfo.description }}
                         <br><b>Related Topics:</b>
-                        <br>Corporate/Organizational Structure, SWOT Analysis, PESTEL/PESTLE Analysis
+                        <br>{{ CategoryInfo.related_topics }}
 
                     </div>
                 </div>
-                <div class="col-lg-6 mt-5">
-                    <div class="quiz-card--listing">
+                <div class="col-lg-6 mt-5 card-container">
+                    <div v-if="loaded" class="quiz-card--listing">
                         <div class="quiz-cards card" v-for="category in CategoryDetail" :key="category.id">
                             <div class="ini-card-bottom row">
-                                <div class="col-sm-8">
+                                <div class="col-sm-8 col-8">
                                     <div class="ml-3">
                                         <h1 class="ini-title content-header">Quiz {{ category.order }}</h1>
                                         <div class="retake-count">
@@ -52,11 +55,16 @@
                                         <p class="data-history">0/10 Average Score Count</p>
                                     </div>
                                 </div>
-                                <div class="col-sm-4 btn-container">
+                                <div class="col-sm-4 col-4 btn-container">
                                     <router-link :to="{ name:'QuizOverview', params:{title: `${category.name}`, quiz_id: `${category.slug}`} }" class="btn card-btn" tag="a" exact>Start</router-link>
                                     <!-- <div>Start</div> -->
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div v-if="!loaded" class="quiz-card--listing load-placeholder">
+                        <div class="spinner-border" role="status">
+                            <span class="sr-only">Loading...</span>
                         </div>
                     </div>
                 </div>
@@ -66,21 +74,21 @@
                 <div class="sub-title"><h1>Courses</h1></div>
                 <hr>
                 <div class="video-playlist row">
-                    <div class="video-element col-md-4 col-sm-6 col-xs-12">
+                    <div class="video-element col-lg-4 col-md-12 col-sm-12 mb-3">
                         <vue-plyr>
                             <video poster="@/assets/images/videoposter.png" src="https://res.cloudinary.com/littlms/video/upload/v1599179957/2020-07-24_Design_Thinking_Define_Stage_SWOT_and_TOWS_Analysis_ihwgnl.mp4">
                                 <source src="https://res.cloudinary.com/littlms/video/upload/v1599179957/2020-07-24_Design_Thinking_Define_Stage_SWOT_and_TOWS_Analysis_ihwgnl.mp4" type="video/mp4" size="1080">
                             </video>
                         </vue-plyr>
                     </div>
-                    <div class="video-element col-md-4 col-sm-6 col-xs-12">
+                    <div class="video-element col-lg-4 col-md-12 col-sm-12 mb-3">
                         <vue-plyr>
                             <video poster="@/assets/images/videoposter.png" src="https://res.cloudinary.com/littlms/video/upload/v1599179957/2020-07-24_Design_Thinking_Define_Stage_SWOT_and_TOWS_Analysis_ihwgnl.mp4">
                                 <source src="https://res.cloudinary.com/littlms/video/upload/v1599179957/2020-07-24_Design_Thinking_Define_Stage_SWOT_and_TOWS_Analysis_ihwgnl.mp4" type="video/mp4" size="1080">
                             </video>
                         </vue-plyr>
                     </div>
-                    <div class="video-element col-md-4 col-sm-6 col-xs-12">
+                    <div class="video-element col-lg-4 col-md-12 col-sm-12 mb-3">
                         <vue-plyr>
                             <video poster="@/assets/images/videoposter.png" src="https://res.cloudinary.com/littlms/video/upload/v1599179957/2020-07-24_Design_Thinking_Define_Stage_SWOT_and_TOWS_Analysis_ihwgnl.mp4">
                                 <source src="https://res.cloudinary.com/littlms/video/upload/v1599179957/2020-07-24_Design_Thinking_Define_Stage_SWOT_and_TOWS_Analysis_ihwgnl.mp4" type="video/mp4" size="1080">
@@ -97,6 +105,7 @@
 <script>
 import { getAPI } from '../utils/axios-api'
 import Sidebar from '@/components/Dashboard/Sidebar.vue'
+import MobileNav from '@/components/Dashboard/MobileNav.vue'
 import Dashboardnavbar from '@/components/Dashboard/Dashboardnavbar.vue'
 import Footer from '@/components/Dashboard/Footer.vue'
 
@@ -109,11 +118,13 @@ export default {
             CategoryDetail: {},
             CategoryInfo: {},
             slug: '',
-            token: ''
+            token: '',
+            loaded: false
         }
     },
 
     components:{
+        MobileNav,
         Sidebar,
         Dashboardnavbar,
         Footer,
@@ -125,6 +136,9 @@ export default {
             await getAPI.get(`/quiz/category/${ this.slug}/`, { headers: { Authorization: `Bearer ${ this.token }`}})
                 .then(({ data }) => {                    
                     this.CategoryDetail = data.quiz_category;
+                })
+                .then(()=>{
+                    this.loaded = true;
                 })
                 .catch(({ response }) => {
                     console.log(response);
@@ -157,7 +171,15 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang='scss'>
+.load-placeholder{
+    text-align: center;
+    margin-top: 8rem;
+}
+
+.mobileNav{
+    display: none;
+}
 
 .header-content{
     display: flex;
@@ -307,5 +329,119 @@ export default {
 
 .video-element{
     max-width: 32rem;
+}
+
+
+@media screen and (max-width: 754px) {
+    .sidebar{
+        display: none;
+    }
+
+    .mobileNav{
+        display: initial;
+    }
+
+    .home-content{
+        background-color: #EDEDED;
+        position: absolute;
+        width: 100%;
+        padding-left: 0;
+        top: 52px;
+        height: 150%;
+    }
+    .page--body--container {
+        padding-left: 0rem;
+        width: 100%;
+    }
+
+    .page--content{
+        margin: 0;
+    }
+
+    .footer{
+        display: none;
+    }
+
+    .header-content{
+        margin-left: auto;
+        text-align: center;
+        height: 18rem;
+    }
+
+    .caption{
+        font-size: 30px;
+        padding: 0 1rem;
+        margin-top: 2rem;
+    }
+
+    .display-banner{
+        height: 18rem;
+    }
+
+    .quiz-content{
+        margin: 1rem !important;
+        margin-bottom: 10rem !important;
+    }
+
+    .logo-box{
+        height: 4rem;
+        max-width: 30%;
+    }
+
+    .card--header{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .card--bold--title{
+        height: auto;
+        font-size: 23px;
+        margin: auto;
+        text-align: center;
+    }
+
+    .quiz-btn{
+        text-align: center;
+        margin-top: 2.5rem;
+    }
+
+    .quiz-cards{
+        width: 100%;
+        height: 6rem;
+    }
+
+    .card-container{
+        margin: auto;
+    }
+
+    .video-element{
+        width: 80%;
+        margin: auto;
+    }
+
+    .video-playlist{
+        width: 100vw;
+        margin: auto;
+    }
+
+    .extras--courses{
+        margin: auto;
+    }
+
+    .main-content--section{
+        padding: 1.8rem !important;
+    }
+
+    .content-title{
+        font-size: 35px;
+    }
+
+    .load-placeholder{
+        margin: 2rem 0 4rem 0;
+    }
+
+    .sub-title{
+        margin-left: 1.5rem;
+    }
 }
 </style>

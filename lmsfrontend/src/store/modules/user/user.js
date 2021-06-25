@@ -43,7 +43,42 @@ export default ({
                     resolve()
                 })
                 .catch(err => {
+                    err = err.response.status
                     reject(err)
+                })
+            })
+        },
+
+        resetPassword(context, usercredentials) {
+            return new Promise((resolve, reject) => {
+                getAPI.post('/api/password_reset/', {
+                    email: usercredentials.email,
+                })
+                .then(({ status }) => {
+                    if(status == 200){
+                        resolve(status);
+                    }
+                })
+                .catch(err => {
+                    err = err.response.status
+                    reject(err)
+                })
+            })
+        },
+
+        changePassword(context, usercredentials) {
+            return new Promise((resolve, reject) => {
+                getAPI.post('/api/password_reset/confirm/', {
+                    token: usercredentials.token,
+                    password: usercredentials.password,
+                })
+                .then(({ status }) => {
+                    if(status == 200){
+                        resolve(status);
+                    }
+                })
+                .catch(err => {
+                    reject(err);
                 })
             })
         },
@@ -59,11 +94,13 @@ export default ({
                 })
                 .then(({ status }) => {
                     if(status == 201){
+                        // this.$notification.info("Your have been successfully registered, Check your email and activate your account", { infiniteTimer: false });
                         resolve(status);
                     }
                 })
                 .catch(err => {
-                    reject(err);
+                    // const errs = err.response.status
+                    reject(err.response.status)
                 })
             })
         }

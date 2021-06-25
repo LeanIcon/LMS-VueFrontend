@@ -1,37 +1,24 @@
 <template>
   <div class="forgotpassword">
       <div class="page__container row">
-        <a class="return_btn" @click="goBack()"><i class="back--btn fa fa-arrow-left"></i> Back</a>
+        <a class="return_btn">&lt; Back</a>
         <div class="col-md-5 bg_img">
           <!-- <img src="@/assets/images/forgotpassbg.jpg" alt="" class="h-100"> -->
         </div>
-        <div v-if="!token_requested" class="col-md-7 sec2">
+        <div class="col-md-7 sec2">
           <div class="border_line"></div>
           <div class="display_content row mx-3">
-            <div class="col-lg-4 col-md-12 user_info">
-              <img src="@/assets/gh_01.png" alt="official-logo">
-              <h1>Forgot your password?</h1>
-              <p>Enter the email associated with your account and we’ll send an with instructions to reset your password</p>
+            <div class="col-lg-4 col-md-12  user_info">
+              <img src="@/assets/gh_01.png" alt="sidebar-logo">
+              <h1>Create new password</h1>
+              <p>Your password must be different from previously used passwords.</p>
             </div>
             <div class="col-lg-8 col-md-12 info_section">
-              <form action="" method="POST" v-on:submit.prevent="resetPass">
-                <input type="email" placeholder="Enter your email address" v-model="email" required>
-                <button class="btn" v-on:submit.prevent="resetPass">
-                    Send
-              </button>
+              <form action="" method="post" v-on:submit.prevent="changePassword">
+                <input type="password" v-model="password" placeholder="New Password" class="mb-3">
+                <input type="password" placeholder="Confirm Password" class="mb-3">
+                <button class="btn" v-on:submit.prevent="changePassword">Send</button>
               </form>
-            </div>
-          </div>
-        </div>
-        <div v-if="token_requested" class="col-md-7">
-          <div class="border_line"></div>
-          <div class="display_content" style="text-align: center;">
-            <div class="col-lg-4 col-md-12 user_info">
-              <img src="@/assets/gh_01.png" alt="official-logo">
-              <h1>Check your email</h1>
-              <p>We have sent a password recovery token to your email address</p>
-              <p class="mt-5">Did not receive the mail? Check your spam filter, <br>or <a  @click="this.token_requested = false" style="color: #E01010;" href="">try another email address</a>
-              </p>
             </div>
           </div>
         </div>
@@ -39,60 +26,50 @@
       </div>
   </div>
 </template>
-
-
-
 <script>
+    // @ is an alias to /src
+
 export default {
-  name: 'Forgotpassword',
-  data () {
-    return {
-      email: '',
-      token_requested: false,
+  name: 'Resetpassword',
+  data(){
+    return{
+      password: ''
     }
   },
   components :{
     // Footer
   },
-  methods: {
-    goBack(){
-      this.$router.go(-1)
-    },
-    resetPass() { 
-        this.$store.dispatch('resetPassword', {
-          email: this.email,
+  methods:{
+      changePassword() { 
+        this.$store.dispatch('changePassword', {
+          password: this.password,
+          token: this.$route.query.token,
         })
         // Replace '/' with the homepage
         .then(() => {
-          this.token_requested = true
+          this.$router.push('/signin')
         })
         .catch(err => {
-          if(err == 400){
-            this.$notification.error("Something went wrong. Please check your email and try again", { infiniteTimer: false});
-          } else if (err == 500){
-            this.$notification.error("There is a problem from our side. Please try again later", { infiniteTimer: false});
-          } else {
-            this.$notification.error("Something went wrong. Please try again later", { infiniteTimer: false});
-          }
-          this.email = ''
+            this.errinfo = 'Invalid login credentials'
+            console.log(err)
+            alert('err')
         })
     },
+  },
+  mounted(){
+    // alert(this.$route.query.token)
+    if(this.$route.query.token == undefined){
+      this.$router.push('/forgotpassword')
+    }
   }
 }
 </script>
-
-
-
 <style scoped>
 .return_btn{
   position: absolute;
   top: 2rem;
   right: 2rem;
-  color: #030303;
-  cursor: pointer;
-  text-decoration: none;
 }
-
 .vector_img{
   width: 100vw;
   position: absolute;
@@ -178,7 +155,6 @@ form, .user_info{
   margin: auto;
 }
 
-
 .user_info img{
   display: none;
 }
@@ -245,7 +221,5 @@ form, .user_info{
     margin: auto;
   }
 }
-
-
 
 </style>

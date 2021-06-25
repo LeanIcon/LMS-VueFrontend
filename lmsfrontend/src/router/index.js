@@ -46,10 +46,22 @@ Vue.use(VueRouter)
       path: "/forgotpassword",
       name: "Forgotpassword",
       component: () => import("../views/user/Forgotpassword.vue"),
-      meta: {
-        requiresAuth: true,
-        requiresLogin: true,
-      },
+    },
+    {
+      path: "/500",
+      name: "Error500",
+      component: () => import("../views/error/500.vue"),
+    },
+    {
+      path: "/reset",
+      name: "Resetpassword",
+      component: () => import("../views/user/Resetpassword.vue"),
+      props: route => ({ query: route.query.token })
+    },
+    {
+      path: "/accounts/activate/:header/:token_id",
+      name: "ActivateAccount",
+      component: () => import("../views/user/ActivateAccount.vue"),
     },
     {
       path: "/dashboard",
@@ -102,7 +114,7 @@ Vue.use(VueRouter)
       }
     },
     {
-      path: "/test/:slug",
+      path: "/test/",
       name: "Test",
       component: () => import("../views/quiz/quizPage.vue"),
       meta: {
@@ -120,9 +132,18 @@ Vue.use(VueRouter)
       }
     },
     {
-      path: "/quizoverview",
+      path: "/quizoverview/:quiz_id",
       name: "QuizOverview",
       component: () => import("../views/QuizOverview.vue"),
+      meta: {
+        requiresLogin: true,
+        requiresAuth: true,
+      }
+    },
+    {
+      path: "/results",
+      name: "QuizResults",
+      component: () => import("../views/quiz/QuizResults.vue"),
       meta: {
         requiresLogin: true,
         requiresAuth: true,

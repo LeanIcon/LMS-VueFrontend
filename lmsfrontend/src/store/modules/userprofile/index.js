@@ -45,7 +45,7 @@ export default ({
         },
         userProfile(context, userprofile){
             return new Promise((resolve, reject) => {
-                getAPI.patch('/api/users/profile/74/', {                    
+                getAPI.patch('/api/users/profile/74/', {
                     avatar_url: userprofile.avatar_url,
                     bio: userprofile.bio, 
                     phone: userprofile.phone,

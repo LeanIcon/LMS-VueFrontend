@@ -15,10 +15,10 @@
 			<div class="home-wrapper">
 				<div class="container">
 					<div class="row hero-content">
-						<div class="col-12 mx-5">
+						<div class="col-12">
 							<h1 class="white-text" style="font-size: 50px;">See your Growth, Progress and Evolution</h1>
 							<p class="hero-lead white-text">Learn to Successfully Put Agile Practices Into Action. Improve your Ability to Plan,<br> Manage & Lead in Your Project Teams with Agile</p>
-							<router-link :to = "{ name:'Signin' }">
+							<router-link :to = "{ name:'Register' }">
 								<a class="main-button icon-button" style="cursor: pointer;">Get Started!</a>
 							</router-link>
 						</div>
@@ -235,7 +235,7 @@
 					</div>
 
 					<div class="col-md-5 col-md-offset-1">
-						<object data="https://www.youtube.com/embed/6mv_18Yftt8" width="560" height="315"></object>
+						<object data="https://www.youtube.com/embed/6mv_18Yftt8" class="w-100" height="315"></object>
 					</div>
 
 				</div>
