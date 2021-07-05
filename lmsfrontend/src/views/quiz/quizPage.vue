@@ -81,7 +81,7 @@
    import { getAPI } from "../../utils/axios-api";
    const token = localStorage.getItem("access_token");
 
-   const TIME_LIMIT = 3600;
+   const TIME_LIMIT = 10;
    export default {
       name: 'Test',
       data () {
@@ -115,6 +115,7 @@
                   this.onTimesUp();
                }
          },
+
          windowWidth(newWidth) {
             this.width = `${newWidth}`;
          }
@@ -248,11 +249,13 @@
                   .then(res => {
                      clearInterval(this.timerInterval);
                      if (res.status == 200) {
-                           console.log(status);
                            this.finished = true
                            this.results = res.data
                            this.$loading(true)
                            this.resultsPage(this.results)
+                           var res_answers = []
+                           res_answers.push(this.results.wrong_answers)
+                           localStorage.setItem('answers', res_answers)
                      }
                   })
                   .catch((err) => {
@@ -286,7 +289,6 @@
                   this.currentIndex += 1;
                }
          },
-
          
          moveBack: function prevQuestion(){
                if (this.currentIndex == 39) {
@@ -307,6 +309,7 @@
                this.moveNext();
                this.sendResponse();
          },
+
          checkparams(){
             if (!this.$route.params.slug) {
                this.$loading(false)

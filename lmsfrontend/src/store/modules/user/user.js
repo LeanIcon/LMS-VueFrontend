@@ -19,6 +19,8 @@ export default ({
         destroyToken(state) {
             state.accessToken = null
             state.refreshToken = null
+            localStorage.removeItem('access_token')
+            localStorage.removeItem('refresh_token');
         }
     },
     actions: {

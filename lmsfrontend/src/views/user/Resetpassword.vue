@@ -52,7 +52,6 @@ export default {
         .catch(err => {
             this.errinfo = 'Invalid login credentials'
             console.log(err)
-            alert('err')
         })
     },
   },

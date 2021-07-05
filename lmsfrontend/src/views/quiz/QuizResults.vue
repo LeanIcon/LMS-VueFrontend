@@ -20,7 +20,7 @@
             <h1 class="head-one">verified <span class="date-time">{{ date }}</span></h1>
 
             <div class="header-info mt-5">
-               <!-- <h1>Great Start! You did better than 20% of your peers</h1> -->
+               <h1><router-link :to="{ name:'WrongAnswers', params: dummy.wrong_anwers }" tag="a" exact class="bck-btn">View my answers</router-link></h1>
                <h1>Think you can do better? <router-link :to="{ name:'Skill'}" tag="a" exact class="bck-btn"> Try again </router-link></h1>
             </div>
          </div>
@@ -62,6 +62,8 @@ export default {
          name: '',
          dummy: '',
          date: '',
+         data1: [],
+         data2: []
       }
    },
 
@@ -72,6 +74,7 @@ export default {
 
          this.date = date
       },
+
       getResults(slug){
          getAPI
             .get(`/quizzes/${slug}/`, {
@@ -94,15 +97,23 @@ export default {
             this.$router.push("/skill"); // redirect to quiz page
          } else {
             const slug = this.$route.params.slug;
-            this.dummy = this.$route.params.results;            
+            this.dummy = this.$route.params.results;
             this.getResults(slug);
-            // this.getPracticeTest(this.quiz_slug);
+            this.data1 = Object.keys(this.dummy.wrong_anwers)
+            this.data2 = Object.values(this.dummy.wrong_anwers)
+            console.log(this.data1)
+            let i = 0
+            for(i in this.data1){
+               console.log(i)
+            }
          }
       },
    },
+
    mounted(){
       this.issueDate()
    },
+
    beforeMount(){
       this.$loading(true)
       this.checkparams()
