@@ -51,26 +51,9 @@ export default {
     methods:{
 
         function_wrong(){
-            // this.the_wrong_answers = localStorage.getItem('wrong_questions')
-            // this.the_wrong_an = localStorage.getItem('wrong_answers')
-            console.log(typeof(this.$route.params))
-            console.log('############################')
-            console.log(this.$route.params)
-            console.log(Object.keys(this.$route.params))
-            console.log(Object.values(this.$route.params))
-        
         },
         checkparams(){
             this.$loading(false)
-            // console.log('#############################')
-            // console.log(localStorage.getItem('wrong_answers'))
-            // console.log('#############################')
-            // if(this.$route.params.data) {
-            //     this.wrong_anwers = this.$route.params.data;
-            //     console.log(this.wrong_answers)
-            // } else {
-            //     this.$router.push("/skill"); // redirect to quiz page
-            // }
         },
     },
     beforeMount(){

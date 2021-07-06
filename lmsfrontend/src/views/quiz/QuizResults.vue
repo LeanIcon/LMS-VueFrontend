@@ -62,8 +62,6 @@ export default {
          name: '',
          dummy: '',
          date: '',
-         data1: [],
-         data2: []
       }
    },
 
@@ -99,13 +97,6 @@ export default {
             const slug = this.$route.params.slug;
             this.dummy = this.$route.params.results;
             this.getResults(slug);
-            this.data1 = Object.keys(this.dummy.wrong_anwers)
-            this.data2 = Object.values(this.dummy.wrong_anwers)
-            console.log(this.data1)
-            let i = 0
-            for(i in this.data1){
-               console.log(i)
-            }
          }
       },
    },

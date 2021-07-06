@@ -36,20 +36,6 @@
                         <span class="sr-only">Loading...</span>
                   </div>
                </div>
-               <!-- <div v-if="results.quiztaker_set">
-                  <div class="items">
-                     <p>40 set questions</p>
-                     <p><b>{{ (results.quiztaker_set.score / 40) * 100 }}</b>% answered correctly</p>
-                     <p>Your result: {{ results.quiztaker_set.score }} of 40</p>
-                     <div v-if="(results.quiztaker_set.score / 40) * 100 >= 65">
-                        <p>You reached the pass mark</p>
-                     </div>
-                     <div v-if="(results.quiztaker_set.score / 40) * 100 <= 65">
-                        <p>You failed the test please retry</p>
-                     </div>
-                     <p>Not happy with your score? <a :href="$router.resolve({ name:'Test', params: {slug: $route.params.slug} }).href">Retake</a></p>
-                  </div>
-               </div> -->
             </div>
          </div>
       </div>
@@ -253,9 +239,6 @@
                            this.results = res.data
                            this.$loading(true)
                            this.resultsPage(this.results)
-                           var res_answers = []
-                           res_answers.push(this.results.wrong_answers)
-                           localStorage.setItem('answers', res_answers)
                      }
                   })
                   .catch((err) => {
