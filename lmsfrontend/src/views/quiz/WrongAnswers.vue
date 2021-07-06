@@ -90,4 +90,11 @@ export default {
 .tick{
     margin: auto 0;
 }
+
+@media (min-width: 768px)  {
+    .question-card{
+        max-width: 700px;
+        margin: auto;
+    }
+}
 </style>
