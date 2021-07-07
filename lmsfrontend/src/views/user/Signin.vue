@@ -17,12 +17,19 @@
                <form action="" method="POST" v-on:submit.prevent="login">
                   <input type="email" placeholder="Enter your email address" v-model="email" required>
                   <input type="password" class="mt-3" placeholder="Password" v-model="password" required>
-                  <div class="rem-checkbox">
-                     <input type="checkbox" class="my-3 checkbox">
-                     <p>Remember Me</p>
+                  <div class="row">
+                     <div class="col-6">
+                        <div class="rem-checkbox">
+                           <input type="checkbox" class="my-3 checkbox">
+                           <p class="info">Remember Me</p>
+                        </div>
+                     </div>
+                     <div class="col-6">
+                        <p class="mt-3 info"><router-link :to="{ name: 'Forgotpassword'}" tag="a" class="reset_link">Forgot your password?</router-link></p>
+                     </div>
                   </div>
-                  <button class="btn" v-on:submit.prevent="login">Send</button>
-                  <p class="mt-3">Forgot your password? <router-link :to="{ name: 'Forgotpassword'}" tag="a" class="reset_link">Reset</router-link></p>
+                  <button class="btn my-2" v-on:submit.prevent="login">Send</button>
+                     <p class="mt-3">Already a member? <router-link :to="{ name: 'Register'}" tag="a" class="reset_link">Register</router-link></p>
                </form>
             </div>
             </div>
@@ -66,6 +73,9 @@ export default {
          email: this.email,
          password: this.password
          })
+         .then(
+            this.password = ''
+         )
          .then(() => {
             this.$router.push({ name: 'Dashboard' })
          })
@@ -87,6 +97,10 @@ export default {
 
 
 <style scoped>
+.info{
+   font-size: 14px;
+}
+
 .reset_link{
    cursor: pointer;
    color: blue;
@@ -98,7 +112,7 @@ export default {
 }
 
 .rem-checkbox p{
-   margin: auto 1rem;
+   margin: auto .3rem;
 }
 
 .checkbox{

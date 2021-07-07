@@ -69,7 +69,6 @@
 
          clearform(){
             this.password = ''
-            this.email = ''
             this.confirm_password = ''
          },
 
@@ -92,10 +91,11 @@
                      }
                   })
                   .catch(err => {
-                     alert(err)
                      if(err == 400){
                         this.$notification.error("Email has already been registered please check and try again", { infiniteTimer: false});
                      } else if (err == 500){
+                        this.$notification.error("There is a problem from our side. Please try again later", { infiniteTimer: false});
+                     } else if (err == 403){
                         this.$notification.error("There is a problem from our side. Please try again later", { infiniteTimer: false});
                      } else {
                         console.log(err)

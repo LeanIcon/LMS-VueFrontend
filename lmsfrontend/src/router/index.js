@@ -150,6 +150,15 @@ Vue.use(VueRouter)
       }
     },
     {
+      path: "/wrong-answers",
+      name: "WrongAnswers",
+      component: () => import("../views/quiz/WrongAnswers.vue"),
+      meta: {
+        requiresLogin: false,
+        requiresAuth: false,
+      }
+    },
+    {
       path: "/editprofile",
       name: "Editprofile",
       component: () => import("../views/user/Editprofile.vue"),

@@ -74,6 +74,8 @@ getAPI.interceptors.response.use(
         getAPI.defaults.headers.common["Authorization"] =
           "Bearer " + localStorageService.getAccessToken();
         return getAPI(originalRequest);
+      } else {
+        localStorageService.clearToken()
       }
     }
 
