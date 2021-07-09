@@ -23,7 +23,7 @@
                   <div class="items mt-2">
                      <div class="pick" v-for="answerData in test.quiz.question_set[questions[currentIndex]].answer_set" :key="answerData.id">
                         <input type="radio" @change="onChange($event)" :value="answerData.id" :id="answerData.id" class="answer" name="choice" :checked="answerDetail[currentIndex] ==  answerData.id"><label class="checkmark noselect" :for="answerData.id">{{ answerData.label }}</label>
-                        <!-- <p>{{ $route.params.slug }}</p>                -->
+                        <!-- <p>{{ $route.params.slug }}</p> -->
                      </div>
                   </div>
                   <div class="btn-container">
@@ -52,6 +52,8 @@
                </label>
             </div>
          </div>
+         <div class="progress-bar_m"></div>
+         <div class="progress-bar_curr" v-bind:style="{width: cur_progress + '%'}"></div>
          <div class="m_controls d-flex px-2">
             <p class="m_progress">{{currentIndex+1}}/40 left</p>
             <button class="btn-nxt" @click="handler">Next</button>
@@ -619,6 +621,21 @@ input[type='radio']:checked:after {
    
    .info-bar{
       padding: 0 2rem !important;
+   }
+
+   .progress-bar_m{
+      position: fixed;
+      bottom: 3.1rem;
+      height: 5px; 
+      background-color: #0f57f11c; 
+      width: 100%;
+   }
+
+   .progress-bar_curr{
+      position: fixed;
+      bottom: 3.1rem;
+      height: 5px; 
+      background-color: #0151ffb2;
    }
 
    .m_progress{

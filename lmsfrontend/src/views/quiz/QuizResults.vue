@@ -20,7 +20,7 @@
             <h1 class="head-one">verified <span class="date-time">{{ date }}</span></h1>
 
             <div class="header-info mt-5">
-               <h1><router-link :to="{ name:'WrongAnswers', params: dummy.wrong_anwers }" tag="a" exact class="bck-btn">View my answers</router-link></h1>
+               <h1><router-link :to="{ name:'WrongAnswers', params: dummy.wrong_anwers }" tag="a" exact class="bck-btn">View my wrong answers</router-link></h1>
                <h1>Think you can do better? <router-link :to="{ name:'Skill'}" tag="a" exact class="bck-btn"> Try again </router-link></h1>
             </div>
          </div>

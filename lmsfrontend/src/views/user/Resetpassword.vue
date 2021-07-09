@@ -16,7 +16,7 @@
             <div class="col-lg-8 col-md-12 info_section">
               <form action="" method="post" v-on:submit.prevent="changePassword">
                 <input type="password" v-model="password" placeholder="New Password" class="mb-3">
-                <input type="password" placeholder="Confirm Password" class="mb-3">
+                <input type="password" v-model="confirm_password" placeholder="Confirm Password" class="mb-3">
                 <button class="btn" v-on:submit.prevent="changePassword">Send</button>
               </form>
             </div>
@@ -33,7 +33,8 @@ export default {
   name: 'Resetpassword',
   data(){
     return{
-      password: ''
+      password: '',
+      confirm_password: ''
     }
   },
   components :{
@@ -41,19 +42,23 @@ export default {
   },
   methods:{
       changePassword() { 
-        this.$store.dispatch('changePassword', {
-          password: this.password,
-          token: this.$route.query.token,
-        })
-        // Replace '/' with the homepage
-        .then(() => {
-          this.$router.push('/signin')
-        })
-        .catch(err => {
-            this.errinfo = 'Invalid login credentials'
-            console.log(err)
-        })
-    },
+        if(this.password == this.confirm_password){
+          this.$store.dispatch('changePassword', {
+            password: this.password,
+            token: this.$route.query.token,
+          })
+          // Replace '/' with the homepage
+          .then(() => {
+            this.$router.push('/signin')
+          })
+          .catch(err => {
+              this.errinfo = 'Invalid login credentials'
+              console.log(err)
+          })
+        } else {
+            this.$notification.error("Password does not match. Please re-enter a new password", { infiniteTimer: false});
+        }
+      },
   },
   mounted(){
     // alert(this.$route.query.token)
