@@ -26,6 +26,8 @@
       </div>
   </div>
 </template>
+
+
 <script>
     // @ is an alias to /src
 
@@ -60,6 +62,7 @@ export default {
         }
       },
   },
+
   mounted(){
     // alert(this.$route.query.token)
     if(this.$route.query.token == undefined){
@@ -68,6 +71,8 @@ export default {
   }
 }
 </script>
+
+
 <style scoped>
 .return_btn{
   position: absolute;
