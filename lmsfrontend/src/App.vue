@@ -21,12 +21,43 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200&display=swap');
+
 *{
-  font-family: 'Noto Sans', 'Lato', sans-serif;
+  font-family: 'Montserrat', 'Noto Sans', 'Lato', sans-serif;
+}
+
+.btn-primary{
+  background-color: rgba(14, 156, 245, 1) !important;
+  border: 1px solid rgba(14, 156, 245, 1) !important;
+}
+
+.btn-primary:hover{
+  background-color: rgb(3, 144, 231) !important;
+  border: 1px solid rgb(3, 144, 231) !important;
+}
+
+.btn:focus, .btn:active, .btn:active:focus{
+    outline: none !important;
+    box-shadow: none;
+}
+
+p, li, a, input{
+  font-size: 14px;
 }
 
 @-ms-viewport {
   width: device-width;
+}
+
+h1{
+    font-weight: 600;
+    font-size: 50px;
+}
+
+h4{
+    font-weight: 500;
+    font-size: 30px;
 }
 
 .sidebar{
@@ -46,7 +77,7 @@ export default {
 }
 
 .ini-title{
-    font-family: 'Poppins', 'Lato'
+    font-family: 'Montserrat', 'Lato'
 }
 
 .plyr__poster{

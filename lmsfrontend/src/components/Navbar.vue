@@ -1,101 +1,72 @@
 <template>
-    <div class="navcontainer" row> 
-
-      <div class="row">               
-                <!-- <div class="navbar-header"> -->
-                   <!-- Logo -->
-                    <div class="logo" col-sm>
-                        <img src="../assets/gh_01_ek2.png" alt="logo">
-
-                    </div>
-                     
-                     <div class="items topnav-center" col-sm>
-                       
-                        <a href="index.html">HOME</a>
-                        <a href="#">ABOUT</a>
-                        <a href="#">COURSES</a>
-                        <a href="contact.html">CONTACT</a>
-                        <a href="#">SIGN IN</a>
-                    </div>
-      </div>             
-                <!-- </div> -->
-
-                
-                    
-
+    <div class="navbar px-5">
+      <div class="block-1 d-flex">
+        <div class="nav-logo mr-5">
+          <img src="@/assets/images/logo.png" alt="">
+        </div>
+        <input type="text" class="search-bar ml-5 px-3" placeholder="Search">
+      </div>
+      <div class="nav-links d-flex">
+        <ul class="d-flex nav-items">
+          <li class="link mr-4">
+            <a>For Individuals</a>
+          </li>
+          <li class="link mr-4">
+            <a>Skill Accessment</a>
+          </li>
+          <li class="link mr-4">
+            <router-link :to = "{ name:'Signin' }" class="alt-link" tag="li"><a>Login</a></router-link>
+          </li>
+            <router-link :to = "{ name:'Dashboard' }" class="btn btn-primary link" tag="li"><a class="bn">Dashboard</a></router-link>
+        </ul>
+      </div>
     </div>
 </template>
   
-  <script>
-    export default {
-      name: 'Navbar',
-    }
-  </script>
-  
-  <style scoped>
-      .items>a{
-    color:rgb(238, 225, 225);
-    list-style: none;
-    width: 100%; 
-    padding-left: 3rem;
-    text-decoration:none;
-    margin-left: 1.5rem;
-    /* float: right; */
-    padding-bottom: 4rem;
-    text-align: center;
-    padding-top: 5rem;
-    font-weight: bold;
-    justify-content: center;
-    /* display: inline-block; */
-    
-    }
-    .items>a:hover{
-      text-decoration: underline;
-      /* text-decoration-line: red; */
-      text-decoration-color:red;
-    }
-  .nav{
-      background: (#374050);
-      color: rgb(71, 68, 68);
-      place-content: right;
-      text-align: right;
-      width: 100vw;
-      height: 10vh;
-      position: absolute; 
-
-     
+<script>
+  export default {
+    name: 'Navbar',
   }
-  img{
-    height: 6rem;
-    size: 2px;
-  }
-  /* .topnav-right {
-  float: right;
-} */
-.navcontainer>items{
-  float:right;
-}
-.items{
-  margin-top: 2.4rem;
-  margin-left: 23rem;
-}
-.row{
-  height: 5rem;
-  text-align: center;
-  justify-content: center;
-  
-}
-.row>a{
-   display: inline-block;
-   text-align: center;
+</script>
 
+<style scoped>
+.navbar{
+  height: 80px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  padding: 10px;
 }
-.nav{
-  justify-content: center;
+
+.search-bar{
+  background: #FAF5F5;
+  border: 0px solid rgba(0, 0, 0, 0.15);
+  padding: 10px;
+  height: 40px;
+  box-shadow: inset -2px -2px 4px rgba(255, 255, 255, 0.5), inset 2px 2px 4px rgba(170, 170, 204, 0.25), inset 5px 5px 10px rgba(170, 170, 204, 0.5), inset -5px -5px 10px #FFFFFF;
+  border-radius: 40px;
 }
-.topnav-center>a{
-  padding-left: 2rem;
+
+.search-bar:focus{
+  outline: none;
 }
-    
-  </style>
-    
+
+.nav-items{
+  list-style-type: none;
+}
+
+.link, .nav-items{
+  margin: auto;
+}
+
+.alt-link{
+  color: blue;
+}
+
+.link .bn{
+  color: white;
+}
+
+.link a:hover{
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>

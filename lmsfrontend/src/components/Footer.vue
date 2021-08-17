@@ -57,9 +57,9 @@
     font-weight: 600;
 }
 .footer{
-  background: #3D3D3D;
+  background: #c4c4c4;
   height: 30%;
-  color: #fff;
+  color: rgb(37, 37, 37);
   place-content: center;
   text-align: center;
   position: relative;
@@ -82,12 +82,12 @@ p, li{
 }
 
 .inline a{
-    color: white;
+    color: rgb(37, 37, 37);
     text-decoration: none;
     font-weight: 100;
 }
 
 .end-sec{
-    color: rgba(255, 255, 255, 0.548);
+    color: rgb(37, 37, 37);
 }
 </style>

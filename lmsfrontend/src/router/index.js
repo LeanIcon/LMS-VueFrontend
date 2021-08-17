@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home/Landingpage.vue'
+import Homepage from '../views/Home/Homepage.vue'
 import Overview from '../views/Home/Overview.vue'
 import CourseLesson from '../views/course/CourseLesson.vue'
 
@@ -11,6 +12,15 @@ Vue.use(VueRouter)
       path: "/",
       name: "Home",
       component: Home,
+      meta: {
+        requiresAuth: false,
+        requiresLogin: false,
+      },
+    },
+    {
+      path: "/home",
+      name: "Homepage",
+      component: Homepage,
       meta: {
         requiresAuth: false,
         requiresLogin: false,
