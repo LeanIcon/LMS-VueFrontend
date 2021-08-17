@@ -14,10 +14,14 @@
           <li class="link mr-4">
             <a>Skill Accessment</a>
           </li>
-          <li class="link mr-4">
+          <li class="link mr-4" v-if="!this.$store.getters.loggedIn">
             <router-link :to = "{ name:'Signin' }" class="alt-link" tag="li"><a>Login</a></router-link>
           </li>
-            <router-link :to = "{ name:'Dashboard' }" class="btn btn-primary link" tag="li"><a class="bn">Dashboard</a></router-link>
+          <li class="link mr-4" v-else>
+            <div class="alt-link logout" @click="created"><a>Logout</a></div>
+          </li>
+            <router-link :to = "{ name:'Dashboard' }"  v-if="this.$store.getters.loggedIn" class="btn btn-primary link" tag="li"><a class="bn">Dashboard</a></router-link>
+            <router-link :to = "{ name:'Register' }" v-else class="btn btn-primary link" tag="li"><a class="bn">Signup</a></router-link>
         </ul>
       </div>
     </div>
@@ -26,6 +30,14 @@
 <script>
   export default {
     name: 'Navbar',
+    methods:{
+      created () {
+        this.$store.dispatch('userLogout')
+          .then(() => {
+              this.$router.push({ name: 'Signin' })
+          })
+      }
+    }
   }
 </script>
 
@@ -68,5 +80,9 @@
 .link a:hover{
   text-decoration: none;
   cursor: pointer;
+}
+
+.logout{
+  color: red;
 }
 </style>

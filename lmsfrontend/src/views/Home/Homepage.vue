@@ -20,7 +20,7 @@
                 <div class="row flex-row flex-nowrap">
                     <div class="col-md-4">
                         <div class="card course-card">
-                            <img class="card-img-top" src="@/assets/images/display-image.png" alt="Card image cap">
+                            <img class="card-img-top" src="@/assets/images/display-image (3).png" alt="Card image cap">
                             <div class="card-body">
                                 <img src="@/assets/images/quizlogo.png" class="course-logo">
                                 <div class="card-body row">
@@ -34,7 +34,7 @@
                     </div>
                     <div class="col-md-4">
                         <div class="card course-card">
-                            <img class="card-img-top" src="@/assets/images/display-image.png" alt="Card image cap">
+                            <img class="card-img-top" src="@/assets/images/display-image (1).png" alt="Card image cap">
                             <div class="card-body">
                                 <img src="@/assets/images/quizlogo2.png" class="course-logo">
                                 <div class="card-body row">
@@ -48,11 +48,11 @@
                     </div>
                     <div class="col-md-4">
                         <div class="card course-card">
-                            <img class="card-img-top" src="@/assets/images/display-image.png" alt="Card image cap">
+                            <img class="card-img-top" src="@/assets/images/display-image (2).png" alt="Card image cap">
                             <div class="card-body">
-                                <img src="@/assets/images/quizlogo2.png" class="course-logo">
+                                <img src="@/assets/images/quizlogo1.png" class="course-logo">
                                 <div class="card-body row">
-                                    <h6 class="course-title text-left col-8">Requirement Engineering</h6>
+                                    <h6 class="course-title text-left col-8">Agile Scrumn Foundation</h6>
                                     <div class="save-course col-4">
                                         <i class="fas fa-bookmark"></i>
                                     </div>
@@ -105,7 +105,7 @@
                 <div class="col-md-6 text-right r1 px-5">
                     <img src="@/assets/images/display-img.png" alt="">
                 </div>
-                <div class="col-md-6 r2">
+                <div class="col-md-6 r2 pl-5">
                     <h4>Find flexible, <br>affordable options</h4>
                     <p class="info">Choose from many options including Scheduling <br>your own time to take courses at breakthrough <br>price. Learn at your own pace, 100% online.</p>
                     <div class="btn btn-primary">Schedule Now</div>
@@ -116,7 +116,19 @@
             <div class="row flex-row flex-nowrap ">
                 <div class="col-md-4">
                     <div class="card-layer" style="position: relative;">
-                        <div class="cut-out"></div>
+                        <div class="cut-out" style="background: #473028;"></div>
+                        <div class="card testimonial-card text-center">
+                            <img src="@/assets/images/user3.png" class="avatar">
+                            <div class="context">
+                                <h3 class="author">Jane</h3>
+                                <p class="info">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis vitae asperiores sequi amet temporibus culpa eveniet eos inventore, quos placeat?</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card-layer" style="position: relative;">
+                        <div class="cut-out" style="background: #FFCC00;"></div>
                         <div class="card testimonial-card text-center">
                             <img src="@/assets/images/user1.jpg" class="avatar">
                             <div class="context">
@@ -128,19 +140,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card-layer" style="position: relative;">
-                        <div class="cut-out"></div>
-                        <div class="card testimonial-card text-center">
-                            <img src="@/assets/images/user1.jpg" class="avatar">
-                            <div class="context">
-                                <h3 class="author">Jane</h3>
-                                <p class="info">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis vitae asperiores sequi amet temporibus culpa eveniet eos inventore, quos placeat?</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card-layer" style="position: relative;">
-                        <div class="cut-out"></div>
+                        <div class="cut-out" style="background: #9E000A;"></div>
                         <div class="card testimonial-card text-center">
                             <img src="@/assets/images/user2.jpg" class="avatar">
                             <div class="context">
@@ -213,6 +213,8 @@ export default {
 }
 
 .course-logo{
+    width: 119px;
+    height: 119px;
     margin-top: -71px;
     margin-left: 125px;
 }
@@ -305,7 +307,6 @@ export default {
     margin: auto;
     width: 287px;
     height: 100px;
-    background: red;
     border-radius: 14px 14px 0px 0px;
     transform: rotate(4.68deg);
 }
