@@ -1,6 +1,7 @@
 <template>
     <div class="footer row px-5 pt-5">
         <div class="col-md-5 col-sm-12 cred-note">
+            <img src="@/assets/images/logo.png" class="mb-4" alt="">
             <h5 class="footer-title">ABOUT US</h5>
             <div class="footer-info">
                 <p class="info-data">
@@ -9,7 +10,7 @@
                 <div class="end-logo"><img src="" alt=""></div>
             </div>
         </div>
-        <div class="col-md-2 col-sm-6 cred-note">
+        <div class="col-md-3 col-sm-6 cred-note">
             <h5 class="footer-title">QUICK LINKS</h5>
             <div class="footer-info">
                 <ul class="footer-links">
@@ -21,7 +22,7 @@
                 </ul>
             </div>
         </div>
-        <div class="col-md-2 col-sm-6 cred-note">
+        <div class="col-md-3 col-sm-6 cred-note">
             <h5 class="footer-title">SUPPORT</h5>
             <div class="footer-info">
                 <ul class="footer-links">
@@ -31,15 +32,17 @@
                 </ul>
             </div>
         </div>
-        <div class="col-md-3 col-sm-12 cred-note">
-            <h5 class="footer-title">FOLLOW US</h5>
-            <div class="footer-info">
+        <div class="separator"></div>
+        <div class="inline pt-2 row w-100">
+            <div class="col-4">
+                <div class="end-sec"><p>&#169; Lean Icon Technology. All rights reserved</p></div>
             </div>
-        </div>
-
-        <div class="inline pt-2">
-            <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a> | <a href="#">Cookies</a> 
-            <div class="end-sec"><p>&#169; Lean Icon Technology. All rights reserved</p></div>
+            <div class="col-4">
+                <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a> | <a href="#">Cookies</a> 
+            </div>
+            <div class="col-4">
+                <!-- test -->
+            </div>
         </div>
 
     </div>
@@ -53,6 +56,11 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.separator{
+    height: 1px;
+    width: 90%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
 .footer-title{
     font-weight: 600;
 }

@@ -41,7 +41,7 @@
                      <div class="user-profile-bar row">
                         <img :src="`https://ui-avatars.com/api/?background=0D8ABC&color=fff&name=${profileInfo.firstname}`" alt="" class="avatar-icon col-3">
                         <router-link :to = "{ name:'Editprofile' }" class="profile-data col-9" tag="div" exact>
-                           <h4>{{profileInfo.firstname}} {{profileInfo.lastname}}</h4>
+                           <h5>{{profileInfo.firstname}} {{profileInfo.lastname}}</h5>
                            <p>{{profileInfo.email}}</p>                           
                         </router-link>
                      </div>

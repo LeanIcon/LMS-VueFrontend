@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="beta-tag">BETA</div>
+    <!-- <div class="beta-tag">BETA</div> -->
     <router-view/>
   </div>
 </template>
@@ -84,7 +84,7 @@ h4{
     background-size: cover !important;
 }
 
-.beta-tag{
+/* .beta-tag{
   content: "beta";
   position: fixed;
   width: 80px;
@@ -101,7 +101,7 @@ h4{
   line-height: 27px;
   transform:rotate(45deg);
   z-index: 100;
-}
+} */
 
 .return_btn{
   z-index: 30;

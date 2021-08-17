@@ -25,8 +25,8 @@
                         <input type="checkbox" class="my-3 checkbox">
                         <p>Remember Me</p>
                      </div>
-                     <button class="btn" v-on:submit.prevent="register">Register</button>
-                     <p class="mt-3">Already registered? <router-link :to="{ name: 'Signin'}" tag="a" class="reset_link">Login</router-link></p>
+                     <button class="btn btn-primary" v-on:submit.prevent="register">Register</button>
+                     <p class="mt-3">Already registered? <router-link :to="{ name: 'Signin'}" tag="a" class="reset_link" style="text-decoration: none;">Login</router-link></p>
                   </form>
                </div>
             </div>
@@ -174,8 +174,8 @@ input:focus, .btn:focus{
 
 button{
    height: 3rem;
-   background-color:#494949;
-   color: #fefefe;
+   /* background-color:#494949; */
+   /* color: #fefefe; */
    font-size: 1.2rem;
    font-weight: 500;
 }
