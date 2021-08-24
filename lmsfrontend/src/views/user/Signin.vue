@@ -25,10 +25,10 @@
                         </div>
                      </div>
                      <div class="col-6">
-                        <p class="mt-3 info"><router-link :to="{ name: 'Forgotpassword'}" tag="a" class="reset_link">Forgot your password?</router-link></p>
+                        <p class="mt-3 info"><router-link :to="{ name: 'Forgotpassword'}" tag="a" class="reset_link">Forgot password?</router-link></p>
                      </div>
                   </div>
-                  <button class="btn my-2" v-on:submit.prevent="login">Send</button>
+                  <button class="btn btn-primary my-2" v-on:submit.prevent="login">Send</button>
                      <p class="mt-3">Already a member? <router-link :to="{ name: 'Register'}" tag="a" class="reset_link">Register</router-link></p>
                </form>
             </div>
@@ -156,8 +156,8 @@ input:focus, .btn:focus{
 
 button{
    height: 3rem;
-   background-color:#494949;
-   color: #fefefe;
+   /* background-color:#494949; */
+   /* color: #fefefe; */
    font-size: 1.2rem;
    font-weight: 500;
 }

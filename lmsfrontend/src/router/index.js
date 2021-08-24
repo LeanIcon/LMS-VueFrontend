@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home/Landingpage.vue'
+import Homepage from '../views/Home/Homepage.vue'
 import Overview from '../views/Home/Overview.vue'
 import CourseLesson from '../views/course/CourseLesson.vue'
 
@@ -8,9 +9,27 @@ Vue.use(VueRouter)
 
   const routes = [
     {
-      path: "/",
+      path: "/home",
       name: "Home",
       component: Home,
+      meta: {
+        requiresAuth: false,
+        requiresLogin: false,
+      },
+    },
+    {
+      path: "/",
+      name: "Homepage",
+      component: Homepage,
+      meta: {
+        requiresAuth: false,
+        requiresLogin: false,
+      },
+    },
+    {
+      path: "/individual",
+      name: "Individuals",
+      component: () => import("../views/Home/Individual.vue"),
       meta: {
         requiresAuth: false,
         requiresLogin: false,
