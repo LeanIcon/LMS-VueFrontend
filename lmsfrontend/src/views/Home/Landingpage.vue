@@ -272,17 +272,17 @@
 
 			</div>
 		</div>	
-		<Footer></Footer>
+		<!-- <Footer></Footer> -->
 	</div>
 </template>
 
 <script>
-import Footer from '@/components/Footer.vue'
+// import Footer from '@/comaponents/Footer.vue'
 // import Navbar from '@/components/Navbar.vue'
 export default {
 	name: 'Landingpage',
-	components :{
-		Footer ,
+	components : {
+		// Footer ,
 		// Navbar
 	},
 }

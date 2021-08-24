@@ -27,6 +27,15 @@ Vue.use(VueRouter)
       },
     },
     {
+      path: "/individual",
+      name: "Individuals",
+      component: () => import("../views/Home/Individual.vue"),
+      meta: {
+        requiresAuth: false,
+        requiresLogin: false,
+      },
+    },
+    {
       path: "/overview",
       name: "Overview",
       component: Overview,

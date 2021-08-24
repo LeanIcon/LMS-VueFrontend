@@ -2,7 +2,7 @@
     <div class="footer row px-5 pt-5">
         <div class="col-md-5 col-sm-12 cred-note">
             <img src="@/assets/images/logo.png" class="mb-4" alt="">
-            <h5 class="footer-title">ABOUT US</h5>
+            <h5 class="footer-title">About Us</h5>
             <div class="footer-info">
                 <p class="info-data">
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem illum praesentium voluptatibus sit eius rem optio repudiandae quos, ea nam asperiores fuga tenetur vero deleniti voluptatem ab voluptates est cum?
@@ -11,7 +11,7 @@
             </div>
         </div>
         <div class="col-md-3 col-sm-6 cred-note">
-            <h5 class="footer-title">QUICK LINKS</h5>
+            <h5 class="footer-title">Quick Links</h5>
             <div class="footer-info">
                 <ul class="footer-links">
                     <li>My Account</li>
@@ -23,7 +23,7 @@
             </div>
         </div>
         <div class="col-md-3 col-sm-6 cred-note">
-            <h5 class="footer-title">SUPPORT</h5>
+            <h5 class="footer-title">Support</h5>
             <div class="footer-info">
                 <ul class="footer-links">
                     <li>Tech Support</li>
@@ -61,9 +61,12 @@
     width: 90%;
     background-color: rgba(0, 0, 0, 0.3);
 }
+
 .footer-title{
     font-weight: 600;
+    font-size: 20px;
 }
+
 .footer{
   background: #c4c4c4;
   height: 30%;

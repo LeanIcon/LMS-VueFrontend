@@ -1,7 +1,7 @@
 <template>
 	<div class="transparent-nav">
 		<Navbar></Navbar>
-        <div class="section-1 hero-banner">
+        <section class="section-1 hero-banner container">
             <div class="row">
                 <div class="col-md-5 l1 px-5">
                     <h1>Gain Unlimited Skills</h1>
@@ -12,8 +12,8 @@
                     <img src="@/assets/images/hero1.png" class="img-1" alt="">
                 </div>
             </div>
-        </div>
-        <div class="section-2">
+        </section>
+        <section class="section-2 container">
             <div class="hero-2">
                 <h4 class="c1">Explore our courses</h4>
                 <p>Learn several paths to a successful carrer</p>
@@ -62,8 +62,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="section-3 mt-5">
+        </section>
+        <section class="section-3 mt-5 container">
             <div class="hero-2">
                 <h4 class="c1">Take the next step toward your personal and professional goals with LittLearn</h4>
                 <div class="row">
@@ -89,8 +89,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="section-4 banner-bg mt-5">
+        </section>
+        <section class="section-4 banner-bg mt-5">
             <div class="overlay banner-bg h-100 w-100 py-4">
                 <div class="content text-center text-white ">
                     <h4>Take unlimited practice exams</h4>
@@ -99,8 +99,8 @@
                     <router-link :to = "{ name:'Dashboard' }" class="btn btn-primary mt-4" tag="div">Get Started</router-link>
                 </div>
             </div>
-        </div>
-        <div class="section-5 mt-5">
+        </section>
+        <section class="section-5 mt-5">
             <div class="row h-100 w-100">
                 <div class="col-md-6 text-right r1 px-5">
                     <img src="@/assets/images/display-img.png" alt="">
@@ -111,8 +111,8 @@
                     <div class="btn btn-primary">Schedule Now</div>
                 </div>
             </div>
-        </div>
-        <div class="section-6 mb-5">
+        </section>
+        <section class="section-6 mb-5 container">
             <div class="row flex-row flex-nowrap ">
                 <div class="col-md-4">
                     <div class="card-layer" style="position: relative;">
@@ -151,7 +151,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 		<Footer></Footer>
 	</div>
 </template>

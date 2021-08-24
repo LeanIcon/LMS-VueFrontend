@@ -1,21 +1,21 @@
 <template>
-    <div class="navbar px-5">
+    <div class="navbar navbar navbar-expand-lg navbar-light  px-5">
       <div class="block-1 d-flex">
-        <div class="nav-logo mr-5">
+        <router-link tag="div" :to="{name: 'Homepage'}" style="cursor: pointer;" class="nav-logo navbar-brand mr-5">
           <img src="@/assets/images/logo.png" alt="">
-        </div>
+        </router-link>
         <input type="text" class="search-bar ml-5 px-3" placeholder="Search">
       </div>
-      <div class="nav-links d-flex">
-        <ul class="d-flex nav-items">
+      <div class="nav-links collapse navbar-collapse d-flex" style="justify-content: right;">
+        <ul class="d-flex nav-items my-auto">
           <li class="link mr-4">
-            <a>For Individuals</a>
+            <router-link tag="a" class="nav-item" :to="{ name: 'Individuals' }">For Individuals</router-link>
           </li>
           <li class="link mr-4">
             <a>Skill Accessment</a>
           </li>
           <li class="link mr-4" v-if="!this.$store.getters.loggedIn">
-            <router-link :to = "{ name:'Signin' }" class="alt-link" tag="li"><a>Login</a></router-link>
+            <router-link :to="{ name:'Signin' }" class="alt-link" tag="li"><a>Login</a></router-link>
           </li>
           <li class="link mr-4" v-else>
             <div class="alt-link logout" @click="created"><a>Logout</a></div>
@@ -65,7 +65,7 @@
   list-style-type: none;
 }
 
-.link, .nav-items{
+.link{
   margin: auto;
 }
 
@@ -84,5 +84,10 @@
 
 .logout{
   color: red;
+}
+
+.nav-item{
+  color: #000;
+  text-decoration: none;
 }
 </style>
