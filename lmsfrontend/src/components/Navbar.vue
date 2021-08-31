@@ -1,5 +1,5 @@
 <template>
-    <div class="navbar navbar navbar-expand-lg navbar-light  px-5">
+    <div class="navbar navbar navbar-expand-lg navbar-light px-5">
       <div class="block-1 d-flex">
         <router-link tag="div" :to="{name: 'Homepage'}" style="cursor: pointer;" class="nav-logo navbar-brand mr-5">
           <img src="@/assets/images/logo.png" alt="">
@@ -89,5 +89,11 @@
 .nav-item{
   color: #000;
   text-decoration: none;
+}
+
+@media only screen and (max-width: 1024px){
+  .navbar{
+    display: none;
+  }
 }
 </style>

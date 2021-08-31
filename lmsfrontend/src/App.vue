@@ -107,6 +107,13 @@ h4{
   z-index: 30;
 }
 
+
+.card-shadow{
+    border: none;
+    border-radius: 16px;
+    filter: drop-shadow(0px 16px 16px rgba(50, 50, 71, 0.08)) drop-shadow(0px 24px 32px rgba(50, 50, 71, 0.08));
+}
+
 @media screen and (max-width: 754px){
   .tawk-min-container{
     display: none !important;
