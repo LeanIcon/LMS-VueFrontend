@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home/Landingpage.vue'
 import Homepage from '../views/Home/Homepage.vue'
 import Overview from '../views/Home/Overview.vue'
+import CourseOverview from '../views/Home/CourseOverview.vue'
 import CourseLesson from '../views/course/CourseLesson.vue'
 
 Vue.use(VueRouter)
@@ -39,6 +40,15 @@ Vue.use(VueRouter)
       path: "/overview",
       name: "Overview",
       component: Overview,
+      meta: {
+        requiresAuth: false,
+        requiresLogin: false,
+      },
+    },
+    {
+      path: "/course/overview",
+      name: "CourseOverview",
+      component: CourseOverview,
       meta: {
         requiresAuth: false,
         requiresLogin: false,
