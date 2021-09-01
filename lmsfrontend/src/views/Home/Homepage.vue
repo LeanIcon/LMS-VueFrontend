@@ -19,7 +19,7 @@
                 <p>Learn several paths to a successful carrer</p>
                 <div class="row flex-row">
                     <div class="col-md-4 mb-3">
-                        <div class="card course-card">
+                        <router-link tag="div" :to="{name: 'CourseOverview'}" class="card course-card">
                             <img class="card-img-top" src="@/assets/images/display-image (3).png" alt="Card image cap">
                             <div class="card-body">
                                 <img src="@/assets/images/quizlogo.png" class="course-logo">
@@ -30,7 +30,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </router-link>
                     </div>
                     <div class="col-md-4 mb-3">
                         <div class="card course-card">
@@ -66,7 +66,7 @@
         <section class="section-3 mt-5">
             <div class="hero-2 w-100">
                 <h4 class="c1 title px-4">Take the next step toward your personal and professional goals with LittLearn</h4>
-                <div class="row px-5">
+                <div class="row px-5" style="padding: 0 10rem !important;">
                     <div class="col-6 col-lg-3 col-md-3 mt-4">
                         <div class="overview">
                             <img src="@/assets/images/Vector.png" alt="">
@@ -219,6 +219,10 @@ export default {
     height: 280px;
 }
 
+.course-card:hover{
+    cursor: pointer;
+}
+
 .card-body{
     padding: 10px;
 }
@@ -328,7 +332,7 @@ export default {
 
 .cut-out{
     top: 100px;
-    left: -1px;
+    left: 1px;
     position: relative;
     margin: auto;
     width: 287px;

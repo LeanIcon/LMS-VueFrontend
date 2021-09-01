@@ -84,6 +84,23 @@ h4{
     background-size: cover !important;
 }
 
+.spacer-lg{
+  height: 16rem;
+}
+
+.spacer-md{
+  height: 8rem;
+}
+
+.spacer-sm{
+  height: 4rem;
+}
+
+.spacer-xs{
+  height: 2rem;
+}
+
+
 /* .beta-tag{
   content: "beta";
   position: fixed;
