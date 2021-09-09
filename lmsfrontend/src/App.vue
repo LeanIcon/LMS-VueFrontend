@@ -100,6 +100,10 @@ h4{
   height: 2rem;
 }
 
+.spacer-2x{
+  height: 1.5rem;
+}
+
 
 /* .beta-tag{
   content: "beta";
