@@ -10,10 +10,9 @@
                     <!-- <div class="btn btn-primary">Login</div> -->
                 </div>
                 <div class="row section">
-                    <div class="col-9 col-md-6 col-lg-6 m-auto _c1 d-flex">
+                    <div class="col-9 col-md-6 col-sm-8 col-lg-6 _c1 d-flex">
                         <div class="_intro-text">
-                            <p class="_t1">Take</p>
-                            <p class="_t1">Unlimited</p>
+                            <p class="_t1">Take Unlimited</p>
                             <p class="_t2">Practice Exams</p>
                         </div>
                         <div class="spacer-2x"></div>
@@ -22,7 +21,7 @@
                         </div>
                         <div class="spacer-2x"></div>
                         <div class="row">
-                            <div class="col-md-6 col-sm-4 col-xl-4 col-lg-6 col-12">
+                            <div class="col-md-6 col-sm-6 col-xl-4 col-lg-6 col-12">
                                 <router-link :to="{'name': 'Register'}" class="btn btn-primary bt_md" tag="div">
                                     Get Started
                                 </router-link>
@@ -30,13 +29,13 @@
                                     Get Started
                                 </div> -->
                             </div>
-                            <div class="col-md-6 col-sm-8 col-xl-8 col-lg-6 col-12 video-btn d-flex">
+                            <div class="col-md-6 col-sm-6 col-xl-8 col-lg-6 col-12 video-btn d-flex">
                                 <img src="@/assets/images/play-circle.png" alt="v-btn" class="my-auto mx-1">
                                 <p class="my-auto">Watch Video</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-3 col-md-6 col-lg-6 cl-2">
+                    <div class="col-3 col-md-6 col-sm-4 col-lg-6 cl-2">
                         <div class="_hero-banner  w-100 h-100">
                             <img src="@/assets/images/banner3.png" alt="">
                         </div>
@@ -69,6 +68,10 @@ export default {
     width: 120px;
 }
 
+.navbar{
+    padding-top: 2rem;
+}
+
 .navbar .btn{
     border-radius: 50px;
     height: 30px;
@@ -79,13 +82,15 @@ export default {
 
 ._intro-text ._t1{
     font-weight: 200;
-    font-size: 40px;
-    line-height: .6;
+    font-size: 60px;
+    line-height: .9;
+    width: 400px;
+    margin-bottom: 4px;
 }
 
 ._intro-text ._t2{
-    line-height: .6;
-    font-size: 40px;
+    line-height: .9;
+    font-size: 60px;
     font-weight: 600 !important;
 }
 
@@ -100,14 +105,15 @@ export default {
 }
 
 ._c1{
-    height: 530px;
+    /* height: 530px; */
     place-content: center; 
     flex-direction: column;
 }
 
 ._hero-banner img{
-    width: 500px;
-    margin-top: -5.5rem;
+    /* width: 500px; */
+    margin-top: -1rem;
+    height: 100vh;
 }
 
 .sub_text{
@@ -131,10 +137,9 @@ export default {
     height: 25px;
 }
 
-
 @media screen and (max-width: 600px){
     ._c1{
-        max-width: 500rem !important;
+        /* max-width: 500rem !important; */
         place-content: inherit;
         height: calc(100vh - 7rem);
     }
@@ -166,11 +171,11 @@ export default {
         height: 10px;
     }
 
+    ._intro-text ._t1,
     ._intro-text ._t2{
-        line-height: .8;
+        line-height: 1.1;
+        font-size: 38px;
+        margin-bottom: 2px;
     }
-
-
-
 }
 </style>
