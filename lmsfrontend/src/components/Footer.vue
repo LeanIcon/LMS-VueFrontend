@@ -1,7 +1,7 @@
 <template>
     <div class="footer row px-5 pt-5">
         <div class="col-md-5 col-sm-12 cred-note">
-            <img src="@/assets/images/logo.png" class="mb-4" alt="">
+            <img src="@/assets/images/logo.png" class="mb-4 nav-logo" alt="">
             <h5 class="footer-title">About Us</h5>
             <div class="footer-info">
                 <p class="info-data">

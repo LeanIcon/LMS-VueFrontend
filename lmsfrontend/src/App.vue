@@ -66,6 +66,11 @@ h4{
     top: 0;
 }
 
+.nav-logo{
+  width: 150px;
+}
+
+
 .dashnav{
     position: static;
     z-index: 1;

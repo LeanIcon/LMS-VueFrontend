@@ -31,7 +31,7 @@
 
         <div class="spacer-sm"></div>
 
-        <section class="m-content">
+        <section class="container">
             <h3>About this course</h3>
             <p>This course provides a broad overview of the fundamental concepts, principles, and practices of mindfulness. With interactive exercises to help students explore their own attitudes, mental habits and behaviors, Foundations of Mindfulness offers a pathway for living with more freedom, authenticity and ease. Featured components of the course include experiential exercises, guided meditations, personal reflection and interactive discussions.</p>
             
@@ -144,14 +144,16 @@
                         <h4 class="title">Standard</h4>
                         <p class="price-tag font-weight-bold">$29</p>
                         <p class="info" style="height: 60px">Start learning today! Get maximum flexibility to learn at your own pace.</p>
-                        <div class="btn btn-primary e-btn mx-auto mt-4">Enroll Now</div>
+                        <!-- <div class="btn btn-primary e-btn mx-auto mt-4">Enroll Now</div> -->
+                        <router-link :to="{'name': 'Register'}" tag="div" class="btn btn-primary e-btn mx-auto mt-4">Enroll Now</router-link>
                         <p class="info mt-4">Or start a free trial</p>
                     </div>
                     <div class="card card-shadow prm-card text-white p-5">
                         <h4 class="title">Premium</h4>
                         <p class="price-tag font-weight-bold">$59</p>
                         <p class="info" style="height: 60px"> Entire library of core and expanded courses, exams, projects and hands-on learning. </p>
-                        <div class="btn btn-primary e-btn mx-auto mt-4">Enroll Now</div>
+                        <!-- <div class="btn btn-primary e-btn mx-auto mt-4">Enroll Now</div> -->
+                        <router-link :to="{'name': 'Register'}" tag="div" class="btn btn-primary e-btn mx-auto mt-4">Enroll Now</router-link>
                         <p class="info mt-4">Or start a free trial</p>
                     </div>
                 </div>
@@ -165,7 +167,8 @@
             </div>
         </section>
         <div class="cta mt-5 d-flex" style="place-content: center;">
-            <div class="btn btn-primary m-auto">Enroll Now</div>
+            <!-- <div class="btn btn-primary m-auto">Enroll Now</div> -->
+        <router-link :to="{'name': 'Register'}" tag="div" class="btn btn-primary m-auto">Enroll Now</router-link>
         </div>
         <Footer/>
     </div>

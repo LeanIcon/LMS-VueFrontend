@@ -36,7 +36,7 @@
                         </div>
                     </div>
                     <div class="col-3 col-md-6 col-sm-4 col-lg-6 cl-2">
-                        <div class="_hero-banner  w-100 h-100">
+                        <div class="_hero-banner  w-100 h-100 text-right">
                             <img src="@/assets/images/banner3.png" alt="">
                         </div>
                     </div>
@@ -65,7 +65,7 @@ export default {
 }
 
 .logo img{
-    width: 120px;
+    width: 150px;
 }
 
 .navbar{
@@ -145,9 +145,9 @@ export default {
     }
 
     ._hero-banner img{
-        width: 450px;
+        /* width: 450px; */
         margin-top: 3.5rem;
-        margin-left: -12rem;
+        margin-left: -10rem;
     }
 
     .section{
