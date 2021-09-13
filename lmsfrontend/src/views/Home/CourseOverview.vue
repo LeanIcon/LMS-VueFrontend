@@ -28,9 +28,15 @@
                 <div class="btn btn-primary mt-4" style="width: 250px;">Start for free trial</div>
             </div>
         </section>
-        <section class="m-content mt-5">
+
+        <div class="spacer-sm"></div>
+
+        <section class="container">
             <h3>About this course</h3>
             <p>This course provides a broad overview of the fundamental concepts, principles, and practices of mindfulness. With interactive exercises to help students explore their own attitudes, mental habits and behaviors, Foundations of Mindfulness offers a pathway for living with more freedom, authenticity and ease. Featured components of the course include experiential exercises, guided meditations, personal reflection and interactive discussions.</p>
+            
+            <div class="spacer-sm"></div>
+
             <div class="card card-shadow p-5">
                 <h5 class="title">Learning Goals</h5>
                 <div class="bullets mt-3 row">
@@ -105,7 +111,9 @@
                     </div>
                 </div>
             </div>
-            <hr class="mt-5">
+            
+            <div class="spacer-sm"></div>
+
             <div class="instructors mt-5">
                 <h5 class="title font-weight-bold">Instructors</h5>
                 <div class="row mt-4">
@@ -114,7 +122,8 @@
                 </div>
             </div>
 
-            <hr class="my-5">
+            <div class="spacer-sm"></div>
+            <hr>
 
             <div class="plan_pricing text-center mx-auto mt-5">
                 <p class="info-1">PLAN & PRICING</p>
@@ -128,32 +137,38 @@
                     <p class="font-weight-normal">Bill Anually</p>
                 </div>
 
+                <div class="spacer-xs"></div>
+
                 <div class="pricing-table d-flex" style="place-content: center;">
                     <div class="card card-shadow std-card p-5">
                         <h4 class="title">Standard</h4>
                         <p class="price-tag font-weight-bold">$29</p>
-                        <p class="info">Start learning today! Get maximum flexibility to learn at your own pace.</p>
-                        <div class="btn btn-primary e-btn mx-auto mt-4">Enroll Now</div>
+                        <p class="info" style="height: 60px">Start learning today! Get maximum flexibility to learn at your own pace.</p>
+                        <!-- <div class="btn btn-primary e-btn mx-auto mt-4">Enroll Now</div> -->
+                        <router-link :to="{'name': 'Register'}" tag="div" class="btn btn-primary e-btn mx-auto mt-4">Enroll Now</router-link>
                         <p class="info mt-4">Or start a free trial</p>
                     </div>
                     <div class="card card-shadow prm-card text-white p-5">
                         <h4 class="title">Premium</h4>
                         <p class="price-tag font-weight-bold">$59</p>
-                        <p class="info"> Entire library of core and expanded courses, exams, projects and hands-on learning. </p>
-                        <div class="btn btn-primary e-btn mx-auto mt-4">Enroll Now</div>
+                        <p class="info" style="height: 60px"> Entire library of core and expanded courses, exams, projects and hands-on learning. </p>
+                        <!-- <div class="btn btn-primary e-btn mx-auto mt-4">Enroll Now</div> -->
+                        <router-link :to="{'name': 'Register'}" tag="div" class="btn btn-primary e-btn mx-auto mt-4">Enroll Now</router-link>
                         <p class="info mt-4">Or start a free trial</p>
                     </div>
                 </div>
 
-                <div class="client-section mt-5">
+                <div class="spacer-md"></div>
+                <!-- <div class="client-section mt-5">
                     <h5 class="font-weight-bold">Trusted by learners at thousands of companies</h5>
-                    <img src="@/assets/images/clients.png" alt="">
-                </div>
+                    <img src="@/assets/images/clients.png" alt=""> 
+                </div> -->
 
             </div>
         </section>
         <div class="cta mt-5 d-flex" style="place-content: center;">
-            <div class="btn btn-primary m-auto">Enroll Now</div>
+            <!-- <div class="btn btn-primary m-auto">Enroll Now</div> -->
+        <router-link :to="{'name': 'Register'}" tag="div" class="btn btn-primary m-auto">Enroll Now</router-link>
         </div>
         <Footer/>
     </div>
@@ -302,7 +317,7 @@ input:checked + .slider:before {
 
 .prm-card{
     max-width: 400px !important;
-    background-color: rgba(158, 0, 10, 0.72);
+    background-color: rgb(43, 43, 43);
 }
 
 .std-card{

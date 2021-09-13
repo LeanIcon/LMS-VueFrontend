@@ -1,10 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home/Landingpage.vue'
-import Homepage from '../views/Home/Homepage.vue'
+import Home2 from '../views/Home/Homepage.vue'
 import Overview from '../views/Home/Overview.vue'
 import CourseOverview from '../views/Home/CourseOverview.vue'
 import CourseLesson from '../views/course/CourseLesson.vue'
+import Homepage from '../views/Home/Classic.vue'
 
 Vue.use(VueRouter)
 
@@ -13,6 +14,15 @@ Vue.use(VueRouter)
       path: "/home",
       name: "Home",
       component: Home,
+      meta: {
+        requiresAuth: false,
+        requiresLogin: false,
+      },
+    },
+    {
+      path: "/dev/default",
+      name: "Home2",
+      component: Home2,
       meta: {
         requiresAuth: false,
         requiresLogin: false,

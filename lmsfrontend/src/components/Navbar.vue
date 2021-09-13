@@ -1,10 +1,10 @@
 <template>
-    <div class="navbar navbar navbar-expand-lg navbar-light px-5">
+    <div class="navbar navbar-expand-lg navbar-light px-5">
       <div class="block-1 d-flex">
-        <router-link tag="div" :to="{name: 'Homepage'}" style="cursor: pointer;" class="nav-logo navbar-brand mr-5">
-          <img src="@/assets/images/logo.png" alt="">
+        <router-link tag="div" :to="{name: 'Homepage'}" style="cursor: pointer;" class="navbar-brand mr-5">
+          <img src="@/assets/images/logo.png" class="nav-logo " alt="">
         </router-link>
-        <input type="text" class="search-bar ml-5 px-3" placeholder="Search">
+        <input type="text" class="search-bar ml-5 px-3 my-auto" placeholder="Search">
       </div>
       <div class="nav-links collapse navbar-collapse d-flex" style="justify-content: right;">
         <ul class="d-flex nav-items my-auto">

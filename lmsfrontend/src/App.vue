@@ -66,6 +66,11 @@ h4{
     top: 0;
 }
 
+.nav-logo{
+  width: 150px;
+}
+
+
 .dashnav{
     position: static;
     z-index: 1;
@@ -83,6 +88,27 @@ h4{
 .plyr__poster{
     background-size: cover !important;
 }
+
+.spacer-lg{
+  height: 16rem;
+}
+
+.spacer-md{
+  height: 8rem;
+}
+
+.spacer-sm{
+  height: 4rem;
+}
+
+.spacer-xs{
+  height: 2rem;
+}
+
+.spacer-2x{
+  height: 1.5rem;
+}
+
 
 /* .beta-tag{
   content: "beta";
