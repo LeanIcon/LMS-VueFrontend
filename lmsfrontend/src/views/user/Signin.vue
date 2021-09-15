@@ -1,7 +1,7 @@
 <template>
    <div class="forgotpassword">
       <div class="page__container row">
-         <a class="return_btn" @click="goBack()"><i class="back--btn fa fa-arrow-left"></i> Back</a>
+         <a class="return_btn" onclick="history.back()"><i class="back--btn fa fa-arrow-left"></i> Back</a>
          <div class="col-md-5 bg_img">
             <!-- <img src="@/assets/images/forgotpassbg.jpg" alt="" class="h-100"> -->
          </div>
