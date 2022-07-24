@@ -1,7 +1,7 @@
 <template>
    <div class="forgotpassword">
       <div class="page__container row">
-         <a class="return_btn" @click="goBack()"><i class="back--btn fa fa-arrow-left"></i> Back</a>
+         <!-- <a class="return_btn" @click="goBack()"><i class="back--btn fa fa-arrow-left"></i> Back</a> -->
          <div class="col-md-5 bg_img">
             <!-- <img src="@/assets/images/forgotpassbg.jpg" alt="" class="h-100"> -->
          </div>
@@ -13,10 +13,12 @@
                <h1>Have an account?</h1>
                <p>Login to your dashboard.</p>
             </div>
-            <div class="col-lg-8 col-md-12 info_section">
+            <div class="col-lg-7 col-md-12 info_section">
                <form action="" method="POST" v-on:submit.prevent="login">
-                  <input type="email" placeholder="Enter your email address" v-model="email" required>
-                  <input type="password" class="mt-3" placeholder="Password" v-model="password" required>
+                 <label for="Email">Email</label>
+                  <input type="email" class="mb-3" placeholder="Enter your email address" v-model="email" required>
+                    <label for="Password">Password</label>
+                  <input type="password" class="mt-1" placeholder="Password" v-model="password" required>
                   <div class="row">
                      <div class="col-6">
                         <div class="rem-checkbox">
