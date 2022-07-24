@@ -2,7 +2,7 @@
    <div class="forgotpassword">
      <div class="screen-blur"></div> 
       <div class="page__container row">
-         <a class="return_btn" @click="goBack()"><i class="back--btn fa fa-arrow-left"></i> Back</a>
+         <!-- <a class="return_btn" @click="goBack()"><i class="back--btn fa fa-arrow-left"></i> Back</a> -->
          <div class="col-md-5 bg_img">
             <!-- <img src="@/assets/images/forgotpassbg.jpg" alt="" class="h-100"> -->
          </div>
@@ -11,16 +11,21 @@
             <div class="display_content row">
                <div class="col-lg-4 col-md-12 user_info">
               <img src="@/assets/gh_01.png" alt="sidebar-logo">
-                  <h1>Join The Community</h1>
+                  <h2>Join The Community</h2>
                   <p>Sign Up to upgrade your skills</p>
                </div>
                <div class="col-lg-8 col-md-12 info_section">
                   <form action="" method="POST" v-on:submit.prevent="register">
-                     <input type="text" class="mt-3" placeholder="First Name" v-model="firstname" required>
-                     <input type="text" class="mt-3" placeholder="Last Name" v-model="lastname" required>
-                     <input type="email" class="mt-3" placeholder="Enter your email address" v-model="email" required>
-                     <input type="password" class="mt-3" placeholder="Password" v-model="password" required>
-                     <input type="password" class="mt-3" placeholder="Confirm Password" v-model="confirm_password" required>
+                  <label for="firstname">First Name</label>
+                     <input type="text" class="mt-1" placeholder="First Name" v-model="firstname" required>
+                      <label for="lasttname">Last Name</label>
+                     <input type="text" class="mt-1" placeholder="Last Name" v-model="lastname" required>
+                      <label for="email">Email</label>
+                     <input type="email" class="mt-1" placeholder="Enter your email address" v-model="email" required>
+                      <label for="password">Password</label>
+                     <input type="password" class="mt-1" placeholder="Password" v-model="password" required>
+                      <label for="confirm password">Confirm Password</label>
+                     <input type="password" class="mt-1" placeholder="Confirm Password" v-model="confirm_password" required>
                      <div class="rem-checkbox">
                         <input type="checkbox" class="my-3 checkbox">
                         <p>Remember Me</p>
@@ -128,7 +133,10 @@
 .rem-checkbox{
    display: flex;
 }
-
+.user_info h2{
+         font-size: 40px;
+         font-weight: 600;
+   }
 .rem-checkbox p{
    margin: auto 1rem;
 }
@@ -152,7 +160,10 @@
    position: absolute;
    bottom: 10px;
 }
-
+label{
+   margin-bottom:0;
+   margin-top: 5px;
+}
 input{
    border: none;
    background-color: #F2F2F2;
@@ -258,7 +269,7 @@ input:checked{
    .return_btn{
          visibility: hidden;
    }
-   .user_info h1{
+   .user_info h2{
          font-size: 33px;
          font-weight: 600;
    }
@@ -274,7 +285,7 @@ input:checked{
       height: 100vh;
    }
 
-   .user_info h1{
+   .user_info h2{
       font-size: 27px;
       font-weight: 600;
    }
