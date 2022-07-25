@@ -282,5 +282,12 @@ form, .user_info{
     margin: auto;
   }
 }
-
+@media screen and (max-width: 430px) {
+ .info{
+   font-size: 0.7rem;
+}
+.reset_link{
+   font-size: 0.7rem;
+}
+}
 </style>
