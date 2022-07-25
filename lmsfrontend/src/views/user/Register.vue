@@ -11,7 +11,7 @@
             <div class="display_content row">
                <div class="col-lg-4 col-md-12 user_info">
               <img src="@/assets/gh_01.png" alt="sidebar-logo">
-                  <h2>Join The Community</h2>
+                  <h1>Join The Community</h1>
                   <p>Sign Up to upgrade your skills</p>
                </div>
                <div class="col-lg-8 col-md-12 info_section">
@@ -133,10 +133,7 @@
 .rem-checkbox{
    display: flex;
 }
-.user_info h2{
-         font-size: 40px;
-         font-weight: 600;
-   }
+
 .rem-checkbox p{
    margin: auto 1rem;
 }
@@ -269,7 +266,7 @@ input:checked{
    .return_btn{
          visibility: hidden;
    }
-   .user_info h2{
+   .user_info h1{
          font-size: 33px;
          font-weight: 600;
    }
@@ -285,7 +282,7 @@ input:checked{
       height: 100vh;
    }
 
-   .user_info h2{
+   .user_info h1{
       font-size: 27px;
       font-weight: 600;
    }
@@ -313,5 +310,16 @@ input:checked{
       margin: auto;
    }
 }
-
+@media screen and (max-width: 1300px) {   
+   .user_info h1{
+      font-size: 2.5rem;
+      font-weight: 600;
+   }
+}
+@media screen and (max-width: 240px) {   
+   .user_info h1{
+      font-size: 2rem;
+      font-weight: 600;
+   }
+}
 </style>
