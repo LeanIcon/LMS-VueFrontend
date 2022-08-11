@@ -181,7 +181,7 @@ button:hover{
 
 form{
    display: grid;
-   height: 8rem;
+   /* height: 8rem; */
 }
 
 form, .user_info{
