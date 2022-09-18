@@ -2,7 +2,11 @@
    <div class="forgotpassword">
      <div class="screen-blur"></div> 
       <div class="page__container row">
-         <a class="return_btn" @click="goBack()"><i class="back--btn fa fa-arrow-left"></i> Back</a>
+<<<<<<< HEAD
+         <!-- <a class="return_btn" @click="goBack()"><i class="back--btn fa fa-arrow-left"></i> Back</a> -->
+=======
+         <a class="return_btn" onclick="history.back()"><i class="back--btn fa fa-arrow-left"></i> Back</a>
+>>>>>>> dev
          <div class="col-md-5 bg_img">
             <!-- <img src="@/assets/images/forgotpassbg.jpg" alt="" class="h-100"> -->
          </div>
@@ -16,11 +20,16 @@
                </div>
                <div class="col-lg-8 col-md-12 info_section">
                   <form action="" method="POST" v-on:submit.prevent="register">
-                     <input type="text" class="mt-3" placeholder="First Name" v-model="firstname" required>
-                     <input type="text" class="mt-3" placeholder="Last Name" v-model="lastname" required>
-                     <input type="email" class="mt-3" placeholder="Enter your email address" v-model="email" required>
-                     <input type="password" class="mt-3" placeholder="Password" v-model="password" required>
-                     <input type="password" class="mt-3" placeholder="Confirm Password" v-model="confirm_password" required>
+                  <label for="firstname">First Name</label>
+                     <input type="text" class="mt-1" placeholder="First Name" v-model="firstname" required>
+                      <label for="lasttname">Last Name</label>
+                     <input type="text" class="mt-1" placeholder="Last Name" v-model="lastname" required>
+                      <label for="email">Email</label>
+                     <input type="email" class="mt-1" placeholder="Enter your email address" v-model="email" required>
+                      <label for="password">Password</label>
+                     <input type="password" class="mt-1" placeholder="Password" v-model="password" required>
+                      <label for="confirm password">Confirm Password</label>
+                     <input type="password" class="mt-1" placeholder="Confirm Password" v-model="confirm_password" required>
                      <div class="rem-checkbox">
                         <input type="checkbox" class="my-3 checkbox">
                         <p>Remember Me</p>
@@ -152,7 +161,10 @@
    position: absolute;
    bottom: 10px;
 }
-
+label{
+   margin-bottom:0;
+   margin-top: 5px;
+}
 input{
    border: none;
    background-color: #F2F2F2;
@@ -302,5 +314,16 @@ input:checked{
       margin: auto;
    }
 }
-
+@media screen and (max-width: 1300px) {   
+   .user_info h1{
+      font-size: 2.5rem;
+      font-weight: 600;
+   }
+}
+@media screen and (max-width: 240px) {   
+   .user_info h1{
+      font-size: 2rem;
+      font-weight: 600;
+   }
+}
 </style>
