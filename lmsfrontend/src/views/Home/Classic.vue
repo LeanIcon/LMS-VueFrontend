@@ -7,7 +7,6 @@
                         <img src="@/assets/images/logo.png" alt="">
                     </div>
                     <router-link :to="{'name': 'Signin'}" class="btn btn-primary" tag="div">Login</router-link>
-                    <!-- <div class="btn btn-primary">Login</div> -->
                 </div>
                 <div class="row section">
                     <div class="col-9 col-md-6 col-sm-8 col-lg-6 _c1 d-flex">
@@ -25,9 +24,6 @@
                                 <router-link :to="{'name': 'Register'}" class="btn btn-primary bt_md" tag="div">
                                     Get Started
                                 </router-link>
-                                <!-- <div class="btn btn-primary bt_md">
-                                    Get Started
-                                </div> -->
                             </div>
                             <div class="col-md-6 col-sm-6 col-xl-8 col-lg-6 col-12 video-btn d-flex">
                                 <img src="@/assets/images/play-circle.png" alt="v-btn" class="my-auto mx-1">
@@ -43,12 +39,18 @@
                 </div>
             </div>
         </div>
+        <Footer id="footer"></Footer>
     </div>
 </template>
 
 <script>
+import Footer from '@/components/Footer.vue'
+// import Footer from '../../components/Dashboard/Footer.vue';
 export default {
-    name: 'Classic'
+    name: "Classic",
+    components: { 
+        Footer 
+    }
 }
 </script>
 
