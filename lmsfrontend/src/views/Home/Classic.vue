@@ -13,7 +13,6 @@
             tag="div"
             >Login</router-link
           >
-          <div class="btn btn-primary">Login</div>
         </div>
         <div class="row section">
           <div class="col-9 col-md-6 col-sm-8 col-lg-6 _c1 d-flex">
