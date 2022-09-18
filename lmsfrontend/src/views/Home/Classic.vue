@@ -6,12 +6,8 @@
                     <div class="logo">
                         <img src="@/assets/images/logo.png" alt="">
                     </div>
-<<<<<<< HEAD
-                    <router-link :to="{'name': 'Signin'}" class="btn btn-primary" tag="div">Login</router-link>
-=======
                     <router-link :to="{'name': 'Signin'}" class="btn btn-primary" style="z-index: 100;" tag="div">Login</router-link>
                     <!-- <div class="btn btn-primary">Login</div> -->
->>>>>>> dev
                 </div>
                 <div class="row section">
                     <div class="col-9 col-md-6 col-sm-8 col-lg-6 _c1 d-flex">
