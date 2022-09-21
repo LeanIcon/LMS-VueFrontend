@@ -1,19 +1,29 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home/Landingpage.vue'
+import Home1 from '../views/Home/Landingpage.vue'
 import Home2 from '../views/Home/Homepage.vue'
 import Overview from '../views/Home/Overview.vue'
 import CourseOverview from '../views/Home/CourseOverview.vue'
 import CourseLesson from '../views/course/CourseLesson.vue'
 import Homepage from '../views/Home/Classic.vue'
+import Home from '../views/Home/Home.vue'
 
 Vue.use(VueRouter)
 
   const routes = [
     {
-      path: "/home",
+      path: "/",
       name: "Home",
       component: Home,
+      meta: {
+        requiresAuth: false,
+        requiresLogin: false,
+      },
+    },
+    {
+      path: "/home",
+      name: "Home1",
+      component: Home1,
       meta: {
         requiresAuth: false,
         requiresLogin: false,
@@ -29,7 +39,7 @@ Vue.use(VueRouter)
       },
     },
     {
-      path: "/",
+      path: "/homepage",
       name: "Homepage",
       component: Homepage,
       meta: {
