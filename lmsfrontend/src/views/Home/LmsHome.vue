@@ -30,7 +30,7 @@
     <div class="space-up">
       <div class="courses-section contain">
         <p class="topic">Explore Our Courses</p>
-        <div class="courses">
+        <div class="courses for-flex">
           <course-card></course-card>
           <course-card></course-card>
           <course-card></course-card>
@@ -112,7 +112,7 @@
       </div>
     </div>
 
-    <div class="where-to-start space-up">
+    <div class="where-to-start separate">
       <div class="start-content">
         <p class="title">
           Don't know where to start? <br />
@@ -122,14 +122,42 @@
         <a href="" class="_button">Free Demo</a>
       </div>
     </div>
+
+    <div class="clients separate">
+      <img src="@/assets/images/home/clients.png" alt="" />
+    </div>
+
+    <div class="our-learners contain">
+      <img src="@/assets/images/home/ourlearners.png" alt="" />
+      <img src="@/assets/images/home/socialfollowing.png" />
+      <p class="topic">
+        Join over <span style="color: #faaf3a">5 million</span> learners <br />
+        Share your experience
+      </p>
+    </div>
+
+    <div class="space-up">
+      <div class="contain testimonial-section">
+        <p class="topic">What our students say about us</p>
+        <div class="for-flex">
+          <testimonial-card></testimonial-card>
+          <testimonial-card></testimonial-card>
+          <testimonial-card></testimonial-card>
+        </div>
+      </div>
+    </div>
+
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
+import Footer from "../../components/Footer.vue";
 import CourseCard from "../../components/Home/CourseCard.vue";
+import TestimonialCard from "../../components/Home/TestimonialCard.vue";
 import Navbar from "../../components/Navbar.vue";
 export default {
-  components: { Navbar, CourseCard },
+  components: { Navbar, CourseCard, TestimonialCard, Footer },
   name: "LmsHome",
 };
 </script>
@@ -153,9 +181,9 @@ export default {
 ._button {
   color: #fff;
   display: inline-block;
-  background: #482b20;
+  background: #007bff;
   border-radius: 5px;
-  padding: 0.625rem 1.5rem;
+  padding: 1rem 4rem;
   margin-top: 0.625rem;
   font-size: 16px;
   font-weight: 600;
@@ -187,9 +215,14 @@ iframe {
   text-align: center;
   font-weight: 700;
   font-size: 30px;
+  text-transform: capitalize;
 }
 
 .courses {
+  padding: 50px 0;
+}
+
+.for-flex {
   display: flex;
   justify-content: center;
   overflow-x: auto;
@@ -204,7 +237,7 @@ iframe {
   padding: 50px 0;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 40px;
 }
 
 .why-litt-section:nth-child(odd) {
@@ -220,6 +253,12 @@ iframe {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.why-litt-image img {
+  object-fit: contain;
+  width: 90%;
+  max-height: 400px;
 }
 
 .little-image {
@@ -247,6 +286,52 @@ iframe {
   font-size: 1rem;
 }
 
+/* Where to start styling */
+
+.where-to-start {
+  height: 400px;
+  background: url("../../assets/images/home/wheretostart.png");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.start-content {
+  text-align: center;
+}
+
+.start-content .title {
+  text-transform: capitalize;
+  color: #fff;
+  font-size: 35px;
+  font-weight: 700;
+}
+
+/* clients section */
+
+.clients img {
+  width: 100%;
+}
+
+/* learners section */
+
+.our-learners {
+  text-align: center;
+}
+
+.our-learners img:first-child {
+  width: 100%;
+  display: block;
+}
+.our-learners img:nth-child(2) {
+  display: block;
+  margin-inline: auto;
+  width: min(70%, 1000px);
+  margin-bottom: 50px;
+}
+
+/* testimonial section styling */
+
 .contain {
   padding: 0 50px;
   max-width: 1600px;
@@ -255,5 +340,9 @@ iframe {
 
 .space-up {
   padding: 80px 0;
+}
+
+.separate {
+  margin: 80px 0;
 }
 </style>
