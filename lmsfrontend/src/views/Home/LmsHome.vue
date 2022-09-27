@@ -13,7 +13,7 @@
             repudiandae iusto amet, fugit animi sed autem nihil fuga odio cumque
             natus ad soluta sequi quis, consequuntur ab atque. Vitae?
           </p>
-          <a href="" class="_button">Get Started</a>
+          <a href="#" class="_button">Get Started</a>
         </div>
         <div class="header-video">
           <iframe
@@ -172,6 +172,8 @@ export default {
 .header-section {
   display: flex;
   align-items: center;
+  justify-content: center;
+  gap: 40px;
 }
 
 .title {
@@ -187,6 +189,15 @@ export default {
   margin-top: 0.625rem;
   font-size: 16px;
   font-weight: 600;
+  text-decoration: none;
+}
+
+._button:hover {
+  background: rgba(0, 123, 255, 0.9);
+}
+
+._button:active {
+  background: rgba(0, 123, 255, 0.8);
 }
 
 .header-section > div {
@@ -194,7 +205,12 @@ export default {
 }
 
 .header-content {
-  padding-right: 50px;
+  /* padding-right: 50px; */
+  max-width: 650px;
+}
+
+.header-content .title {
+  font-size: 60px;
 }
 .header-video {
   aspect-ratio: 16/9;
@@ -311,6 +327,7 @@ iframe {
 
 .clients img {
   width: 100%;
+  max-height: 500px;
 }
 
 /* learners section */

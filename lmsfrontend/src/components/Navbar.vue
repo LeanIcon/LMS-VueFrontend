@@ -144,6 +144,15 @@ export default {
   border-radius: 5px;
   padding: 0.625rem 1.5rem;
   margin-left: 0.625rem;
+  text-decoration: none;
+}
+
+._button:hover {
+  background: rgba(0, 123, 255, 0.9);
+}
+
+._button:active {
+  background: rgba(0, 123, 255, 0.8);
 }
 
 @media only screen and (max-width: 1024px) {
