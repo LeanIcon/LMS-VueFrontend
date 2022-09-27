@@ -42,6 +42,7 @@ export default {
   width: 350px;
   border-radius: 10px;
   box-shadow: 0px 3px 22px rgba(177, 23, 34, 0.12);
+  background: #fff;
 }
 
 .course-image {
@@ -75,6 +76,7 @@ export default {
   padding-bottom: 0;
   justify-content: space-between;
   display: flex;
+
   flex-direction: column;
   height: 200px;
   width: 350px;
