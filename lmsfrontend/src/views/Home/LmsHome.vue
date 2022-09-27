@@ -43,8 +43,8 @@
         <p class="topic">Why Litt Learn</p>
         <div class="why-litt-section">
           <div class="why-litt-details">
-            <div class="little-image">
-              <img src="" alt="" />
+            <div class="little-image" style="background: #473028">
+              <img src="@/assets/images/home/littleimage1.png" alt="" />
             </div>
             <p class="why-litt-title">Practical Classes To Get You Started</p>
             <p>
@@ -55,13 +55,13 @@
             </p>
           </div>
           <div class="why-litt-image">
-            <img src="" alt="" />
+            <img src="@/assets/images/home/image1.png" alt="" />
           </div>
         </div>
         <div class="why-litt-section">
           <div class="why-litt-details">
-            <div class="little-image">
-              <img src="" alt="" />
+            <div class="little-image" style="background: #faaf3a">
+              <img src="@/assets/images/home/littleimage2.png" alt="" />
             </div>
             <p class="why-litt-title">Expert Tutors</p>
             <p>
@@ -72,13 +72,13 @@
             </p>
           </div>
           <div class="why-litt-image">
-            <img src="" alt="" />
+            <img src="@/assets/images/home/image2.png" alt="" />
           </div>
         </div>
         <div class="why-litt-section">
           <div class="why-litt-details">
-            <div class="little-image">
-              <img src="" alt="" />
+            <div class="little-image" style="background: #c0333d">
+              <img src="@/assets/images/home/littleimage3.png" alt="" />
             </div>
             <p class="why-litt-title">Huge Supply of Online Resources</p>
             <p>
@@ -89,13 +89,13 @@
             </p>
           </div>
           <div class="why-litt-image">
-            <img src="" alt="" />
+            <img src="@/assets/images/home/image3.png" alt="" />
           </div>
         </div>
         <div class="why-litt-section">
           <div class="why-litt-details">
-            <div class="little-image">
-              <img src="" alt="" />
+            <div class="little-image" style="background: #473028">
+              <img src="@/assets/images/home/littleimage4.png" alt="" />
             </div>
             <p class="why-litt-title">Agile Foundation Certificate</p>
             <p>
@@ -106,9 +106,20 @@
             </p>
           </div>
           <div class="why-litt-image">
-            <img src="" alt="" />
+            <img src="@/assets/images/home/image4.png" alt="" />
           </div>
         </div>
+      </div>
+    </div>
+
+    <div class="where-to-start space-up">
+      <div class="start-content">
+        <p class="title">
+          Don't know where to start? <br />
+          Let's help you out register for a free course
+        </p>
+
+        <a href="" class="_button">Free Demo</a>
       </div>
     </div>
   </div>
@@ -184,6 +195,56 @@ iframe {
   overflow-x: auto;
   gap: 40px;
   padding: 50px 0;
+}
+
+/* Why Litt Learn Section */
+
+.why-litt-section {
+  display: flex;
+  padding: 50px 0;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.why-litt-section:nth-child(odd) {
+  flex-direction: row-reverse;
+}
+
+.why-litt-section > .why-litt-details {
+  width: 40%;
+}
+
+.why-litt-section > .why-litt-image {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.little-image {
+  border-radius: 50%;
+  background: red;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.little-image img {
+  width: 80%;
+  height: 80%;
+}
+
+.why-litt-title {
+  font-size: 35px;
+  line-height: 40px;
+}
+
+.why-litt-title + p {
+  font-size: 1rem;
 }
 
 .contain {
