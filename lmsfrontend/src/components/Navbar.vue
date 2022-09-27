@@ -77,6 +77,10 @@ export default {
   align-items: center;
 }
 
+.navbar-brand {
+  padding: 0;
+}
+
 .block-1 {
   align-items: center;
 }
